@@ -656,12 +656,104 @@ Let <m>n</m> be a positive integer.
       4
     </output>
   </sage>
-  </statement>
-  <solution>
   <p>
-  
+    Alternatively, if you want to work within one of our modular rings, you can use the command <c>R=Integers(n)</c> to create the ring <m>\Z/n\Z</m> with name <m>R</m>.
   </p>
-  </solution>
+  <sage>
+    <input>
+      R=Integers(7)
+      list(R)
+    </input>
+    <output>
+      [0, 1, 2, 3, 4, 5, 6]
+    </output>
+  </sage>
+  <p>
+    To take an integer <m>a\in \Z</m> and get its corresponding congruence class <m>\overline{a}\in R</m>, use the <q>coercing</q> method <c>R(a)</c>. (Note: the cell below assumes you have evaluated the cell above that defines <c>R=Integers(7)</c>.)
+  </p>
+  <sage>
+    <input>
+      a=R(43)
+      b=R(23)
+      c=R(11)
+      d=R(17)
+      print((a,b,c,d))
+      print(a*(b*c+d))
+    </input>
+    <output>
+      (1,2,4,3)
+      4
+    </output>
+  </sage>
+  <p>
+    Sage is built on Python, and as such any object you create (<eg/>, <c>R</c> or <c>a</c>) has built-in methods that can be applied to it. You can get a list of these methods by using <c>dir()</c> command. To get to the good stuff, scroll down beyond all the names with underscores. For example, you will notice by running <c>dir(R)</c> that our modular ring <m>R</m> has methods <c>cardinality</c>, <c>is_field</c>, and <c></c>. Let's see what these do.  
+  </p>
+  <sage>
+    <input>
+      R.cardinality()
+    </input>
+    <output>
+      7
+    </output>
+  </sage>
+  <sage>
+    <input>
+      R.is_field()
+    </input>
+    <output>
+      True
+    </output>
+  </sage>
+  
+  <p>
+    Similarly, <c>dir(a)</c> reveals that our ring element <c>a</c> has methods <c>is_unit</c> and <c>inverse</c>.
+  </p>
+  <sage>
+    <input>
+      [(x,x.is_unit()) for x in R]
+    </input>
+    <output>
+      [(0, False), (1, True), (2, True), (3, True), (4, True), (5, True), (6, True)]
+    </output>
+  </sage>
+  <sage>
+    <input>
+      for x in R:
+        if x.is_unit():
+          print("%s is invertible, with inverse %s" % (x, x.inverse()))
+        else: print("%s is not a unit" % x)
+    </input>
+    <output>
+      
+    </output>
+  </sage>
+  <p>
+    Let's try this same routine with a different ring.
+  </p>
+  <sage>
+    <input>
+      R=Integers(12)
+      for x in R:
+        if x.is_unit():
+          print("%s is invertible, with inverse %s" % (x, x.inverse()))
+        else: print("%s is not a unit" % x)
+    </input>
+    <output>
+      0 is not a unit
+      (1, 1)
+      2 is not a unit
+      3 is not a unit
+      (4, 4)
+      5 is not a unit
+      6 is not a unit
+      7 is not a unit
+      (8, 8)
+      9 is not a unit
+      10 is not a unit
+      11 is not a unit
+    </output>
+  </sage>
+  </statement>
   </example>
   
   </subsection>

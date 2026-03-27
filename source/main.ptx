@@ -29,10 +29,10 @@
           <title>Examples</title>
           <list-of elements="example" divisions="section" />
         </appendix>
-        <appendix xml:id="appendix-specs">
+        <!-- <appendix xml:id="appendix-specs">
           <title>Specimens</title>
           <list-of elements="activity" divisions="section" />
-        </appendix>
+        </appendix> -->
         <appendix xml:id="appendix-vids">
           <title>Mantras and fiats</title>
           <list-of elements="principle assumption"  />
