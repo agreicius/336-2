@@ -646,14 +646,14 @@ Let <m>n</m> be a positive integer.
   <title>Sage: integers modulo <m>n</m></title>
   <statement>
   <p>
-  There two different ways for doing modular arithmetic in SageMath that mirror our two ways of dealing with congruences. If you want to stay in the realm of the integers, you can use the <c>a%n</c> command. Below we 
+  There two different ways for doing modular arithmetic in SageMath that mirror our two ways of dealing with congruences. If you want to stay in the realm of the integers, the command <c>a%n</c> returns the least residue of <m>a</m> modulo <m>n</m>. 
   </p>
   <sage>
     <input>
-      
+      (43*(23*11+17))%7
     </input>
     <output>
-      
+      4
     </output>
   </sage>
   </statement>
