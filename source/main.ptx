@@ -26,8 +26,8 @@
           <list-of elements="theorem corollary proposition algorithm lemma" divisions="section" />
         </appendix>
         <appendix xml:id="appendix-egs">
-          <title>Examples</title>
-          <list-of elements="example" divisions="section" />
+          <title>Examples and Sage cells</title>
+          <list-of elements="example project" divisions="section" />
         </appendix>
         <!-- <appendix xml:id="appendix-specs">
           <title>Specimens</title>

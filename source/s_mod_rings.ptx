@@ -642,8 +642,27 @@ Let <m>n</m> be a positive integer.
   </subsection>
   <subsection xml:id="ss_units_mod_n_Sage">
   <title>Sage examples</title>
-  <example xml:id="eg_sage_integers_mod_n">
-  <title>Sage: integers modulo <m>n</m></title>
+  <p>
+    Here are some Sage cells to play with. 
+  </p>
+  <sage>
+    <input>
+      
+    </input>
+    <output>
+      
+    </output>
+  </sage>
+  <sage>
+    <input>
+      
+    </input>
+    <output>
+      
+    </output>
+  </sage>
+  <project xml:id="eg_sage_integers_mod_n">
+  <title>Integers modulo <m>n</m></title>
   <statement>
   <p>
   There two different ways for doing modular arithmetic in SageMath that mirror our two ways of dealing with congruences. If you want to stay in the realm of the integers, the command <c>a%n</c> returns the least residue of <m>a</m> modulo <m>n</m>. 
@@ -754,7 +773,7 @@ Let <m>n</m> be a positive integer.
     </output>
   </sage>
   </statement>
-  </example>
+  </project>
   
   </subsection>
 </section>
