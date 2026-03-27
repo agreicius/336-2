@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- we first include a file which contains the docinfo element: -->
+  <xi:include href="./docinfo.ptx" />
+
+  <book xml:id="my-great-book">
+    <title>Elementary number theory</title>
+    <subtitle>A Kursobjekt for Math 336</subtitle>
+
+    <xi:include href="./frontmatter.ptx" />
+    <xi:include href="./c_foundations.ptx" />
+    <xi:include href="./c_336-2.ptx" />
+
+    <backmatter>
+        <appendix xml:id="appendix-notation">
+          <title>Notation</title>
+          <notation-list/>
+        </appendix>
+        <appendix xml:id="appendix-defs">
+          <title>Definitions</title>
+          <list-of elements="definition convention" divisions="section" />
+        </appendix>
+        <appendix xml:id="appendix-thms">
+          <title>Theory</title>
+          <list-of elements="theorem corollary proposition algorithm lemma" divisions="section" />
+        </appendix>
+        <appendix xml:id="appendix-egs">
+          <title>Examples</title>
+          <list-of elements="example" divisions="section" />
+        </appendix>
+        <appendix xml:id="appendix-specs">
+          <title>Specimens</title>
+          <list-of elements="activity" divisions="section" />
+        </appendix>
+        <appendix xml:id="appendix-vids">
+          <title>Mantras and fiats</title>
+          <list-of elements="principle assumption"  />
+        </appendix>
+    </backmatter>
+  </book>
+</pretext>

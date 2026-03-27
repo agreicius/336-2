@@ -1,0 +1,56 @@
+INFO    : Since no target was supplied, we will use "web".
+
+INFO    : Building target web
+INFO    : XSL conversion of /Users/aarongreicius/336-2/source/main.ptx by /Users/aarongreicius/.ptx/2.37.1/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /Users/aarongreicius/.ptx/2.37.1/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : Generating any needed assets.
+INFO    : converting latex-image pictures from /Users/aarongreicius/336-2/source/main.ptx to svg graphics for placement in /Users/aarongreicius/336-2/generated-assets/latex-image
+INFO    : extracting latex-image pictures from /Users/aarongreicius/336-2/source/main.ptx
+INFO    : string parameters passed to extraction stylesheet: {'cli.version': '2.37', 'publisher': '/Users/aarongreicius/336-2/publication/publication.ptx'}
+INFO    : discovering source file's directory name: /Users/aarongreicius/336-2/source
+INFO    : verifying and expanding input directory: /Users/aarongreicius/336-2/source/../generated-assets
+INFO    : input directory expanded to absolute path: /Users/aarongreicius/336-2/generated-assets
+INFO    : verifying and expanding input directory: /Users/aarongreicius/336-2/source/../assets
+INFO    : input directory expanded to absolute path: /Users/aarongreicius/336-2/assets
+INFO    : discovering source file's directory name: /Users/aarongreicius/336-2/source
+INFO    : XSL conversion of /Users/aarongreicius/336-2/source/main.ptx by /Users/aarongreicius/.ptx/2.37.1/core/xsl/extract-latex-image.xsl
+INFO    : successful application of /Users/aarongreicius/.ptx/2.37.1/core/xsl/extract-latex-image.xsl
+INFO    : converting fig_tuple_function-2.tex to fig_tuple_function-2.pdf
+INFO    : cropping fig_tuple_function-2.pdf to cropped-fig_tuple_function-2.pdf
+INFO    : renaming cropped-fig_tuple_function-2.pdf to fig_tuple_function-2.pdf
+INFO    : converting fig_tuple_function-2.pdf to fig_tuple_function-2.svg
+INFO    : converting im_proof_induction.tex to im_proof_induction.pdf
+INFO    : cropping im_proof_induction.pdf to cropped-im_proof_induction.pdf
+INFO    : renaming cropped-im_proof_induction.pdf to im_proof_induction.pdf
+INFO    : converting im_proof_induction.pdf to im_proof_induction.svg
+INFO    : Removing temporary directory /var/folders/vf/249gtxvd4vx_hxghhwymxyq00000gr/T/ptx-p_mdryly
+INFO    : Finished generating assets.
+
+INFO    : Preparing to build into /Users/aarongreicius/336-2/output/web.
+INFO    : discovering source file's directory name: /Users/aarongreicius/336-2/source
+INFO    : verifying and expanding input directory: /Users/aarongreicius/336-2/source/../generated-assets
+INFO    : input directory expanded to absolute path: /Users/aarongreicius/336-2/generated-assets
+INFO    : verifying and expanding input directory: /Users/aarongreicius/336-2/source/../assets
+INFO    : input directory expanded to absolute path: /Users/aarongreicius/336-2/assets
+INFO    : discovering source file's directory name: /Users/aarongreicius/336-2/source
+INFO    : XSL conversion of /Users/aarongreicius/336-2/source/main.ptx by /Users/aarongreicius/.ptx/2.37.1/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /Users/aarongreicius/.ptx/2.37.1/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : Downloading rs services file from https://runestone.academy/cdn/runestone/latest/webpack_static_imports.xml.
+INFO    : Runestone Services via online CDN query: version 7.11.19
+INFO    : Downloading Runestone Services, version 7.11.19
+INFO    : Extracting Runestone Services from archive file
+INFO    : Building custom css theme: theme-default-modern
+INFO    : converting /Users/aarongreicius/336-2/source/main.ptx to HTML in /var/folders/vf/249gtxvd4vx_hxghhwymxyq00000gr/T/ptx-dflm5b3g
+INFO    : XSL conversion of /Users/aarongreicius/336-2/source/main.ptx by /Users/aarongreicius/.ptx/2.37.1/core/xsl/pretext-html.xsl
+INFO    : messages from the log for XSL processing:
+INFO    : * PTX:INFO:   checking all deprecated elements.
+INFO    : successful application of /Users/aarongreicius/.ptx/2.37.1/core/xsl/pretext-html.xsl
+INFO    : Removing temporary directory /var/folders/vf/249gtxvd4vx_hxghhwymxyq00000gr/T/ptx-dflm5b3g
+INFO    : Removing temporary directory /var/folders/vf/249gtxvd4vx_hxghhwymxyq00000gr/T/ptx-lydjcokl
+INFO    : 
+Finished build for target web. Run `pretext view web` to see the results.
+
+INFO    : 
+Success!  Built requested target(s) without errors.
+
+INFO    : 

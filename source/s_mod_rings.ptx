@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_mod_rings" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Integers modulo <m>n</m></title>
+
+  <objectives>
+    <ol>
+      <li>
+        <p>
+          Investigate the arithmetic of <m>\Z/n\Z</m>.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Investigate the multiplicative units <m>(\Z/n\Z)^*</m>.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Define the multiplicative order of an element <m>a\in (\Z/n\Z)^*</m> and derive some of its basic properties.
+        </p>
+      </li>
+    </ol>
+  </objectives>
+
+
+  <subsection xml:id="ss_cong">
+    <title>Congruence classes</title>
+
+    <p>
+      Recall the fundamental notion of congruence: two integers <m>a</m> and <m>b</m> are congruent modulo the positive integer <m>n</m>, denoted <m>a\equiv b\pmod n</m>, if one of the following equivalent conditions holds:
+      <ul>
+        <li>
+          <p>
+            <m>n\mid a-b</m>;
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>a=b+nk</m> for some <m>k\in \Z</m>;
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>a</m> and <m>b</m> have the same remainder upon division by <m>n</m>.
+          </p>
+        </li>
+      </ul>
+      Much of the content of the last quarter of this course involved statements about the integers <m>\Z</m> that involved a congruence relation.
+      For example, Fermat's little theorem asserts that
+      <md>
+        <mrow>a^{\phi(n)} \amp \equiv 1 \pmod n</mrow>
+      </md>
+      for all integers <m>a</m> that are relatively prime to <m>n</m>.
+      In this section we will recast much of the theory congruences in terms of a new <em>finite</em> number system <m>\Z/n\Z</m> that is related to, but distinct from the integers.
+      The objectives for doing this are twofold.
+      <ol>
+        <li>
+          <p>
+            This will give us an opportunity to review some of the important definitions and results related to congruences.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            By shifting our language from congruence relations in <m>\Z</m> to the arithmetic of <m>\Z/n\Z</m>, we hope to make the theory of congruences more concrete, to connect it more tangibly to the algebra of certain important number systems closely related to <m>\Z</m>.
+          </p>
+        </li>
+      </ol>
+      The semantic shift to <m>\Z/n\Z</m> also has the advantage of streamlining our statements about congruences, and replacing the somewhat abstract congruence relation <m>\equiv</m> with honest to goodness equality <m>=</m>.
+      For example, in our new setting, Fermat's little theorem reads as follows: for all <m>a\in (\Z/n\Z)^*</m>,
+      <md>
+        <mrow>a^{\phi(n)} \amp = 1 \in \Z/n\Z</mrow>
+      </md>.
+      (We will define <m>(\Z/n\Z)^*</m> shortly.) The small cost for this streamlining is the actual objects of the set <m>\Z/n\Z</m> are somewhat abstract: instead of integers, they are certain sets of integers that we now define.
+    </p>
+
+    <definition xml:id="d_cong_classes">
+      <title>Congruence classes</title>
+
+      <notation>
+        <usage><m>\overline{a}, [a]_n</m></usage>
+        <description>
+          the congruence class of <m>a</m> modulo <m>n</m>
+        </description>
+      </notation>
+
+      <statement>
+        <p>
+          Let <m>n</m> be a positive integer.
+          The <term>congruence class</term> (or <term>residue class</term>) of an integer <m>a</m> modulo <m>n</m>, denoted <m>\overline{a}</m> (or <m>[a]_n</m>) is the set of all integers congruent to <m>a</m> modulo <m>n</m>: <ie/>,
+          <md>
+            <mrow>\overline{a}=[a]_n \amp = \{b\in \Z\mid a\equiv b \pmod n\}</mrow>
+            <mrow> \amp = \{a+qn\mid q\in \Z\}</mrow>
+          </md>.
+          Elements of a congruence class <m>[a]_n</m> are called <term>representatives</term> (or <term>residues</term>) of that class.
+        </p>
+
+        <p>
+          The set of all congruence classes modulo <m>n</m> is denoted <m>\Z/n\Z</m>: <ie/>,
+          <me>
+            \Z/n\Z=\{[a]_n\mid a\in \Z\}
+          </me>.
+          The integer <m>n</m> in all the settings above is called a <term>modulus</term>.
+        </p>
+      </statement>
+    </definition>
+
+    <example xml:id="eg_cong_mod_3">
+      <title>Congruence modulo <m>3</m></title>
+
+      <statement>
+        <p>
+          Consider the modulus <m>n=3</m>.
+          <ol>
+            <li>
+              <p>
+                Compute <m>[5]_3</m> and <m>[-1]_3</m>.
+              </p>
+            </li>
+
+            <li>
+              Find a finite list of integers <m>a_1,a_2,\dots, a_r</m> such that
+              <me>
+                \Z/3\Z=\{[a_1]_3, [a_2]_3,\dots, [a_r]_3\}
+              </me>.
+            </li>
+
+            <li>
+              <p>
+                Compute <m>\abs{\Z/3\Z}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+                We have
+                <me>
+                  [5]_3=[-1]_3=[2]_3=\{\dots, -3,-1,2,5,\dots \}
+                </me>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                It is not difficult to show that for any <m>a\in \Z</m> we have <m>[a]_3=[k]_3</m> for some <m>k\in \{0,1,2\}</m>.
+                (See theory below more generally.) Thus
+                <me>
+                  \Z/3\Z=\{[0]_3,[1]_3,[2]_3\}
+                </me>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                The sets
+                <md>
+                  <mrow>[0]_3 \amp = \{\dots, -3,0,3,6,\dots\}</mrow>
+                  <mrow>[1]_3 \amp = \{\dots,-2,1,4,7,\dots\}</mrow>
+                  <mrow>[2]_3 \amp =\{\dots, -1,2,5,8,\dots\}</mrow>
+                </md>
+                are clearly all distinct from one another.
+                Thus <m>\abs{\Z/3\Z}=3</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+
+    <remark>
+      <title>Congruence classes</title>
+
+      <p>
+        The notation <m>\overline{a}</m> is ambiguous since it does not indicate the modulus <m>n</m> in question.
+        This is one reason for the alternative notation <m>[a]_n</m>.
+        Furthermore, the <m>[a]_n</m> notation somehow does a better job of reminding us that a congruence class is not itself an integer, but rather a <em>set of integers</em>.
+      </p>
+
+      <p>
+        We will use both notations interchangeably.
+        Typically, we will favor <m>\overline{a}</m> when performing modular arithmetic (see below), and <m>[a]_n</m> when asserting something about sets.
+      </p>
+
+      <p>
+        When the context is absolutely clear, we will sometimes discard even more notation and refer to the congruence class <m>[a]_n</m> in <m>\Z/n\Z</m> simply as <m>a</m>.
+      </p>
+    </remark>
+
+    <p>
+      The congruence modulo <m>n</m> relation is what is called an <em>equivalence relation</em>.
+      In other words, it satisfies the following three properties.
+      <ol marker="(i)">
+        <li>
+          <title>Reflexivity</title>
+
+          <p>
+            <m>a\equiv a\pmod n</m> for all <m>a\in \Z</m>.
+          </p>
+        </li>
+
+        <li>
+          <title>Reflexivity</title>
+
+          <p>
+            If <m>a\equiv b\pmod n</m>, then <m>b\equiv a\pmod n</m>.
+          </p>
+        </li>
+
+        <li>
+          <title>Transitivity</title>
+
+          <p>
+            If <m>a\equiv b\pmod n</m> and <m>b\equiv c\pmod n</m>, then <m>a\equiv c\pmod n</m>.
+          </p>
+        </li>
+      </ol>
+      Furthermore, the congruence classes modulo <m>n</m> are called the <em>equivalence classes</em> of this equivalence relation.
+      It is a basic fact about equivalence relations that their corresponding equivalence classes form a partition of the underlying set.
+      (This is one of the topics of elementary set theory, which you can learn about in Math 300-0.) The following theorem makes this official in the case of congruence classes.
+    </p>
+
+    <theorem xml:id="th_cong_class">
+      <title>Congruence classes</title>
+
+      <statement>
+        <p>
+          Fix a modulus <m>n</m>.
+          <ol>
+            <li>
+                <p>
+      The following statements are equivalent.
+      <ol>
+        <li>
+          <p>
+            <m>[a]_n=[b]_n</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>a\in [b]_n</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>a\equiv b\pmod n</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+            </li>
+        
+          <li>
+            <p>
+          The congruence classes modulo <m>n</m> form a partition of <m>\Z</m>. In more detail, we have 
+          <me>
+            \Z=\bigcup_{a\in \Z}[a]_n
+          </me>,
+          and if <m>[a]_n\ne [b]_n</m>, then <m>[a]_n\cap [b]_n=\emptyset</m>.
+        </p>
+    </li>
+    <li>
+            <p>
+                Given any <m>a\in \Z</m>, writing <m>a=qn+r</m> with <m>0\leq r\leq n-1</m> as in the division algorithm, we have <m>[a]_n=[r]_n</m>. Furthermore,  <m>[i]_n\ne [j]_n</m> for any <m>0\leq i\ne j\leq n-1</m>.
+            </p>
+            <p>
+                As a result, we have 
+                <md number="yes">
+                    <mrow xml:id="eq_least_residue">\Z/n\Z \amp = \{[0]_n, [1]_n, \dots, [n-1]_n\}</mrow>
+                </md>
+                and 
+                <md number="yes">
+                    <mrow xml:id="eq_card_int_mod_n">\abs{\Z/n\Z} \amp = n</mrow>
+                </md>.
+            </p>
+        </li>
+    </ol>
+</p>
+      </statement>
+
+
+      <proof>
+        <p>
+          The theorem is a consequence of properties of the congruence relation learned earlier, and general properties about equivalence relations. 
+        </p>
+      </proof>
+    </theorem>
+
+    
+
+    <definition xml:id="d_least_residue">
+      <title>Least residue modulo <m>n</m></title>
+
+      <statement>
+        <p>
+          Fix a positive modulus <m>n</m>.
+          Given an integer <m>a</m> the <term>least residue</term> of <m>a</m> modulo <m>n</m>, denoted <m>a\boldmod n</m> is the unique <m>r\in \{0,1,2,\dots, n-1\}</m> satisfying <m>a\equiv r\pmod n</m>.
+        </p>
+      </statement>
+    </definition>
+    <warning>
+      <title>Congruence relation and least residues</title>
+
+      <p>
+        Do not confuse the two quite similar looking notations <m>a\equiv b\pmod n</m> and <m>a\bmod n</m>.
+        The first asserts that a certain relation holds, namely that <m>a</m> is congruent to <m>b</m> modulo <m>n</m>.
+        The second denotes the unique integer in <m>\{0,1,\dots, n-1\}</m> that is congruent to <m>a</m> modulo <m>n</m>.
+      </p>
+
+      <p>
+        Said differently, the notion of the least residue defines a function
+        <md>
+          <mrow>\underline{\phantom{aa}}\bmod n \colon \Z \amp\rightarrow \{0,1,\dots, n-1\} </mrow>
+          <mrow>a \amp \longmapsto a\bmod n</mrow>
+        </md>.
+      </p>
+    </warning>
+    <remark>
+        <title>Least residues</title>
+        <p>
+            Although the least residue description 
+            <md>
+                <mrow>\Z/n\Z \amp =\{[0]_n, [1]_n,\dots, [n-1]_n\}</mrow>
+            </md>
+            is the most common way of enumerating the elements of <m>\Z/n\Z</m>, it is not the only one. For example, here are some alternative descriptions of <m>\Z/3\Z</m>:
+            <md>
+                <mrow>\Z/3\Z \amp =\{[0]_3,[1]_3, [2]_3\}</mrow>
+                <mrow> \amp = \{[-9]_3, [7]_3, [5]_3\}</mrow>
+                <mrow> \amp = \{[0]_3,[-2]_3,[1]_3\}</mrow>
+            </md>.
+            Indeed, we obtain these different descriptions simply by choosing a different representative (or <q>name</q>, if you will) of the congruence classes of <m>\Z/3\Z</m>. 
+        </p>
+    </remark>
+    <definition xml:id="d_complete_residue_system">
+    <title>Complete residue system</title>
+    <statement>
+    <p>
+    Let <m>n</m> be a positive integer. A <term>complete residue system modulo <m>n</m></term> is a set of integers <m>\{a_1,a_2,\dots, a_n\}</m> such that <m>[a_i]_n\ne [a_j]_n</m> for all <m>i\ne j</m> and 
+    <md>
+       <mrow> \Z/n\Z\amp =\{[a_1]_n,[a_2]_n, \dots, [a_n]_n\} \amp </mrow>
+    </md>.
+    </p>
+    </statement>
+    </definition>
+    
+  </subsection>
+
+
+  <subsection xml:id="ss_cong_ring_structure">
+    <title>Ring structure of <m>\Z/n\Z</m></title>
+    <p>
+        So far we have only given a description of the set <m>\Z/n\Z</m>. We now define two operations on <m>\Z/n\Z</m>, <em>modular addition</em> and <em>modular multiplication</em> that turn this finite set into a full blown number system within which we can arithmetic and algebra very much like we do in <m>\Z</m>, with some very important differences. 
+    </p>
+    <p>
+        The good news is that our modular addition and multiplication operations are defined directly in terms of integer addition and multiplication. Recall that if integers <m>a,a',b,b'</m> satisfy
+          <md>
+            <mrow>a \amp \equiv a' \pmod n \amp b\amp \equiv b'\pmod n</mrow>
+          </md>,
+          then we have 
+          <mdn>
+            <mrow>a+b \amp \equiv a'+b'\pmod n \amp </mrow>
+            <mrow>a\, b\amp \equiv a'\, b' \pmod n \amp </mrow>
+          </mdn>.
+          As a result, it follows from this that
+          <mdn>
+            <mrow>[a+b]_n \amp = [a'+b']_n \amp </mrow>
+            <mrow>[a\,b]_n\amp = [a'\,b']_n </mrow>
+          </mdn>.
+          This in turn guarantees that the following definitions of addition and multiplication of congruence classes are well-defined, in the sense that they do not depend on the choice of representatives:
+          <md>
+            <mrow>[a]_n+[b]_n \amp =[a+b]_n</mrow>
+            <mrow>[a]_n\cdot [b]_n \amp =[ab]_n</mrow>
+          </md>.
+          The set <m>\Z/n\Z</m> together with these two operations is called the <em>ring of integers modulo <m>n</m></em>. A <em>ring</em> is a technical concept you learn about in the Math 330/331 sequences. For us, it will simply mean a number system with two operations that behave very much like how addition and multiplication behave in <m>\Z</m>. 
+        </p>
+        <definition xml:id="d_int_mod_n">
+        <title>Ring of integers modulo <m>n</m></title>
+        <statement>
+        <p>
+        Let <m>n</m> be a positive integer. The set <m>\Z/n\Z</m> together with the <term>modular addition</term> operation
+        <md>
+            <mrow>[a]_n+[b]_n \amp =[a+b]_n</mrow>
+        </md> 
+        and <term>modular multiplication</term> operations
+        <md>
+            <mrow>[a]_n\cdot [b]_n \amp =[ab]_n</mrow>
+        </md>
+    is called the <term>ring of integers modulo <m>n</m></term>. 
+    </p>
+    <p>
+        When the context is clear, we will write <m>0=[0]_n</m> and <m>1=[1]_n</m>. Additionally, for any <m>x=[a]_n\in \Z/n\Z</m>, we will write <m>-x=[-a]_n</m>. 
+    </p>
+        </statement>
+        </definition>
+    <p>
+        Simplifying arithmetic expressions in <m>\Z/n\Z</m> proceeds in much the same manner as simplifying a congruence statement in <m>\Z</m>, but in a more streamlined way. The fact that our operations 
+        <md>
+            <mrow>[a]_n+[b]_n \amp = [a+b]_n \amp [a]_n\cdot[b]_n\amp=[ab]_n</mrow>
+        </md>
+        do not depend on our choice of representatives <m>a</m> and <m>b</m> can be exploited by choosing the representatives that make our life as easy as possible! The next examples illustrate this.  
+    </p>
+    <example xml:id="eg_mod_arith">
+      <title>Modular arithmetic</title>
+
+      <statement>
+        <p>
+          Fix the modulus <m>n=8</m>.
+          Find a representative <m>r\in \{0,1,\dots, 7\}</m> for the congruence class
+          <me>
+            \overline{43}(\overline{23}\cdot \overline{11}+\overline{17})
+          </me>.
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="eg_least_residue">
+      <title>Least residue</title>
+
+      <statement>
+        <p>
+          Let <m>n=50</m> and let <m>a=99^{1233}(7^8+ 1)</m>.
+          Compute <m>a\bmod n</m>.
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+        </p>
+      </solution>
+    </example>
+
+    
+  </subsection>
+  <subsection xml:id="ss_mult_units_mod_n">
+  <title>Units modulo <m>n</m></title>
+  <p>
+  As mentioned above, though for the most part arithmetic and algebra in the modular ring <m>\Z/n\Z</m> proceeds in much the same manner as in <m>\Z</m>, there are some important differences. Here is one: recall that in <m>\Z</m>, if <m>ab=0</m> for integers <m>a</m> and <m>b</m>, then either <m>a=0</m> or <m>b=0</m>. This is not true in <m>\Z/n\Z</m>. For example: we have 
+  <md>
+    <mrow>[3]_{12}\cdot [4]_{12} \amp = [12]_{12}</mrow>
+    <mrow> \amp = [0]_{12}</mrow>
+    <mrow> \amp = 0</mrow>
+  </md>,
+  and yet <m>[3]_{12}\ne 0</m> and <m>[4]_{12}\ne 0</m>. As a consequence we cannot in general cancel nonzero factors in equations in <m>\Z/n\Z</m>. In other words we do not have an algebra rule equivalent to the following integer property:
+<md>
+  <mrow>ab=ac \text{ and } a\ne 0 \amp \implies b=c</mrow>
+</md>.
+One of the motivations for singling out the modular units in <m>\Z/n\Z</m>, as defined below, is that these <em>can</em> be cancelled in equations.
+  </p>
+  <definition xml:id="d_units_mod_n">
+      <title>Multiplicative units in <m>\Z/n\Z</m></title>
+
+      <statement>
+        <p>
+          Fix a modulus <m>n</m>.
+          An element <m>[a]_n\in \Z/n\Z</m> is a <term>unit</term> (or <term>(multiplicatively) invertible</term>) if there is an element <m>[b]_n\in \Z/n\Z</m> satisfying
+          <me>
+            [a]_n[b]_n=[b]_n[a]_n=[1]_n=1
+          </me>.
+          The element <m>[b]_n</m> in this case is called the <term>multiplicative inverse</term> of <m>[a]_n</m>, denoted <m>[a]_n^{-1}</m>.
+          The set of all units of <m>\Z/n\Z</m> is denoted <m>(\Z/n\Z)^*</m>: <ie/>,
+          <men xml:id="eq_mult_units_mod_n">
+            (\Z/n\Z)^*=\{[a]_n\in \Z/n\Z\mid [a]_n\cdot   [b]_n=[1]_n \text{ for some } [b]_n\in \Z/n\Z\}
+          </men>.
+        </p>
+      </statement>
+    </definition>
+
+    
+
+    <example xml:id="eg_mod_groups">
+      <title>Modulus <m>n=5</m></title>
+
+      <statement>
+        <p>
+          Compute group tables for both <m>\Z/5\Z</m> and <m>(\Z/5\Z)^*</m>.
+          Naturally, for the latter you should first determine the units of <m>\Z/5\Z</m>.
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+        </p>
+      </solution>
+    </example>
+<example xml:id="eg_units_mod_12">
+<title>Units modulo <m>12</m></title>
+<statement>
+<p>
+  <ol>
+    <li>
+      <p>
+        Find all units of <m>\Z/12\Z</m> by trial and error, using <xref ref="d_units_mod_n"/>. That is for each <m>a\in \Z/12\Z</m> either provide an inverse of <m>a</m>, or show that no inverse exists. 
+      </p>
+    </li>
+    <li>
+      <p>
+        Make a multiplication table for <m>(\Z/12\Z)^*</m>. 
+      </p>
+    </li>
+  </ol>
+  
+</p>
+</statement>
+<solution>
+<p>
+
+</p>
+</solution>
+</example>
+<theorem xml:id="th_units_mod_n">
+<title>Units modulo <m>n</m></title>
+<statement>
+<p>
+Let <m>n</m> be a positive integer. 
+<ol>
+  <li>
+    <p>
+      An element <m>[a]_n\in \Z/n\Z</m> is a unit if and only if <m>\gcd(a,n)=1</m>. In other words: 
+      <md number="yes">
+        <mrow xml:id="eq_units_mod_n">(\Z/n\Z)^*\amp =\{[a]_n\in \Z/n\Z\mid \gcd(a,n)=1\}</mrow>
+      </md>.
+      As a result, 
+      <md number="yes">
+        <mrow xml:id="eq_units_mod_n_card"> \abs{(\Z/n\Z)^*} \amp = \varphi(n) </mrow>
+      </md>,
+      where <m>\varphi</m> is the Euler totient function. 
+    </p>
+  </li>
+  <li>
+    <p>
+      Assume <m>a\in \Z</m> is relatively prime to <m>n</m>. Given integers <m>b</m> and <m>c</m> satisfying <m>ab+cn=1</m>, as guaranteed by the Euclidean algorithm, we have 
+      <md number="yes">
+        <mrow>[a]_n^{-1} \amp = [b]_n</mrow>
+      </md>.
+    </p>
+  </li>
+  <li>
+    <p>
+      If <m>[a]_n, [b]_n\in (\Z/n\Z)^*</m>, then <m>[a]_n\cdot[b]_n\in (\Z/n\Z)^*</m>. In other words, <m>(\Z/n\Z)^*</m> is <em>closed under multiplication</em>.
+    </p>
+  </li>
+  <li>
+    <p>
+      If <m>[a]_n\in (\Z/n\Z)^*</m>, then 
+      <md number="yes">
+        <mrow>[a]_n\cdot [b]_n= [a]_n\cdot [c]_n \amp  \iff [b]_n=[c]_n</mrow>
+      </md>
+      for all <m>[b]_n, [c]_n\in \Z/n\Z</m>. In other words, invertible elements of <m>\Z/n\Z</m> can be cancelled multiplicatively. 
+    </p>
+  </li>
+</ol>
+</p>
+</statement>
+<proof>
+  <p>
+    <ol>
+    <li>
+      <p>
+  Assume <m>[a]_n\in (\Z/p\Z)^*</m>, and let <m>d=\gcd(a,n)</m>. By definition, there is an element <m>[b]_n</m> such that <m>[a]_n\cdot [b]_n=[ab]_n=[1]_n</m>. By <xref ref="th_cong_class"/>, this implies <m>ab\equiv 1\pmod n</m>, or equivalently, <m>ab=1+cn</m> for some <m>c\in \Z</m>. But then we have <m>ba-cn=1</m>. Since <m>d=\gcd(a,n)</m> divides <m>a</m> and <m>n</m>, we have <m>d\mid 1</m>, and thus <m>d=1</m>. Thus if <m>[a]_n</m> is a unit, then <m>\gcd(a,n)=1</m>. 
+</p>
+<p>
+  For the other direction assume <m>\gcd(a,n)=1</m>. From the Euclidean algorithm, we know there are integers <m>b</m> and <m>c</m> such that <m>ba+cn=1</m>. But then <m>ab\equiv 1\pmod n</m>, or equivalently, <m>[a]\cdot [b]_n=[ab]_n=[1]_n</m>. We conclude that <m>[b]_n=[a]_n^{-1}</m>. 
+</p>
+<p>
+  We conclude that <m>(\Z/n\Z)^*=\{[a]_n\in \Z/n\Z\mid \gcd(a,n)=1\}</m>, as desired. Furthermore, taking our representatives to be least positive residues, we see that 
+  <md>
+    <mrow> (\Z/n\Z)^* \amp = \{[a]_n\in \Z/n\Z\mid \gcd(a,n)=1, 0\leq a\leq n-1\} </mrow>
+  </md>,
+  from which it follows immediately from the definition of the Euler totient function and <xref ref="th_cong_class"/> that 
+  <md>
+    <mrow>\abs{(\Z/n\Z)^*} \amp = \varphi(n) </mrow>
+  </md>.
+</p>
+    </li>
+    <li>
+      <p>
+        As we saw in the previous argument, if <m>ba+cn=1</m>, then <m>[ab]_n=[1]_n</m>, and thus <m>[b]_n=[a]_n^{-1}</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        This follows from (1) and the fact that if <m>a</m> and <m>b</m> are both relatively prime to <m>n</m>, then so is <m>ab</m>. 
+      </p>
+    </li>
+    <li>
+      <p>
+        The implication 
+        <md>
+          <mrow>[b]_n=[c]_n \amp \implies [a]_n\cdot [b]_n=[a]_n\cdot [c]_n</mrow>
+        </md>
+        is clear. For the other direction,
+        we have 
+        <md>
+          <mrow>[a]_n\cdot [b]_n=[a]_n\cdot [c]_n \amp \implies [a]_n^{-1}\cdot ([a]_n\cdot [b]_n)=[a]^{-1}\cdot ([a]_n\cdot [c]_n)</mrow>
+          <mrow> \amp \implies ([a]_n^{-1}\cdot [a]_n)\cdot [b]_n=([a]^{-1}\cdot [a]_n)\cdot [c]_n </mrow>
+          <mrow> \amp \implies [1]_n\cdot [b]_n=[1]_n\cdot [c]_n</mrow>
+          <mrow> \amp \implies [b]_n=[c]_n</mrow>
+        </md>.
+      </p>
+    </li>
+  </ol>
+</p>
+</proof>
+</theorem>
+<corollary xml:id="cor_units_mod_p">
+  <title>Units modulo <m>p</m></title>
+  <statement>
+    <p>
+      Let <m>p</m> be a prime integer. All nonzero elements of <m>\Z/p\Z</m> are invertible: <ie/>, 
+      <md number="yes">
+        <mrow xml:id="eq_units_mod_p"> (\Z/p\Z)^* \amp = \Z/p\Z-\{0\} </mrow>
+      </md>.
+    </p>
+  </statement>
+</corollary>
+<p>
+  As <xref ref="cor_units_mod_p"/> makes clear, modular rings with prime modulus <m>p</m> are special for the following reason: every nonzero element of <m>\Z/p\Z</m> is invertible: this is because <m>\gcd(a,p)=1</m> for all <m>a\in \{1,2,\dots, p-1\}</m>. In this respect the rings <m>\Z/p\Z</m> bear a striking resemblance to number systems like <m>\Q</m> and <m>\R</m> (and <m>\C</m>). In general a number system (or ring) for which all nonzero elements have a multiplicative inverse is called a <em>field</em>. Thus the family of rings <m>\Z/p\Z</m>, where <m>p</m> is a prime integer, gives us a family of finite fields. To highlight this special property, we will denote <m>\Z/p\Z=\F_p</m>. 
+</p>
+<convention>
+  <title>Finite fields <m>\F_p</m> </title>
+  <p>
+    Let <m>p</m> be a prime integer. Since <m>\Z/p\Z</m> is a field (all nonzero elements are invertible), we will write <m>\F_p</m> for <m>\Z/p\Z</m>. 
+  </p>
+</convention>
+  </subsection>
+  <subsection xml:id="ss_units_mod_n_Sage">
+  <title>Sage examples</title>
+  <example xml:id="eg_sage_integers_mod_n">
+  <title>Sage: integers modulo <m>n</m></title>
+  <statement>
+  <p>
+  There two different ways for doing modular arithmetic in SageMath that mirror our two ways of dealing with congruences. If you want to stay in the realm of the integers, you can use the <c>a%n</c> command. Below we 
+  </p>
+  <sage>
+    <input>
+      
+    </input>
+    <output>
+      
+    </output>
+  </sage>
+  </statement>
+  <solution>
+  <p>
+  
+  </p>
+  </solution>
+  </example>
+  
+  </subsection>
+</section>
