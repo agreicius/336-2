@@ -560,7 +560,7 @@ Let <m>n</m> be a positive integer.
     <p>
       If <m>[a]_n\in (\Z/n\Z)^*</m>, then 
       <md number="yes">
-        <mrow>[a]_n\cdot [b]_n= [a]_n\cdot [c]_n \amp  \iff [b]_n=[c]_n</mrow>
+        <mrow xml:id="eq_units_mod_n_cancel">[a]_n\cdot [b]_n= [a]_n\cdot [c]_n \amp  \text{ if and only if } [b]_n=[c]_n</mrow>
       </md>
       for all <m>[b]_n, [c]_n\in \Z/n\Z</m>. In other words, invertible elements of <m>\Z/n\Z</m> can be cancelled multiplicatively. 
     </p>

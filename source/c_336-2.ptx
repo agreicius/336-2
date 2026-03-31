@@ -1,4 +1,5 @@
 <chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="c_336-2">
   <title>Math 336-2</title>
   <xi:include href="s_mod_rings.ptx" />
+  <xi:include href="s_primitive_roots.ptx" />
 </chapter>

@@ -9,3 +9,66 @@ INFO    : Added pretext web server entry de93be15ed 61853 8151 localhost
 
 INFO    : Server will soon be available at http://localhost:8151
 INFO    : Opening browser for target `web` at http://localhost:8151/output/web
+WARNING : Port 8151 could not be used.
+WARNING : Trying port 8152 instead.
+
+WARNING : Port 8152 could not be used.
+WARNING : Trying port 8153 instead.
+
+INFO    : Added pretext web server entry de93be15ed 61853 8153 localhost
+
+INFO    : Server will soon be available at http://localhost:8153
+INFO    : Opening browser for target `web` at http://localhost:8153/output/web
+WARNING : Port 8153 could not be used.
+WARNING : Trying port 8154 instead.
+
+INFO    : Added pretext web server entry de93be15ed 61853 8154 localhost
+
+INFO    : Server will soon be available at http://localhost:8154
+INFO    : Opening browser for target `web` at http://localhost:8154/output/web
+WARNING : Port 8154 could not be used.
+WARNING : Trying port 8155 instead.
+
+INFO    : Added pretext web server entry de93be15ed 61853 8155 localhost
+
+INFO    : Server will soon be available at http://localhost:8155
+INFO    : Opening browser for target `web` at http://localhost:8155/output/web
+WARNING : Port 8155 could not be used.
+WARNING : Trying port 8156 instead.
+
+INFO    : Added pretext web server entry de93be15ed 61853 8156 localhost
+
+INFO    : Server will soon be available at http://localhost:8156
+INFO    : Opening browser for target `web` at http://localhost:8156/output/web
+WARNING : Port 8156 could not be used.
+WARNING : Trying port 8157 instead.
+
+INFO    : Added pretext web server entry de93be15ed 61853 8157 localhost
+
+INFO    : Server will soon be available at http://localhost:8157
+INFO    : Opening browser for target `web` at http://localhost:8157/output/web
+WARNING : Port 8157 could not be used.
+WARNING : Trying port 8158 instead.
+
+INFO    : Added pretext web server entry de93be15ed 61853 8158 localhost
+
+INFO    : Server will soon be available at http://localhost:8158
+INFO    : Opening browser for target `web` at http://localhost:8158/output/web
+WARNING : Port 8158 could not be used.
+WARNING : Trying port 8159 instead.
+
+INFO    : Added pretext web server entry de93be15ed 61853 8159 localhost
+
+INFO    : Server will soon be available at http://localhost:8159
+INFO    : Opening browser for target `web` at http://localhost:8159/output/web
+WARNING : Port 8159 could not be used.
+WARNING : Trying port 8160 instead.
+
+INFO    : Added pretext web server entry de93be15ed 61853 8160 localhost
+
+INFO    : Server will soon be available at http://localhost:8160
+INFO    : Opening browser for target `web` at http://localhost:8160/output/web
+WARNING : Port 8160 could not be used.
+WARNING : Trying port 8161 instead.
+
+INFO    : There are 10 or more servers on file. Cleaning up ...
