@@ -489,13 +489,43 @@ One of the motivations for singling out the modular units in <m>\Z/n\Z</m>, as d
 
       <statement>
         <p>
-          Compute group tables for both <m>\Z/5\Z</m> and <m>(\Z/5\Z)^*</m>.
-          Naturally, for the latter you should first determine the units of <m>\Z/5\Z</m>.
+          Compute (a) and addition table for <m>\Z/5\Z</m>, and (b) a multiplication table for <m>\Z/5\Z</m>.
+        </p>
+        <p>
+          From your multiplication table, determine <m>(\Z/5\Z)^*</m>.
         </p>
       </statement>
 
       <solution>
         <p>
+          You should do this by hand on your own. We are too lazy to write up the tables here, but will show you how to do this in Sage. See <xref ref="ss_units_mod_n_Sage" text="title"/> for more details about using Sage. 
+        </p>
+        <sage>
+          <input>
+            R=Integers(5)
+            print(R.addition_table(names="digits"))
+            print(R.multiplication_table(names="digits"))
+          </input>
+          <output>
+            +  0 1 2 3 4
+ +----------
+0| 0 1 2 3 4
+1| 1 2 3 4 0
+2| 2 3 4 0 1
+3| 3 4 0 1 2
+4| 4 0 1 2 3
+
+*  0 1 2 3 4
+ +----------
+0| 0 0 0 0 0
+1| 0 1 2 3 4
+2| 0 2 4 1 3
+3| 0 3 1 4 2
+4| 0 4 3 2 1
+          </output>
+        </sage>
+        <p>
+          Looking at the multiplication table for <m>\Z/5\Z</m>, we see that with the exception of <m>0</m>, all elements <m>r\in \Z/5\Z</m> have an element <m>s\in \Z/5\Z</m> satisfying <m>r\cdot s=1</m>. Thus <m>(\Z/5\Z)^*=\Z/5\Z-\{0\}</m>.
         </p>
       </solution>
     </example>
@@ -520,7 +550,19 @@ One of the motivations for singling out the modular units in <m>\Z/n\Z</m>, as d
 </statement>
 <solution>
 <p>
-
+Again, this is something we trust you to do on your own. In the meantime, here is what Sage tells us. 
+</p>
+<sage>
+  <input>
+    R=Integers(12)
+    R.multiplication_table(names="digits")
+  </input>
+  <output>
+    
+  </output>
+</sage>
+<p>
+  We see from this that <m>(\Z/12\Z)^*=\{1,5,7,11\}</m>. Some other interesting properties gleaned from the multiplication table above is that <m>r^2=1</m> for all <m>r\in (\Z/12\Z)^*</m>: in other words, each element is its own multiplicative inverse! 
 </p>
 </solution>
 </example>
