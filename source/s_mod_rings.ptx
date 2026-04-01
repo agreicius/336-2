@@ -711,10 +711,10 @@ Let <m>n</m> be a positive integer.
   </p>
   <sage>
     <input>
-      (43*(23*11+17))%7
+      (43*(23*11+17))%8
     </input>
     <output>
-      4
+      2
     </output>
   </sage>
   <p>
@@ -722,15 +722,15 @@ Let <m>n</m> be a positive integer.
   </p>
   <sage>
     <input>
-      R=Integers(7)
+      R=Integers(8)
       list(R)
     </input>
     <output>
-      [0, 1, 2, 3, 4, 5, 6]
+      [0, 1, 2, 3, 4, 5, 6, 7]
     </output>
   </sage>
   <p>
-    To take an integer <m>a\in \Z</m> and get its corresponding congruence class <m>\overline{a}\in R</m>, use the <q>coercing</q> method <c>R(a)</c>. (Note: the cell below assumes you have evaluated the cell above that defines <c>R=Integers(7)</c>.)
+    To take an integer <m>a\in \Z</m> and get its corresponding congruence class <m>\overline{a}\in R</m>, use the <q>coercing</q> method <c>R(a)</c>. (Note: the cell below assumes you have evaluated the cell above that defines <c>R=Integers(8)</c>.)
   </p>
   <sage>
     <input>
@@ -742,8 +742,8 @@ Let <m>n</m> be a positive integer.
       print(a*(b*c+d))
     </input>
     <output>
-      (1,2,4,3)
-      4
+      (3, 7, 3, 1)
+      2
     </output>
   </sage>
   <p>
@@ -754,7 +754,7 @@ Let <m>n</m> be a positive integer.
       R.cardinality()
     </input>
     <output>
-      7
+      8
     </output>
   </sage>
   <sage>
@@ -762,7 +762,7 @@ Let <m>n</m> be a positive integer.
       R.is_field()
     </input>
     <output>
-      True
+      False
     </output>
   </sage>
   
@@ -774,7 +774,14 @@ Let <m>n</m> be a positive integer.
       [(x,x.is_unit()) for x in R]
     </input>
     <output>
-      [(0, False), (1, True), (2, True), (3, True), (4, True), (5, True), (6, True)]
+      [(0, False),
+ (1, True),
+ (2, False),
+ (3, True),
+ (4, False),
+ (5, True),
+ (6, False),
+ (7, True)]
     </output>
   </sage>
   <sage>
@@ -785,7 +792,14 @@ Let <m>n</m> be a positive integer.
         else: print("%s is not a unit" % x)
     </input>
     <output>
-      
+      0 is not a unit
+1 is invertible, with inverse 1
+2 is not a unit
+3 is invertible, with inverse 3
+4 is not a unit
+5 is invertible, with inverse 5
+6 is not a unit
+7 is invertible, with inverse 7
     </output>
   </sage>
   <p>
