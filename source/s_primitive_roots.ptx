@@ -2,9 +2,89 @@
 
 <section xml:id="s_primitive_roots" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Primitive roots</title>
-   
-    <subsection xml:id="ss_polynomials_Fp">
-    <title>Polynomials over a ring</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Develop some theory about polynomials with coefficients in one of our familiar rings (<eg/>, <m>\Z</m>, <m>\Z/n\Z</m>, <m>\Q</m>, <m>\R</m>).
+                </p>
+            </li>
+            <li>
+                <p>
+                    Prove that <m>(\Z/p\Z)^*</m> has a primitive root for <m>p</m> prime. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Derive counting formulas for elements of given order <m>k</m> in <m>(\Z/n\Z)^*</m>, assuming that a primitive root exists. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    
+    <p>
+        In this section we will show that <m>(\Z/p\Z)^*</m> has a primitive root for <m>p</m> prime. Before getting to that existential statement, we first prove a <em>conditional</em> result that counts the number of primitive roots modulo <m>n</m>, assuming one exists. Note that <xref ref="th_primitive_roots"/> provides an unconditional version of this result in the special case where <m>n=p</m> is a prime integer. 
+    </p>
+    <theorem xml:id="th_number_of_primitive_roots">
+        <title>Number of primitive roots</title>
+        <statement>
+            <p>
+                Let <m>n</m> be a positive integer. 
+                <ol>
+                    <li>
+                        <p>
+                            If <m>(\Z/n\Z)^*</m> has a primitive root, then it has exactly <m>\phi(\phi(n))</m> distinct primitive roots. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            More generally, if <m>(\Z/n\Z)^*</m> has a primitive root, then for each positive divisor <m>d</m> of <m>\phi(n)</m>, the number of elements of <m>(\Z/n\Z)^*</m> of order <m>d</m> is <m>\phi(d)</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+        <proof>
+            <p>
+                Assume <m>r</m> is a primitive root of <m>(\Z/n\Z)^*</m>, so that 
+                <md>
+                    <mrow>(\Z/n\Z)^* \amp = \{1,r,r^2,\dots, r^{\phi(n)-1}\}</mrow>
+                </md>.
+                <ol>
+                    <li>
+                        <p>
+                            If <m>s</m> is a primitive root of <m>(\Z/n\Z)^*</m>, then <m>s=r^i</m> for some <m>i\in \{0,1,\dots, \phi(n)-1\}</m>. And furthermore, since <m>\ord s=\phi(n)</m>, we must have 
+                <md>
+                    <mrow>\phi(n) \amp =\ord s</mrow>
+                    <mrow> \amp = \ord r^i</mrow>
+                    <mrow> \amp = \phi(n)/\gcd(i,\phi(n))</mrow>
+                </md>,
+                by <xref ref="prop_order_mod_n"/>. This happens if and only if <m>\gcd(i,\phi(n))=1</m>. Thus , the number of primitive roots of <m>(\Z/n\Z)^*</m> is equal in this case to the number of <m>i\in \{0,1,\dots, \phi(n)-1\}</m> satisfying <m>\gcd(i,\phi(n))=1</m>. This is <m>\phi(\phi(n))</m>, by definition. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            This result is very easy to prove if you know a little group theory, and a little tricky to prove (for general <m>n</m>) using just elementary number theory. We will defer the proof to a <em>guided</em> homework exercise.   
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </proof>
+    </theorem>
+    <example xml:id="eg_primitive_roots_25">
+    <title>Primitive roots modulo 25</title>
+    <statement>
+    <p>
+    We saw in <xref ref="eg_primitive_roots"/> that <m>(\Z/25\Z)^*</m> has a primitive root, and that in fact <m>2, 3, 8, 12, 13,17, 22, 23</m> are all of the primitive roots of <m>(\Z/25\Z)^*</m>. Observe that there are exactly <m>8</m> of these; and sure enough, we have 
+    <md>
+        <mrow>\phi(\phi(25)) \amp =\phi(20)</mrow>
+        <mrow> \amp = \phi(4)\phi(5)</mrow>
+        <mrow> \amp = 2\cdot 4=8</mrow>
+    </md>.
+    </p>
+    </statement>
+    </example>
+    
     <p>
         We now make a small digression to develop some notions about polynomials with coefficients in a given number system. We could develop this theory for polynomials with coefficients in an arbitrary ring <m>R</m>, but since we have not given an official definition of a ring, we will restrict ourselves to the case where our coefficients lie in <m>\Z</m>, <m>\Q</m>, <m>\R</m>, or <m>\Z/n\Z</m> for some positive integer <m>n</m>.
     </p>
@@ -50,7 +130,7 @@ where <m>n</m> is a nonnegative integer and <m>a_i\in F</m> for all <m>0\leq i\l
     <title>Polynomial properties</title>
     <statement>
     <p>
-    Let <m>F</m> be either <m>\F_p</m> for some prime integer <m>p</m>, <m>\Q</m>, or <m>\R</m>, and let <m>f</m> and <m>g</m> be nonzero polynomials over <m>F</m>. 
+    Let <m>F</m> be either <m>\Q</m>, <m>\R</m>, or <m>\F_p</m> for some prime integer <m>p</m>,  and let <m>f</m> and <m>g</m> be nonzero polynomials over <m>F</m>. 
     <ol>
         <li>
             <title>Degree of products</title>
@@ -83,9 +163,171 @@ where <m>n</m> is a nonnegative integer and <m>a_i\in F</m> for all <m>0\leq i\l
     </statement>
     <proof>
     <p>
+        In the arguments below, besides the ring structure of <m>F</m>, we will use two crucial additional properties that are related to one another: 
+        <ul>
+            <li>
+                <p>
+                    If <m>r\in F</m> is nonzero, then there is an element <m>r^{-1}</m> such that <m>rr^{-1}=1</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    If <m>r</m> and <m>s</m> are nonzero elements of <m>F</m>, then <m>rs</m> is nonzero. 
+                </p>
+            </li>
+        </ul>
+        The second property is actually a consequence of the first: assume <m>r</m> is nonzero; by the first property, there is an element <m>r^{-1}</m> satisfying <m>r^{-1}r=1</m>; if <m>rs=0</m> for some element <m>s\in F</m>, then multiplying both sides by <m>r^{-1}</m>, we conclude that <m>s=0</m>; thus if <m>r</m> and <m>s</m> are nonzero, then <m>rs</m> is nonzero.
+    </p>
+    <p> Now for the proofs of the four statements. 
+        <ol>
+            <li>
+                <p>
+                    Let <m>f(x)=\anpoly</m> and <m>g(x)=\bmpoly</m>, where <m>a_n\ne 0</m> and <m>b_m\ne 0</m>, so that <m>\deg f=n</m> and <m>\deg g=m</m>. We then have 
+                    <md number="yes">
+                        <mrow>f(x)g(x) \amp = a_nb_mx^{n+m}+\text{lower order terms}</mrow>
+                    </md>.
+                    Since <m>a_n</m> and <m>b_m</m> are nonzero, then <m>a_nb_m\ne 0</m> (See above.) It follows that <m>\deg fg=n+m=\deg f+\deg g</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    We omit a formal proof of this result, which is basically a consequence of the fact that for any of the given number systems <m>F</m> we can perform polynomial long division in the same manner as we do over <m>\R</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    For any <m>r\in F</m>, using division with remainder, we can write <m>f</m> uniquely as 
+                    <md>
+                        <mrow>f(x) \amp =q(x)(x-r)+s(x)</mrow>
+                    </md>
+                    where either <m>s(x)=0</m> or <m>0\leq \deg s(x)&lt; \deg (x-r)=1</m>. In other words, we have <m>f(x)=q(x)(x-r)+c</m> for some constant <m>c\in F</m>. Since <m>f(r)=q(r)(r-r)+c=c</m>, we see that <m>r</m> is a root of <m>f</m> if and only if <m>c=0</m>, if and only if <m>f(x)=q(x)(x-r)</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    We proceed by induction on <m>n=\deg f</m>. 
+                </p>
+                <p>
+                    Base step: <m>n=0</m>. Since <m>\deg f=0</m> in this case, we have <m>f(x)=c</m> for some constant <m>c\in F</m>. Since <m>f</m> is assumed to be nonzero, we have <m>c\ne 0</m>. But then <m>f(r)=c\ne 0</m> for all <m>r\in F</m>, showing that <m>f</m> has zero roots. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Let <m>n\geq 0</m>, and assume the result holds for all nonzero polynomials of degree <m>n</m>. Let <m>f</m> be a polynomial of degree <m>n+1</m>. If <m>f</m> has no roots, then we are done. Otherwise, let <m>r\in F</m> be a root of <m>f</m>, and write <m>f(x)=(x-r)g(x)</m>. Since <m>n+1=\deg f=\deg(x-r)+\deg g(x)=1+\deg g(x)</m>, we see that <m>\deg g=n</m> (and in particular, <m>g</m> is nonzero). Suppose <m>s\ne r</m> is another root of <m>f</m>. Since <m>f(s)=(s-r)g(s)=0</m> and <m>s-r\ne 0</m>, we must have <m>g(s)=0</m>. (Again, see the first paragraph of this proof.) Thus any other root of <m>f</m> besides <m>r</m> is a root of <m>g</m>. Since <m>g</m> has degree <m>n</m>, it has at most <m>n</m> distinct roots by induction. We conclude that <m>f</m> has at most <m>n+1</m> distinct roots, as desired. 
+                </p>
+            </li>
+        </ol>
     </p>
     </proof>
     </theorem>
+    <p>
+        With this bit of polynomial theory under our belt, we move on to a proof that <m>(\Z/p\Z)^*</m> has a primitive root for <m>p</m> prime. We begin with two lemmas. The first is a classis identity involving the Euler totient function that is usually covered in the first quarter of the class. 
+    </p>
+     <lemma xml:id="lem_totient_identity">
+        <title>Totient function identity</title>
+        <statement>
+            <p>
+                Let <m>n</m> be a positive integer, and let <m>\phi</m> be the Euler totient function. 
+                <md number="yes">
+                    <mrow xml:id="eq_totient_identity">\sum_{d\mid n}\phi(d) \amp = n </mrow>
+                </md>.
+            </p>
+        </statement>
+    </lemma>
+    <lemma xml:id="lemma_order_k_bound">
+        <title>Elements of order <m>k</m> bound</title>
+        <statement>
+            <p>
+                Let <m>p</m> be a prime integer, and let <m>k</m> be a positive integer. The number of elements of <m>(\Z/p\Z)^*</m> of order <m>k</m> is either <m>0</m> or <m>\phi(k)</m>.  
+            </p>
+        </statement>
+        <proof>
+            <p>
+                If there are no elements of <m>(\Z/p\Z)^*</m> of order <m>k</m>, then we are done. Otherwise, let <m>r\in (\Z/p\Z)^*</m> have order <m>k</m>. It follows that each of the <m>k</m> elements 
+                <m>x=r^i\in \angvec{r}</m> satisfies <m>x^k=1</m>, or equivalently <m>x^k-1=0</m>. Since the polynomial <m>f(x)=x^k-1</m> has coefficients in the field <m>\F_p=\Z/p\Z</m>, and has degree equal to <m>k</m>, <m>f</m> has at most <m>k</m> roots. We conclude that the roots of <m>f</m> are precisely the elements of <m>\angvec{r}</m>. In particular, any other element <m>s</m> of order <m>k</m> must be of the form <m>s=r^i</m> for some <m>i\in \{0,1,\dots, k-1\}</m>. Since <m>\ord r^i=k/\gcd(i,k)</m>, we see that <m>s=r^i</m> has order <m>k</m> if and only if <m>\gcd(i,k)=1</m>. We conclude that there are precisely <m>\phi(k)</m> elements of <m>(\Z/p\Z)^*</m> of order <m>k</m>. 
+            </p>
+        </proof>
+    </lemma>
+    <theorem xml:id="th_primitive_roots">
+    <title>Primitive roots modulo <m>p</m></title>
+    <statement>
+    <p>
+    Let <m>p</m> be a prime integer. For each positive integer <m>k</m>, let <m>F_k</m> be the set of elements of <m>(\Z/p\Z)^*</m> of order <m>k</m>. 
+    <ol>
+        <li>
+            <p>
+                If <m>k\nmid \phi(p)=p-1</m>, then <m>F_k=\emptyset</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                If <m>k\mid \phi(p)</m>, then <m>\abs{F_k}=\phi(k)</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                In particular, <m>\abs{F_{\phi(p)}}\ne \emptyset</m>, and thus there is a primitive root <m>r</m> of <m>\Z/p\Z</m>: <ie/>, there is an element <m>r\in (\Z/p\Z)^*</m> satisfying <m>\angvec{r}=(\Z/p\Z)^*</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <proof>
+    <p>
+        <ol>
+            <li>
+                <p>
+                    We know from <xref ref="prop_order_mod_n"/> that <m>\ord r\mid \phi(p)</m> for all <m>p\in \F_p^*</m>. Thus, if <m>k\nmid \phi(p)</m>, then there is no element <m>r\in (\Z/p\Z)^*</m> of order <m>k</m>. Equivalently, <m>F_k=\nonempty</m> for all <m>k\nmid \phi(p)</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    For each positive divisor <m>d</m> of <m>\phi(p)</m> we know from <xref ref="lemma_order_k_bound"/> that 
+                    <md>
+                        <mrow>\abs{F_d} \amp \in \{0,\phi(d)\}</mrow>
+                    </md>.
+                    In particular, we have <m>\abs{F_d}\leq \phi(d)</m> for all <m>d\mid \phi(p)</m>. Furthermore, since the sets <m>F_d</m> are disjoint (an element of <m>(\Z/p\Z)^*</m> has a unique order), and since <m>(\Z/p\Z)^*=\bigcup_{d\mid n}F_d</m> (every element of <m>(\Z/p\Z)^*</m> has order <m>d</m> for some divisor <m>d</m> of <m>\phi(p)</m>), we have
+                    <md number="yes">
+                        <mrow>p-1 \amp =\abs{\F_p^*}=\sum_{d\mid p-1}\abs{F_d} </mrow>
+                    </md>.
+                    From <xref ref="lem_totient_identity"/> we also know that 
+                    <md>
+                        <mrow>p-1 \amp = \sum_{d\mid p-1}\phi(d)</mrow>
+                    </md>.
+                    Subtracting these two equalities, we conclude that 
+                    <md>
+                        <mrow>0 \amp =\sum_{d\mid p-1}(\phi(d)-\abs{F_d})</mrow>
+                    </md>.
+                    Since <m>\abs{F_d}\leq \phi(d)</m> for all positive <m>d\mid p-1</m>, we conclude that <m>\phi(d)-\abs{F_d}\geq 0</m> for all positive <m>d\mid p-1</m>. But a sum of nonnegative numbers is zero if and only if each number is zero. Thus we conclude that 
+                    <md>
+                        <mrow>\abs{F_d} \amp = \phi(d)</mrow>
+                    </md>
+                    for all positive <m>d\mid p-1</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    From (2), we conclude that <m>\ans{F_{p-1}}=\phi(p-1)</m>. Since <m>\phi(p-1)</m> is positive, we conclude that there is an element <m>r\in \F_p^*</m> of order <m>p-1</m>. (In fact there are precisely <m>\phi(p-1)</m> such elements.) Such an element satisfies <m>\angvec{r}=\F_p^*</m> and hence is a primitive root. 
+                </p>
+            </li>
+        </ol>
+    </p>
+    </proof>
+    </theorem>
+    <example xml:id="eg_prim_roots_">
+    <title></title>
+    <statement>
+    <p>
     
-    </subsection>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    
+    </p>
+    </solution>
+    </example>
+    
+    
+   
 </section>

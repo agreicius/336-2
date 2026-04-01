@@ -106,6 +106,9 @@
                         <p>
                            For all integers <m>k</m>, <m>r^k=1</m> if and only if <m>m\mid k</m>. 
                         </p>
+                        <p>
+                            In particular <m>\ord r\mid \phi(n)</m>. 
+                        </p>
                     </li>
                     <li>
                         <p>
@@ -202,8 +205,12 @@
     <p>
         A <term>primitive root</term> (or <term>cyclic generator</term>) of <m>(\Z/n\Z)^*</m> is an element <m>r\in (\Z/n\Z)^*</m> satisfying <m>\angvec{r}=(\Z/n\Z)^*</m>. 
     </p>
+    <p>
+        We say an integer <m>a</m> is a <term>primitive root modulo <m>n</m></term> if <m>r=[a]_n</m> is a primitive root of <m>(\Z/n\Z)^*</m>. 
+    </p>
     </statement>
     </definition>
+    
     <example xml:id="eg_primitive_roots">
     <title>Primitive roots</title>
     <statement>
@@ -343,7 +350,7 @@
                 </output>
             </sage>
             <p>
-                We see that <m>2</m> has order <m>20=\abs{(Z\25\Z)^*)}</m>, and thus that <m>2</m> is a primitive root. We leave it to the reader to verify the order formula for powers of <m>2</m> as we did in the first part.
+                We see that <m>2</m> has order <m>20=\abs{(Z/25\Z)^*)}</m>, and thus that <m>2</m> is a primitive root. We leave it to the reader to verify the order formula for powers of <m>2</m> as we did in the first part.
             </p>
             <p>
                 On a separate note, notice that there are 8 distinct primitive roots here: <m>2,3,8,12,13,17,22,23</m>. In the next sections we will derive a formula for the number of distinct primitive roots modulo, if one does indeed exist. 

@@ -426,6 +426,13 @@
 
       <solution>
         <p>
+          We have 
+          <md>
+            <mrow>\overline{43}\cdot(\overline{23}\cdot \overline{11}+\overline{17}) \amp = \overline{3}\cdot((-\overline{1})\cdot \overline{3}+\overline{1}) </mrow>
+            <mrow> \amp =\overline{3}(-\overline{2})</mrow>
+            <mrow> \amp =-\overline{6}</mrow>
+            <mrow> \amp = \overline{2}</mrow>
+          </md>.
         </p>
       </solution>
     </example>
@@ -436,12 +443,20 @@
       <statement>
         <p>
           Let <m>n=50</m> and let <m>a=99^{1233}(7^8+ 1)</m>.
-          Compute <m>a\bmod n</m>.
+          Compute <m>a\boldmod n</m>.
         </p>
       </statement>
 
       <solution>
         <p>
+          To find <m>a\boldmod 50 </m>, we find an <m>r\in \{0,1,\dots, 49\}</m> such that <m>\overline{a}=\overline{r}</m>. We have 
+          <md>
+            <mrow>\overline{a} \amp =(-\overline{1})^{1233}((\overline{7}^2)^2+\overline{1})</mrow>
+            <mrow> \amp = (-\overline{1})((-\overline{1})^2+\overline{1})</mrow>
+            <mrow> \amp =-\overline{2}</mrow>
+            <mrow> \amp =\overline{48}</mrow>
+          </md>.
+          Thus <m>a\boldmod 50=48</m>. 
         </p>
       </solution>
     </example>
