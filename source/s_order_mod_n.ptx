@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_order_mod_n" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Order of modular units</title>
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Define the order of elements of <m>(\Z/n\Z)^*</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Define the notion of a primitive root modulo <m>n</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Begin exploring the existence of primitive roots.
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    
+    <p>
+        Recall Euler's theorem: if <m>n</m> is a positive integer and <m>a\in \Z</m> is relatively prime to <m>n</m>, then <m>a^{\phi(n)}\equiv 1 \pmod n</m>. Equivalently, in the language of modular rings, given <m>r=[a]_n\in (\Z/n\Z)^*</m>, we have 
+        <md>
+            <mrow>r^{\phi(n)}=[a]_n^{\phi(n)}=[a^{\phi(n)}]=1</mrow>
+        </md>.
+        As an illustration of the economy of the modular ring language, let's re-prove this result.
+    </p>
+    <proof>
+        <title>Modular ring proof of Euler's theorem</title>
+        <p>
+         Let <m>n</m> be a positive element, and let <m>r_1,r_2,\dots, r_{\phi(n)}</m> be the distinct elements of <m>(\Z/n\Z)^*</m>, so that 
+         <md>
+            <mrow>(\Z/n\Z)^* \amp = \{r_1,r_2,\dots, r_{\phi(n)}\}</mrow>
+         </md>. 
+         (Note: although we have <m>r_i=[a_i]_n</m> for some integer <m>a_i</m>, we will not need to make use of these integers in our argument; we will only use properties of <m>(\Z/n\Z)^*</m> discussed in the previous section.) 
+        </p>
+        <p>
+            Now, given any element <m>r\in (\Z/n\Z)^*</m>, we claim that we have the set equality 
+            <md>
+                <mrow>\{r_1,r_2,\dots, r_{\phi(n)}\} \amp = \{r\,r_1, r\, r_{2},\dots, r\, r_{\phi(n)}\}</mrow>
+            </md>.
+            Indeed, from <xref ref="th_units_mod_n"/>, we know that <m>r\, r_i\in (\Z/n\Z)^*</m>, since <m>(\Z/n\Z)^*</m> is closed under multiplication. Thus 
+            <md>
+                <mrow>\{r\,r_1, r\,r_2,\dots, r\,r_{\phi(n)}\} \amp\subseteq (\Z/n\Z)^*=\{r_1,r_2,\dots, r_{\phi(n)}\} </mrow>
+            </md>.
+            For the other inclusion, we use the fact that there is an element <m>r^{-1}\in (\Z/n\Z)^*</m> satisfying <m>r\,r^{-1}=1</m>. Given any element <m>r_i\in (\Z/n\Z)^*</m>, letting <m>r_j=r^{-1}\cdot r_i</m>, we have 
+            <md>
+                <mrow>r\,r_j \amp = r(r^{-1}r_i)</mrow>
+                <mrow> \amp = (rr^{-1})r_i</mrow>
+                <mrow> \amp = 1r_i</mrow>
+                <mrow> \amp = r_i</mrow>
+            </md>.
+            Having shown <m>\{r_1,r_2,\dots, r_{\phi(n)}\}=\{rr_1,rr_2,\dots, rr_{\phi(n)}\}</m>, we see that 
+            <md>
+                <mrow>\prod_{i=1}^{\phi(n)}r_i \amp =\prod_{i=1}^{\phi(n)}rr_i</mrow>
+                <mrow> \amp = r^{\phi(n)}\prod_{i=1}^{\phi(n)}r_i</mrow>
+            </md>.
+            Letting <m>s=\prod_{i=1}^{\phi(n)}r_i</m>, the above equality becomes 
+            <md>
+                <mrow>s \amp =r^{\phi(n)}s</mrow>
+            </md>.
+            Since <m>s\in (\Z/n\Z)^*</m>, it can be cancelled multiplicatively by multiplying both sides by <m>s^{-1}</m>. We conclude that <m>1=r^{\phi(n)}</m>, as desired. 
+        </p>
+    </proof>
+    <p>
+        From Euler's theorem we know that for all <m>r\in (\Z/n\Z)^*</m> there is at least one positive integer <m>k</m> such that <m>r^k=1</m>: namely, <m>k=\phi(n)</m>. It follows from the well-ordering property of the integers that there is thus a smallest positive integer <m>k</m> satisfying <m>r^k=1</m>. We call this the <em>order</em> of <m>r</m>.
+    </p>
+    <definition xml:id="d_order_modular_unit">
+    <title>Order of a modular unit</title>
+    <notation>
+        <usage><m>\ord r</m></usage>
+      <description>order of element <m>r\in (\Z/n\Z)^*</m></description>
+    </notation>
+    <statement>
+    <p>
+    Let <m>n</m> be a positive integer. Given an element <m>r\in (\Z/n\Z)^*</m>, its <term>order</term> is the smallest positive integer <m>k</m> such that <m>r^k=1</m>. 
+    </p>
+    <p>
+    Similarly, given an integer <m>a\in \Z</m> that is relatively prime to <m>n</m>, the <term>order of <m>a</m> modulo <m>n</m></term>, denoted <m>\ord_n a</m>, is the smallest positive integer <m>k</m> such that <m>a^k\equiv 1\pmod n</m>.
+    </p>
+    </statement>
+    </definition>
+    <remark>
+    <title>Modular exponentiation</title>
+    <p>
+    In what follows we will take for granted some elementary algebraic properties about exponentiation in <m>\Z/n\Z</m> that follow immediately from the corresponding properties in <m>\Z</m>. For example, we have 
+    <md>
+        <mrow>r^{j+k} \amp = r^jr^k \amp r^{jk}=(r^j)^k=(r^k)^j</mrow>
+    </md>
+    for all <m>r\in \Z/n\Z</m> and nonnegative integers <m>j,k\in \Z_{\geq 0}</m>. Furthermore, if <m>r\in (\Z/n\Z)^*</m>, then definining negative powers as <m>r^{-n}=(r^{-1})^n</m>, the above equalities hold for all integers <m>j,k\in \Z</m>. 
+    </p>
+    </remark>
+    
+    <proposition xml:id="prop_order_mod_n">
+        <title>Order of modular units</title>
+        <statement>
+            <p>
+                Let <m>n</m> be a positive integer, let <m>r\in (\Z/n\Z)^*</m>, and let <m>m=\ord r</m>. 
+                <ol>
+                    <li>
+                        <p>
+                           For all integers <m>k</m>, <m>r^k=1</m> if and only if <m>m\mid k</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>r^i=r^j</m> if and only if <m>i\equiv j\pmod m</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We have 
+                            <md>
+                                <mrow>\{r^i\mid i\in \Z\} \amp = \{1,r,r^2,\dots, r^{m-1}\}</mrow>
+                            </md>,
+                            and this set has cardinality <m>m</m> (<ie/>, it contains exactly <m>m</m> distinct elements). 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\ord r^i=m/\gcd(i,m)</m> for all integers <m>i\in \Z</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+        <proof>
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            First assume that <m>m\mid k</m>, so that <m>k=mq</m> for some <m>q\in \Z</m>. We then have 
+                            <md>
+                                <mrow>r^k \amp =r^{mk}</mrow>
+                                <mrow> \amp = (r^m)^k</mrow>
+                                <mrow> \amp =1^k=1</mrow>
+                            </md>,
+                            as desired. Conversely, 
+                            assume <m>r^k=1</m> and write <m>k=qm+s</m> where <m>0\leq s &lt; m</m>, as in the division algorithm. Since 
+                            <md>
+                                <mrow>0 \amp =r^{k}</mrow>
+                                <mrow> \amp = r^{qm+s}</mrow>
+                                <mrow> \amp = r^{qm}r^s</mrow>
+                                <mrow> \amp =r^s \amp (m\mid qm)</mrow>
+                            </md>,
+                            and since <m>m</m> is the smallest <em>positive</em> integer satisfying <m>r^m=1</m>, we must have <m>s=0</m>, and thus <m>m\mid k</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We have 
+                            <md number="yes">
+                                <mrow>r^i=r^j \amp \iff r^{i}r^{-j}=r^{j}r^{-j}</mrow>
+                                <mrow> \amp \iff r^{i-j}=1</mrow>
+                                <mrow> \amp \iff m\mid (i-j) \amp (\text{by } (1))</mrow>
+                                <mrow> \amp \iff i\equiv j\pmod m</mrow>
+                            </md>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Since <m>r^i=r^j</m> if and only if <m>i\equiv j\pmod m</m>, and since <m>\{0,1,\dots, m-1\}</m> form a complete set of residues modulo <m>m</m>, we have 
+                            <md number="yes">
+                                <mrow>\{r^i\mid i\in \Z\} \amp = \{r^0, r^1,\dots, r^{m-1}\} </mrow>
+                                <mrow> \amp =\{1,r,\dots, r^{m-1}\}</mrow>
+                            </md>,
+                            and these powers of <m>r</m> are all distinct. Thus the set has cardinality <m>m</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Let <m>k=m/\gcd(i,m)</m>. We will show that <m>k</m> is the smallest positive integer such that <m>(r^i)^k=1</m>, and thus that <m>\ord r^i=k</m>.
+                        </p>
+                        <p>
+                            First observe that <m>(r^{i})^k=r^{ik}=r^{(i/\gcd(i,m))m}=1</m>, since <m>m\mid (i/\gcd(i,m))m</m>. Now assume that <m>\ell</m> is a positive integer satisfying <m>(r^i)^\ell=r^{i\ell}=1</m>. It follows that <m>m\mid i\ell</m>. But then 
+                            <md>
+                                <mrow>m\gcd(i,m) \amp \mid (i/\gcd(i,m))\ell</mrow>
+                            </md>.
+                            Since <m>m/\gcd(i,m)</m> and <m>i/\gcd(i,m)</m> are relatively prime, it follows that <m>k=m/\gcd(i,m)\mid \ell</m>, and hence that <m>k\leq \ell</m>, since <m>k</m> and <m>\ell</m> are positive. This proves <m>k</m> is the smallest positive integer such that <m>(r^i)^k=1</m>, and thus that <m>\ord r^i=k</m>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </proof>
+    </proposition>
+    <definition xml:id="d_cyclic_group">
+    <title>Primitive root</title>
+    <statement>
+    <p>
+    Let <m>n</m> be a positive integer, and let <m>r\in (\Z/n\Z)^*</m>. The <term>cyclic group generated by <m>r</m></term>, denoted <m>\langle r\rangle</m>, is the set of all integer powers of <m>r</m>: <ie/>, 
+    <md>
+        <mrow>\angvec{r} \amp = \{r^i\mid i\in \Z\}</mrow>
+        <mrow> \amp = \{1,r, \dots, r^{m-1}\}</mrow>
+    </md>,
+    where <m>m=\ord r</m>. 
+    </p>
+    <p>
+        A <term>primitive root</term> (or <term>cyclic generator</term>) of <m>(\Z/n\Z)^*</m> is an element <m>r\in (\Z/n\Z)^*</m> satisfying <m>\angvec{r}=(\Z/n\Z)^*</m>. 
+    </p>
+    </statement>
+    </definition>
+    <example xml:id="eg_primitive_roots">
+    <title>Primitive roots</title>
+    <statement>
+    <p>
+    Decide for the given modulus <m>n</m> whether <m>(\Z/n\Z)^*</m> has a primitive root. 
+    <ol>
+        <li>
+            <p>
+                <m>n=7</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>n=12</m>
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>n=25</m>
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>
+    ol
+    </p>
+    </solution>
+    </example>
+    
+
+</section>
