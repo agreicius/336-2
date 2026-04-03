@@ -21,6 +21,9 @@
             </li>
         </ol>
     </objectives>
+    <subsection xml:id="ss_prim_roots_intro">
+    <title>Introduction</title>
+    
     
     <p>
         In this section we will show that <m>(\Z/p\Z)^*</m> has a primitive root for <m>p</m> prime. Before getting to that existential statement, we first prove a <em>conditional</em> result that counts the number of primitive roots modulo <m>n</m>, assuming one exists. Note that <xref ref="th_primitive_roots"/> provides an unconditional version of this result in the special case where <m>n=p</m> is a prime integer. 
@@ -88,6 +91,11 @@
     <p>
         We now make a small digression to develop some notions about polynomials with coefficients in a given number system. We could develop this theory for polynomials with coefficients in an arbitrary ring <m>R</m>, but since we have not given an official definition of a ring, we will restrict ourselves to the case where our coefficients lie in <m>\Z</m>, <m>\Q</m>, <m>\R</m>, or <m>\Z/n\Z</m> for some positive integer <m>n</m>.
     </p>
+    </subsection>
+    <subsection xml:id="ss_prim_roots_polys">
+    <title>Polynomials with coefficients in rings</title>
+    
+    
     <definition xml:id="d_polynomials">
     <title>Polynomials over a ring</title>
     <statement>
@@ -183,6 +191,7 @@ where <m>n</m> is a nonnegative integer and <m>a_i\in F</m> for all <m>0\leq i\l
             <li>
                 <p>
                     Let <m>f(x)=\anpoly</m> and <m>g(x)=\bmpoly</m>, where <m>a_n\ne 0</m> and <m>b_m\ne 0</m>, so that <m>\deg f=n</m> and <m>\deg g=m</m>. We then have 
+                
                     <md number="yes">
                         <mrow>f(x)g(x) \amp = a_nb_mx^{n+m}+\text{lower order terms}</mrow>
                     </md>.
@@ -220,8 +229,13 @@ where <m>n</m> is a nonnegative integer and <m>a_i\in F</m> for all <m>0\leq i\l
     </p>
     </proof>
     </theorem>
+    </subsection>
+    <subsection xml:id="ss_prim_roots_mod_p">
+    <title>Primitive roots modulo a prime</title>
+    
+    
     <p>
-        With this bit of polynomial theory under our belt, we move on to a proof that <m>(\Z/p\Z)^*</m> has a primitive root for <m>p</m> prime. We begin with two lemmas. The first is a classis identity involving the Euler totient function that is usually covered in the first quarter of the class. 
+        With this bit of polynomial theory under our belt, we move on to a proof that <m>(\Z/p\Z)^*</m> has a primitive root for <m>p</m> prime. We begin with two lemmas. The first is a classic identity involving the Euler totient function that is usually covered in the first quarter of the class. 
     </p>
      <lemma xml:id="lem_totient_identity">
         <title>Totient function identity</title>
@@ -266,7 +280,7 @@ where <m>n</m> is a nonnegative integer and <m>a_i\in F</m> for all <m>0\leq i\l
         </li>
         <li>
             <p>
-                In particular, <m>\abs{F_{\phi(p)}}\ne \emptyset</m>, and thus there is a primitive root <m>r</m> of <m>\Z/p\Z</m>: <ie/>, there is an element <m>r\in (\Z/p\Z)^*</m> satisfying <m>\angvec{r}=(\Z/p\Z)^*</m>. 
+                In particular, <m>\abs{F_{\phi(p)}}=\phi(p-1)\ne 0</m>, and thus there is a primitive root <m>r</m> of <m>\Z/p\Z</m>: <ie/>, there is an element <m>r\in (\Z/p\Z)^*</m> satisfying <m>\angvec{r}=(\Z/p\Z)^*</m>. 
             </p>
         </li>
     </ol>
@@ -315,11 +329,29 @@ where <m>n</m> is a nonnegative integer and <m>a_i\in F</m> for all <m>0\leq i\l
     </proof>
     </theorem>
     <example xml:id="eg_prim_roots_">
-    <title></title>
+    <title>Primitive roots modulo <m>17</m></title>
     <statement>
     <p>
-    
-    </p>
+    Let <m>F_k</m> be the set of elements of <m>(\Z/17\Z)^*</m> of order <m>k</m>. 
+    <ol>
+        <li>
+            <p>
+                Find a primitive root <m>r</m> of <m>(\Z/17\Z)^*</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                List all possible orders <m>k</m> of elements of <m>(\Z/17\Z)^*</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                For each possible order <m>k</m>, enumerate the elements of <m>F_k</m> described as powers of <m>r</m>. 
+            </p>
+        </li>
+    </ol>
+</p>
+
     </statement>
     <solution>
     <p>
@@ -327,7 +359,108 @@ where <m>n</m> is a nonnegative integer and <m>a_i\in F</m> for all <m>0\leq i\l
     </p>
     </solution>
     </example>
-    
+</subsection>
+    <subsection xml:id="ss_sage_examples">
+    <title>Sage examples</title>
+    <project>
+        <title>Primitive roots</title>
+        <p>
+            The Sage function <c>primitive_root(n)</c> returns a primitive root of <m>(\Z/n\Z)^*</m> if one exists, and raises an error otherwise. Furthermore, if <m>n=p</m> is prime, then <c>primitive_root(p)</c> returns the <em>smallest positive</em> integer <m>a</m> such that <m>[a]_p</m> is a primitive root of <m>(\Z/p\Z)^*</m>.
+        </p>
+        <sage>
+            <input>
+                for n in range(50):
+                    try: 
+                        print((n,primitive_root(n)))
+                    except Exception as e:
+                        print((n,e))
+            </input>
+            <output>
+                
+            </output>
+        </sage>
+    <p>
+        
+    </p>
+    </project>
+
+    <project xml:id="sage_unit_group">
+        <title>Structure of unit group modulo <m>n</m></title>
+    <p>
+        Once we have created a modular ring <c>R=Integers(n)</c>, we can explore the structure of the unit group <m>R^*</m> using <c>G=R.unit_groups()</c>. 
+    </p>
+    <sage>
+        <input>
+            R=Integers(17)
+            G=R.unit_group()
+            G
+        </input>
+        <output>
+            Multiplicative Abelian group isomorphic to C16
+        </output>
+    </sage>
+    <p>
+        Notice that the description of <m>G</m> is not precisely what we expected. Sage is describing <m>G</m> abstractly as a cyclic group of cardinality <m>16</m>. It has obscured the origins of this group as a subset of <m>R</m>. Let's see what the elements of <m>G</m> look like in Sage.
+    </p>
+    <sage>
+        <input>
+            [u for u in G]
+        </input>
+        <output>
+            [1,
+ f,
+ f^2,
+ f^3,
+ f^4,
+ f^5,
+ f^6,
+ f^7,
+ f^8,
+ f^9,
+ f^10,
+ f^11,
+ f^12,
+ f^13,
+ f^14,
+ f^15]
+        </output>
+    </sage>
+    <p>
+        It appears Sage has realized <m>G</m> as the cyclic group generated by an element it calls <m>f</m>. Sage has not actually forgotten the humble beginnings of <m>f</m>, as the method <c>f.value()</c> reveals. 
+    </p>
+    <sage>
+        <input>
+            [u.value() for u in G]
+        </input>
+        <output>
+           [1, 3, 9, 10, 13, 5, 15, 11, 16, 14, 8, 7, 4, 12, 2, 6] 
+        </output>
+    </sage>
+    <p>
+        Aha! We now see that <m>f</m> corresponds to the element <m>3</m> in <m>R</m>. The Sage group object <m>G</m> has additional useful methods. For example, <m>G.subgroups()</m> produces a list of all subgroups of <m>G</m>, which in our language is the list of the distinct cyclic subgroups <m>\angvec{r}</m> as we let <m>r</m> vary over <m>(\Z/17\Z)^*</m>. 
+    </p>
+    <sage>
+        <input>
+            S=G.subgroups()
+            S
+        </input>
+        <output>
+            
+        </output>
+    </sage>
+    <p>
+       Note that once again, Sage describes these subgroups in terms of the element <m>f</m>. To reminder ourselves of what <m>f</m> is here, we can use the <c>.gen()</c> method, followed by the <c>.value()</c> method. For the list comprehension below, we need to exclude the trivial subgroup at the end. Do you see how we did this?
+    </p>
+    <sage>
+        <input>
+            [H.gen(0).value() for H in S if H.cardinality()>1]
+        </input>
+        <output>
+            
+        </output>
+    </sage>
+    </project>
+    </subsection>
     
    
 </section>
