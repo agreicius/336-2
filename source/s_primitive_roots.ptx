@@ -299,7 +299,7 @@ where <m>n</m> is a nonnegative integer and <m>a_i\in R</m> for all <m>0\leq i\l
         <ol>
             <li>
                 <p>
-                    We know from <xref ref="prop_order_mod_n"/> that <m>\ord r\mid \phi(p)</m> for all <m>p\in \F_p^*</m>. Thus, if <m>k\nmid \phi(p)</m>, then there is no element <m>r\in (\Z/p\Z)^*</m> of order <m>k</m>. Equivalently, <m>F_k=\nonempty</m> for all <m>k\nmid \phi(p)</m>. 
+                    We know from <xref ref="prop_order_mod_n"/> that <m>\ord r\mid \phi(p)</m> for all <m>p\in \F_p^*</m>. Thus, if <m>k\nmid \phi(p)</m>, then there is no element <m>r\in (\Z/p\Z)^*</m> of order <m>k</m>. Equivalently, <m>F_k=\emptyset</m> for all <m>k\nmid \phi(p)</m>. 
                 </p>
             </li>
             <li>

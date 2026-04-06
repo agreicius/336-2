@@ -64,7 +64,7 @@
                     <mrow>f\colon \Z/p^2\Z \amp\to \Z/p\Z  </mrow>
                     <mrow>[a]_{p^2} \amp \mapsto [a]_{p}</mrow>
                 </md>
-                is well-defined and satisfies nice 
+                is well-defined and satisfies
                 <md>
                     <mrow>f([a]_{p^2}+[b]_{p^2}) \amp = f([a]_{p^2})+f([b]_{p^2}) \amp f([a]_{p^2}\cdot [b]_{p^2})\amp = f([a]_{p_2})\cdot f([b]_{p^2}</mrow>
                 </md>
