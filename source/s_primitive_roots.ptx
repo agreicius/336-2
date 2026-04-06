@@ -98,13 +98,21 @@
     
     <definition xml:id="d_polynomials">
     <title>Polynomials over a ring</title>
+    <notation>
+        <usage><m>R[x]</m></usage>
+      <description>set of polynomials with coeffiecients in <m>R</m></description>
+    </notation>
     <statement>
     <p>
-    Let <m>R</m> be either <m>\Z</m>, <m>\Q</m>, <m>\R</m>, or <m>\Z/n\Z</m> for some positive integer <m>n</m>. A <term>polynomial over <m>F</m> in the indeterminate (or variable) <m>x</m></term> is a formal expression of the form 
+    Let <m>R</m> be either <m>\Z</m>, <m>\Q</m>, <m>\R</m>, or <m>\Z/n\Z</m> for some positive integer <m>n</m>. A <term>polynomial over <m>R</m> in the indeterminate (or variable) <m>x</m></term> is a formal expression of the form 
 <md>
     <mrow>f(x) \amp =a_nx^n+a_{n-1}x^{n-1}+\cdots a_1x+a_0</mrow>
 </md>,
-where <m>n</m> is a nonnegative integer and <m>a_i\in F</m> for all <m>0\leq i\leq n</m>. We call <m>a_i</m> the <term>coefficients</term> of <m>f</m>. The polynomial is <term>nonzero</term> if <m>a_i\ne 0</m> for some <m>i</m>, and <term>zero</term> otherwise. The <term>degree</term> of a nonzero polynomial <m>f</m>, denoted <m>\deg f</m>, is the largest positive integer <m>n</m> such that the <m>n</m>-th coefficient of <m>f</m> is nonzero. 
+where <m>n</m> is a nonnegative integer and <m>a_i\in R</m> for all <m>0\leq i\leq n</m>. We call <m>a_i</m> the <term>coefficients</term> of <m>f</m>, and we denote by <m>R[x]</m> the set of all polynomials with coefficients in <m>R</m>: <ie/>, 
+<md number="yes">
+    <mrow xml:id="eq_poly_over_R">R[x] \amp =\{\anpoly\mid n\in \Z_{\geq 0}, a_i\in R\}</mrow>
+</md>.
+ The polynomial is <term>nonzero</term> if <m>a_i\ne 0</m> for some <m>i</m>, and <term>zero</term> otherwise. The <term>degree</term> of a nonzero polynomial <m>f</m>, denoted <m>\deg f</m>, is the largest positive integer <m>n</m> such that the <m>n</m>-th coefficient of <m>f</m> is nonzero. 
 </p>
     <p>
          Two nonzero polynomial <m>f(x)=\anpoly</m> and <m>g(x)=\bmpoly</m> with <m>a_n\ne 0</m> and <m>b_m\ne 0</m> are equal, written <m>f=g</m> if <m>n=m</m> and <m>a_i=b_i</m> for all <m>0\leq i\leq n</m>. 

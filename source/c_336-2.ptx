@@ -3,4 +3,5 @@
   <xi:include href="s_mod_rings.ptx" />
   <xi:include href="s_order_mod_n.ptx" />
   <xi:include href="s_primitive_roots.ptx" />
+  <xi:include href="s_primitive_root_n.ptx" />
 </chapter>

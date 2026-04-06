@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_primitive_root_n" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Existence of primitive roots</title>
+
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Determine the set of positive integers <m>n</m> for which there is a primitive root modulo <m>n</m>. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <subsection xml:id="ss_primitive_roots_mod_n">
+    <title>Primitive roots modulo <m>n</m></title>
+    <p>
+        Let's begin with the main result we wish to prove. 
+    </p>
+    <theorem xml:id="th_primitive_roots_mod_n">
+    <title>Primitive roots modulo <m>n</m></title>
+    <statement>
+    <p>
+    Let <m>n</m> be a positive integer. There is a primitive root for <m>(\Z/n\Z)^*</m> if and only if one of the following conditions holds: 
+    <ul>
+        <li>
+            <p>
+                <m>n=2,4</m>;
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>n=p^k</m> for some odd prime <m>p</m> and positive integer <m>k</m>; 
+            </p>
+        </li>
+        <li>
+            <p>
+              <m>n=2\, p^k</m> for some odd prime <m>p</m> and positive integer <m>k</m>. 
+            </p>
+        </li>
+    </ul>
+    </p>
+    </statement>
+</theorem>
+    <p>
+        Our lead-up to the proof of this theorem will include a sequence of results that are interesting in their own right, and which bring further nuance to the question of primitive roots. In a little more detail, we will be using what might be described as <q>lifting arguments</q> that take a primitive root modulo <m>p</m> in <m>\Z/p\Z</m> and try to <q>lift</q> it to a primitive root modulo higher powers <m>p^k</m>. As such we will be making use of the maps 
+        <md>
+            <mrow>\Z/p^k\Z \amp \to \Z/p^{k-1}\to \Z/p^{k-2}\to \cdots </mrow>
+            <mrow>[a]_{p^k} \amp \longmapsto [a]_{p^{k-1}}\longmapsto [a]_{p^{k-2}}\cdots</mrow>
+        </md>
+        you treated in a recent homework. 
+    </p>
+    <proposition xml:id="prop_prim_mod_psquared">
+        <title>Primitive roots modulo <m>p^2</m>, <m>p</m> odd</title>
+        <statement>
+            <p>
+                Let <m>p</m> be an ood prime. If <m>[a]_p</m> is a primitive root of <m>(\Z/p\Z)^*</m>, then either <m>[a]_{p^2}</m> or <m>[a+p]_{p^2}</m> is a primitive root of <m>(\Z/p^2\Z)^*</m>. 
+            </p>
+        </statement>
+        <proof>
+            <p>
+                Recall that <m>\phi(p^2)=p^2-p=p(p-1)</m>. In your homework, you proved that the function 
+                <md number="yes">
+                    <mrow>f\colon \Z/p^2\Z \amp\to \Z/p\Z  </mrow>
+                    <mrow>[a]_{p^2} \amp \mapsto [a]_{p}</mrow>
+                </md>
+                is well-defined and satisfies nice 
+                <md>
+                    <mrow>f([a]_{p^2}+[b]_{p^2}) \amp = f([a]_{p^2})+f([b]_{p^2}) \amp f([a]_{p^2}\cdot [b]_{p^2})\amp = f([a]_{p_2})\cdot f([b]_{p^2}</mrow>
+                </md>
+                for all <m>a,b\in \Z</m>. Assume <m>[a]_p</m> is a primitive root modulo <m>p</m>, and let <m>n=\ord [a]_{p^2}</m>. Since <m>[a]_{p^2}^n=1=[1]_{p^2}</m>, it follows from the properties above that <m>[a]_p^n=[1]_p</m>, and thus thus that <m>p-1\mid n</m> (<xref ref="prop_order_mod_n"/>). Since furthermore <m>[a]_{p^2}^{\phi(p^2)}=1</m>, we have <m>n\mid p(p-1)</m> (<xref ref="prop_order_mod_n"/>). Since <m>\gcd(p,p-1)=1</m>, it follows that <m>n=p-1</m> or <m>n=p(p-1)=\phi(p^2)</m>. In the latter case, <m>[a]_{p_2}</m> is a primitive root modulo <m>p^2</m>, and we are done.
+            </p>
+            <p>
+                Assume now that <m>m=p-1</m>. We show in this case that <m>[a+p]_{p^2}</m> has order <m>p(p-1)</m>, and hence is a primitvie root modulo <m>p^2</m>. Let <m>m'=\ord[a+p]_{p^2}</m>. Since <m>a+p\equiv a\pmod p</m>, we know that <m>[a+p]_{p}^{p-1}=[a]_p^{p-1}=[1]_p</m>, and hence, using our same reasoning as above, that <m>m'\in \{p-1, p(p-1)\}</m>. It thus suffices to show that <m>[a+p]_{p^2}^{p-1}\ne [1]_{p^2}</m>. For this we use the binomial theorem: 
+                <md>
+                    <mrow>(a+p)^{p-1} \amp =a^{p-1}+\sum_{k=1}^{p-1}{p-1\choose k}a^{p-1-k}p^k</mrow>
+                    <mrow> \amp \equiv a^{p-1}+(p-1)a^{p-2}p \pmod p^2</mrow>
+                    <mrow> \amp \equiv 1+(p-1)a^{p-2}p \pmod p^2</mrow>
+                    <mrow> \amp \not\equiv 1</mrow>
+                </md>,
+                since <m>p^2\nmid (p-1)a^{p-2}p</m>. It follows that <m>[a+p]_{p^2}^{p-1}\ne [1]_{p^2}</m>, as desired. 
+            </p>
+        </proof>
+    </proposition>
+    <proposition xml:id="prop_prim_mod_primepower">
+        <title>Primitive root modulo <m>p^k</m>,<m>p</m> odd</title>
+        
+        
+        <statement>
+            <p>
+                Let <m>p</m> be an odd prime, and let <m>k\geq 2</m>. If <m>[a]_{p^2}</m> is a primitive root modulo <m>p^2</m>, then <m>[a]_{p^k}</m> is a primitive root modulo <m>p^k</m>. 
+            </p>
+            <p>
+                In particular, <m>(\Z/p^k\Z)^*</m> has a primitive root for all positive integers <m>k</m>. 
+            </p>
+        </statement>
+        <proof>
+            <p>
+                Let <m>a\in \Z</m> be a primitive root modulo <m>p^2</m>, and let <m>m=\ord[a]_{p^k}</m> for <m>k\geq 2</m>. The same reasoning as in <xref ref="prop_prim_mod_psquared"/> shows that <m>p(p-1)\mid m</m>, and thus that <m>m=p^\ell (p-1)</m> for some <m>1\leq \ell\leq k-1</m>. To show that <m>m=\ord(p^k)=p^{k-1}(p-1)</m>, it then suffices to show that <m>\left([a]_{p^k}\right)^{p^{k-2}(p-1)}\ne [1]_{p^k}</m>: this is because 
+                <md>
+                    <mrow>\left([a]_{p^k}\right)^{p^\ell(p-1)}=[1]_{p^k} \amp \implies \left(\left([a]_{p^k}\right)^{p^{\ell}(p-1)}\right)^p=[1]_{p^k}\implies \left([a]_{p^k}\right)^{p^{\ell+1}(p-1)}=[1]_{p^k}</mrow>
+                </md>.
+                We finish the proof by showing that <m>\left([a]_{p^k}\right)^{p^{k-2}(p-1)}\ne [1]_{p^k}</m> for all <m>k\geq 2</m>: or equivalently, that <m>a^{p^{k-2}(p-1)}\not\equiv 1\pmod p^k</m>. The proof is by induction. The base case follows trivially, since <m>[a]_{p^2}</m> is assumed to be a primitive root modulo <m>p^2</m>.
+            </p>
+            <p>
+                For the induction step, we assume that <m>k\geq 2</m> and that 
+                <md>
+                   a^{p^{k-2}(p-1)}\not\equiv 1 \pmod p^k    
+                </md>,
+                and we must show that 
+                <md>
+                    a^{p^{k+1-2}(p-1)}=a^{p^{k-1}(p-1)}\not\equiv 1\pmod p^{k+1}
+                </md>.
+                Since <m>\phi(p^{k-1})=p^{k-2}(p-1)</m>, we know that 
+                <md>
+                    a^{p^{k-2}(p-1)}\equiv 1\pmod p^{k-1}
+                </md>
+                and hence that <m>a^{p^{k-2}(p-1)}=1+qp^{k-1}</m> for some <m>q\in \Z</m>. Since <m>a^{p^{k-2}(p-1)}\not\equiv 1\pmod p^k</m>, we have <m>p\nmid q</m>. But then we have 
+                <md>
+                    <mrow>a^{p^{k-1}(p-1)} \amp = (a^{p^{k-2}(p-1)})^p </mrow>
+                    <mrow> \amp = (1+qp^{k-1})^p </mrow>
+                    <mrow> \amp \equiv 1+qp^{k}+\sum_{\ell=2}^p{p\choose \ell}(qp^{\ell (k-1)} </mrow>
+                    <mrow> \amp \equiv 1+qp^{k} \pmod p^{k+1} </mrow>
+                    <mrow> \amp \not\equiv 1 \pmod p^{k+1} \amp (p\nmid q)</mrow>
+                </md>.
+                In the penultimate line above, we have used the fact that <m>p^{k+1}\mid {p\choose \ell}qp^{\ell(k-1)}</m> for all <m>2\leq \ell \geq p</m>. Show this for yourself: you will notice that we need <m>k\geq 2</m> at some point!
+            </p>
+        </proof>
+    </proposition>
+    </subsection>
+    
+
+</section>
