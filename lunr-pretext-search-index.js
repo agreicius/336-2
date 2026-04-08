@@ -925,7 +925,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.4",
   "title": "Existence of primitive roots",
-  "body": " Existence of primitive roots     Determine the set of positive integers for which there is a primitive root modulo .      Primitive roots modulo  Let's begin with the main result we wish to prove.   Primitive roots modulo   Let be a positive integer. There is a primitive root for if and only if one of the following conditions holds:    ;     for some odd prime and positive integer ;     for some odd prime and positive integer .       Our lead-up to the proof of this theorem will include a sequence of results that are interesting in their own right, and which bring further nuance to the question of primitive roots. In a little more detail, we will be using what might be described as lifting arguments that take a primitive root modulo in and try to lift it to a primitive root modulo higher powers . As such we will be making use of the maps you treated in a recent homework.   Primitive roots modulo , odd   Let be an ood prime. If is a primitive root of , then either or is a primitive root of .    Recall that . In your homework, you proved that the function is well-defined and satisfies nice for all . Assume is a primitive root modulo , and let . Since , it follows from the properties above that , and thus thus that ( ). Since furthermore , we have ( ). Since , it follows that or . In the latter case, is a primitive root modulo , and we are done.  Assume now that . We show in this case that has order , and hence is a primitvie root modulo . Let . Since , we know that , and hence, using our same reasoning as above, that . It thus suffices to show that . For this we use the binomial theorem: , since . It follows that , as desired.     Primitive root modulo , odd   Let be an odd prime, and let . If is a primitive root modulo , then is a primitive root modulo .  In particular, has a primitive root for all positive integers .    Let be a primitive root modulo , and let for . The same reasoning as in shows that , and thus that for some . To show that , it then suffices to show that : this is because . We finish the proof by showing that for all : or equivalently, that . The proof is by induction. The base case follows trivially, since is assumed to be a primitive root modulo .  For the induction step, we assume that and that , and we must show that . Since , we know that and hence that for some . Since , we have . But then we have . In the penultimate line above, we have used the fact that for all . Show this for yourself: you will notice that we need at some point!     "
+  "body": " Existence of primitive roots     Determine the set of positive integers for which there is a primitive root modulo .      Primitive roots modulo  Let's begin with the main result we wish to prove.   Primitive roots modulo   Let be a positive integer. There is a primitive root for if and only if one of the following conditions holds:    ;     for some odd prime and positive integer ;     for some odd prime and positive integer .       Our lead-up to the proof of this theorem will include a sequence of results that are interesting in their own right, and which bring further nuance to the question of primitive roots. In a little more detail, we will be using what might be described as lifting arguments that take a primitive root modulo in and try to lift it to a primitive root modulo higher powers . As such we will be making use of the maps you treated in a recent homework.   Primitive roots modulo , odd   Let be an ood prime. If is a primitive root of , then either or is a primitive root of .    Recall that . In your homework, you proved that the function is well-defined and satisfies for all . Assume is a primitive root modulo , and let . Since , it follows from the properties above that , and thus thus that ( ). Since furthermore , we have ( ). Since , it follows that or . In the latter case, is a primitive root modulo , and we are done.  Assume now that . We show in this case that has order , and hence is a primitvie root modulo . Let . Since , we know that , and hence, using our same reasoning as above, that . It thus suffices to show that . For this we use the binomial theorem: , since . It follows that , as desired.     Primitive root modulo , odd   Let be an odd prime, and let . If is a primitive root modulo , then is a primitive root modulo .  In particular, has a primitive root for all positive integers .    Let be a primitive root modulo , and let for . The same reasoning as in shows that , and thus that for some . To show that , it then suffices to show that : this is because . We finish the proof by showing that for all : or equivalently, that . The proof is by induction. The base case follows trivially, since is assumed to be a primitive root modulo .  For the induction step, we assume that and that , and we must show that . Since , we know that and hence that for some . Since , we have . But then we have . In the penultimate line above, we have used the fact that for all . Show this for yourself: you will notice that we need at some point!    The next proposition investigates the structure of for . As a negative result, it implies that there is no primitive root for for such , since every element has order at most  . On the other hand, it also indicates that the element has order and almost generated the entire unit group.   Primitive roots for ,   Let .    for all . As a result, there is no primitive root for .    The element has order . Every element in can we written uniquely in the form for some .          Done in discussion section. (Or see text.)    Statement about order done in discussion section. (Or see text.) The second statement is left as a homework exercise.       The next proposition, in combination with the previous results, completes the proof of .   Remaining cases for primitive roots   Let be a positive integer.   If with an odd prime, then has a primitive root.    If is not of the form , , or , where is an odd prime, then does not have a primitive root.       This is left as a homework exercise.     "
 },
 {
   "id": "s_primitive_root_n-2",
@@ -952,7 +952,7 @@ var ptx_lunr_docs = [
   "type": "Proposition",
   "number": "1.4.2",
   "title": "Primitive roots modulo <span class=\"process-math\">\\(p^2\\text{,}\\)<\/span> <span class=\"process-math\">\\(p\\)<\/span> odd.",
-  "body": " Primitive roots modulo , odd   Let be an ood prime. If is a primitive root of , then either or is a primitive root of .    Recall that . In your homework, you proved that the function is well-defined and satisfies nice for all . Assume is a primitive root modulo , and let . Since , it follows from the properties above that , and thus thus that ( ). Since furthermore , we have ( ). Since , it follows that or . In the latter case, is a primitive root modulo , and we are done.  Assume now that . We show in this case that has order , and hence is a primitvie root modulo . Let . Since , we know that , and hence, using our same reasoning as above, that . It thus suffices to show that . For this we use the binomial theorem: , since . It follows that , as desired.   "
+  "body": " Primitive roots modulo , odd   Let be an ood prime. If is a primitive root of , then either or is a primitive root of .    Recall that . In your homework, you proved that the function is well-defined and satisfies for all . Assume is a primitive root modulo , and let . Since , it follows from the properties above that , and thus thus that ( ). Since furthermore , we have ( ). Since , it follows that or . In the latter case, is a primitive root modulo , and we are done.  Assume now that . We show in this case that has order , and hence is a primitvie root modulo . Let . Since , we know that , and hence, using our same reasoning as above, that . It thus suffices to show that . For this we use the binomial theorem: , since . It follows that , as desired.   "
 },
 {
   "id": "prop_prim_mod_primepower",
@@ -962,6 +962,123 @@ var ptx_lunr_docs = [
   "number": "1.4.3",
   "title": "Primitive root modulo <span class=\"process-math\">\\(p^k\\text{,}\\)<\/span><span class=\"process-math\">\\(p\\)<\/span> odd.",
   "body": " Primitive root modulo , odd   Let be an odd prime, and let . If is a primitive root modulo , then is a primitive root modulo .  In particular, has a primitive root for all positive integers .    Let be a primitive root modulo , and let for . The same reasoning as in shows that , and thus that for some . To show that , it then suffices to show that : this is because . We finish the proof by showing that for all : or equivalently, that . The proof is by induction. The base case follows trivially, since is assumed to be a primitive root modulo .  For the induction step, we assume that and that , and we must show that . Since , we know that and hence that for some . Since , we have . But then we have . In the penultimate line above, we have used the fact that for all . Show this for yourself: you will notice that we need at some point!   "
+},
+{
+  "id": "prop_primitive_power_of_2",
+  "level": "2",
+  "url": "s_primitive_root_n.html#prop_primitive_power_of_2",
+  "type": "Proposition",
+  "number": "1.4.4",
+  "title": "Primitive roots for <span class=\"process-math\">\\(2^k\\text{,}\\)<\/span> <span class=\"process-math\">\\(k\\geq 3\\)<\/span>.",
+  "body": " Primitive roots for ,   Let .    for all . As a result, there is no primitive root for .    The element has order . Every element in can we written uniquely in the form for some .          Done in discussion section. (Or see text.)    Statement about order done in discussion section. (Or see text.) The second statement is left as a homework exercise.      "
+},
+{
+  "id": "prop_primitive_remaining_cases",
+  "level": "2",
+  "url": "s_primitive_root_n.html#prop_primitive_remaining_cases",
+  "type": "Proposition",
+  "number": "1.4.5",
+  "title": "Remaining cases for primitive roots.",
+  "body": " Remaining cases for primitive roots   Let be a positive integer.   If with an odd prime, then has a primitive root.    If is not of the form , , or , where is an odd prime, then does not have a primitive root.       This is left as a homework exercise.   "
+},
+{
+  "id": "s_quad_resid",
+  "level": "1",
+  "url": "s_quad_resid.html",
+  "type": "Section",
+  "number": "1.5",
+  "title": "Quadratic residues and <span class=\"process-math\">\\(n\\)<\/span>-th powers",
+  "body": " Quadratic residues and -th powers     Describe the -th powers of in terms of a primitive root modulo .    Define the Legendre symbol and derive some preliminary properties.      The -th powers of   -th power   Let be a positive integer, and let be a prime. An element is an -th power if there is an satisfying . We call an -th root of in this case.  Similarly, we say an integer is an -th power modulo if is an -th power in : equivalently, if there is an integer such that . We call an -th root of modulo in this case.     -th powers modulo   Let be a prime, let be a primitive root, and let be a positive integer. Define to be the set of all -th powers in , and let    For all , we have if and only if .    Let . We have . In particular, we have if and only if ; equivalently, is an -th power modulo if and only if .     .          Any element can be written as for some . We have if and only if for some : or equivalently, if and only if for some . Since , we have we have if and only if . Thus is an -th power if and only if there exists such that . From congruence theory from the previous quarter, we know this is true if and only if .    Since by the first part we know that if and only if , to prove the first equality, it suffices to show that . If , then for some , and . For the other inclusion, if , then for some , and thus . Since and , it follows that , as desired.  As for the second equality, since any element satisfies , we have . Since, furthermore, the polynomial has at most roots and , we conclude that .    We have .        Squares modulo   Let be an odd prime. There are exactly squares in . In other words, half of the elements of have square roots in .    This is the special case of .     -th powers modulo   Let . For each positive divisor of , determine the set of -th powers in .    The divisors of are . The element is a primitive root modulo . We will write for simplicity. We have . Let's confirm our answer with Sage.       Quadratic residues   Quadratic residue   Let be an odd prime. An element is a quadratic residue if is a square in (equivalently, if has a square root in ). Similarly, an integer with is a quadratic residue modulo if is a square modulo .     Legendre symbol   Let be an odd prime. Given an integer , we define the Legendre symbol  as . The Legendre symbol (with respect to ) gives rise to a function defined as .     Quadratic residues   Let be an odd prime.   If , then .     for all .     for all with .    Exactly ( , half) of the elements of are quadratic residues modulo .    Euler's criterion   for all .          This is essentially by definition and the observation that if and only if , if and only if .    It is clear that if either of and are divisible by , then . Assume now that and are relatively prime to . Let be a primitive root modulo , and let and . We know that an element is a square if and only if is even. It follows that , . Furthermore, since , we have . We conclude that .    We have , since .    Let . By , we know that is a square if and only if . Since satisfies , and since the only roots of are and , we see that either and , or and . In both cases we have , as desired.        Sum of Legendre symbols   Let be an odd prime. We have .     Square roots of modulo   Let be an odd prime. We have .     "
+},
+{
+  "id": "s_quad_resid-2",
+  "level": "2",
+  "url": "s_quad_resid.html#s_quad_resid-2",
+  "type": "Objectives",
+  "number": "1.5",
+  "title": "",
+  "body": "   Describe the -th powers of in terms of a primitive root modulo .    Define the Legendre symbol and derive some preliminary properties.    "
+},
+{
+  "id": "d_nth_power",
+  "level": "2",
+  "url": "s_quad_resid.html#d_nth_power",
+  "type": "Definition",
+  "number": "1.5.1",
+  "title": "<span class=\"process-math\">\\(n\\)<\/span>-th power.",
+  "body": " -th power   Let be a positive integer, and let be a prime. An element is an -th power if there is an satisfying . We call an -th root of in this case.  Similarly, we say an integer is an -th power modulo if is an -th power in : equivalently, if there is an integer such that . We call an -th root of modulo in this case.   "
+},
+{
+  "id": "th_nth_powers_mod_p",
+  "level": "2",
+  "url": "s_quad_resid.html#th_nth_powers_mod_p",
+  "type": "Theorem",
+  "number": "1.5.2",
+  "title": "<span class=\"process-math\">\\(n\\)<\/span>-th powers modulo <span class=\"process-math\">\\(p\\)<\/span>.",
+  "body": " -th powers modulo   Let be a prime, let be a primitive root, and let be a positive integer. Define to be the set of all -th powers in , and let    For all , we have if and only if .    Let . We have . In particular, we have if and only if ; equivalently, is an -th power modulo if and only if .     .          Any element can be written as for some . We have if and only if for some : or equivalently, if and only if for some . Since , we have we have if and only if . Thus is an -th power if and only if there exists such that . From congruence theory from the previous quarter, we know this is true if and only if .    Since by the first part we know that if and only if , to prove the first equality, it suffices to show that . If , then for some , and . For the other inclusion, if , then for some , and thus . Since and , it follows that , as desired.  As for the second equality, since any element satisfies , we have . Since, furthermore, the polynomial has at most roots and , we conclude that .    We have .      "
+},
+{
+  "id": "cor_squares_mod_p",
+  "level": "2",
+  "url": "s_quad_resid.html#cor_squares_mod_p",
+  "type": "Corollary",
+  "number": "1.5.3",
+  "title": "Squares modulo <span class=\"process-math\">\\(p\\)<\/span>.",
+  "body": " Squares modulo   Let be an odd prime. There are exactly squares in . In other words, half of the elements of have square roots in .    This is the special case of .   "
+},
+{
+  "id": "eg_nth_powers_mod_13",
+  "level": "2",
+  "url": "s_quad_resid.html#eg_nth_powers_mod_13",
+  "type": "Example",
+  "number": "1.5.4",
+  "title": "<span class=\"process-math\">\\(n\\)<\/span>-th powers modulo <span class=\"process-math\">\\(13\\)<\/span>.",
+  "body": " -th powers modulo   Let . For each positive divisor of , determine the set of -th powers in .    The divisors of are . The element is a primitive root modulo . We will write for simplicity. We have . Let's confirm our answer with Sage.    "
+},
+{
+  "id": "d_quad_resid",
+  "level": "2",
+  "url": "s_quad_resid.html#d_quad_resid",
+  "type": "Definition",
+  "number": "1.5.5",
+  "title": "Quadratic residue.",
+  "body": " Quadratic residue   Let be an odd prime. An element is a quadratic residue if is a square in (equivalently, if has a square root in ). Similarly, an integer with is a quadratic residue modulo if is a square modulo .   "
+},
+{
+  "id": "d_legendre_function",
+  "level": "2",
+  "url": "s_quad_resid.html#d_legendre_function",
+  "type": "Definition",
+  "number": "1.5.6",
+  "title": "Legendre symbol.",
+  "body": " Legendre symbol   Let be an odd prime. Given an integer , we define the Legendre symbol  as . The Legendre symbol (with respect to ) gives rise to a function defined as .   "
+},
+{
+  "id": "th_legendre_symbol",
+  "level": "2",
+  "url": "s_quad_resid.html#th_legendre_symbol",
+  "type": "Theorem",
+  "number": "1.5.7",
+  "title": "Quadratic residues.",
+  "body": " Quadratic residues   Let be an odd prime.   If , then .     for all .     for all with .    Exactly ( , half) of the elements of are quadratic residues modulo .    Euler's criterion   for all .          This is essentially by definition and the observation that if and only if , if and only if .    It is clear that if either of and are divisible by , then . Assume now that and are relatively prime to . Let be a primitive root modulo , and let and . We know that an element is a square if and only if is even. It follows that , . Furthermore, since , we have . We conclude that .    We have , since .    Let . By , we know that is a square if and only if . Since satisfies , and since the only roots of are and , we see that either and , or and . In both cases we have , as desired.      "
+},
+{
+  "id": "cor_sum_legendre",
+  "level": "2",
+  "url": "s_quad_resid.html#cor_sum_legendre",
+  "type": "Corollary",
+  "number": "1.5.8",
+  "title": "Sum of Legendre symbols.",
+  "body": " Sum of Legendre symbols   Let be an odd prime. We have .   "
+},
+{
+  "id": "cor_legendre_minus_1",
+  "level": "2",
+  "url": "s_quad_resid.html#cor_legendre_minus_1",
+  "type": "Corollary",
+  "number": "1.5.9",
+  "title": "Square roots of <span class=\"process-math\">\\(-1\\)<\/span> modulo <span class=\"process-math\">\\(p\\)<\/span>.",
+  "body": " Square roots of modulo   Let be an odd prime. We have .   "
 },
 {
   "id": "appendix-notation",

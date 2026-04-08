@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(n\)</span>-th powers modulo <span class="process-math">\(13\)</span>.</span>
+</h4>
+<div class="para">Let <span class="process-math">\(p=13\text{.}\)</span> For each positive divisor <span class="process-math">\(n\)</span> of <span class="process-math">\(\phi(p)\text{,}\)</span> determine the set <span class="process-math">\(S_n\)</span> of <span class="process-math">\(n\)</span>-th powers in <span class="process-math">\(\F_{13}^*\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_nth_powers_mod_13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">The divisors of <span class="process-math">\(\phi(13)=12\)</span> are <span class="process-math">\(1,2,3,4,6,12\text{.}\)</span> The element <span class="process-math">\([2]_{13}\)</span> is a primitive root modulo <span class="process-math">\(13\text{.}\)</span> We will write <span class="process-math">\(2=[2]_{13}\)</span> for simplicity. We have</div>
+<div class="displaymath process-math">
+\begin{align*}
+S_{1} \amp = \angvec{2}=\F_{13}^* \amp \\
+S_2\amp =\angvec{2^2}=\{4,4^2=3,4^3=12,4^4=9,4^5=10,4^6=1\} \amp \\
+S_{3} \amp = \angvec{2^3}=\{8, 8^2=12,8^3=5, 8^4=1\} \amp \\
+S_{4} \amp = \angvec{2^4}=\{3,3^2=9, 3^3=1\} \amp \\
+S_{6} \amp = \angvec{2^6}=\{12,12^2=1\} \amp \\
+S_{12} \amp = \angvec{2^{12}}=\{1\}\amp \text{.}
+\end{align*}
+</div>
+<div class="para">Let’s confirm our answer with Sage.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_nth_powers_mod_13-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="eg_nth_powers_mod_13-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R=Integers(13)
+for n in [1,2,3,4,6,12]:
+    print([n,set([x^n for x in R if x!=0])])
+</script></div>
+<div class="autopermalink" data-description="Solution 1.5.4.1"><a href="#eg_nth_powers_mod_13-3" title="Copy heading and permalink for Solution 1.5.4.1" aria-label="Copy heading and permalink for Solution 1.5.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.5.4: n-th powers modulo 13"><a href="#eg_nth_powers_mod_13" title="Copy heading and permalink for Example 1.5.4: n-th powers modulo 13" aria-label="Copy heading and permalink for Example 1.5.4: n-th powers modulo 13">🔗</a></div></article><span class="incontext"><a class="internal" href="s_quad_resid.html#eg_nth_powers_mod_13">in-context</a></span>
+</body>
+</html>

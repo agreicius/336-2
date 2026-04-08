@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Quadratic residues and n-th powers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Elementary number theory">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.13.2';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.56158f4758afd49f.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.46363294e9238f09.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.b12a7b3f0773ebcd.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body id="elemnumbthyNU" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Elementary number theory</span> <span class="subtitle">A Kursobjekt for Math 336</span></a></h1>
+<p class="byline">Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_primitive_root_n.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="c_336-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="my-great-book-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\( \renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\T}{{\mathbb T}}
+\newcommand{\F}{{\mathbb F}}
+\newcommand{\PP}{{\mathbb P}}
+\newcommand{\HH}{{\mathbb H}}
+\newcommand{\compose}{\circ}
+\newcommand{\bolda}{{\mathbf a}}
+\newcommand{\boldb}{{\mathbf b}}
+\newcommand{\boldc}{{\mathbf c}}
+\newcommand{\boldd}{{\mathbf d}}
+\newcommand{\bolde}{{\mathbf e}}
+\newcommand{\boldi}{{\mathbf i}}
+\newcommand{\boldj}{{\mathbf j}}
+\newcommand{\boldk}{{\mathbf k}}
+\newcommand{\boldn}{{\mathbf n}}
+\newcommand{\boldp}{{\mathbf p}}
+\newcommand{\boldq}{{\mathbf q}}
+\newcommand{\boldr}{{\mathbf r}}
+\newcommand{\bolds}{{\mathbf s}}
+\newcommand{\boldt}{{\mathbf t}}
+\newcommand{\boldu}{{\mathbf u}}
+\newcommand{\boldv}{{\mathbf v}}
+\newcommand{\boldw}{{\mathbf w}}
+\newcommand{\boldx}{{\mathbf x}}
+\newcommand{\boldy}{{\mathbf y}}
+\newcommand{\boldz}{{\mathbf z}}
+\newcommand{\boldzero}{{\mathbf 0}}
+\newcommand{\boldmod}{\boldsymbol{ \bmod }}
+\newcommand{\boldT}{{\mathbf T}}
+\newcommand{\boldN}{{\mathbf N}}
+\newcommand{\boldB}{{\mathbf B}}
+\newcommand{\boldF}{{\mathbf F}}
+\newcommand{\boldS}{{\mathbf S}}
+\newcommand{\boldE}{{\mathbf E}}
+\newcommand{\boldG}{{\mathbf G}}
+\newcommand{\boldK}{{\mathbf K}}
+\newcommand{\boldL}{{\mathbf L}}
+\DeclareMathOperator{\ch}{char}
+\DeclareMathOperator{\lns}{lns}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\NS}{null}
+\DeclareMathOperator{\RS}{row}
+\DeclareMathOperator{\CS}{col}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arcsin}{Arcsin}
+\DeclareMathOperator{\Arccos}{Arccos}
+\DeclareMathOperator{\Arctan}{Arctan}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Aff}{Aff}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\mdeg}{mdeg}
+\DeclareMathOperator{\Lt}{Lt}
+\DeclareMathOperator{\Lc}{Lc}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\Frob}{Frob}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\diver}{div}
+\DeclareMathOperator{\flux}{flux}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\ML}{M}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\len}{len}
+\DeclareMathOperator{\proj}{proj}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\injects}{\hookrightarrow}
+\newcommand{\bijects}{\leftrightarrow}
+\newcommand{\isomto}{\overset{\sim}{\rightarrow}}
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil#1\right\rceil}
+\newcommand{\mclass}[2][m]{[#2]_{#1}}
+\newcommand{\val}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\valuation}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\normalin}{\trianglelefteq}
+\newcommand{\angvec}[1]{\langle #1\rangle}
+\newcommand{\varpoly}[2]{#1_{#2}x^{#2}+#1_{#2-1}x^{#2-1}\cdots +#1_1x+#1_0}
+\newcommand{\varpower}[1][a]{#1_0+#1_1x+#1_1x^2+\cdots}
+\newcommand{\limasto}[2][x]{\lim_{#1\rightarrow #2}}
+\newcommand{\abcdmatrix}[4]{\begin{bmatrix}#1\amp #2\\ #3\amp #4 \end{bmatrix}
+}
+\newenvironment{amatrix}[1][ccc|c]{\left[\begin{array}{#1}}{\end{array}\right]}
+\newenvironment{linsys}[2][m]{
+\begin{array}[#1]{@{}*{#2}{rc}r@{}}
+}{
+\end{array}}
+\newcommand{\eqsys}{\begin{array}{rcrcrcr}
+a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
+a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \\
+a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp b_m
+\end{array}
+}
+\newcommand{\numeqsys}{\begin{array}{rrcrcrcr}
+e_1:\amp  a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
+e_2: \amp a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \\
+e_m: \amp a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp b_m
+\end{array}
+}
+\newcommand{\homsys}{\begin{array}{rcrcrcr}
+a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp 0\\
+a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp 0\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp \\
+a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp 0
+\end{array}
+}
+\newcommand{\vareqsys}[4]{
+\begin{array}{ccccccc}
+#3_{11}x_{1}\amp +\amp #3_{12}x_{2}\amp +\cdots+\amp  #3_{1#2}x_{#2}\amp =\amp #4_1\\
+#3_{21}x_{1}\amp +\amp #3_{22}x_{2}\amp +\cdots+\amp #3_{2#2}x_{#2}\amp =\amp #4_2\\
+\vdots \amp \amp \vdots \amp  \amp \vdots \amp =\amp  \\
+#3_{#1 1}x_{1}\amp +\amp #3_{#1 2}x_{2}\amp +\cdots +\amp #3_{#1 #2}x_{#2}\amp =\amp #4_{#1}
+\end{array}
+}
+\newcommand{\genmatrix}[1][a]{
+\begin{bmatrix}
+#1_{11} \amp  #1_{12} \amp  \cdots \amp  #1_{1n} \\
+#1_{21} \amp  #1_{22} \amp  \cdots \amp  #1_{2n} \\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \\
+#1_{m1} \amp  #1_{m2} \amp  \cdots \amp  #1_{mn}
+\end{bmatrix}
+}
+\newcommand{\varmatrix}[3]{
+\begin{bmatrix}
+#3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \\
+#3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \\
+#3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}
+\end{bmatrix}
+}
+\newcommand{\augmatrix}{
+\begin{amatrix}[cccc|c]
+a_{11} \amp  a_{12} \amp  \cdots \amp  a_{1n} \amp b_{1}\\
+a_{21} \amp  a_{22} \amp  \cdots \amp  a_{2n} \amp b_{2}\\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
+a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
+\end{amatrix}
+}
+\newcommand{\varaugmatrix}[4]{
+\begin{amatrix}[cccc|c]
+#3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \amp #4_{1}\\
+#3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \amp #4_{2}\\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
+#3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}\amp #4_{#1}
+\end{amatrix}
+}
+\newcommand{\spaceforemptycolumn}{\makebox[\wd\boxofmathplus]{\ }}
+
+\newcommand{\generalmatrix}[3]{
+\left(
+\begin{array}{cccc}
+#1_{1,1}  \amp #1_{1,2}  \amp \ldots  \amp #1_{1,#2}  \\
+#1_{2,1}  \amp #1_{2,2}  \amp \ldots  \amp #1_{2,#2}  \\
+\amp \vdots                         \\
+#1_{#3,1} \amp #1_{#3,2} \amp \ldots  \amp #1_{#3,#2}
+\end{array}
+\right)  }
+\newcommand{\colvec}[2][c]{\begin{amatrix}[#1] #2 \end{amatrix}}
+\newcommand{\rowvec}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\qr}[2]{\Bigl(\frac{#1}{#2}\Bigr)}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="c_foundations.html" class="internal"><span class="codenumber">0</span> <span class="title">Foundations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_sets_functions.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Sets and functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_sets_functions.html#ss_sets" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_sets_functions.html#ss_functions" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_sets_functions.html#ss_tuples_cart_prod" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Tuples and Cartesian product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_sets_functions.html#ss_cardinality" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Cardinality and countability</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_logic.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Logic</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_logic.html#ss_propositional_calculus" class="internal"><span class="codenumber">0.2.1</span> <span class="title">Propositional logic</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_logic.html#ss_predicate_logic" class="internal"><span class="codenumber">0.2.2</span> <span class="title">Predicate logic</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_proof_technique.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Proof techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_proof_technique.html#ss_logical_structure" class="internal"><span class="codenumber">0.3.1</span> <span class="title">Logical structure</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_implication" class="internal"><span class="title">Implication</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_disjunction" class="internal"><span class="title">Disjunction</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_equivalence" class="internal"><span class="title">Equivalence</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_logical_chains" class="internal"><span class="title">Chains of implications/equivalences</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_proof_by_contradiction" class="internal"><span class="title">Proof by contradiction</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_proof_technique.html#ss_Equalities" class="internal"><span class="codenumber">0.3.2</span> <span class="title">Equalities</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_chain_equalities" class="internal"><span class="title">Chain of equalities</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_proof_technique.html#ss_set_properties" class="internal"><span class="codenumber">0.3.3</span> <span class="title">Basic set properties</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_set_inclusion" class="internal"><span class="title">Set inclusion</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_set_equality" class="internal"><span class="title">Set equality</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_proof_technique.html#ss_function_properties" class="internal"><span class="codenumber">0.3.4</span> <span class="title">Basic function properties</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_function_equality" class="internal"><span class="title">Function equality</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_injective_surjective_bijective" class="internal"><span class="title">Injective, surjective, bijective</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_proof_technique.html#ss_mathematical_induction" class="internal"><span class="codenumber">0.3.5</span> <span class="title">Mathematical induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_weak_induction" class="internal"><span class="title">Proof by induction</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_strong_induction" class="internal"><span class="title">Proof by strong induction</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="c_336-2.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 336-2</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_mod_rings.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integers modulo <span class="process-math">\(n\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_mod_rings.html#ss_cong" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Congruence classes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_mod_rings.html#ss_cong_ring_structure" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Ring structure of <span class="process-math">\(\Z/n\Z\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_mod_rings.html#ss_mult_units_mod_n" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Units modulo <span class="process-math">\(n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_mod_rings.html#ss_units_mod_n_Sage" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Sage examples</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_order_mod_n.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Order of modular units</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_order_mod_n.html#ss_order_prim_roots" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Order and primitive roots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_order_mod_n.html#ss_sage_order" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Sage examples</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_primitive_roots.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Primitive roots</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_roots.html#ss_prim_roots_intro" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_roots.html#ss_prim_roots_polys" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Polynomials with coefficients in rings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_roots.html#ss_prim_roots_mod_p" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Primitive roots modulo a prime</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_roots.html#ss_sage_examples" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Sage examples</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_primitive_root_n.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Existence of primitive roots</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_root_n.html#ss_primitive_roots_mod_n" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Primitive roots modulo <span class="process-math">\(n\)</span></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="s_quad_resid.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Quadratic residues and <span class="process-math">\(n\)</span>-th powers</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_quad_resid.html#ss_nth_powers" class="internal"><span class="codenumber">1.5.1</span> <span class="title">The <span class="process-math">\(n\)</span>-th powers of <span class="process-math">\(\Z/p\Z\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_quad_resid.html#ss_quad_resid" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Quadratic residues</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="my-great-book-6.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples and Sage cells</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-vids.html" class="internal"><span class="codenumber">E</span> <span class="title">Mantras and fiats</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_quad_resid"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic residues and <span class="process-math">\(n\)</span>-th powers</span>
+</h2>
+<article class="objectives goal-like" id="s_quad_resid-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal" id="s_quad_resid-2-1">
+<li id="s_quad_resid-2-1-1">
+<div class="para" id="s_quad_resid-2-1-1-1">Describe the <span class="process-math">\(n\)</span>-th powers of <span class="process-math">\(\Z/p\Z\)</span> in terms of a primitive root modulo <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_quad_resid-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.5.1"><a href="#s_quad_resid-2-1-1" title="Copy heading and permalink for Objective 1.5.1" aria-label="Copy heading and permalink for Objective 1.5.1">🔗</a></div>
+</li>
+<li id="s_quad_resid-2-1-2">
+<div class="para" id="s_quad_resid-2-1-2-1">Define the Legendre symbol and derive some preliminary properties.<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_resid-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.5.2"><a href="#s_quad_resid-2-1-2" title="Copy heading and permalink for Objective 1.5.2" aria-label="Copy heading and permalink for Objective 1.5.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Objectives 1.5"><a href="#s_quad_resid-2" title="Copy heading and permalink for Objectives 1.5" aria-label="Copy heading and permalink for Objectives 1.5">🔗</a></div></article><section class="subsection" id="ss_nth_powers"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The <span class="process-math">\(n\)</span>-th powers of <span class="process-math">\(\Z/p\Z\)</span></span>
+</h3>
+<article class="definition definition-like" id="d_nth_power"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(n\)</span>-th power.</span>
+</h4>
+<div class="para" id="d_nth_power-2-1">Let <span class="process-math">\(n\)</span> be a positive integer, and let <span class="process-math">\(p\)</span> be a prime. An element <span class="process-math">\(r\in \F_p\)</span> is an <dfn class="terminology"><span class="process-math">\(n\)</span>-th power</dfn> if there is an <span class="process-math">\(s\in \F_p\)</span> satisfying <span class="process-math">\(s^n=r\text{.}\)</span> We call <span class="process-math">\(s\)</span> an <dfn class="terminology"><span class="process-math">\(n\)</span>-th root</dfn> of <span class="process-math">\(r\)</span> in this case.<div class="autopermalink" data-description="Paragraph"><a href="#d_nth_power-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_nth_power-2-2">Similarly, we say an integer <span class="process-math">\(a\in \Z\)</span> is an <dfn class="terminology"><span class="process-math">\(n\)</span>-th power modulo <span class="process-math">\(p\)</span></dfn> if <span class="process-math">\([a]_p\)</span> is an <span class="process-math">\(n\)</span>-th power in <span class="process-math">\(\F_p\text{:}\)</span> equivalently, if there is an integer <span class="process-math">\(b\in \Z\)</span> such that <span class="process-math">\(b^n\equiv a \pmod p\text{.}\)</span> We call <span class="process-math">\(b\)</span> an <dfn class="terminology"><span class="process-math">\(n\)</span>-th root of <span class="process-math">\(a\)</span> modulo <span class="process-math">\(p\)</span></dfn> in this case.<div class="autopermalink" data-description="Paragraph"><a href="#d_nth_power-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.5.1: n-th power"><a href="#d_nth_power" title="Copy heading and permalink for Definition 1.5.1: n-th power" aria-label="Copy heading and permalink for Definition 1.5.1: n-th power">🔗</a></div></article><article class="theorem theorem-like" id="th_nth_powers_mod_p"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(n\)</span>-th powers modulo <span class="process-math">\(p\)</span>.</span>
+</h4>
+<div class="para logical" id="th_nth_powers_mod_p-2-1">
+<div class="para">Let <span class="process-math">\(p\)</span> be a prime, let <span class="process-math">\(r\in \F_p^*\)</span> be a primitive root, and let <span class="process-math">\(n\)</span> be a positive integer. Define <span class="process-math">\(S_n\)</span> to be the set of all <span class="process-math">\(n\)</span>-th powers in <span class="process-math">\(\F_p^*\text{,}\)</span> and let <span class="process-math">\(d=\gcd(n,p-1)\)</span>
+</div>
+<ol class="decimal" id="th_nth_powers_mod_p-2-1-8">
+<li id="th_nth_powers_mod_p-2-1-8-1">
+<div class="para" id="th_nth_powers_mod_p-2-1-8-1-1">For all <span class="process-math">\(i\in \Z\text{,}\)</span> we have <span class="process-math">\(r^i\in S_n\)</span> if and only if <span class="process-math">\(d\mid i\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_nth_powers_mod_p-2-1-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_nth_powers_mod_p-2-1-8-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_nth_powers_mod_p-2-1-8-2">
+<div class="para logical" id="th_nth_powers_mod_p-2-1-8-2-1">
+<div class="para">Let <span class="process-math">\(f(x)=x^{(p-1)/d}-1\in \F_p[x]\text{.}\)</span> We have</div>
+<div class="displaymath process-math" id="th_nth_powers_mod_p-2-1-8-2-1-2">
+\begin{align}
+S_n \amp = \angvec{r^d}= \{s\in \F_p\mid f(s)=0\}\text{.}\tag{1.5.1}
+\end{align}
+</div>
+<div class="para">In particular, we have <span class="process-math">\(s\in S_n\)</span> if and only if <span class="process-math">\(s^{(p-1)/d}=1\text{;}\)</span> equivalently, <span class="process-math">\(a\in \Z\)</span> is an <span class="process-math">\(n\)</span>-th power modulo <span class="process-math">\(p\)</span> if and only if <span class="process-math">\(a^{(p-1)/d}\equiv 1\pmod p\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_nth_powers_mod_p-2-1-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_nth_powers_mod_p-2-1-8-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="th_nth_powers_mod_p-2-1-8-3">
+<div class="para" id="th_nth_powers_mod_p-2-1-8-3-1">
+<span class="process-math">\(\abs{S_n}=(p-1)/\gcd(n,p-1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_nth_powers_mod_p-2-1-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#th_nth_powers_mod_p-2-1-8-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_nth_powers_mod_p-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.5.2: n-th powers modulo p"><a href="#th_nth_powers_mod_p" title="Copy heading and permalink for Theorem 1.5.2: n-th powers modulo p" aria-label="Copy heading and permalink for Theorem 1.5.2: n-th powers modulo p">🔗</a></div></article><details id="th_nth_powers_mod_p-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_nth_powers_mod_p-3-1">
+<ol class="decimal" id="th_nth_powers_mod_p-3-1-1">
+<li id="th_nth_powers_mod_p-3-1-1-1">
+<div class="para" id="th_nth_powers_mod_p-3-1-1-1-1">Any element <span class="process-math">\(s\in \F_p^*\)</span> can be written as <span class="process-math">\(s=r^i\)</span> for some <span class="process-math">\(i\in \Z\text{.}\)</span> We have <span class="process-math">\(s\in S_n\)</span> if and only if <span class="process-math">\(s=t^n\)</span> for some <span class="process-math">\(t=r^j\text{:}\)</span> or equivalently, if and only if <span class="process-math">\(r^i=(r^j)^n=r^{nj}\)</span> for some <span class="process-math">\(j\in \Z\text{.}\)</span> Since <span class="process-math">\(\ord r=p-1\text{,}\)</span> we have we have <span class="process-math">\(r^i=r^{nj}\)</span> if and only if <span class="process-math">\(i\equiv nj \pmod {p-1}\text{.}\)</span> Thus <span class="process-math">\(s=r^i\)</span> is an <span class="process-math">\(n\)</span>-th power if and only if there exists <span class="process-math">\(j\)</span> such that <span class="process-math">\(i\equiv nj \pmod {p-1}\text{.}\)</span> From congruence theory from the previous quarter, we know this is true if and only if <span class="process-math">\(d=\gcd(n,p-1)\mid i\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_nth_powers_mod_p-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_nth_powers_mod_p-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_nth_powers_mod_p-3-1-1-2">
+<div class="para" id="th_nth_powers_mod_p-3-1-1-2-1">Since by the first part we know that <span class="process-math">\(s=r^i\in S_n\)</span> if and only if <span class="process-math">\(d\mid i\text{,}\)</span> to prove the first equality, it suffices to show that <span class="process-math">\(\angvec{r^d}=\{r^i\mid i\in \Z,d\mid i\}\text{.}\)</span> If <span class="process-math">\(d\mid i\text{,}\)</span> then <span class="process-math">\(i=qd\)</span> for some <span class="process-math">\(q\in \Z\text{,}\)</span> and <span class="process-math">\(r^i=(r^d)^q\in \angvec{r^d}\text{.}\)</span> For the other inclusion, if <span class="process-math">\(r^i\in \angvec{r^d}\text{,}\)</span> then <span class="process-math">\(r^i=(r^d)^j=r^{dj}\)</span> for some <span class="process-math">\(j\text{,}\)</span> and thus <span class="process-math">\(i\equiv dj \pmod {p-1}\text{.}\)</span> Since <span class="process-math">\(d\mid dj\)</span> and <span class="process-math">\(d\mid p-1\text{,}\)</span> it follows that <span class="process-math">\(d\mid i\text{,}\)</span> as desired.<div class="autopermalink" data-description="Paragraph"><a href="#th_nth_powers_mod_p-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="th_nth_powers_mod_p-3-1-1-2-2">As for the second equality, since any element <span class="process-math">\(s\in \angvec{r^d}\)</span> satisfies <span class="process-math">\(s^{(p-1)/d}=1\text{,}\)</span> we have <span class="process-math">\(\angvec{r^d}\subseteq \{s\in \F_p\mid f(s)=0\}\text{.}\)</span> Since, furthermore, the polynomial <span class="process-math">\(f(x)=x^{(p-1)/d}-1\)</span> has at most <span class="process-math">\((p-1)/d\)</span> roots and <span class="process-math">\(\abs{\angvec{r^d}}=\ord r^d=(p-1)/d\text{,}\)</span> we conclude that <span class="process-math">\(\angvec{r^d}=\{s\in \F_p\mid f(s)=0\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_nth_powers_mod_p-3-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_nth_powers_mod_p-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="th_nth_powers_mod_p-3-1-1-3">
+<div class="para logical" id="th_nth_powers_mod_p-3-1-1-3-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="th_nth_powers_mod_p-3-1-1-3-1-1">
+\begin{align*}
+\abs{S_n} \amp =\abs{\angvec{r^d}}=\ord r^d=(p-1)/d\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_nth_powers_mod_p-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#th_nth_powers_mod_p-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_nth_powers_mod_p-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.5.2.1"><a href="#th_nth_powers_mod_p-3" title="Copy heading and permalink for Proof 1.5.2.1" aria-label="Copy heading and permalink for Proof 1.5.2.1">🔗</a></div></article></details><article class="corollary theorem-like" id="cor_squares_mod_p"><h4 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Squares modulo <span class="process-math">\(p\)</span>.</span>
+</h4>
+<div class="para" id="cor_squares_mod_p-2-1">Let <span class="process-math">\(p\)</span> be an odd prime. There are exactly <span class="process-math">\((p-1)/2\)</span> squares in <span class="process-math">\(\F_p^*\text{.}\)</span> In other words, half of the elements of <span class="process-math">\(\F_p^*\)</span> have square roots in <span class="process-math">\(\F_p^*\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_squares_mod_p-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 1.5.3: Squares modulo p"><a href="#cor_squares_mod_p" title="Copy heading and permalink for Corollary 1.5.3: Squares modulo p" aria-label="Copy heading and permalink for Corollary 1.5.3: Squares modulo p">🔗</a></div></article><details id="cor_squares_mod_p-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="cor_squares_mod_p-3-1">This is the special case <span class="process-math">\(n=2\)</span> of <a href="s_quad_resid.html#th_nth_powers_mod_p" class="xref" data-knowl="./knowl/xref/th_nth_powers_mod_p.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.2: n-th powers modulo p">Theorem 1.5.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#cor_squares_mod_p-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.5.3.1"><a href="#cor_squares_mod_p-3" title="Copy heading and permalink for Proof 1.5.3.1" aria-label="Copy heading and permalink for Proof 1.5.3.1">🔗</a></div></article></details><article class="example example-like" id="eg_nth_powers_mod_13"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(n\)</span>-th powers modulo <span class="process-math">\(13\)</span>.</span>
+</h4>
+<div class="para" id="eg_nth_powers_mod_13-2-1">Let <span class="process-math">\(p=13\text{.}\)</span> For each positive divisor <span class="process-math">\(n\)</span> of <span class="process-math">\(\phi(p)\text{,}\)</span> determine the set <span class="process-math">\(S_n\)</span> of <span class="process-math">\(n\)</span>-th powers in <span class="process-math">\(\F_{13}^*\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_nth_powers_mod_13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_nth_powers_mod_13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_nth_powers_mod_13-3-1">
+<div class="para">The divisors of <span class="process-math">\(\phi(13)=12\)</span> are <span class="process-math">\(1,2,3,4,6,12\text{.}\)</span> The element <span class="process-math">\([2]_{13}\)</span> is a primitive root modulo <span class="process-math">\(13\text{.}\)</span> We will write <span class="process-math">\(2=[2]_{13}\)</span> for simplicity. We have</div>
+<div class="displaymath process-math" id="eg_nth_powers_mod_13-3-1-6">
+\begin{align*}
+S_{1} \amp = \angvec{2}=\F_{13}^* \amp \\
+S_2\amp =\angvec{2^2}=\{4,4^2=3,4^3=12,4^4=9,4^5=10,4^6=1\} \amp \\
+S_{3} \amp = \angvec{2^3}=\{8, 8^2=12,8^3=5, 8^4=1\} \amp \\
+S_{4} \amp = \angvec{2^4}=\{3,3^2=9, 3^3=1\} \amp \\
+S_{6} \amp = \angvec{2^6}=\{12,12^2=1\} \amp \\
+S_{12} \amp = \angvec{2^{12}}=\{1\}\amp \text{.}
+\end{align*}
+</div>
+<div class="para">Let’s confirm our answer with Sage.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_nth_powers_mod_13-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="eg_nth_powers_mod_13-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">R=Integers(13)
+for n in [1,2,3,4,6,12]:
+    print([n,set([x^n for x in R if x!=0])])
+</script></div>
+<div class="autopermalink" data-description="Solution 1.5.4.1"><a href="#eg_nth_powers_mod_13-3" title="Copy heading and permalink for Solution 1.5.4.1" aria-label="Copy heading and permalink for Solution 1.5.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.5.4: n-th powers modulo 13"><a href="#eg_nth_powers_mod_13" title="Copy heading and permalink for Example 1.5.4: n-th powers modulo 13" aria-label="Copy heading and permalink for Example 1.5.4: n-th powers modulo 13">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.5.1: The n-th powers of \Z/p\Z"><a href="#ss_nth_powers" title="Copy heading and permalink for Subsection 1.5.1: The n-th powers of \Z/p\Z" aria-label="Copy heading and permalink for Subsection 1.5.1: The n-th powers of \Z/p\Z">🔗</a></div></section><section class="subsection" id="ss_quad_resid"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic residues</span>
+</h3>
+<article class="definition definition-like" id="d_quad_resid"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic residue.</span>
+</h4>
+<div class="para" id="d_quad_resid-2-1">Let <span class="process-math">\(p\)</span> be an odd prime. An element <span class="process-math">\(r\in \F_p^*\)</span> is a <dfn class="terminology">quadratic residue</dfn> if <span class="process-math">\(r\)</span> is a square in <span class="process-math">\(\F_p^*\)</span> (equivalently, if <span class="process-math">\(r\)</span> has a square root in <span class="process-math">\(\F_p^*\)</span>). Similarly, an integer <span class="process-math">\(a\in \Z\)</span> with <span class="process-math">\(p\nmid a\)</span> is a <dfn class="terminology">quadratic residue modulo <span class="process-math">\(p\)</span></dfn> if <span class="process-math">\(a\)</span> is a square modulo <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_quad_resid-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.5.5: Quadratic residue"><a href="#d_quad_resid" title="Copy heading and permalink for Definition 1.5.5: Quadratic residue" aria-label="Copy heading and permalink for Definition 1.5.5: Quadratic residue">🔗</a></div></article><article class="definition definition-like" id="d_legendre_function"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Legendre symbol.</span>
+</h4>
+<div class="para logical" id="d_legendre_function-2-1">
+<div class="para">Let <span class="process-math">\(p\)</span> be an odd prime. Given an integer <span class="process-math">\(a\in \Z\text{,}\)</span> we define the <dfn class="terminology">Legendre symbol</dfn> <span class="process-math">\(\qr{a}{p}\)</span> as</div>
+<div class="displaymath process-math" id="d_legendre_function-2-1-5">
+\begin{equation*}
+\qr{a}{p}=\begin{cases}
+0 \amp \text{if } p\mid a \\
+1 \amp \text{if } p\nmid a \text{ and } a \text{ is a square modulo } p\\
+-1 \amp \text{if } p\nmid a \text{ and } a \text{ is not a square modulo } p
+\text{.}\end{cases}
+\end{equation*}
+</div>
+<div class="para">The Legendre symbol (with respect to <span class="process-math">\(p\)</span>) gives rise to a function <span class="process-math">\(f\colon \Z\rightarrow \{\pm 1\}\)</span> defined as <span class="process-math">\(f(a)=\qr{a}{p}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_legendre_function-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.5.6: Legendre symbol"><a href="#d_legendre_function" title="Copy heading and permalink for Definition 1.5.6: Legendre symbol" aria-label="Copy heading and permalink for Definition 1.5.6: Legendre symbol">🔗</a></div></article><article class="theorem theorem-like" id="th_legendre_symbol"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic residues.</span>
+</h4>
+<div class="para logical" id="th_legendre_symbol-2-1">
+<div class="para">Let <span class="process-math">\(p\)</span> be an odd prime.</div>
+<ol class="decimal" id="th_legendre_symbol-2-1-2">
+<li id="th_legendre_symbol-2-1-2-1">
+<div class="para" id="th_legendre_symbol-2-1-2-1-1">If <span class="process-math">\(a\equiv b\pmod p\text{,}\)</span> then <span class="process-math">\(\qr{a}{p}=\qr{b}{p}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_legendre_symbol-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_legendre_symbol-2-1-2-2">
+<div class="para" id="th_legendre_symbol-2-1-2-2-1">
+<span class="process-math">\(\qr{ab}{p}=\qr{a}{p}\qr{b}{p}\)</span> for all <span class="process-math">\(a,b\in \Z\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_legendre_symbol-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="th_legendre_symbol-2-1-2-3">
+<div class="para" id="th_legendre_symbol-2-1-2-3-1">
+<span class="process-math">\(\qr{a^2}{p}=1\)</span> for all <span class="process-math">\(a\in \Z\)</span> with <span class="process-math">\(p\nmid a\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#th_legendre_symbol-2-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="th_legendre_symbol-2-1-2-4">
+<div class="para" id="th_legendre_symbol-2-1-2-4-1">Exactly <span class="process-math">\((p-1)/2\)</span> (i.e., half) of the elements of <span class="process-math">\(\{1,2,\dots, p-1\}\)</span> are quadratic residues modulo <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-2-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#th_legendre_symbol-2-1-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="th_legendre_symbol-2-1-2-5">
+<span class="heading li--heading"><span class="title li--heading-title">Euler’s criterion.</span></span><div class="para" id="th_legendre_symbol-2-1-2-5-2">
+<span class="process-math">\(\qr{a}{p}\equiv a^{(p-1)/2}\pmod p \)</span> for all <span class="process-math">\(a\in \Z\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-2-1-2-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5: Euler’s criterion"><a href="#th_legendre_symbol-2-1-2-5" title="Copy heading and permalink for Item 5: Euler’s criterion" aria-label="Copy heading and permalink for Item 5: Euler’s criterion">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.5.7: Quadratic residues"><a href="#th_legendre_symbol" title="Copy heading and permalink for Theorem 1.5.7: Quadratic residues" aria-label="Copy heading and permalink for Theorem 1.5.7: Quadratic residues">🔗</a></div></article><details id="th_legendre_symbol-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_legendre_symbol-3-1">
+<ol class="decimal" id="th_legendre_symbol-3-1-1">
+<li id="th_legendre_symbol-3-1-1-1">
+<div class="para" id="th_legendre_symbol-3-1-1-1-1">This is essentially by definition and the observation that <span class="process-math">\(\qr{a}{p}=0\)</span> if and only if <span class="process-math">\(p\mid a\text{,}\)</span> if and only if <span class="process-math">\(a\equiv 0\pmod p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_legendre_symbol-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_legendre_symbol-3-1-1-2">
+<div class="para logical" id="th_legendre_symbol-3-1-1-2-1">
+<div class="para">It is clear that if either of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are divisible by <span class="process-math">\(p\text{,}\)</span> then <span class="process-math">\(0=\qr{ab}{p}=\qr{a}{p}\qr{b}{p}\text{.}\)</span> Assume now that <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are relatively prime to <span class="process-math">\(p\text{.}\)</span> Let <span class="process-math">\(r\)</span> be a primitive root modulo <span class="process-math">\(p\text{,}\)</span> and let <span class="process-math">\([a]_p=r^i\)</span> and <span class="process-math">\([b]_p=r^j\text{.}\)</span> We know that an element <span class="process-math">\(r^k\in \F_p^*\)</span> is a square if and only if <span class="process-math">\(k\)</span> is even. It follows that <span class="process-math">\(\qr{a}{p}=(-1)^i\text{,}\)</span> <span class="process-math">\(\qr{b}{p}=(-1)^j\text{.}\)</span> Furthermore, since <span class="process-math">\([ab]_p=r^{i+j}\text{,}\)</span> we have <span class="process-math">\(\qr{ab}{p}=(-1)^{i+j}\text{.}\)</span> We conclude that</div>
+<div class="displaymath process-math" id="th_legendre_symbol-3-1-1-2-1-18">
+\begin{align*}
+\qr{a}{p}\qr{b}{p} \amp = (-1)^i\cdot (-1)^j\\
+\amp = (-1)^{i+j}\\
+\amp = \qr{ab}{p}\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_legendre_symbol-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="th_legendre_symbol-3-1-1-3">
+<div class="para" id="th_legendre_symbol-3-1-1-3-1">We have <span class="process-math">\(\qr{a^2}{p}=\qr{a}{p}\qr{a}{p}=\left(\qr{a}{p}\right)^2=1\text{,}\)</span> since <span class="process-math">\(\qr{a}{p}=\pm 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#th_legendre_symbol-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="th_legendre_symbol-3-1-1-4">
+<div class="para" id="th_legendre_symbol-3-1-1-4-1">Let <span class="process-math">\(s=[a]_p\text{.}\)</span> By <a href="s_quad_resid.html#th_nth_powers_mod_p" class="xref" data-knowl="./knowl/xref/th_nth_powers_mod_p.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.2: n-th powers modulo p">Theorem 1.5.2</a>, we know that <span class="process-math">\(s\)</span> is a square if and only if <span class="process-math">\(s^{(p-1)/2}=1\text{.}\)</span> Since <span class="process-math">\(x=s^{(p-1)/2}\)</span> satisfies <span class="process-math">\(x^2=1\text{,}\)</span> and since the only roots of <span class="process-math">\(f(x)=x^2-1\)</span> are <span class="process-math">\([1]_p\)</span> and <span class="process-math">\([-1]_p\text{,}\)</span> we see that either <span class="process-math">\(a^{(p-1)/2}\equiv 1\pmod p\)</span> and <span class="process-math">\(\qr{a}{p}=1\text{,}\)</span> or <span class="process-math">\(a^{(p-1)/2}\equiv -1\pmod p\)</span> and <span class="process-math">\(\qr{a}{p}=-1\text{.}\)</span> In both cases we have <span class="process-math">\(a^{(p-1)/2}\equiv \qr{a}{p} \pmod p\text{,}\)</span> as desired.<div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-3-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#th_legendre_symbol-3-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_legendre_symbol-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.5.7.1"><a href="#th_legendre_symbol-3" title="Copy heading and permalink for Proof 1.5.7.1" aria-label="Copy heading and permalink for Proof 1.5.7.1">🔗</a></div></article></details><article class="corollary theorem-like" id="cor_sum_legendre"><h4 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sum of Legendre symbols.</span>
+</h4>
+<div class="para logical" id="cor_sum_legendre-2-1">
+<div class="para">Let <span class="process-math">\(p\)</span> be an odd prime. We have</div>
+<div class="displaymath process-math" id="cor_sum_legendre-2-1-2">
+\begin{align*}
+\sum_{i=1}^{p-1}\qr{i}{p} \amp = 0\text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_sum_legendre-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 1.5.8: Sum of Legendre symbols"><a href="#cor_sum_legendre" title="Copy heading and permalink for Corollary 1.5.8: Sum of Legendre symbols" aria-label="Copy heading and permalink for Corollary 1.5.8: Sum of Legendre symbols">🔗</a></div></article><article class="corollary theorem-like" id="cor_legendre_minus_1"><h4 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Square roots of <span class="process-math">\(-1\)</span> modulo <span class="process-math">\(p\)</span>.</span>
+</h4>
+<div class="para logical" id="cor_legendre_minus_1-2-1">
+<div class="para">Let <span class="process-math">\(p\)</span> be an odd prime. We have</div>
+<div class="displaymath process-math" id="cor_legendre_minus_1-2-1-2">
+\begin{align}
+\qr{-1}{p} \amp =(-1)^{(p-1)/2}\tag{1.5.2}\\
+\amp =\begin{cases}
+1\amp \text{if } p\equiv 1\pmod 4 \\
+-1\amp \text{if } p\equiv 3\pmod 4
+\text{.}\end{cases}\tag{1.5.3}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_legendre_minus_1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 1.5.9: Square roots of -1 modulo p"><a href="#cor_legendre_minus_1" title="Copy heading and permalink for Corollary 1.5.9: Square roots of -1 modulo p" aria-label="Copy heading and permalink for Corollary 1.5.9: Square roots of -1 modulo p">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.5.2: Quadratic residues"><a href="#ss_quad_resid" title="Copy heading and permalink for Subsection 1.5.2: Quadratic residues" aria-label="Copy heading and permalink for Subsection 1.5.2: Quadratic residues">🔗</a></div></section><div class="autopermalink" data-description="Section 1.5: Quadratic residues and n-th powers"><a href="#s_quad_resid" title="Copy heading and permalink for Section 1.5: Quadratic residues and n-th powers" aria-label="Copy heading and permalink for Section 1.5: Quadratic residues and n-th powers">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_primitive_root_n.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="my-great-book-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

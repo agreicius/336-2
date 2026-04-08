@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Number of primitive roots.</span>
+</h4>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(n\)</span> be a positive integer.</div>
+<ol class="decimal" id="th_number_of_primitive_roots-2-1-2">
+<li>
+<div class="para">If <span class="process-math">\((\Z/n\Z)^*\)</span> has a primitive root, then it has exactly <span class="process-math">\(\phi(\phi(n))\)</span> distinct primitive roots.<div class="autopermalink" data-description="Paragraph"><a href="#th_number_of_primitive_roots-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_number_of_primitive_roots-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">More generally, if <span class="process-math">\((\Z/n\Z)^*\)</span> has a primitive root, then for each positive divisor <span class="process-math">\(d\)</span> of <span class="process-math">\(\phi(n)\text{,}\)</span> the number of elements of <span class="process-math">\((\Z/n\Z)^*\)</span> of order <span class="process-math">\(d\)</span> is <span class="process-math">\(\phi(d)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_number_of_primitive_roots-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_number_of_primitive_roots-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_number_of_primitive_roots-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.3.1: Number of primitive roots"><a href="#th_number_of_primitive_roots" title="Copy heading and permalink for Theorem 1.3.1: Number of primitive roots" aria-label="Copy heading and permalink for Theorem 1.3.1: Number of primitive roots">🔗</a></div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">Assume <span class="process-math">\(r\)</span> is a primitive root of <span class="process-math">\((\Z/n\Z)^*\text{,}\)</span> so that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_order_mod_n.html">
+\begin{align*}
+(\Z/n\Z)^* \amp = \{1,r,r^2,\dots, r^{\phi(n)-1}\}\text{.}
+\end{align*}
+</div>
+<ol class="decimal" id="th_number_of_primitive_roots-3-1-4">
+<li>
+<div class="para logical">
+<div class="para">If <span class="process-math">\(s\)</span> is a primitive root of <span class="process-math">\((\Z/n\Z)^*\text{,}\)</span> then <span class="process-math">\(s=r^i\)</span> for some <span class="process-math">\(i\in \{0,1,\dots, \phi(n)-1\}\text{.}\)</span> And furthermore, since <span class="process-math">\(\ord s=\phi(n)\text{,}\)</span> we must have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_order_mod_n.html">
+\begin{align*}
+\phi(n) \amp =\ord s\\
+\amp = \ord r^i\\
+\amp = \phi(n)/\gcd(i,\phi(n))\text{,}
+\end{align*}
+</div>
+<div class="para">by <a href="s_order_mod_n.html#prop_order_mod_n" class="xref" data-knowl="./knowl/xref/prop_order_mod_n.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.2.3: Order of modular units">Proposition 1.2.3</a>. This happens if and only if <span class="process-math">\(\gcd(i,\phi(n))=1\text{.}\)</span> Thus , the number of primitive roots of <span class="process-math">\((\Z/n\Z)^*\)</span> is equal in this case to the number of <span class="process-math">\(i\in \{0,1,\dots, \phi(n)-1\}\)</span> satisfying <span class="process-math">\(\gcd(i,\phi(n))=1\text{.}\)</span> This is <span class="process-math">\(\phi(\phi(n))\text{,}\)</span> by definition.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_number_of_primitive_roots-3-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_number_of_primitive_roots-3-1-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">This result is very easy to prove if you know a little group theory, and a little tricky to prove (for general <span class="process-math">\(n\)</span>) using just elementary number theory. We will defer the proof to a <em class="emphasis">guided</em> homework exercise.<div class="autopermalink" data-description="Paragraph"><a href="#th_number_of_primitive_roots-3-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_number_of_primitive_roots-3-1-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_number_of_primitive_roots-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.3.1.1"><a href="#th_number_of_primitive_roots-3" title="Copy heading and permalink for Proof 1.3.1.1" aria-label="Copy heading and permalink for Proof 1.3.1.1">🔗</a></div></article></details><span class="incontext"><a class="internal" href="s_primitive_roots.html#th_number_of_primitive_roots">in-context</a></span>
+</body>
+</html>
