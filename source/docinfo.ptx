@@ -216,6 +216,8 @@
     \right)  }
     \newcommand{\colvec}[2][c]{\begin{amatrix}[#1] #2 \end{amatrix}}
     \newcommand{\rowvec}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+    \newcommand{\qr}[2]{\Bigl(\frac{#1}{#2}\Bigr)}
+
   </macros>
 
   <!-- If you put any latex-image elements you can include preambles -->

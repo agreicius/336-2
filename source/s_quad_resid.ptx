@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_quad_resid" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Quadratic residues and <m>n</m>-th powers</title>
+
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    Describe the <m>n</m>-th powers of <m>\Z/p\Z</m> in terms of a primitive root modulo <m>p</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Define the Legendre symbol and derive some preliminary properties. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <subsection xml:id="ss_nth_powers">
+    <title>The <m>n</m>-th powers of <m>\Z/p\Z</m></title>
+    <definition xml:id="d_nth_power">
+    <title><m>n</m>-th power</title>
+    <statement>
+    <p>
+    Let <m>n</m> be a positive integer, and let <m>p</m> be a prime. An element <m>r\in \F_p</m> is an <term><m>n</m>-th power</term> if there is an <m>s\in \F_p</m> satisfying <m>s^n=r</m>. We call <m>s</m> an <term><m>n</m>-th root</term> of <m>r</m> in this case. 
+    </p>
+    <p>
+        Similarly, we say an integer <m>a\in \Z</m> is an <term><m>n</m>-th power modulo <m>p</m></term> if <m>[a]_p</m> is an <m>n</m>-th power in <m>\F_p</m>: equivalently, if there is an integer <m>b\in \Z</m> such that <m>b^n\equiv a \pmod p</m>. We call <m>b</m> an <term><m>n</m>-th root of <m>a</m> modulo <m>p</m></term> in this case.
+    </p>
+    </statement>
+    </definition>
+    <theorem xml:id="th_nth_powers_mod_p">
+    <title><m>n</m>-th powers modulo <m>p</m></title>
+    <statement>
+    <p>
+    Let <m>p</m> be a prime, let <m>r\in \F_p^*</m> be a primitive root, and let <m>n</m> be a positive integer. Define <m>S_n</m> to be the set of all <m>n</m>-th powers in <m>\F_p^*</m>, and let <m>d=\gcd(n,p-1)</m> 
+    <ol>
+        <li>
+            <p>
+               For all <m>i\in \Z</m>, we have <m>r^i\in S_n</m> if and only if <m>d\mid i</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Let <m>f(x)=x^{(p-1)/d}-1\in \F_p[x]</m>. We have 
+                <md number="yes">
+                    <mrow>S_n \amp = \angvec{r^d}= \{s\in \F_p\mid f(s)=0\}</mrow>
+                </md>.
+                In particular, we have <m>s\in S_n</m> if and only if <m>s^{(p-1)/d}=1</m>; equivalently, <m>a\in \Z</m> is an <m>n</m>-th power modulo <m>p</m> if and only if <m>a^{(p-1)/d}\equiv 1\pmod p</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+              <m>\abs{S_n}=(p-1)/\gcd(n,p-1)</m>.
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <proof>
+    <p>
+        <ol>
+            <li>
+                <p>
+                    Any element <m>s\in \F_p^*</m> can be written as <m>s=r^i</m> for some <m>i\in \Z</m>. We have <m>s\in S_n</m> if and only if <m>s=t^n</m> for some <m>t=r^j</m>: or equivalently, if and only if <m>r^i=(r^j)^n=r^{nj}</m> for some <m>j\in \Z</m>. Since <m>\ord r=p-1</m>, we have we have <m>r^i=r^{nj}</m> if and only if <m>i\equiv nj \pmod {p-1}</m>. Thus <m>s=r^i</m> is an <m>n</m>-th power if and only if there exists <m>j</m> such that <m>i\equiv nj \pmod {p-1}</m>. From congruence theory from the previous quarter, we know this is true if and only if <m>d=\gcd(n,p-1)\mid i</m>. 
+                </p> 
+            </li>
+            <li>
+                <p>
+                    Since by the first part we know that <m>s=r^i\in S_n</m> if and only if <m>d\mid i</m>, to prove the first equality, it suffices to show that <m>\angvec{r^d}=\{r^i\mid i\in \Z,d\mid i\}</m>. If <m>d\mid i</m>, then <m>i=qd</m> for some <m>q\in \Z</m>, and <m>r^i=(r^d)^q\in \angvec{r^d}</m>. For the other inclusion, if <m>r^i\in \angvec{r^d}</m>, then <m>r^i=(r^d)^j=r^{dj}</m> for some <m>j</m>, and thus <m>i\equiv dj \pmod {p-1}</m>. Since <m>d\mid dj</m> and <m>d\mid p-1</m>, it follows that <m>d\mid i</m>, as desired. 
+                </p>
+                <p>
+                    As for the second equality, since any element <m>s\in \angvec{r^d}</m> satisfies <m>s^{(p-1)/d}=1</m>, we have <m>\angvec{r^d}\subseteq \{s\in \F_p\mid f(s)=0\}</m>. Since, furthermore, the polynomial <m>f(x)=x^{(p-1)/d}-1</m> has at most <m>(p-1)/d</m> roots and <m>\abs{\angvec{r^d}}=\ord r^d=(p-1)/d</m>, we conclude that <m>\angvec{r^d}=\{s\in \F_p\mid f(s)=0\}</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    We have 
+                    <md>
+                        <mrow>\abs{S_n} \amp =\abs{\angvec{r^d}}=\ord r^d=(p-1)/d</mrow>
+                    </md>.
+                </p>
+            </li>
+        </ol>
+    </p>
+    </proof>
+    </theorem>
+    <corollary xml:id="cor_squares_mod_p">
+        <title>Squares modulo <m>p</m></title>
+        <statement>
+            <p>
+                Let <m>p</m> be an odd prime. There are exactly <m>(p-1)/2</m> squares in <m>\F_p^*</m>. In other words, half of the elements of <m>\F_p^*</m> have square roots in <m>\F_p^*</m>. 
+            </p>
+        </statement>
+        <proof>
+            <p>
+                This is the special case <m>n=2</m> of <xref ref="th_nth_powers_mod_p"/>.
+            </p>
+        </proof>
+    </corollary>
+    <example xml:id="eg_nth_powers_mod_13">
+    <title><m>n</m>-th powers modulo <m>13</m></title>
+    <statement>
+    <p>
+    Let <m>p=13</m>. For each positive divisor <m>n</m> of <m>\phi(p)</m>, determine the set <m>S_n</m> of <m>n</m>-th powers in <m>\F_{13}^*</m>. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    The divisors of <m>\phi(13)=12</m> are <m>1,2,3,4,6,12</m>. The element <m>[2]_{13}</m> is a primitive root modulo <m>13</m>. We will write <m>2=[2]_{13}</m> for simplicity. We have 
+    <md>
+        <mrow>S_{1} \amp = \angvec{2}=\F_{13}^* \amp </mrow>
+        <mrow>S_2\amp =\angvec{2^2}=\{4,4^2=3,4^3=12,4^4=9,4^5=10,4^6=1\} \amp </mrow>
+        <mrow>S_{3} \amp = \angvec{2^3}=\{8, 8^2=12,8^3=5, 8^4=1\} \amp </mrow>
+        <mrow>S_{4} \amp = \angvec{2^4}=\{3,3^2=9, 3^3=1\} \amp </mrow>
+        <mrow>S_{6} \amp = \angvec{2^6}=\{12,12^2=1\} \amp </mrow>
+        <mrow>S_{12} \amp = \angvec{2^{12}}=\{1\}\amp </mrow>
+    </md>.
+    Let's confirm our answer with Sage. 
+    </p>
+    <sage>
+        <input>
+            R=Integers(13)
+            for n in [1,2,3,4,6,12]:
+                print([n,set([x^n for x in R if x!=0])])
+        </input>
+        <output>
+            [1, {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}]
+            [2, {1, 3, 4, 9, 10, 12}]
+            [3, {8, 1, 12, 5}]
+            [4, {1, 3, 9}]
+            [6, {1, 12}]
+            [12, {1}]
+        </output>
+    </sage>
+    </solution>
+    </example>
+    </subsection>
+    <subsection xml:id="ss_quad_resid">
+    <title>Quadratic residues</title>
+    <definition xml:id="d_quad_resid">
+    <title>Quadratic residue</title>
+    <statement>
+    <p>
+    Let <m>p</m> be an odd prime. An element <m>r\in \F_p^*</m> is a <term>quadratic residue</term> if <m>r</m> is a square in <m>\F_p^*</m> (equivalently, if <m>r</m> has a square root in <m>\F_p^*</m>). Similarly, an integer <m>a\in \Z</m> with <m>p\nmid a</m> is a <term>quadratic residue modulo <m>p</m></term> if <m>a</m> is a square modulo <m>p</m>. 
+    </p>
+    </statement>
+    </definition>
+    <definition xml:id="d_legendre_function">
+    <title>Legendre symbol</title>
+    <statement>
+    <p>
+    Let <m>p</m> be an odd prime. Given an integer <m>a\in \Z</m>, we define the <term>Legendre symbol</term> <m>\qr{a}{p}</m> as 
+    <md>
+        \qr{a}{p}=\begin{cases}
+        0 \amp \text{if } p\mid a \\
+        1 \amp \text{if } p\nmid a \text{ and } a \text{ is a square modulo } p\\
+        -1 \amp \text{if } p\nmid a \text{ and } a \text{ is not a square modulo } p
+        \end{cases}
+    </md>.
+    The Legendre symbol (with respect to <m>p</m>) gives rise to a function <m>f\colon \Z\rightarrow \{\pm 1\}</m> defined as <m>f(a)=\qr{a}{p}</m>.
+    </p>
+    </statement>
+    </definition>
+    <theorem xml:id="th_legendre_symbol">
+    <title>Quadratic residues</title>
+    <statement>
+    <p>
+    Let <m>p</m> be an odd prime. 
+    <ol>
+        <li>
+            <p>
+             If <m>a\equiv b\pmod p</m>, then <m>\qr{a}{p}=\qr{b}{p}</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>\qr{ab}{p}=\qr{a}{p}\qr{b}{p}</m> for all <m>a,b\in \Z</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                <m>\qr{a^2}{p}=1</m> for all <m>a\in \Z</m> with <m>p\nmid a</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Exactly <m>(p-1)/2</m> (<ie/>, half) of the elements of <m>\{1,2,\dots, p-1\}</m> are quadratic residues modulo <m>p</m>. 
+            </p>
+        </li>
+        <li>
+            <title>Euler's criterion</title>
+            <p>
+                <m>\qr{a}{p}\equiv a^{(p-1)/2}\pmod p </m> for all <m>a\in \Z</m>.
+            </p>
+        </li>
+        
+    </ol>
+    </p>
+    </statement>
+    <proof>
+    <p>
+        <ol>
+            <li>
+                <p>
+                    This is essentially by definition and the observation that <m>\qr{a}{p}=0</m> if and only if <m>p\mid a</m>, if and only if <m>a\equiv 0\pmod p</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    It is clear that if either of <m>a</m> and <m>b</m> are divisible by <m>p</m>, then <m>0=\qr{ab}{p}=\qr{a}{p}\qr{b}{p}</m>. Assume now that <m>a</m> and <m>b</m> are relatively prime to <m>p</m>. Let <m>r</m> be a primitive root modulo <m>p</m>, and let <m>[a]_p=r^i</m> and <m>[b]_p=r^j</m>. We know that an element <m>r^k\in \F_p^*</m> is a square if and only if <m>k</m> is even. It follows that <m>\qr{a}{p}=(-1)^i</m>, <m>\qr{b}{p}=(-1)^j</m>. Furthermore, since <m>[ab]_p=r^{i+j}</m>, we have <m>\qr{ab}{p}=(-1)^{i+j}</m>. We conclude that 
+                    <md>
+                        <mrow>\qr{a}{p}\qr{b}{p} \amp = (-1)^i\cdot (-1)^j</mrow>
+                        <mrow> \amp = (-1)^{i+j}</mrow>
+                        <mrow> \amp = \qr{ab}{p}</mrow>
+                    </md>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    We have <m>\qr{a^2}{p}=\qr{a}{p}\qr{a}{p}=\left(\qr{a}{p}\right)^2=1</m>, since <m>\qr{a}{p}=\pm 1</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Let <m>s=[a]_p</m>. By <xref ref="th_nth_powers_mod_p"/>, we know that <m>s</m> is a square if and only if <m>s^{(p-1)/2}=1</m>. Since <m>x=s^{(p-1)/2}</m> satisfies <m>x^2=1</m>, and since the only roots of <m>f(x)=x^2-1</m> are <m>[1]_p</m> and <m>[-1]_p</m>, we see that either <m>a^{(p-1)/2}\equiv 1\pmod p</m> and <m>\qr{a}{p}=1</m>, or <m>a^{(p-1)/2}\equiv -1\pmod p</m> and <m>\qr{a}{p}=-1</m>. In both cases we have <m>a^{(p-1)/2}\equiv \qr{a}{p} \pmod p</m>, as desired. 
+                </p>
+            </li>
+        </ol>
+    </p>
+    </proof>
+    </theorem>
+    <corollary xml:id="cor_sum_legendre">
+        <title>Sum of Legendre symbols</title>
+        <statement>
+            <p>
+                Let <m>p</m> be an odd prime. We have 
+                <md>
+                    <mrow>\sum_{i=1}^{p-1}\qr{i}{p} \amp = 0</mrow>
+                </md>.
+            </p>
+        </statement>
+    </corollary>
+    <corollary xml:id="cor_legendre_minus_1">
+        <title>Square roots of <m>-1</m> modulo <m>p</m></title>
+        <statement>
+            <p>
+                Let <m>p</m> be an odd prime. We have 
+                <md number="yes">
+                    <mrow>\qr{-1}{p} \amp =(-1)^{(p-1)/2}</mrow>
+                    <mrow> \amp =\begin{cases}
+                    1\amp \text{if } p\equiv 1\pmod 4 \\
+                    -1\amp \text{if } p\equiv 3\pmod 4
+                    \end{cases}</mrow>
+                </md>.
+            </p>
+        </statement>
+    </corollary>
+    
+    </subsection>
+
+</section>

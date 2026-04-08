@@ -119,14 +119,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.13.1';
+eBookConfig.runestone_version = '7.13.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.f6b4a33441cf25ab.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.720279673ae692d7.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.56158f4758afd49f.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.46363294e9238f09.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.b12a7b3f0773ebcd.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -344,6 +344,7 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 \right)  }
 \newcommand{\colvec}[2][c]{\begin{amatrix}[#1] #2 \end{amatrix}}
 \newcommand{\rowvec}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\qr}[2]{\Bigl(\frac{#1}{#2}\Bigr)}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -446,6 +447,13 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <div class="toc-title-box"><a href="s_primitive_root_n.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Existence of primitive roots</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_root_n.html#ss_primitive_roots_mod_n" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Primitive roots modulo <span class="process-math">\(n\)</span></span></a></div></li></ul>
 </li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_quad_resid.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Quadratic residues and <span class="process-math">\(n\)</span>-th powers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_quad_resid.html#ss_nth_powers" class="internal"><span class="codenumber">1.5.1</span> <span class="title">The <span class="process-math">\(n\)</span>-th powers of <span class="process-math">\(\Z/p\Z\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_quad_resid.html#ss_quad_resid" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Quadratic residues</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter contains-active">
@@ -541,6 +549,15 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </h4>
 <div>
 <a href="s_primitive_roots.html#d_polynomials" class="xref" data-knowl="./knowl/list-of/d_polynomials.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.3.3: Polynomials over a ring">Definition 1.3.3</a> Polynomials over a ring</div>
+<h4 class="heading hide-type" title="Section 1.5: Quadratic residues and n-th powers">
+<span class="codenumber">1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic residues and <span class="process-math">\(n\)</span>-th powers</span>
+</h4>
+<div>
+<a href="s_quad_resid.html#d_nth_power" class="xref" data-knowl="./knowl/list-of/d_nth_power.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.5.1: n-th power">Definition 1.5.1</a> <span class="process-math">\(n\)</span>-th power</div>
+<div>
+<a href="s_quad_resid.html#d_quad_resid" class="xref" data-knowl="./knowl/list-of/d_quad_resid.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.5.5: Quadratic residue">Definition 1.5.5</a> Quadratic residue</div>
+<div>
+<a href="s_quad_resid.html#d_legendre_function" class="xref" data-knowl="./knowl/list-of/d_legendre_function.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.5.6: Legendre symbol">Definition 1.5.6</a> Legendre symbol</div>
 <div class="autopermalink" data-description="Appendix B: Definitions"><a href="#appendix-defs" title="Copy heading and permalink for Appendix B: Definitions" aria-label="Copy heading and permalink for Appendix B: Definitions">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="appendix-notation.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="appendix-thms.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>

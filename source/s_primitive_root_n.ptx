@@ -74,8 +74,8 @@
                 Assume now that <m>m=p-1</m>. We show in this case that <m>[a+p]_{p^2}</m> has order <m>p(p-1)</m>, and hence is a primitvie root modulo <m>p^2</m>. Let <m>m'=\ord[a+p]_{p^2}</m>. Since <m>a+p\equiv a\pmod p</m>, we know that <m>[a+p]_{p}^{p-1}=[a]_p^{p-1}=[1]_p</m>, and hence, using our same reasoning as above, that <m>m'\in \{p-1, p(p-1)\}</m>. It thus suffices to show that <m>[a+p]_{p^2}^{p-1}\ne [1]_{p^2}</m>. For this we use the binomial theorem: 
                 <md>
                     <mrow>(a+p)^{p-1} \amp =a^{p-1}+\sum_{k=1}^{p-1}{p-1\choose k}a^{p-1-k}p^k</mrow>
-                    <mrow> \amp \equiv a^{p-1}+(p-1)a^{p-2}p \pmod p^2</mrow>
-                    <mrow> \amp \equiv 1+(p-1)a^{p-2}p \pmod p^2</mrow>
+                    <mrow> \amp \equiv a^{p-1}+(p-1)a^{p-2}p \pmod {p^2}</mrow>
+                    <mrow> \amp \equiv 1+(p-1)a^{p-2}p \pmod {p^2}</mrow>
                     <mrow> \amp \not\equiv 1</mrow>
                 </md>,
                 since <m>p^2\nmid (p-1)a^{p-2}p</m>. It follows that <m>[a+p]_{p^2}^{p-1}\ne [1]_{p^2}</m>, as desired. 
@@ -100,33 +100,101 @@
                 <md>
                     <mrow>\left([a]_{p^k}\right)^{p^\ell(p-1)}=[1]_{p^k} \amp \implies \left(\left([a]_{p^k}\right)^{p^{\ell}(p-1)}\right)^p=[1]_{p^k}\implies \left([a]_{p^k}\right)^{p^{\ell+1}(p-1)}=[1]_{p^k}</mrow>
                 </md>.
-                We finish the proof by showing that <m>\left([a]_{p^k}\right)^{p^{k-2}(p-1)}\ne [1]_{p^k}</m> for all <m>k\geq 2</m>: or equivalently, that <m>a^{p^{k-2}(p-1)}\not\equiv 1\pmod p^k</m>. The proof is by induction. The base case follows trivially, since <m>[a]_{p^2}</m> is assumed to be a primitive root modulo <m>p^2</m>.
+                We finish the proof by showing that <m>\left([a]_{p^k}\right)^{p^{k-2}(p-1)}\ne [1]_{p^k}</m> for all <m>k\geq 2</m>: or equivalently, that <m>a^{p^{k-2}(p-1)}\not\equiv 1\pmod {p^k}</m>. The proof is by induction. The base case follows trivially, since <m>[a]_{p^2}</m> is assumed to be a primitive root modulo <m>p^2</m>.
             </p>
             <p>
                 For the induction step, we assume that <m>k\geq 2</m> and that 
                 <md>
-                   a^{p^{k-2}(p-1)}\not\equiv 1 \pmod p^k    
+                   a^{p^{k-2}(p-1)}\not\equiv 1 \pmod {p^k}    
                 </md>,
                 and we must show that 
                 <md>
-                    a^{p^{k+1-2}(p-1)}=a^{p^{k-1}(p-1)}\not\equiv 1\pmod p^{k+1}
+                    a^{p^{k+1-2}(p-1)}=a^{p^{k-1}(p-1)}\not\equiv 1\pmod {p^{k+1}}
                 </md>.
                 Since <m>\phi(p^{k-1})=p^{k-2}(p-1)</m>, we know that 
                 <md>
-                    a^{p^{k-2}(p-1)}\equiv 1\pmod p^{k-1}
+                    a^{p^{k-2}(p-1)}\equiv 1\pmod {p^{k-1}}
                 </md>
-                and hence that <m>a^{p^{k-2}(p-1)}=1+qp^{k-1}</m> for some <m>q\in \Z</m>. Since <m>a^{p^{k-2}(p-1)}\not\equiv 1\pmod p^k</m>, we have <m>p\nmid q</m>. But then we have 
+                and hence that <m>a^{p^{k-2}(p-1)}=1+qp^{k-1}</m> for some <m>q\in \Z</m>. Since <m>a^{p^{k-2}(p-1)}\not\equiv 1\pmod {p^k}</m>, we have <m>p\nmid q</m>. But then we have 
                 <md>
                     <mrow>a^{p^{k-1}(p-1)} \amp = (a^{p^{k-2}(p-1)})^p </mrow>
                     <mrow> \amp = (1+qp^{k-1})^p </mrow>
                     <mrow> \amp \equiv 1+qp^{k}+\sum_{\ell=2}^p{p\choose \ell}(qp^{\ell (k-1)} </mrow>
-                    <mrow> \amp \equiv 1+qp^{k} \pmod p^{k+1} </mrow>
-                    <mrow> \amp \not\equiv 1 \pmod p^{k+1} \amp (p\nmid q)</mrow>
+                    <mrow> \amp \equiv 1+qp^{k} \pmod {p^{k+1}} </mrow>
+                    <mrow> \amp \not\equiv 1 \pmod {p^{k+1}} \amp (p\nmid q)</mrow>
                 </md>.
                 In the penultimate line above, we have used the fact that <m>p^{k+1}\mid {p\choose \ell}qp^{\ell(k-1)}</m> for all <m>2\leq \ell \geq p</m>. Show this for yourself: you will notice that we need <m>k\geq 2</m> at some point!
             </p>
         </proof>
     </proposition>
+    <p>
+        The next proposition investigates the structure of <m>(\Z/2^k\Z)^*</m> for <m>k\geq 3</m>. As a negative result, it implies that there is no primitive root for  <m>(\Z/2^k\Z)^*</m> for such <m>k</m>, since every element has order <em>at most</em> <m>2^{k-2}\leq \phi(2^k)</m>. On the other hand, it also indicates that the element <m>r=[5]_{2^k}</m> has order <m>2^{k-2}</m> and <em>almost</em> generated the entire unit group. 
+    </p>
+    <proposition xml:id="prop_primitive_power_of_2">
+        <title>Primitive roots for <m>2^k</m>, <m>k\geq 3</m></title>
+        <statement>
+            <p>
+                Let <m>k\geq 3</m>.
+                <ol>
+                    <li>
+                        <p>
+                            <m>\ord r\leq 2^{k-2}</m> for all <m>r\in (\Z/2^k)*</m>. As a result, there is no primitive root for <m>(\Z/2^k\Z)^*</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The element <m>r=[5]_{2^k}\in (\Z/2^k)^*</m> has order <m>2^{k-2}</m>. Every element in <m>(\Z/2^k\Z)^*</m> can we written uniquely in the form <m>\pm r^{i}</m> for some <m>0\leq i\leq 2^{k-2}-1</m>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+        <proof>
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            Done in discussion section. (Or see text.)
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Statement about order <m>[5]_{2^k}</m> done in discussion section. (Or see text.) The second statement is left as a homework exercise. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </proof>
+    </proposition>
+    <p>
+        The next proposition, in combination with the previous results, completes the proof of <xref ref="th_number_of_primitive_roots"/>. 
+    </p>
+    <proposition xml:id="prop_primitive_remaining_cases">
+        <title>Remaining cases for primitive roots</title>
+        <statement>
+            <p>
+                Let <m>n</m> be a positive integer. 
+                <ol>
+                    <li>
+                        <p>
+                            If <m>n=2p^k</m> with <m>p</m> an odd prime, then <m>(\Z/n\Z)^*</m> has a primitive root. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            If <m>n</m> is not of the form <m>2^k</m>, <m>p^k</m>, or <m>2p^k</m>, where <m>p</m> is an odd prime, then <m>(\Z/n\Z)^*</m> does not have a primitive root.  
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+        <proof>
+            <p>
+                This is left as a homework exercise. 
+            </p>
+        </proof>
+    </proposition>
+    
     </subsection>
     
 
