@@ -1081,6 +1081,69 @@ var ptx_lunr_docs = [
   "body": " Square roots of modulo   Let be an odd prime. We have .   "
 },
 {
+  "id": "s_quad_resid_gauss",
+  "level": "1",
+  "url": "s_quad_resid_gauss.html",
+  "type": "Section",
+  "number": "1.6",
+  "title": "Quadratic residues: Gauss’s lemma",
+  "body": " Quadratic residues: Gauss's lemma     State and prove Gauss's lemma for computing the Legendre symbol.    Derive a formula for using Gauss's lemma.      Gauss's lemma for quadratic residues   Let be an odd prime, and let be an integer with . Consider the set , and let be the number of elements of that lie in the set . Equivalently, is the number of integers such that the least residue of is greater than . .    Let be the elements of that lie in the set , and let be the remaining elements of . Note that these elements are all distinct, since implies , by cancellation. In particular, we have .  Next, we claim that for each , we have . This is because for all , for some , in which case , and .  In fact, we claim further that . From the discussion above, we know that the inclusion holds. To see that this is in fact an equality, we will show that . Since , it suffices to show that the elements and are pairwise distinct. Since and for all , it suffices to show that for all . We prove this by contradiction. If , where and for some , then we would have . Since is a unit, we conclude that . This is a contradiction since , and thus .  Now that we know that , we conclude that . On the other hand, since the union of the and is the set of all multiples with , we have . We conclude that , and thus , since is a unit. Multiplying both sides by , we conclude that . Euler's criterion ( ) now implies . Since and , it follows that .     Integers in the interval  When discussing , it is helpful to keep in mind that when is prime, and are the nearest integers to the ,which is not an integer. The figure below is a useful one to keep in your mind.   Integers in the interval , odd   Integers in the interval from 1 to p-1       Gauss's lemma: computing   Compute using Gauss's lemma and confirm your answer by brute force.    We work within and drop the brackets. The multiples for are . Two of these lie in the set . Thus . (See xref{fig_gauss_5squaremod11}). Indeed, by inspection we find that in .     Gauss's lemma: computing   Applying Gauss's lemma to determine whether 5 is a square modulo 11      Formula for   Let be an odd prime. We have .        "
+},
+{
+  "id": "s_quad_resid_gauss-2",
+  "level": "2",
+  "url": "s_quad_resid_gauss.html#s_quad_resid_gauss-2",
+  "type": "Objectives",
+  "number": "1.6",
+  "title": "",
+  "body": "   State and prove Gauss's lemma for computing the Legendre symbol.    Derive a formula for using Gauss's lemma.    "
+},
+{
+  "id": "th_gauss_lemma",
+  "level": "2",
+  "url": "s_quad_resid_gauss.html#th_gauss_lemma",
+  "type": "Theorem",
+  "number": "1.6.1",
+  "title": "Gauss’s lemma for quadratic residues.",
+  "body": " Gauss's lemma for quadratic residues   Let be an odd prime, and let be an integer with . Consider the set , and let be the number of elements of that lie in the set . Equivalently, is the number of integers such that the least residue of is greater than . .    Let be the elements of that lie in the set , and let be the remaining elements of . Note that these elements are all distinct, since implies , by cancellation. In particular, we have .  Next, we claim that for each , we have . This is because for all , for some , in which case , and .  In fact, we claim further that . From the discussion above, we know that the inclusion holds. To see that this is in fact an equality, we will show that . Since , it suffices to show that the elements and are pairwise distinct. Since and for all , it suffices to show that for all . We prove this by contradiction. If , where and for some , then we would have . Since is a unit, we conclude that . This is a contradiction since , and thus .  Now that we know that , we conclude that . On the other hand, since the union of the and is the set of all multiples with , we have . We conclude that , and thus , since is a unit. Multiplying both sides by , we conclude that . Euler's criterion ( ) now implies . Since and , it follows that .   "
+},
+{
+  "id": "s_quad_resid_gauss-4",
+  "level": "2",
+  "url": "s_quad_resid_gauss.html#s_quad_resid_gauss-4",
+  "type": "Remark",
+  "number": "1.6.2",
+  "title": "Integers in the interval <span class=\"process-math\">\\([1,p-1]\\)<\/span>.",
+  "body": " Integers in the interval  When discussing , it is helpful to keep in mind that when is prime, and are the nearest integers to the ,which is not an integer. The figure below is a useful one to keep in your mind.   Integers in the interval , odd   Integers in the interval from 1 to p-1     "
+},
+{
+  "id": "eg_quad_res_5_11",
+  "level": "2",
+  "url": "s_quad_resid_gauss.html#eg_quad_res_5_11",
+  "type": "Example",
+  "number": "1.6.4",
+  "title": "Gauss’s lemma: computing <span class=\"process-math\">\\(\\qr{5}{11}\\)<\/span>.",
+  "body": " Gauss's lemma: computing   Compute using Gauss's lemma and confirm your answer by brute force.    We work within and drop the brackets. The multiples for are . Two of these lie in the set . Thus . (See xref{fig_gauss_5squaremod11}). Indeed, by inspection we find that in .   "
+},
+{
+  "id": "fig_gauss_5squaremod11",
+  "level": "2",
+  "url": "s_quad_resid_gauss.html#fig_gauss_5squaremod11",
+  "type": "Figure",
+  "number": "1.6.5",
+  "title": "",
+  "body": " Gauss's lemma: computing   Applying Gauss's lemma to determine whether 5 is a square modulo 11    "
+},
+{
+  "id": "cor_legend_sym_of_2",
+  "level": "2",
+  "url": "s_quad_resid_gauss.html#cor_legend_sym_of_2",
+  "type": "Corollary",
+  "number": "1.6.6",
+  "title": "Formula for <span class=\"process-math\">\\(\\qr{2}{p}\\)<\/span>.",
+  "body": " Formula for   Let be an odd prime. We have .       "
+},
+{
   "id": "appendix-notation",
   "level": "1",
   "url": "appendix-notation.html",
