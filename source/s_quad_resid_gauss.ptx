@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_quad_resid_gauss" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Quadratic residues: Gauss's lemma</title>
+
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    State and prove Gauss's lemma for computing the Legendre symbol. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Derive a formula for <m>\qr{2}{p}</m> using Gauss's lemma. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <theorem xml:id="th_gauss_lemma">
+    <title>Gauss's lemma for quadratic residues</title>
+    <statement>
+    <p>
+    Let <m>p</m> be an odd prime, and let <m>a</m> be an integer with <m>p\nmid a</m>. Consider the set 
+    <md>
+        X=\{[ka]_p\mid 1\leq k\leq (p-1)/2\}\subseteq \F_p^*
+    </md>,
+    and let <m>n</m> be the number of elements of <m>X</m> that lie in the set <m>\{[(p+1)/2]_p, \dots, [p-1]_p\}</m>. Equivalently, <m>n</m> is the number of integers <m>k\in \{1,2,\dots, (p-1)/2\}</m> such that the least residue of <m>ka</m> is greater than <m>(p-1)/2</m>. 
+    <md number="yes">
+        <mrow xml:id="eq_gauss_lemma">\qr{a}{p} \amp = (-1)^n </mrow>
+    </md>.
+    </p>
+    </statement>
+    <proof>
+    <p>
+        Let <m>r_1,r_2,\dots, r_n</m> be the elements <m>[k a]_p</m> of <m>X</m> that lie in the set <m>\{[(p+1)/2]_p, \dots, [p-1]_p\}</m>, and let <m>s_1,s_2,\dots, s_m,</m> be the remaining elements of <m>X</m>. Note that these elements are all distinct, since <m>[i]_p[a]_p=[j]_p[a]_p</m> implies <m>[i]_p=[j]_p</m>, by cancellation. In particular, we have <m>n+m=(p-1)/2</m>.
+    </p>
+    <p>Next, we claim that for each <m>r_i</m>, we have <m>-r_i\in \{[1]_p, [2]_p, \dots, [(p-1)/2]_p\}</m>. This is because for all <m>i</m>, <m>r_i=[b]_p</m> for some <m>p/2&lt; b\leq p-1</m>, in which case <m>-r_i=[-b]_p=[p-b]_p</m>, and <m>1\leq p-b &lt; p/2</m>.
+    </p>
+    <p>
+        In fact, we claim further that 
+        <md>
+            \{-r_1,-r_2,\dots,-r_n,s_1,s_2,\dots, s_m\}=\{[1]_p,\dots, [(p-1)/2]_p\}
+        </md>.
+        From the discussion above, we know that the inclusion <m>\subseteq</m> holds. To see that this is in fact an equality, we will show that 
+        <md number="yes">
+            <mrow>\abs{-r_1,-r_2,\dots, -r_n,s_1,s_2,\dots, s_m} \amp  </mrow>
+            <mrow> \amp = \abs{\{[1]_p,\dots, [(p-1)/2]_p\}}=(p-1)/2 </mrow>
+        </md>.
+        Since <m>n+m=(p-1)/2</m>, it suffices to show that the elements <m>-r_i</m> and <m>s_j</m> are pairwise distinct. Since <m>r_i\ne r_j</m> and <m>s_i\ne s_j</m> for all <m>i\ne j</m>, it suffices to show that <m>-r_i\ne s_j</m> for all <m>i,j</m>. We prove this by contradiction. If <m>-r_i=s_j</m>, where <m>r_i=[-\ell a]_p</m> and <m>s_j=[k a]_p</m> for some <m>1\leq \ell, k\leq (p-1)/2</m>, then we would have 
+        <md>[k]_p[a]_p+[\ell]_p[a]_p=([k+l]_p)[a]_p=0</md>. Since <m>[a]_p</m> is a unit, we conclude that <m>[k+\ell]_p=0</m>. This is a contradiction since <m>1\leq k+\ell\leq p-1</m>, and thus <m>p\nmid k+\ell</m>. 
+    </p>
+    <p>
+        Now that we know that <m>\{-r_1,-r_2,\dots,-r_n,s_1,s_2,\dots, s_m\}=\{[1]_p,\dots, [(p-1)/2]_p\}</m>, we conclude that 
+        <md>
+            <mrow>\prod_{i=1}^n(-r_i)\prod_{j=1}^ms_j \amp = \prod_{i=1}^{(p-1)/2}[i]_p </mrow>
+            <mrow> \amp= [((p-1)/2)!]_p</mrow>
+        </md>.
+        On the other hand, since the union of the <m>r_i</m> and <m>s_j</m> is the set of all multiples <m>[ka]_p</m> with <m>1\leq k\leq (p-1)/2</m>, we have 
+        <md number="yes">
+            <mrow> \prod_{i=1}^n(-r_i)\prod_{j=1}^ms_j\amp = [-1]_p^n \prod_{k=1}^{(p-1)/2}[ka]_p </mrow>
+            <mrow> \amp = [-1]_p^n [a]_p^{(p-1)/2}[((p-1)/2)!]_p</mrow>
+        </md>.
+        We conclude that
+        <md number="yes">
+            <mrow> [((p-1)/2)!]_p \amp = [(-1)]_p^n [a]_p^{(p-1)/2}[((p-1)/2)!]_p </mrow>
+        </md>,
+        and thus <m>1=(-1)^n[a]_p^{(p-1)/2}</m>, since <m>[((p-1)/2)!]_p</m> is a unit. Multiplying both sides by <m>[-1]_p^n</m>, we conclude that <m>[a]_p^{(p-1)/2}=[-1]_p^n</m>. Euler's criterion (<xref ref="th_legendre_symbol"/>) now implies <m>\qr{a}{p}\equiv (-1)^n \pmod p</m>. Since <m>\qr{a}{p}\in \{-1,1\}</m> and <m>p&gt; 2</m>, it follows that <m>\qr{a}{p}=(-1)^n</m>. 
+    </p>
+    </proof>
+    </theorem>
+    <remark>
+    <title>Integers in the interval <m>[1,p-1]</m></title>
+    <p>
+        When discussing <xref ref="th_gauss_lemma"/>, it is helpful to keep in mind that when <m>p</m> is prime, <m>(p-1)/2</m> and <m>(p+1)/2</m> are the nearest integers to the <m>p/2</m>,which is not an integer. The figure below is a useful one to keep in your mind.  
+    </p>
+    <figure xml:id="fig_gauss_lemma">
+        <caption>Integers in the interval <m>[1,p-1]</m>, <m>p</m> odd</caption>
+        <image>
+            <shortdescription>Integers in the interval from 1 to p-1</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}
+\draw (0,0) -- (11,0) node {};
+\foreach \x in {1,3,5,7,9,10} {
+    \fill[blue] (\x,0) circle (0.1);
+}
+\foreach \x in {2,4,6,8} {
+    \draw (\x,.1) -- (\x,-.1) node {};
+}
+\draw node at (1,-0.5) {$1$};
+\draw node at (3,-0.5) {$\cdots$};
+\draw node at (5,-0.5) {$\frac{p-1}{2}$};
+\draw node at (6,-0.5) {$\frac{p}{2}$};
+\draw node at (7,-0.5) {$\frac{p+1}{2}$};
+\draw node at (9,-0.5) {$\cdots$};
+\draw node at (10,-0.5) {$p-1$};
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+    </remark>
+    <example xml:id="eg_quad_res_5_11">
+    <title>Gauss's lemma: computing <m>\qr{5}{11}</m></title>
+    <statement>
+    <p>
+    Compute <m>\qr{5}{11}</m> using Gauss's lemma and confirm your answer by brute force. 
+    </p>
+    </statement>
+    <solution>
+    <p>
+    We work within <m>\F_{11}</m> and drop the brackets. The multiples <m>k\cdot 5\in \F_{11}</m> for <m>1\leq k\leq 5</m> are <m>5,10,4,9,3</m>. Two of these lie in the set <m>\{6,7,8,9,10\}</m>. Thus <m>\qr{5}{11}=(-1)^2=1</m>. (See xref{fig_gauss_5squaremod11}). Indeed, by inspection we find that <m>7^2=49=5</m> in <m>\F_{11}</m>. 
+    </p>
+    </solution>
+    </example>
+    <figure xml:id="fig_gauss_5squaremod11">
+        <caption>Gauss's lemma: computing <m>\qr{5}{11}</m></caption>
+        <image>
+            <shortdescription>Applying Gauss's lemma to determine whether 5 is a square modulo 11</shortdescription>
+            <latex-image>
+                \begin{tikzpicture}
+\draw (0,0) -- (11,0) node {};
+\foreach \x in {5,10,4,9,3} {
+    \fill[blue] (\x,0) circle (0.1);
+}
+\foreach \x in {1,2,...,10} {
+    \draw (\x,.1) -- (\x,-.1) node[below] {$\x$};
+}
+\draw[dashed] (5.5,1.5) -- (5.5,-1.5) node {};
+\draw node at (5,0.5) {$[5]_p$};
+\draw node at (10,0.5) {$[2\cdot 5]_p$};
+\draw node at (4,0.5) {$[3\cdot 5]_p$};
+\draw node at (9,0.5) {$[4\cdot 5]_p$};
+\draw node at (3,0.5) {$[5\cdot 5]_p$};
+                \end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+    <corollary xml:id="cor_legend_sym_of_2">
+        <title>Formula for <m>\qr{2}{p}</m></title>
+        <statement>
+            <p>
+                Let <m>p</m> be an odd prime. We have 
+                <md number="yes">
+                    \qr{2}{p}=\begin{cases}
+                    1 \amp \text{if } p\equiv \pm 1 \pmod 8 \\
+                    -1 \amp \text{if } p\equiv \pm 3 \pmod 8
+                    \end{cases}
+                </md>.
+            </p>
+        </statement>
+        <proof>
+            <p>
+                
+            </p>
+        </proof>
+    </corollary>
+</section>
