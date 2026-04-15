@@ -1087,7 +1087,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.6",
   "title": "Quadratic residues: Gauss’s lemma",
-  "body": " Quadratic residues: Gauss's lemma     State and prove Gauss's lemma for computing the Legendre symbol.    Derive a formula for using Gauss's lemma.      Gauss's lemma for quadratic residues   Let be an odd prime, and let be an integer with . Consider the set , and let be the number of elements of that lie in the set . Equivalently, is the number of integers such that the least residue of is greater than . .    Let be the elements of that lie in the set , and let be the remaining elements of . Note that these elements are all distinct, since implies , by cancellation. In particular, we have .  Next, we claim that for each , we have . This is because for all , for some , in which case , and .  In fact, we claim further that . From the discussion above, we know that the inclusion holds. To see that this is in fact an equality, we will show that . Since , it suffices to show that the elements and are pairwise distinct. Since and for all , it suffices to show that for all . We prove this by contradiction. If , where and for some , then we would have . Since is a unit, we conclude that . This is a contradiction since , and thus .  Now that we know that , we conclude that . On the other hand, since the union of the and is the set of all multiples with , we have . We conclude that , and thus , since is a unit. Multiplying both sides by , we conclude that . Euler's criterion ( ) now implies . Since and , it follows that .     Integers in the interval  When discussing , it is helpful to keep in mind that when is prime, and are the nearest integers to the ,which is not an integer. The figure below is a useful one to keep in your mind.   Integers in the interval , odd   Integers in the interval from 1 to p-1       Gauss's lemma: computing   Compute using Gauss's lemma and confirm your answer by brute force.    We work within and drop the brackets. The multiples for are . Two of these lie in the set . Thus . (See xref{fig_gauss_5squaremod11}). Indeed, by inspection we find that in .     Gauss's lemma: computing   Applying Gauss's lemma to determine whether 5 is a square modulo 11      Formula for   Let be an odd prime. We have .        "
+  "body": " Quadratic residues: Gauss's lemma     State and prove Gauss's lemma for computing the Legendre symbol.    Derive a formula for using Gauss's lemma.      Gauss's lemma for quadratic residues   Let be an odd prime, and let be an integer with . Consider the set , and let be the number of elements of that lie in the set . Equivalently, is the number of integers such that the least residue of is greater than . .    Let be the elements of that lie in the set , and let be the remaining elements of . Note that these elements are all distinct, since implies , by cancellation. In particular, we have .  Next, we claim that for each , we have . This is because for all , for some , in which case , and .  In fact, we claim further that . From the discussion above, we know that the inclusion holds. To see that this is in fact an equality, we will show that . Since , it suffices to show that the elements and are pairwise distinct. Since and for all , it suffices to show that for all . We prove this by contradiction. If , where and for some , then we would have . Since is a unit, we conclude that . This is a contradiction since , and thus .  Now that we know that , we conclude that . On the other hand, since the union of the and is the set of all multiples with , we have . We conclude that , and thus , since is a unit. Multiplying both sides by , we conclude that . Euler's criterion ( ) now implies . Since and , it follows that .     Integers in the interval  When discussing , it is helpful to keep in mind that when is prime, and are the nearest integers to the ,which is not an integer. The figure below is a useful one to keep in your mind.   Integers in the interval , odd   Integers in the interval from 1 to p-1       Gauss's lemma: computing   Compute using Gauss's lemma and confirm your answer by brute force.    We work within and drop the brackets. The multiples for are . Two of these lie in the set . Thus . (See xref{fig_gauss_5squaremod11}). Indeed, by inspection we find that in .     Gauss's lemma: computing   Applying Gauss's lemma to determine whether 5 is a square modulo 11      Formula for   Let be an odd prime. We have .    Let . Using , we have , where is the number of multiples of , , that lie in .  We treat two separate cases: and .   Case:  Assume , or equivalently, for some integer . In this case we have , which is divisible by . It follows that there are exactly multiples of in and , and thus that . Since , we see that this exponent is even if and only if , and it is easy to see that this is true if and only if . Since implies or , we conclude that in this case we have .    Case:  Assume , or equivalently, for some integer . In this case is a multiple of , but is not. It follows that there are multiples os lying in and multiples of lying in . We conclude that . Since , we see that this exponent is even if and only if is odd, which is true if and only if . Since implies or , we conclude in this case that .   Since our two cases are exhaustive, we combine them to conclude , or more succinctly, .    "
 },
 {
   "id": "s_quad_resid_gauss-2",
@@ -1141,7 +1141,124 @@ var ptx_lunr_docs = [
   "type": "Corollary",
   "number": "1.6.6",
   "title": "Formula for <span class=\"process-math\">\\(\\qr{2}{p}\\)<\/span>.",
-  "body": " Formula for   Let be an odd prime. We have .       "
+  "body": " Formula for   Let be an odd prime. We have .    Let . Using , we have , where is the number of multiples of , , that lie in .  We treat two separate cases: and .   Case:  Assume , or equivalently, for some integer . In this case we have , which is divisible by . It follows that there are exactly multiples of in and , and thus that . Since , we see that this exponent is even if and only if , and it is easy to see that this is true if and only if . Since implies or , we conclude that in this case we have .    Case:  Assume , or equivalently, for some integer . In this case is a multiple of , but is not. It follows that there are multiples os lying in and multiples of lying in . We conclude that . Since , we see that this exponent is even if and only if is odd, which is true if and only if . Since implies or , we conclude in this case that .   Since our two cases are exhaustive, we combine them to conclude , or more succinctly, .   "
+},
+{
+  "id": "s_quad_resid_recipr",
+  "level": "1",
+  "url": "s_quad_resid_recipr.html",
+  "type": "Section",
+  "number": "1.7",
+  "title": "Law of quadratic reciprocity",
+  "body": " Law of quadratic reciprocity     State and prove the law of quadratic reciprocity.    Use quadratic reciprocity to determine whether a given integer is a square modulo .      Law of quadratic reciprocity   Let and be distinct odd primes. We have .    Before getting to the proof of , we record a simple consequence that is often useful when computing examples.    Let and be distinct odd primes. .     Proof of quadratic reciprocity  Consider . Let . By Gauss's lemma, letting be the distinct elements of and the distinct elements of , we have . Recall also, that in our proof of , we showed that . Let's express the elements of in terms of the division algorithm. For each , we have , where . The value of , is determined by the parity of : that is, its value modulo . To assert something interesting about this, we will compute in two different ways. On the one hand, we have    "
+},
+{
+  "id": "s_quad_resid_recipr-2",
+  "level": "2",
+  "url": "s_quad_resid_recipr.html#s_quad_resid_recipr-2",
+  "type": "Objectives",
+  "number": "1.7",
+  "title": "",
+  "body": "   State and prove the law of quadratic reciprocity.    Use quadratic reciprocity to determine whether a given integer is a square modulo .    "
+},
+{
+  "id": "th_quad_recip",
+  "level": "2",
+  "url": "s_quad_resid_recipr.html#th_quad_recip",
+  "type": "Theorem",
+  "number": "1.7.1",
+  "title": "Law of quadratic reciprocity.",
+  "body": " Law of quadratic reciprocity   Let and be distinct odd primes. We have .   "
+},
+{
+  "id": "cor_quad_recip",
+  "level": "2",
+  "url": "s_quad_resid_recipr.html#cor_quad_recip",
+  "type": "Corollary",
+  "number": "1.7.2",
+  "title": "",
+  "body": "  Let and be distinct odd primes. .   "
+},
+{
+  "id": "s_quad_resid_recipr-6",
+  "level": "2",
+  "url": "s_quad_resid_recipr.html#s_quad_resid_recipr-6",
+  "type": "Proof",
+  "number": "1.7.1",
+  "title": "Proof of quadratic reciprocity.",
+  "body": " Proof of quadratic reciprocity  Consider . Let . By Gauss's lemma, letting be the distinct elements of and the distinct elements of , we have . Recall also, that in our proof of , we showed that . Let's express the elements of in terms of the division algorithm. For each , we have , where . The value of , is determined by the parity of : that is, its value modulo . To assert something interesting about this, we will compute in two different ways. On the one hand, we have   "
+},
+{
+  "id": "s_pseudoprimes",
+  "level": "1",
+  "url": "s_pseudoprimes.html",
+  "type": "Section",
+  "number": "1.8",
+  "title": "Pseudoprimes",
+  "body": " Pseudoprimes   Jacobi symbol   Jacobi symbol   Let be an odd positive integer with prime factorization . Given any integer , we define the Jacobi symbol  as      Jacobi symbol and squares modulo  As we will see below, the Jacobi symbol is a convenient extension of the the Legendre symbol to odd composite moduli that satisfies many of the same algebraic properties. We hasten to add, however, that when is not prime, the Jacobi symbol cannot be used to determine whether a given integer is a square modulo ; that is it is not the case that if and only if is a square modulo for integers relatively prime to . Consider , for example. We have , and yet is not a square modulo , as is easily verified.  However, it is possible to show that if , then is not a square modulo . (Hint: CRT!)    Jacobi symbol   Assume is an odd positive integer.   If , then .     for all integers and .    Given odd positive integer , we have for all integers .    .   Let be an odd positive integer. We have .         Pseudoprimes   Pseudoprimes   Let be an odd positive integer and let be an integer that is relatively prime to .   We say is a pseudoprime to the base if .    We say that is an Euler pseudoprime to the base if .    Let , where is odd. We say is a strong pseudoprime wto the base if one of the following conditions is satisfied:    ;     for some .   When one of the above conditions is satisfied, we say that  passes Miller's test for the base .        Pseudoprimes:      Using logical shorthand: .    If is an odd prime, then passes Miller's test with base for all .    If is a positive composite integer, then is a strong pseudoprime to the base for at most of the integers in .          Left to the reader.    Left to the reader.    See Section 9.4 of Rosen's text for a proof. This is essentially just an application of and the Chinese remainder theorem. In this sense the ideas behind the proof will be familiar enough to you. The necessary inequality calisthenics, however, make the proof somewhat lengthy.        Miller-Rabin probabilistic primality test   Let be an odd positive integer, and let be a sequence of elements chosen randomly from . If is composite, then the probability that passes Miller's test for all of the bases is at most .     Strong pseudoprimes     There are infinitely many strong pseudoprimes (to some base). In fact, you can show that there are infinitely many strong pseudoprimes to the base .    The following observations imply that for reasonably sized integers , applying Miller's test to , , , and is sufficient to determine whether is prime.    is the smallest positive integer that is a strong pseudoprime to the base .     is the smallest positive integer that is a strong pseudoprime to the bases and .     is the smallest positive integer that is a strong pseudoprime to the bases , , and .     is the smallest positive integer that is a strong pseudoprime to the bases , , , and .          "
+},
+{
+  "id": "d_jacobi_symbol",
+  "level": "2",
+  "url": "s_pseudoprimes.html#d_jacobi_symbol",
+  "type": "Definition",
+  "number": "1.8.1",
+  "title": "Jacobi symbol.",
+  "body": " Jacobi symbol   Let be an odd positive integer with prime factorization . Given any integer , we define the Jacobi symbol  as    "
+},
+{
+  "id": "ss_jacobi_symbol-3",
+  "level": "2",
+  "url": "s_pseudoprimes.html#ss_jacobi_symbol-3",
+  "type": "Remark",
+  "number": "1.8.2",
+  "title": "Jacobi symbol and squares modulo <span class=\"process-math\">\\(n\\)<\/span>.",
+  "body": " Jacobi symbol and squares modulo  As we will see below, the Jacobi symbol is a convenient extension of the the Legendre symbol to odd composite moduli that satisfies many of the same algebraic properties. We hasten to add, however, that when is not prime, the Jacobi symbol cannot be used to determine whether a given integer is a square modulo ; that is it is not the case that if and only if is a square modulo for integers relatively prime to . Consider , for example. We have , and yet is not a square modulo , as is easily verified.  However, it is possible to show that if , then is not a square modulo . (Hint: CRT!)  "
+},
+{
+  "id": "prop_jacobi",
+  "level": "2",
+  "url": "s_pseudoprimes.html#prop_jacobi",
+  "type": "Proposition",
+  "number": "1.8.3",
+  "title": "Jacobi symbol.",
+  "body": " Jacobi symbol   Assume is an odd positive integer.   If , then .     for all integers and .    Given odd positive integer , we have for all integers .    .   Let be an odd positive integer. We have .      "
+},
+{
+  "id": "d_pseudoprimes",
+  "level": "2",
+  "url": "s_pseudoprimes.html#d_pseudoprimes",
+  "type": "Definition",
+  "number": "1.8.4",
+  "title": "Pseudoprimes.",
+  "body": " Pseudoprimes   Let be an odd positive integer and let be an integer that is relatively prime to .   We say is a pseudoprime to the base if .    We say that is an Euler pseudoprime to the base if .    Let , where is odd. We say is a strong pseudoprime wto the base if one of the following conditions is satisfied:    ;     for some .   When one of the above conditions is satisfied, we say that  passes Miller's test for the base .      "
+},
+{
+  "id": "th_pseudoprimes_fermat_strong",
+  "level": "2",
+  "url": "s_pseudoprimes.html#th_pseudoprimes_fermat_strong",
+  "type": "Theorem",
+  "number": "1.8.5",
+  "title": "Pseudoprimes:.",
+  "body": " Pseudoprimes:      Using logical shorthand: .    If is an odd prime, then passes Miller's test with base for all .    If is a positive composite integer, then is a strong pseudoprime to the base for at most of the integers in .          Left to the reader.    Left to the reader.    See Section 9.4 of Rosen's text for a proof. This is essentially just an application of and the Chinese remainder theorem. In this sense the ideas behind the proof will be familiar enough to you. The necessary inequality calisthenics, however, make the proof somewhat lengthy.      "
+},
+{
+  "id": "proc_primality_prob",
+  "level": "2",
+  "url": "s_pseudoprimes.html#proc_primality_prob",
+  "type": "Procedure",
+  "number": "1.8.6",
+  "title": "Miller-Rabin probabilistic primality test.",
+  "body": " Miller-Rabin probabilistic primality test   Let be an odd positive integer, and let be a sequence of elements chosen randomly from . If is composite, then the probability that passes Miller's test for all of the bases is at most .   "
+},
+{
+  "id": "ss_pseudoprimes-5",
+  "level": "2",
+  "url": "s_pseudoprimes.html#ss_pseudoprimes-5",
+  "type": "Remark",
+  "number": "1.8.7",
+  "title": "Strong pseudoprimes.",
+  "body": " Strong pseudoprimes     There are infinitely many strong pseudoprimes (to some base). In fact, you can show that there are infinitely many strong pseudoprimes to the base .    The following observations imply that for reasonably sized integers , applying Miller's test to , , , and is sufficient to determine whether is prime.    is the smallest positive integer that is a strong pseudoprime to the base .     is the smallest positive integer that is a strong pseudoprime to the bases and .     is the smallest positive integer that is a strong pseudoprime to the bases , , and .     is the smallest positive integer that is a strong pseudoprime to the bases , , , and .        "
 },
 {
   "id": "appendix-notation",

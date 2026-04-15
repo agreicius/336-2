@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_quad_resid_recipr" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Law of quadratic reciprocity</title>
+
+    <objectives>
+        <ol>
+            <li>
+                <p>
+                    State and prove the law of quadratic reciprocity. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use quadratic reciprocity to determine whether a given integer is a square modulo <m>p</m>. 
+                </p>
+            </li>
+        </ol>
+    </objectives>
+    <theorem xml:id="th_quad_recip">
+    <title>Law of quadratic reciprocity</title>
+    <statement>
+    <p>
+    Let <m>p</m> and <m>q</m> be distinct odd primes. We have 
+    <md number="yes">
+        <mrow xml:id="eq_quad_recip">\qr{p}{q} \amp = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}} \qr{q}{p} </mrow>
+    </md>.
+    </p>
+    </statement>
+    </theorem>
+    <p>
+        Before getting to the proof of <xref ref="th_quad_recip"/>, we record a simple consequence that is often useful when computing examples. 
+    </p>
+    <corollary xml:id="cor_quad_recip">
+        <statement>
+            <p>
+                Let <m>p</m> and <m>q</m> be distinct odd primes. 
+                <md number="yes">
+                    <mrow>\qr{p}{q} \amp = \begin{cases}
+                    \qr{q}{p} \amp \text{if } p\equiv 1\pmod 4 \text{ or } q\equiv 1\pmod 4 \\
+                    -\qr{q}{p} \amp \text{if } p\equiv q\equiv -1\pmod 4
+                    \end{cases}</mrow>
+                </md>.
+            </p>
+        </statement>
+    </corollary>
+    <proof>
+        <title>Proof of quadratic reciprocity</title>
+    <p>
+        Consider <m>\qr{p}{q}</m>. Let 
+        <md number="no">
+            <mrow>R \amp = \{(kp)\boldmod q\mid 1\leq k\leq (q-1)/2\} </mrow>
+            <mrow>X \amp = \{1,\dots, (q-1)/2\}</mrow>
+            <mrow>Y \amp = \{(q+1)/2, \dots, q-1\}</mrow>
+        </md>.
+        By Gauss's lemma, letting <m>s_1,s_2,\dots, s_{n}</m> be the distinct elements of <m>R\cap Y</m> and <m>t_1,t_2,\dots, t_m</m> the distinct elements of <m>R\cap X</m>, we have <m>\qr{p}{q}=(-1)^{n}</m>. Recall also, that in our proof of <xref ref="th_gauss_lemma"/>, we showed that 
+        <md>
+            \{q-s_1,q-s_2,\dots, q-s_n, t_1,t_2,\dots, t_m\}=X
+        </md>.
+        Let's express the elements of <m>R</m> in terms of the division algorithm. For each <m>1\leq k\leq (q-1)/2</m>, we have 
+        <m>(kp)\boldmod q=r_k</m>, where 
+        <md>
+            <mrow>kp \amp =\floor{kp/q}q+r_k</mrow>
+        </md>.
+        The value of <m>\qr{p}{q}=(-1)^n</m>, is determined by the parity of <m>n</m>: that is, its value modulo <m>2</m>. To assert something interesting about this, we will compute <m>\sum_{k=1}^{(p-1)/2}kp</m> in two different ways. On the one hand, we have 
+        <md>
+            <mrow> \amp </mrow>
+        </md>
+        
+    </p>
+    </proof>
+
+</section>

@@ -150,8 +150,72 @@
         </statement>
         <proof>
             <p>
-                
+               Let 
+               <md number="yes">
+                <mrow>X \amp =\{[1]_p, \dots [(p-1)/2]_p\}</mrow>
+                <mrow>Y \amp =\{[(p+1)/2]_p,\dots ,[p-1]_p\}</mrow>
+               </md>.
+                Using <xref ref="th_gauss_lemma"/>, we have 
+                <md>
+                    \qr{2}{p}=(-1)^n
+                </md>,
+                where <m>n</m> is the number of multiples of <m>[2k]_p</m>, <m>1\leq k\leq (p-1)/2</m>, that lie in <m>Y</m>.
             </p>
+            <p>
+                We treat two separate cases: <m>p\equiv 1\pmod 4</m> and <m>p\equiv -1\pmod 4</m>. 
+            </p>
+            <case>
+            <title>Case: <m>p\equiv 1 \pmod 4</m></title>
+            <p>
+            Assume <m>p\equiv 1\pmod 4</m>, or equivalently, <m>p-1=4k</m> for some integer <m>k</m>. In this case we have <m>(p-1)/2=2k</m>, which is divisible by <m>2</m>. It follows that there are exactly <m>(p-1)/4</m> multiples of <m>[2]_p</m> in <m>X</m> and <m>Y</m>, and thus that 
+            <md>
+                \qr{2}{p}=(-1)^{(p-1)/4}
+            </md>.
+            Since <m>(p-1)/4=k\in \Z</m>, we see that this exponent is even if and only if <m>2\mid k</m>, and it is easy to see that this is true if and only if <m>p\equiv 1\pmod 8</m>.
+            Since <m>p\equiv 1\pmod 4</m> implies <m>p\equiv 1 \pmod 8</m> or <m>p\equiv 5 \pmod 8</m>, we conclude that in this case we have 
+            <md>
+                \qr{2}{8}=\begin{cases}
+                1 \amp \text{if } p\equiv 1\pmod 8\\
+                -1 \amp \text{if } p\equiv 5\pmod 8
+                \end{cases}
+            </md>.
+            </p>
+            </case>
+            <case>
+            <title>Case: <m>p\equiv 3\pmod 4</m></title>
+            <p>
+            Assume <m>p\equiv 3\pmod 4</m>, or equivalently, <m>p=4k+3</m> for some integer <m>k</m>. In this case <m>(p-3)/2</m> is a multiple of <m>2</m>, but <m>(p-1)/2</m> is not. It follows that there are <m>(p-3)/4</m> multiples os <m>[2]_p</m> lying in <m>X</m> and <m>(p+1)/4</m> multiples of <m>[2]_p</m> lying in <m>Y</m>. We conclude that 
+            <md>
+                \qr{2}{p}=(-1)^{(p+1)/4}
+            </md>.
+            Since <m>(p+1)/4=(k+1)</m>, we see that this exponent is even if and only if <m>k</m> is odd, which is true if and only if <m>p\equiv 7 \pmod 8</m>. Since <m>p\equiv 3\pmod 4</m> implies <m>p\equiv 3 \pmod 8</m> or <m>p\equiv 7 \pmod 8</m>, we conclude in this case that 
+            <md>
+                \qr{2}{8}=\begin{cases}
+                1 \amp \text{if } p\equiv 7\pmod 8\\
+                -1 \amp \text{if } p\equiv 3 \pmod 8
+                \end{cases}
+            </md>.
+            </p>
+            </case>
+            <p>
+                Since our two cases are exhaustive, we combine them to conclude 
+                <md>
+                    \qr{2}{8}=\begin{cases}
+                    1 \amp \text{if } p\equiv 1\pmod 8 \\
+                    -1\amp \text{if } p\equiv 5\pmod 8\\
+                    1 \amp \text{if } p\equiv 7\pmod 8\\ 
+                    -1\amp \text{if } p\equiv 3\pmod 8
+                    \end{cases}
+                </md>,
+                or more succinctly, 
+                <md>
+                    \qr{2}{8}=\begin{cases}
+                    1 \amp \text{if } p\equiv \pm 1\pmod 8\\
+                    -1\amp \text{if } p\equiv \pm 3\pmod 8
+                    \end{cases}
+                </md>.
+            </p>
+            
         </proof>
     </corollary>
 </section>

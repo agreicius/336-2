@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_pseudoprimes" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Pseudoprimes</title>
+    <subsection xml:id="ss_jacobi_symbol">
+<title>Jacobi symbol</title>
+
+
+    <definition xml:id="d_jacobi_symbol">
+    <title>Jacobi symbol</title>
+    <statement>
+    <p>
+    Let <m>n</m> be an odd positive integer with prime factorization <m>\prod_{i=1}^r p_i^{n_i}</m>. Given any integer <m>a</m>, we define the <term>Jacobi symbol</term> <m>\qr{a}{n}</m> as 
+<md number="yes">
+        \qr{a}{n}=\prod_{i=1}^r \qr{a}{p_i}^{n_i}.
+</md>
+    </p>
+    </statement>
+    </definition>
+    <remark>
+    <title>Jacobi symbol and squares modulo <m>n</m></title>
+    <p>
+    As we will see below, the Jacobi symbol is a convenient extension of the the Legendre symbol to odd composite moduli that satisfies many of the same algebraic properties. We hasten to add, however, that when <m>n</m> is not prime, the Jacobi symbol <em>cannot</em> be used to determine whether a given integer <m>a</m> is a square modulo <m>n</m>; that is it is not the case that <m>\qr{a}{n}=1</m> if and only if <m>a</m> is a square modulo <m>n</m> for integers <m>a</m> relatively prime to <m>n</m>. Consider <m>\qr{2}{15}</m>, for example. We have 
+    <md>
+        <mrow>\qr{2}{15} \amp =\qr{2}{3}\qr{2}{5}</mrow>
+        <mrow> \amp = (-1)(-1)=1</mrow>
+    </md>,
+    and yet <m>2</m> is not a square modulo <m>15</m>, as is easily verified. 
+    </p>
+    <p>
+        However, it is possible to show that if <m>\qr{a}{n}=-1</m>, then <m>a</m> is <em>not</em> a square modulo <m>n</m>. (Hint: CRT!)
+    </p>
+    </remark>
+    <proposition xml:id="prop_jacobi">
+        <title>Jacobi symbol</title>
+        <statement>
+            <p>
+                Assume <m>n</m> is an odd positive integer. 
+                <ol>
+                    <li>
+                        <p>
+                            If <m>a\equiv b\pmod n</m>, then <m>\qr{a}{n}=\qr{b}{n}</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\qr{ab}{n}=\qr{a}{n}\qr{b}{n}</m> for all integers <m>a</m> and <m>b</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Given odd positive integer <m>m</m>, we have 
+                            <md number="yes">
+                                <mrow>\qr{a}{mn} \amp =\qr{a}{m}\qr{a}{n}</mrow>
+                            </md>
+                            for all integers <m>a</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <md number="yes">
+                            <mrow>\qr{-1}{n} \amp = \begin{cases}
+                                1 \amp  \text{if } n \equiv 1 \pmod{4} \\
+                                -1 \amp  \text{if } n \equiv 3 \pmod{4}
+                            \end{cases}</mrow>
+                            <mrow>\qr{2}{n} \amp = \begin{cases}
+                            1 \amp \text{if } n \equiv \pm 1 \pmod{8} \\
+                            -1 \amp \text{if } n \equiv \pm 3\pmod{8}
+                            \end{cases}</mrow>
+                        </md>.
+                    </li>
+                    <li>
+                        <p>
+                            Let <m>m</m> be an odd positive integer. We have 
+                            <md number="yes">
+                                <mrow>\qr{m}{n} \amp =(-1)^{\frac{m-1}{2}\cdot \frac{n-1}{2}}\qr{n}{m}</mrow>
+                            </md>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+    </proposition>
+    
+</subsection>
+    <subsection xml:id="ss_pseudoprimes">
+    <title>Pseudoprimes</title>
+    <definition xml:id="d_pseudoprimes">
+    <title>Pseudoprimes</title>
+    <statement>
+    <p>
+    Let <m>n</m> be an odd positive integer and let <m>a</m> be an integer that is relatively prime to <m>n</m>. 
+    <ul>
+        <li>
+            <p>
+                We say <m>n</m> is a <term>pseudoprime to the base <m>a</m></term> if <m>a^{n-1}\equiv 1\pmod n</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                We say that <m>n</m> is an <term>Euler pseudoprime to the base <m>a</m></term> if 
+                <md number="yes">
+                    <mrow>a^{(n-1)/2} \amp \equiv \qr{a}{n} \pmod n</mrow>
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Let <m>n-1=2^km</m>, where <m>m</m> is odd.  We say <m>n</m> is a <term>strong pseudoprime wto the base <m>a</m></term> if one of the following conditions is satisfied: 
+                <ol marker="(i)">
+                    <li>
+                        <p>
+                            <m>a^m\equiv 1\pmod n</m>;
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>a^{2^\ell}\equiv -1\pmod n</m> for some <m>1\leq \ell \leq k-1</m>.
+                        </p>
+                    </li>
+                </ol>
+                When one of the above conditions is satisfied, we say that <m>n</m> <term>passes Miller's test for the base <m>b</m></term>.
+            </p>
+        </li>
+        
+    </ul>
+    </p>
+    </statement>
+    </definition>
+    <theorem xml:id="th_pseudoprimes_fermat_strong">
+    <title>Pseudoprimes: </title>
+    <statement>
+    <p>
+    <ol>
+        <li>
+            <p>
+                Using logical shorthand: 
+                <md number="yes">
+                    \text{ strong pseudoprime} \implies \text{ Euler pseudoprime} \implies \text{ pseudoprime}
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                If <m>p</m> is an odd prime, then <m>p</m> passes Miller's test with base <m>a</m> for all <m>1\leq a\leq p-1</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                If <m>n</m> is a positive composite integer, then <m>n</m> is a strong pseudoprime to the base <m>a</m> for at most <m>1/4</m> of the integers <m>a</m> in <m>\{1,2,\dots, n-1\}</m>. 
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <proof>
+    <p>
+        <ol>
+            <li>
+                <p>
+                    Left to the reader.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Left to the reader. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    See Section 9.4 of Rosen's text for a proof. This is essentially just an application of <xref ref="th_primitive_roots_mod_n"/> and the Chinese remainder theorem. In this sense the ideas behind the proof will be familiar enough to you. The necessary inequality calisthenics, however, make the proof somewhat lengthy. 
+                </p>
+            </li>
+        </ol>
+    </p>
+    </proof>
+    </theorem>
+    <algorithm xml:id="proc_primality_prob">
+        <title>Miller-Rabin probabilistic primality test</title>
+        <statement>
+            
+            <p>
+                Let <m>n</m> be an odd positive integer, and let <m>(a_1,a_2,\dots, a_k)</m> be a sequence of <m>k</m> elements chosen randomly from <m>\{1,2,\dots, n-1\}</m>. If <m>n</m> is composite, then the probability that <m>n</m> passes Miller's test for all of the bases <m>a_1,a_2,\dots, a_k</m> is at most <m>(1/4)^k</m>. 
+            </p>
+        </statement>
+    </algorithm>
+    <remark>
+    <title>Strong pseudoprimes</title>
+    <p>
+    <ol>
+        <li>
+            <p>
+                There are infinitely many strong pseudoprimes (to some base). In fact, you can show that there are infinitely many strong pseudoprimes to the base <m>2</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                The following observations imply that for reasonably sized integers <m>n</m>, applying Miller's test to <m>2</m>, <m>3</m>, <m>5</m>, and <m>7</m> is sufficient to determine whether <m>n</m> is prime. 
+                <ul>
+                    <li>
+                        <p>
+                            <m>2047</m> is the smallest positive integer that is a strong pseudoprime to the base <m>2</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>1,373,653</m> is the smallest positive integer that is a strong pseudoprime to the bases <m>2</m> and <m>3</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>25,326,001</m> is the smallest positive integer that is a strong pseudoprime to the bases <m>2</m>, <m>3</m>, and <m>5</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>3,215,031,751</m> is the smallest positive integer that is a strong pseudoprime to the bases <m>2</m>, <m>3</m>, <m>5</m>, and <m>7</m>.
+                        </p>
+                    </li>
+                </ul>
+            </p>
+        </li>
+    </ol>
+    </p>
+    </remark>
+    
+
+    </subsection>
+
+</section>
