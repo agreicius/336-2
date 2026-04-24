@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_pyth_trips" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Pythagorean triples</title>
+<objectives>
+    <ol>
+        <li>
+            <p>
+                Introduce the notion of a diophantine equations. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Solve the diophantine equation <m>x^2+y^2=z^2</m> in integers: <ie/>, describe the set of all Pythagorean triples. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Introduce the rational parametrization of the circle <m>x^2+y^2=1</m>
+            </p>
+        </li>
+    </ol>
+</objectives>
+<introduction>
+    <p>
+        In its strictest form, a <term>diophantine equation</term> is a polynomial equation with integer coefficients; and solving a <term>diophantine problem</term> consists in finding the integer solutions to a diophantine equation. Both these notions can be relaxed somewhat, however, by replacing <q>integers</q> with <q>rational numbers</q>. In this section we will consider the diophantine problem of finding all integer solutions to the equation <m>x^2+y^2=z^2</m>, as well as the diophantine problem of finding all rational solutions to the equation <m>x^2+y^2=1</m>. 
+    </p>
+</introduction>
+<subsection xml:id="ss_pyth_trips">
+<title>Pythagorean triples</title>
+<definition xml:id="d_pyth_trip">
+<title>Pythagorean triple</title>
+<statement>
+<p>
+    A <term>Pythagorean triple</term> is a triple <m>(a,b,c)</m> of positive integers satisfying the Pythagorean equation <m>x^2+y^2=z^2</m>.
+</p>
+<p>
+    A <term>primitive Pythagorean triple</term> is a Pythagorean triple <m>(a,b,c)</m> that further satisfies <m>\gcd(a,b,c)=1</m>.
+</p>
+</statement>
+</definition>
+<proposition xml:id="prop_pyth_trip">
+    <title>Primitive Pythagorean triples</title>
+    <statement>
+        <p>
+            Let  <m>(a,b,c)</m> be a Pythagorean triple. 
+            <ol>
+                <li>
+                    <p>
+                        If <m>d=\gcd(a,b,c)</m>, then <m>(a/d, b/d, c/d)</m> is a primitive Pythagorean triple. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                       The following statements are equivalent. 
+                       <ol marker="(i)">
+                        <li>
+                            <p>
+                                <m>(a,b,c)</m> is a primitive Pythagorean triple. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                The integers <m>a</m>, <m>b</m>, and <m>c</m> are pairwise relatively prime. 
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Two of the integers <m>a</m>, <m>b</m>, and <m>c</m> are relatively prime. 
+                            </p>
+                        </li>
+                       </ol>
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+    <proof>
+        <p>
+            <ol>
+                <li>
+                    <p>
+                        We have 
+                        <md>
+                            <mrow>a^2+b^2=c^2 \amp \implies \frac{1}{d^2}(a^2+b^2)=\frac{1}{d^2}\cdot c^2</mrow>
+                            <mrow> \amp \implies (a/d)^2+(b/d)^2=(c,d)^2</mrow>
+                        </md>.
+                        Since <m>d</m> is a common divisor of <m>a</m>, <m>b</m>, and <m>c</m>, the triple <m>(a/d, b/d, c/d)</m> consists of integers and is thus a Pythagorean triple. Lastly, <m>d=\gcd(a,b,c)</m> implies <m>1=\gcd(a/d,b/d,c/d)</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        It is clear that (ii) <m>\implies</m> (iii) and (iii) <m>\implies</m> (i). 
+                    </p>
+                    <p>
+                        To show (i) <m>\implies</m> (ii) we prove the contrapositive: that is, we assume that two of the elements of <m>a,b,c</m> are not relatively prime, and show that <m>\gcd(a,b,c)\ne 1</m>. If <m>\gcd(a,b)\ne 1</m>, then there is a prime <m>p</m> dividing both <m>a</m> and <m>b</m>. Since <m>c^2=a^2+b^2</m>, it follows easily that <m>p</m> also divides <m>c</m>, and hence <m>\gcd(a,b,c)\ne 1</m>. Similarly, if <m>p</m> is a common prime divisor of <m>a</m> and <m>c</m>, then since <m>b^2=c^2-a^2</m>, it follows that <m>p</m> also divides <m>b</m> and hence that <m>\gcd(a,b,c)\ne 1</m>. The case where <m>b</m> and <m>c</m> are not relatively prime is exactly similar. 
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </proof>
+</proposition>
+<p>
+    From <xref ref="prop_pyth_trip"/> we see that an arbitrary Pythagorean triple <m>(a',b',c')</m> is an integer scalar multiple of a primitive Pythagorean triple <m>(a,b,c)</m>: <ie/>, we have <m>(a',b',c')=d(a,b,c)=(da,db,dc)</m> for some <m>d\in \Z</m>. For a complete description of Pythagorean triples, it then suffices to describe the primitive Pythagorean triples. This is the content of <xref ref="th_pyth_trips"/>. The proof of that result requires the following lemma. 
+</p>
+<lemma xml:id="lem_product_square">
+    <statement>
+        <p>
+            Let <m>a</m> and <m>b</m> be relatively prime positive integers. If <m>ab</m> is a square, then <m>a</m> and <m>b</m> are both squares. 
+        </p>
+    </statement>
+    <proof>
+        <p>
+            Given a prime <m>p</m> and positive integer <m>a</m>, let <m>v_p(a)</m> be the largest nonnegative integer <m>k</m> such that <m>p^k\mid a</m>. (Equivalently, <m>v_p(a)</m> tells us the power that <m>p</m> is raised to in the prime factorization of <m>a</m>. Note that <m>v_p(a)=0</m> if and only if <m>p\nmid a</m>.) It is easy to show, using the uniqueness of prime factorizations, that a positive integer <m>a</m> is a square if and only if <m>v_p(a)</m> is even for all primes <m>p</m>. Furthermore, it is easy to show (again using uniqueness of prime factorizations) that <m>v_p(ab)=v_p(a)+v_p(b)</m> for all primes <m>p</m> and nonzero integers <m>a</m> and <m>b</m>. 
+        </p>
+        <p>
+            Assume now that <m>a</m> and <m>b</m> are relatively prime, and that <m>ab=c^2</m> for some integer <m>c</m>. We will show that <m>v_p(a)</m> is even for all primes <m>p</m>, showing that <m>a</m> is a square. By symmetry 
+        </p>
+    </proof>
+</lemma>
+</subsection>
+
+    
+
+</section>

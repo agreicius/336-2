@@ -8,5 +8,6 @@
   <xi:include href="s_quad_resid_Gauss.ptx" />
   <xi:include href="s_quad_resid_recipr.ptx" />
   <xi:include href="s_pseudoprimes.ptx" />
+  <xi:include href="s_pyth_trips.ptx" />
   <xi:include href="s_gauss_int.ptx" />
 </chapter>
