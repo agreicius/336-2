@@ -52,6 +52,36 @@ has no solutions in nonzero integers. As a result Fermat's last theorem holds fo
 </statement>
 <proof>
 <p>
+    First observe that if <m>(a,b,c)</m> is a nontrivial solution to the <m>n=4</m> Fermat equation <m>x^4+y^4=z^4</m>, then <m>(a,b,c^2)</m> is a nontrivial solution to <m>x^4+y^4=z^2</m>. Thus the given result implies FLT for <m>n=4</m>. 
+</p>
+<p>
+    We argue by contradiction. If <m>(a,b,c)</m> is a solution in nonzero integers, then <m>(\abs{a},\abs{b},\abs{c})</m> is a solution in positive integers. As such the set 
+    <md>
+        X=\{c\in \Z_{&gt;0} \mid a^4+b^4=c^2 \text{ for some } a,b\in \Z_{&gt; 0}\}
+    </md>
+    is nonempty. By the well-ordering principle, <m>X</m> has a least element <m>c</m>, which means there is a nontrivial solution in positive integers <m>(a,b,c)</m> to the equation <m>x^4+y^4=z^2</m> whose third component <m>c</m> is minimal. We will derive a contradiction by showing that there is a solution <m>(a',b',c')</m> in positive integers with <m>c'&lt; c</m>.  
+</p>
+<p>
+    First observe that if the prime <m>p</m> is a common divisor of <m>a</m> and <m>b</m>, then <m>p^4\mid c^2</m>, in which case <m>p^2\mid c</m> and <m>(a/p,b/p,c/p^2)</m> is a solution to <m>x^4+y^4=c^2</m> with smaller third component. As this is a contradiction, we may assume that <m>\gcd(a,b)=1</m>. It follows that <m>\gcd(a^2,b^2)=1</m>, and hence that the Pythagorean triple <m>(a^2,b^2,c)</m> is primitive. Without loss of generality, we may assume that <m>a^2</m> is even and <m>b</m> is odd, in which case we have 
+    <md>
+        <mrow>a^2\amp=2mn \amp b^2\amp=m^2-n^2 \amp c\amp =m^2+n^2 </mrow>
+    </md>
+    for positive integers <m>m</m>   and <m>n</m> satisfying <m>m&gt; n</m>, <m>\gcd(m,n)=1</m>, and <m>m\not\equiv n\pmod 2</m>. 
+</p>
+<p>
+    Since <m>b^2+n^2=m^2</m> and <m>\gcd(m,n)=1</m>, the triple <m>(b,n,m)</m> is a primitive Pythagorean triple. Furthermore, since <m>b</m> is odd, we see that <m>n</m> is even, and we have 
+    <md>
+        <mrow>n \amp = 2uv \amp b\amp =u^2-v^2 \amp m\amp =u^2+v^2</mrow>
+    </md>
+    for relatively prime positive integers <m>u</m> and <m>v</m>. Substituting <m>n=2uv</m> into the equation <m>a^2=2mn</m> above, we see that <m>a^2=4muv</m>. Thus <m>2\mid a</m>, and we have 
+    <md>
+        <mrow>(a/2)^2 \amp = muv</mrow>
+    </md>.
+    Next, since <m>\gcd(m,n)=1</m> and <m>n=2uv</m> with <m>\gcd(u,v)=1</m>, we see that <m>m</m>, <m>u</m>, and <m>v</m> are pairwise relatively prime. Since their product is a square, it follows from <xref ref="lem_product_square"/> (and induction) that <m>m</m>, <m>u</m>, and <m>v</m> are all squares. Let <m>m=r^2</m>, <m>u=s^2</m>, and <m>v=t^2</m>. From the equation <m>m=u^2+v^2</m> we conclude that <m>s^4+t^4=r^2</m>, and thus that <m>(s,t,r)</m> is a solution to <m>x^4+y^4=z^2</m> in positive integers. Since <m>r\leq r^2=m</m> and since
+    <md>
+        m\leq m^2&lt; m^2+n^2=c
+    </md>, 
+    we conclude that <m>r&lt; c</m>. Thus the solution <m>(s,t,r)</m> has a smaller third component than <m>(a,b,c)</m>, contradicting the minimality of <m>c</m>.
 </p>
 </proof>
 </theorem>
