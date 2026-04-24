@@ -114,10 +114,27 @@
             Given a prime <m>p</m> and positive integer <m>a</m>, let <m>v_p(a)</m> be the largest nonnegative integer <m>k</m> such that <m>p^k\mid a</m>. (Equivalently, <m>v_p(a)</m> tells us the power that <m>p</m> is raised to in the prime factorization of <m>a</m>. Note that <m>v_p(a)=0</m> if and only if <m>p\nmid a</m>.) It is easy to show, using the uniqueness of prime factorizations, that a positive integer <m>a</m> is a square if and only if <m>v_p(a)</m> is even for all primes <m>p</m>. Furthermore, it is easy to show (again using uniqueness of prime factorizations) that <m>v_p(ab)=v_p(a)+v_p(b)</m> for all primes <m>p</m> and nonzero integers <m>a</m> and <m>b</m>. 
         </p>
         <p>
-            Assume now that <m>a</m> and <m>b</m> are relatively prime, and that <m>ab=c^2</m> for some integer <m>c</m>. We will show that <m>v_p(a)</m> is even for all primes <m>p</m>, showing that <m>a</m> is a square. By symmetry 
+            Assume now that <m>a</m> and <m>b</m> are relatively prime, and that <m>ab=c^2</m> for some integer <m>c</m>. We will show that <m>v_p(a)</m> is even for all primes <m>p</m>, showing that <m>a</m> is a square. By symmetry, it follows that <m>b</m> is also a square. Given any prime <m>p</m>, since <m>c^2</m> is a square,  
+            <m>v_p(c^2)=2k</m> is even.  Since <m>v_p(c^2)=v_p(a)+v_p(b)</m>, and since <m>p</m> cannot divide both <m>a</m> and <m>b</m>, we have either <m>v_p(a)=0</m> and <m>v_p(b)=2k</m> or <m>v_p(a)=2k</m> and <m>v_p(b)=0</m>. In either case, <m>v_p(a)</m> is even, as desired. 
         </p>
     </proof>
 </lemma>
+<theorem xml:id="th_pyth_trips">
+<title>Primitive Pythagorean triples</title>
+<statement>
+<p>
+Let <m>(a,b,c)</m> be a primitive Pythagorean triple with <m>a</m> even. There is a unique pair of positive integers <m>(m,n)</m> satisfying <m>m&gt; n</m>, <m>\gcd(m,n)=1</m>, <m>m\not\equiv n\pmod 2</m> such that 
+<md number="yes">
+    <mrow>a \amp = 2mn \amp b\amp =m^2-n^2 \amp c=m^2+n^2</mrow>
+</md>
+</p>
+</statement>
+<proof>
+<p>
+</p>
+</proof>
+</theorem>
+
 </subsection>
 
     
