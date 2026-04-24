@@ -1324,11 +1324,47 @@ var ptx_lunr_docs = [
   "body": " Primitive Pythagorean triples   Let be a primitive Pythagorean triple with even. There is a unique pair of positive integers satisfying , , such that        "
 },
 {
+  "id": "s_flt_descent",
+  "level": "1",
+  "url": "s_flt_descent.html",
+  "type": "Section",
+  "number": "1.10",
+  "title": "Fermat’s last theorem and the method of descent",
+  "body": " Fermat's last theorem and the method of descent     Contrast the wealth of solutions to with the paucity of solution for .    Introduce Fermat's method of descent, and understand it as a version of the well-ordering principle.    Prove the case of Fermat's last theorem.     We saw in the last section that are many interesting positive solutions to the Pythagorean equation . Interestingly, the situation changes dramatically if we increase the exponent 2 in that equation to anything larger.   Fermat's last theorem (FLT)   Let be an integer satisfying . The equation has no solutions in nonzero integers.    In the 17th century Fermat famously scrawled in his copy of Diophantus's Arithmetica that he had a marvelous proof of this fact that unfortunately did not fit in the margin. Although Fermat did provide a proof of the case of FLT using his method of descent (see below), there is no evidence that he had a valid proof for all cases. Moreover, amazingly it was not until 1994 that a complete proof was provided and accepted by the mathematical community as valid. This was the work of Andrew Wiles, which built off the work of many others (including Gerhard Frey and Ken Ribet), and which made use of very deep results that drew connections with elliptic curves and modular curves.   FLT:   The equation has no solutions in nonzero integers. As a result Fermat's last theorem holds for .        "
+},
+{
+  "id": "s_flt_descent-2",
+  "level": "2",
+  "url": "s_flt_descent.html#s_flt_descent-2",
+  "type": "Objectives",
+  "number": "1.10",
+  "title": "",
+  "body": "   Contrast the wealth of solutions to with the paucity of solution for .    Introduce Fermat's method of descent, and understand it as a version of the well-ordering principle.    Prove the case of Fermat's last theorem.    "
+},
+{
+  "id": "th_flt",
+  "level": "2",
+  "url": "s_flt_descent.html#th_flt",
+  "type": "Theorem",
+  "number": "1.10.1",
+  "title": "Fermat’s last theorem (FLT).",
+  "body": " Fermat's last theorem (FLT)   Let be an integer satisfying . The equation has no solutions in nonzero integers.   "
+},
+{
+  "id": "th_flt_nis4",
+  "level": "2",
+  "url": "s_flt_descent.html#th_flt_nis4",
+  "type": "Theorem",
+  "number": "1.10.2",
+  "title": "FLT: <span class=\"process-math\">\\(n=4\\)<\/span>.",
+  "body": " FLT:   The equation has no solutions in nonzero integers. As a result Fermat's last theorem holds for .       "
+},
+{
   "id": "s_complex_numbers",
   "level": "1",
   "url": "s_complex_numbers.html",
   "type": "Section",
-  "number": "1.10",
+  "number": "1.11",
   "title": "Complex numbers",
   "body": " Complex numbers     Define the set of complex numbers along with its addition and multiplication operations.    Establish basic properties of complex addition and multiplication, allowing us to identify as a field.    Define the complex conjugate and modulus operations.    Visualize complex numbers as points or vectors in the plane and understand the complex arithmetic operations geometrically.      Complex numbers, real and imaginary parts   The complex numbers is the set of all formal expressions of the form , where : , . Given a complex number , we call its real part , denoted , and we call its imaginary part , denoted : , we have .     Complex numbers  When introducing a complex number as , unless specified otherwise, it is assumed that .   You are justified in wondering what exactly is meant by a formal expression . A more correct formulation would be that a complex number is really just a pair of real numbers that for various reasons we denote as . Since it is somewhat awkward to write a complex number as , we will live with the ambiguity of , and identify complex numbers as pairs of real numbers via the map . To ensure that this is a well-defined bijection between and , we make official when two of our formal expressions are defined to be equal.   Complex equality   Complex numbers and are equal , denoted , if . In other words, we have .    For reasons that will be made more clear below, it is natural to identify the set of real numbers with the set of complex numbers of the form . This is the motivation behind the next definition.   Real and imaginary numbers   Let be a complex number. We say that is real if , and (purely) imaginary if . Henceforth we identify the real numbers with the real complex numbers: , we declare that . Furthermore we will use the following abbreviations for various real and purely imaginary complex numbers: .     ensures that the map defines a bijection between and , allowing us to identify complex numbers as pairs of real numbers. This identification in turn gives rise to a visual representation of complex numbers as points in the Cartesian plane , called the complex plane in this context. To make clear that we are using to visualize , we label the horizontal and vertical axes as and .   Complex plane   Complex plane: points     Using our identification , we see that the real numbers are represented geometrically as the -axis of the complex plane. Similarly, the purely imaginary complex numbers are represented geometrically as the the -axis of the complex plane. As you will see, we will get a lot of mileage out of this geometric representation of complex numbers.  Having defined the complex numbers as a set and given this set some geometric content, we now define some essential operations on .   Addition, subtraction, multiplication   Let and be complex numbers.   Complex addition  We define the sum of and , denoted , as .    Complex subtraction  We define the additive inverse of , denoted , as , and the difference of and , denoted , as .    Complex multiplication  We define the product of and , denoted (or sometimes ) as .        Complex arithmetic   Let , . Compute the following complex numbers. Your answer must be expressed in the form , where .                   (where is real)     (where is purely imaginary)          We have .    We have .    We have .    We have .    We have .        Real arithmetic  As the last example illustrates, the arithmetic interaction of the real numbers with other complex numbers is particularly simple. For example, for any real number and complex number , we have . In particular, given two real numbers and , we have . In other words, the complex arithmetic of the real numbers, considered now as a subset of the complex numbers, behaves exactly as it does considering the real numbers on their own. We summarize this by saying that the operations of complex addition and complex multiplication are extensions of real addition and real multiplication. In this sense we can think of the complex number system as an extension of the real number system. (Using fancier language from abstract algebra, we say that is a ring extension of .)   The next theorem tells us that complex addition and multiplication are just as well-behaved as their real counterparts. More specifically, using some fancy abstract algebra jargon, the theorem asserts that , together with its addition and multiplication operations, constitutes a ring .   Ring axioms   Let be complex numbers.   Addition is associative   .    Addition is commutative   .    Additive identity   .    Additive inverse   .    Multiplication is associative   .    Multiplication is commutative   .    Multiplicative identity   .    Distributivity   .       Each property above follows in a straightforward manner from the definitions of these complex operations in combination with familiar properties of real number arithmetic. We prove (6) below, leaving the rest of the proofs as an exercise.  Let and . We have , as desired.     Real square roots   Show that every real number has a square-root in : , show that there is a satisfying . (By definition, . See .)    We seek such that the complex number satisfies . Since , we see, using , that if and only if . We now endeavor to solve the (quadratic) system of equations above. We proceed in cases with respect to whether is zero, positive or negative. Note first that in all cases, the second equation is true if and only if or .  Case: . In this case, it is clear that the only solution to the system above is . Thus is the only complex square-root of .  Case: . If (to satisfy the second equation), then if and only if , which is impossible since and . Thus we must have , in which case implies . (Note that , the positive square-root of , exists, since is positive.) It follows that has exactly two square-roots in this case: and .  Case: . In this case we cannot have , since the first equation would imply , which is impossible since is negative. Setting , we then see that or . (Again, note that is a well-defined real number since is positive.) We conclude in this case that has exactly two square-roots: and .  We can summarize our analysis above as follows: any has a complex square-root , and in fact we have . Here we have used the fact that .     Adding square-root of to  It follows from our work in that : , is a square-root of . This observation gives rise to a more motivated understanding of the complex number system . Roughly speaking, we can think of as the smallest number system containing and a square-root of that we call . (I say roughly here as I haven't really told you what I mean by a number system, or by the smallest number system.) Furthermore, we can think of the definition of complex multiplication given by as forced upon us: that is, it is the unique multiplication operation on that is associative, commutative, and satisfies .   Our last result tells us that, as in real number arithmetic, all nonzero complex numbers have a multiplicative inverse . Reaching again for some fancy language from abstract algebra, this fact, in conjunction with , means that , like , is a field .   Multiplicative inverses   Let be a nonzero complex number: , or (or both). There is a unique complex number satisfying : namely, .    The fact that is easily verified using the definition of multiplication given by . As for uniqueness, given any other complex number , we have , showing that is the only complex number satisfying this property.     Multiplicative inverses and quotients   Let be a nonzero complex number: , or . The (multiplicative) inverse of , denoted or , is defined as . Given complex numbers with , the quotient of by , denoted , is defined as .     Inverses and quotients   Compute the following complex numbers. Your answer must be expressed in the form , where .    , where                , where and      , where and           Using the formula , we have .    By definition, we have .    Using formula , we see easily that .    It is easy to see that for a real number , we have , and hence .    It is easy to see, in general that for any complex numbers . Thus we have .        Integer powers   Let be an integer.   Case:  Given , we define .    Case:  Given and , we define .    Case:  Given and nonzero , we set where is positive, and define .       The definition of the modulus of a complex number , has a clear connection with our various visualizations of : it is the length of any arrow representation of ; or equivalently, the distance between and ; or equivalently, the norm of , thinking of as a vector.   Complex modulus   The modulus (or absolute value ) of a complex number , denoted , is defined as . If , we say that has unit length .    For , we have , which is precisely the length of the various arrow representations of .   Visualizing the modulus of   Visualizing the modulus of z=1+2i      Complex numbers of unit length  Observe that is a complex number of unit length if and only if the point lies on the unit circle . Thus we obtain the following nifty complex description of the unit circle: .    Modulus properties   Let and be complex numbers.   Positivity   , and if and only if .    Triangle inequality   .    Triangle inequality variation   .    Components modulus   and .    Multiplicative property   .       As mentioned above, all but the last statement follow directly from elementary linear algebra facts. We give a proof of statement (5). Letting and , we have .    We now introduce complex conjugation, which like the modulus operation has a strong connection to the geometry of the complex plane.   Complex conjugation   Given the complex number , its (complex) conjugate  is defined as .    What is the geometric relationship between and ? Identifying with the point and with the point , we see that can be thought of as the reflection of through the -axis. In other words, the operation of complex conjugation corresponds to reflection through the -axis.   Conjugation as reflection   Conjugation as reflection     You are likely wondering why reflection through the -axis would prove to be useful when considered as an operation on complex numbers. The next theorem is a form of answer to this question, as it illustrates how reflection ( , conjugation) respects the other complex operations, including our new friend the modulus.   Conjugation properties   Let and be complex numbers.    .     .     .     .     and .     if and only if .         If , then .       Recall that for any pair we can write for some , and we call and  polar coordinates of the point in this case. These polar coordinates are not unique, but we do have the following fact: if is nonzero, and we have with and , then and for some integer . This leads directly to the following result about complex numbers.   Polar form   Let be a complex number.   We have for some nonnegative and . The choice of here is unique; in fact, we have .    If and we have for , then for some integer .        Polar form   Let be a complex number, and suppose and satisfy . We call the expression a polar form of and we call an argument of .  If , we define to be the unique satisfying , and we define to be the set of all arguments of . Equivalently, .     Polar form   Find a polar form for the given , and compute and .                     Polar form properties   Let and where .         .     .    If , then .        Geometric interpretation of complex operations  Each of the identities of can be understood as providing a geometric interpretation of one of our complex operations.  In particular, statement (3) provides us with a more satisfying description of complex multiplication than the algebraic formula given by . Roughly speaking, the identity tells us that to multiply two complex numbers, we (a) add their arguments and (b) multiply their moduli.  Alternatively, tells us that to multiply by , we (a) rotate (considered as a point) by an angle about the origin, and (b) scale its distance from the origin by .  Similarly, tells us that the inverse of a complex number is obtained by taking the reciprocal of its modulus (the in the formula), and flipping its argument (the in the formula).    Polar form arithmetic   Let and . Compute the following complex numbers. Your answer should be expressed in polar form.    .     .           "
 },
@@ -1337,7 +1373,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#s_complex_numbers-2",
   "type": "Objectives",
-  "number": "1.10",
+  "number": "1.11",
   "title": "",
   "body": "   Define the set of complex numbers along with its addition and multiplication operations.    Establish basic properties of complex addition and multiplication, allowing us to identify as a field.    Define the complex conjugate and modulus operations.    Visualize complex numbers as points or vectors in the plane and understand the complex arithmetic operations geometrically.    "
 },
@@ -1346,7 +1382,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#d_complex_numbers",
   "type": "Definition",
-  "number": "1.10.1",
+  "number": "1.11.1",
   "title": "Complex numbers, real and imaginary parts.",
   "body": " Complex numbers, real and imaginary parts   The complex numbers is the set of all formal expressions of the form , where : , . Given a complex number , we call its real part , denoted , and we call its imaginary part , denoted : , we have .   "
 },
@@ -1355,7 +1391,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#s_complex_numbers-4",
   "type": "Notation",
-  "number": "1.10.2",
+  "number": "1.11.2",
   "title": "Complex numbers.",
   "body": " Complex numbers  When introducing a complex number as , unless specified otherwise, it is assumed that .  "
 },
@@ -1364,7 +1400,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#d_complex_equality",
   "type": "Definition",
-  "number": "1.10.3",
+  "number": "1.11.3",
   "title": "Complex equality.",
   "body": " Complex equality   Complex numbers and are equal , denoted , if . In other words, we have .   "
 },
@@ -1373,7 +1409,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#d_real_imaginary",
   "type": "Definition",
-  "number": "1.10.4",
+  "number": "1.11.4",
   "title": "Real and imaginary numbers.",
   "body": " Real and imaginary numbers   Let be a complex number. We say that is real if , and (purely) imaginary if . Henceforth we identify the real numbers with the real complex numbers: , we declare that . Furthermore we will use the following abbreviations for various real and purely imaginary complex numbers: .   "
 },
@@ -1391,7 +1427,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#fig_complex_plane",
   "type": "Figure",
-  "number": "1.10.5",
+  "number": "1.11.5",
   "title": "",
   "body": " Complex plane   Complex plane: points    "
 },
@@ -1400,7 +1436,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#d_sum_product",
   "type": "Definition",
-  "number": "1.10.6",
+  "number": "1.11.6",
   "title": "Addition, subtraction, multiplication.",
   "body": " Addition, subtraction, multiplication   Let and be complex numbers.   Complex addition  We define the sum of and , denoted , as .    Complex subtraction  We define the additive inverse of , denoted , as , and the difference of and , denoted , as .    Complex multiplication  We define the product of and , denoted (or sometimes ) as .      "
 },
@@ -1409,7 +1445,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#eg_arithmetic",
   "type": "Example",
-  "number": "1.10.7",
+  "number": "1.11.7",
   "title": "Complex arithmetic.",
   "body": " Complex arithmetic   Let , . Compute the following complex numbers. Your answer must be expressed in the form , where .                   (where is real)     (where is purely imaginary)          We have .    We have .    We have .    We have .    We have .      "
 },
@@ -1418,7 +1454,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#s_complex_numbers-15",
   "type": "Remark",
-  "number": "1.10.8",
+  "number": "1.11.8",
   "title": "Real arithmetic.",
   "body": " Real arithmetic  As the last example illustrates, the arithmetic interaction of the real numbers with other complex numbers is particularly simple. For example, for any real number and complex number , we have . In particular, given two real numbers and , we have . In other words, the complex arithmetic of the real numbers, considered now as a subset of the complex numbers, behaves exactly as it does considering the real numbers on their own. We summarize this by saying that the operations of complex addition and complex multiplication are extensions of real addition and real multiplication. In this sense we can think of the complex number system as an extension of the real number system. (Using fancier language from abstract algebra, we say that is a ring extension of .)  "
 },
@@ -1427,7 +1463,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#th_ring_ops",
   "type": "Theorem",
-  "number": "1.10.9",
+  "number": "1.11.9",
   "title": "Ring axioms.",
   "body": " Ring axioms   Let be complex numbers.   Addition is associative   .    Addition is commutative   .    Additive identity   .    Additive inverse   .    Multiplication is associative   .    Multiplication is commutative   .    Multiplicative identity   .    Distributivity   .       Each property above follows in a straightforward manner from the definitions of these complex operations in combination with familiar properties of real number arithmetic. We prove (6) below, leaving the rest of the proofs as an exercise.  Let and . We have , as desired.   "
 },
@@ -1436,7 +1472,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#eg_square_roots",
   "type": "Example",
-  "number": "1.10.10",
+  "number": "1.11.10",
   "title": "Real square roots.",
   "body": " Real square roots   Show that every real number has a square-root in : , show that there is a satisfying . (By definition, . See .)    We seek such that the complex number satisfies . Since , we see, using , that if and only if . We now endeavor to solve the (quadratic) system of equations above. We proceed in cases with respect to whether is zero, positive or negative. Note first that in all cases, the second equation is true if and only if or .  Case: . In this case, it is clear that the only solution to the system above is . Thus is the only complex square-root of .  Case: . If (to satisfy the second equation), then if and only if , which is impossible since and . Thus we must have , in which case implies . (Note that , the positive square-root of , exists, since is positive.) It follows that has exactly two square-roots in this case: and .  Case: . In this case we cannot have , since the first equation would imply , which is impossible since is negative. Setting , we then see that or . (Again, note that is a well-defined real number since is positive.) We conclude in this case that has exactly two square-roots: and .  We can summarize our analysis above as follows: any has a complex square-root , and in fact we have . Here we have used the fact that .   "
 },
@@ -1445,7 +1481,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#s_complex_numbers-19",
   "type": "Remark",
-  "number": "1.10.11",
+  "number": "1.11.11",
   "title": "Adding square-root of <span class=\"process-math\">\\(-1\\)<\/span> to <span class=\"process-math\">\\(\\R\\)<\/span>.",
   "body": " Adding square-root of to  It follows from our work in that : , is a square-root of . This observation gives rise to a more motivated understanding of the complex number system . Roughly speaking, we can think of as the smallest number system containing and a square-root of that we call . (I say roughly here as I haven't really told you what I mean by a number system, or by the smallest number system.) Furthermore, we can think of the definition of complex multiplication given by as forced upon us: that is, it is the unique multiplication operation on that is associative, commutative, and satisfies .  "
 },
@@ -1454,7 +1490,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#th_mult_inv",
   "type": "Theorem",
-  "number": "1.10.12",
+  "number": "1.11.12",
   "title": "Multiplicative inverses.",
   "body": " Multiplicative inverses   Let be a nonzero complex number: , or (or both). There is a unique complex number satisfying : namely, .    The fact that is easily verified using the definition of multiplication given by . As for uniqueness, given any other complex number , we have , showing that is the only complex number satisfying this property.   "
 },
@@ -1463,7 +1499,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#d_mult_inv",
   "type": "Definition",
-  "number": "1.10.13",
+  "number": "1.11.13",
   "title": "Multiplicative inverses and quotients.",
   "body": " Multiplicative inverses and quotients   Let be a nonzero complex number: , or . The (multiplicative) inverse of , denoted or , is defined as . Given complex numbers with , the quotient of by , denoted , is defined as .   "
 },
@@ -1472,7 +1508,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#eg_inverses",
   "type": "Example",
-  "number": "1.10.14",
+  "number": "1.11.14",
   "title": "Inverses and quotients.",
   "body": " Inverses and quotients   Compute the following complex numbers. Your answer must be expressed in the form , where .    , where                , where and      , where and           Using the formula , we have .    By definition, we have .    Using formula , we see easily that .    It is easy to see that for a real number , we have , and hence .    It is easy to see, in general that for any complex numbers . Thus we have .      "
 },
@@ -1481,7 +1517,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#d_integer_powers",
   "type": "Definition",
-  "number": "1.10.15",
+  "number": "1.11.15",
   "title": "Integer powers.",
   "body": " Integer powers   Let be an integer.   Case:  Given , we define .    Case:  Given and , we define .    Case:  Given and nonzero , we set where is positive, and define .      "
 },
@@ -1490,7 +1526,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#d_modulus",
   "type": "Definition",
-  "number": "1.10.16",
+  "number": "1.11.16",
   "title": "Complex modulus.",
   "body": " Complex modulus   The modulus (or absolute value ) of a complex number , denoted , is defined as . If , we say that has unit length .   "
 },
@@ -1499,7 +1535,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#fig_modulus",
   "type": "Figure",
-  "number": "1.10.17",
+  "number": "1.11.17",
   "title": "",
   "body": " Visualizing the modulus of   Visualizing the modulus of z=1+2i    "
 },
@@ -1508,7 +1544,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#s_complex_numbers-29",
   "type": "Remark",
-  "number": "1.10.18",
+  "number": "1.11.18",
   "title": "Complex numbers of unit length.",
   "body": " Complex numbers of unit length  Observe that is a complex number of unit length if and only if the point lies on the unit circle . Thus we obtain the following nifty complex description of the unit circle: .  "
 },
@@ -1517,7 +1553,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#th_modulus",
   "type": "Theorem",
-  "number": "1.10.19",
+  "number": "1.11.19",
   "title": "Modulus properties.",
   "body": " Modulus properties   Let and be complex numbers.   Positivity   , and if and only if .    Triangle inequality   .    Triangle inequality variation   .    Components modulus   and .    Multiplicative property   .       As mentioned above, all but the last statement follow directly from elementary linear algebra facts. We give a proof of statement (5). Letting and , we have .   "
 },
@@ -1526,7 +1562,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#d_conj",
   "type": "Definition",
-  "number": "1.10.20",
+  "number": "1.11.20",
   "title": "Complex conjugation.",
   "body": " Complex conjugation   Given the complex number , its (complex) conjugate  is defined as .   "
 },
@@ -1535,7 +1571,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#fig_conj",
   "type": "Figure",
-  "number": "1.10.21",
+  "number": "1.11.21",
   "title": "",
   "body": " Conjugation as reflection   Conjugation as reflection    "
 },
@@ -1544,7 +1580,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#th_conj",
   "type": "Theorem",
-  "number": "1.10.22",
+  "number": "1.11.22",
   "title": "Conjugation properties.",
   "body": " Conjugation properties   Let and be complex numbers.    .     .     .     .     and .     if and only if .         If , then .      "
 },
@@ -1553,7 +1589,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#th_polar_form",
   "type": "Theorem",
-  "number": "1.10.23",
+  "number": "1.11.23",
   "title": "Polar form.",
   "body": " Polar form   Let be a complex number.   We have for some nonnegative and . The choice of here is unique; in fact, we have .    If and we have for , then for some integer .      "
 },
@@ -1562,7 +1598,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#d_polar",
   "type": "Definition",
-  "number": "1.10.24",
+  "number": "1.11.24",
   "title": "Polar form.",
   "body": " Polar form   Let be a complex number, and suppose and satisfy . We call the expression a polar form of and we call an argument of .  If , we define to be the unique satisfying , and we define to be the set of all arguments of . Equivalently, .   "
 },
@@ -1571,7 +1607,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#eg_polar",
   "type": "Example",
-  "number": "1.10.25",
+  "number": "1.11.25",
   "title": "Polar form.",
   "body": " Polar form   Find a polar form for the given , and compute and .                   "
 },
@@ -1580,7 +1616,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#th_polar_mult",
   "type": "Theorem",
-  "number": "1.10.26",
+  "number": "1.11.26",
   "title": "Polar form properties.",
   "body": " Polar form properties   Let and where .         .     .    If , then .      "
 },
@@ -1589,7 +1625,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#s_complex_numbers-42",
   "type": "Remark",
-  "number": "1.10.27",
+  "number": "1.11.27",
   "title": "Geometric interpretation of complex operations.",
   "body": " Geometric interpretation of complex operations  Each of the identities of can be understood as providing a geometric interpretation of one of our complex operations.  In particular, statement (3) provides us with a more satisfying description of complex multiplication than the algebraic formula given by . Roughly speaking, the identity tells us that to multiply two complex numbers, we (a) add their arguments and (b) multiply their moduli.  Alternatively, tells us that to multiply by , we (a) rotate (considered as a point) by an angle about the origin, and (b) scale its distance from the origin by .  Similarly, tells us that the inverse of a complex number is obtained by taking the reciprocal of its modulus (the in the formula), and flipping its argument (the in the formula).  "
 },
@@ -1598,7 +1634,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_complex_numbers.html#eg_polar_form_",
   "type": "Example",
-  "number": "1.10.28",
+  "number": "1.11.28",
   "title": "Polar form arithmetic.",
   "body": " Polar form arithmetic   Let and . Compute the following complex numbers. Your answer should be expressed in polar form.    .     .          "
 },
@@ -1607,7 +1643,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "s_gauss_int.html",
   "type": "Section",
-  "number": "1.11",
+  "number": "1.12",
   "title": "Gaussian integers",
   "body": " Gaussian integers     Define the Gaussian integers and relate complex norm to number theoretic questions.     We will define the Gaussian integers as the subset of consisting of complex numbers whose real and imaginary components are integers. This set is an example of a more general construction called a subring of .   Gaussian integers   The Gaussian integers is the subset of defined as .    One particularly useful property of the Gaussian integers is that they are closed under complex addition, subtraction, and multiplication. This means that can be considered as a number system (or ring) of its own. Furthermore, since the complex operations can be viewed as extensions of the corresponding real operations, the addition and multiplication operations of can be viewed as extensions of integer addition and multiplication. In this regard, the Gaussian integers are an example of a more general construction called a subring of .   Subring of   A subring of is a subset containing and that satisfies the following properties.   Closed under addition\/subtraction  If , then and .    Closed under multiplication  If , then .        is a subring   The Gaussian integers form a subring of .    In studying the arithmetic of , it turns out that the modulus function is an invaluable tool. In the current context, it is more convenient to work with , since this is an integer. Accordingly, we give this slight variation of the modulus function a special name.   Gaussian norm   The norm function on is the function defined as . Equivalently, if , we have .     Units of subrings    units of the subring of    Let be a subring of . An element is a unit (or is invertible ) if there exists a satisfying . We denote by the set of all units in .     Units in  It is crucial to understand that the notion of invertibility in is relative to the subring in question. Consider the element , for example. Like any nonzero element of , it has a multiplicative inverse satisfying . However, we have . But is it possible that there is some other element satisfying ? No! This is a consequence of the fact that inverses in are unique: implies . Thus not being an element of is sufficient to conclude that has no inverse in the subring , and thus that .   As a first example of the utility of the norm function, we give an elegant proof of the fact that .   Units of   We have .    To prove the first set equality, we must show that is a unit if and only if .  First assume . By definition, there is an element such that . Applying to both sides of this equation, we see that . Since and are integers, we conclude that in , and hence that . Since , we conclude that .  Now assume . By definition this means . Since , we conclude that .  We now know that if and only if . Since and are integers, it is easy to see that we must have , and hence that , as claimed.    The modulus function will also be useful in our analysis of the question of which integers can be expressed as a sum of squares.   Sum of squares   Let be a positive integer. The following statements are equivalent.    for some integers and .     factors as for some .     for some .        Products of sums of squares   If and are integers that can be written as a sum of two squares of integers, then can be written as a sum of two squares of integers.    Assume and . Letting and , we have and hence . It follows from that is a sum of squares. In fact, writing , we see that .     Divisibility in subrings   Let be a subring of . Given , we say that  divides  in , denoted , if there exists a such that . We write if does not divide .  We say that is an associate of if for some unit .     Divisibility in   For the given determine whether and whether .    ,      ,        One way of answering this type of question is to use some logic similar to , zooming out a bit to the larger number system . In general, for nonzero elements , we have for if and only if . Thus we have in a subring if and only if .  Working in , we can also use the norm function to give a necessary (though not necessarily sufficient condition) for divisibility: namely, if , then we have for some , in which case and .  We illustrate both techniques in the two examples.   Since and , we see that , but possibly . To decide the latter question, we compute . Thus .    In this case we have . Some arithmetic similar to the above shows that and . We conclude that and .         Let and be nonzero elements of . The following statements are equivalent.    is associate to .     is associate to .     and in .       Implication: (i) implies (ii). If is associate to , then there is a unit such that . Since , we have and . Thus is associate to .  Implication: (ii) implies (i). If is associate to , we have with . In particular, this means . Since , there is an element such that . It follows that and .  Implication: (iii) implies (i). If and , we have for some elements . But then we have . Since is nonzero, it has an inverse (not necessarily an element of ), that allows us to multiplicatively cancel to obtain . It follows that and , and hence that is a associate to .     Prime and irreducible       "
 },
@@ -1616,7 +1652,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#s_gauss_int-2",
   "type": "Objectives",
-  "number": "1.11",
+  "number": "1.12",
   "title": "",
   "body": "   Define the Gaussian integers and relate complex norm to number theoretic questions.    "
 },
@@ -1625,7 +1661,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#d_gauss_int",
   "type": "Definition",
-  "number": "1.11.1",
+  "number": "1.12.1",
   "title": "Gaussian integers.",
   "body": " Gaussian integers   The Gaussian integers is the subset of defined as .   "
 },
@@ -1634,7 +1670,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#d_subring_C",
   "type": "Definition",
-  "number": "1.11.2",
+  "number": "1.12.2",
   "title": "Subring of <span class=\"process-math\">\\(\\C\\)<\/span>.",
   "body": " Subring of   A subring of is a subset containing and that satisfies the following properties.   Closed under addition\/subtraction  If , then and .    Closed under multiplication  If , then .      "
 },
@@ -1643,7 +1679,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#prop_gauss_int",
   "type": "Proposition",
-  "number": "1.11.3",
+  "number": "1.12.3",
   "title": "<span class=\"process-math\">\\(\\Z[i]\\)<\/span> is a subring.",
   "body": " is a subring   The Gaussian integers form a subring of .   "
 },
@@ -1652,7 +1688,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#d_gaussian_norm",
   "type": "Definition",
-  "number": "1.11.4",
+  "number": "1.12.4",
   "title": "Gaussian norm.",
   "body": " Gaussian norm   The norm function on is the function defined as . Equivalently, if , we have .   "
 },
@@ -1661,7 +1697,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#d_gauss_int_units",
   "type": "Definition",
-  "number": "1.11.5",
+  "number": "1.12.5",
   "title": "Units of subrings.",
   "body": " Units of subrings    units of the subring of    Let be a subring of . An element is a unit (or is invertible ) if there exists a satisfying . We denote by the set of all units in .   "
 },
@@ -1670,7 +1706,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#rem_units",
   "type": "Remark",
-  "number": "1.11.6",
+  "number": "1.12.6",
   "title": "Units in <span class=\"process-math\">\\(R\\)<\/span>.",
   "body": " Units in  It is crucial to understand that the notion of invertibility in is relative to the subring in question. Consider the element , for example. Like any nonzero element of , it has a multiplicative inverse satisfying . However, we have . But is it possible that there is some other element satisfying ? No! This is a consequence of the fact that inverses in are unique: implies . Thus not being an element of is sufficient to conclude that has no inverse in the subring , and thus that .  "
 },
@@ -1679,7 +1715,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#prop_units_gauss_int",
   "type": "Proposition",
-  "number": "1.11.7",
+  "number": "1.12.7",
   "title": "Units of <span class=\"process-math\">\\(\\Z[i]\\)<\/span>.",
   "body": " Units of   We have .    To prove the first set equality, we must show that is a unit if and only if .  First assume . By definition, there is an element such that . Applying to both sides of this equation, we see that . Since and are integers, we conclude that in , and hence that . Since , we conclude that .  Now assume . By definition this means . Since , we conclude that .  We now know that if and only if . Since and are integers, it is easy to see that we must have , and hence that , as claimed.   "
 },
@@ -1688,7 +1724,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#prop_sum_of_squares",
   "type": "Proposition",
-  "number": "1.11.8",
+  "number": "1.12.8",
   "title": "Sum of squares.",
   "body": " Sum of squares   Let be a positive integer. The following statements are equivalent.    for some integers and .     factors as for some .     for some .      "
 },
@@ -1697,7 +1733,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#cor_sum_of_squares",
   "type": "Corollary",
-  "number": "1.11.9",
+  "number": "1.12.9",
   "title": "Products of sums of squares.",
   "body": " Products of sums of squares   If and are integers that can be written as a sum of two squares of integers, then can be written as a sum of two squares of integers.    Assume and . Letting and , we have and hence . It follows from that is a sum of squares. In fact, writing , we see that .   "
 },
@@ -1706,7 +1742,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#d_divisibility",
   "type": "Definition",
-  "number": "1.11.10",
+  "number": "1.12.10",
   "title": "Divisibility in subrings.",
   "body": " Divisibility in subrings   Let be a subring of . Given , we say that  divides  in , denoted , if there exists a such that . We write if does not divide .  We say that is an associate of if for some unit .   "
 },
@@ -1715,7 +1751,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#eg_divisibility",
   "type": "Example",
-  "number": "1.11.11",
+  "number": "1.12.11",
   "title": "Divisibility in <span class=\"process-math\">\\(\\Z[i]\\)<\/span>.",
   "body": " Divisibility in   For the given determine whether and whether .    ,      ,        One way of answering this type of question is to use some logic similar to , zooming out a bit to the larger number system . In general, for nonzero elements , we have for if and only if . Thus we have in a subring if and only if .  Working in , we can also use the norm function to give a necessary (though not necessarily sufficient condition) for divisibility: namely, if , then we have for some , in which case and .  We illustrate both techniques in the two examples.   Since and , we see that , but possibly . To decide the latter question, we compute . Thus .    In this case we have . Some arithmetic similar to the above shows that and . We conclude that and .      "
 },
@@ -1724,7 +1760,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#prop_associates",
   "type": "Proposition",
-  "number": "1.11.12",
+  "number": "1.12.12",
   "title": "",
   "body": "  Let and be nonzero elements of . The following statements are equivalent.    is associate to .     is associate to .     and in .       Implication: (i) implies (ii). If is associate to , then there is a unit such that . Since , we have and . Thus is associate to .  Implication: (ii) implies (i). If is associate to , we have with . In particular, this means . Since , there is an element such that . It follows that and .  Implication: (iii) implies (i). If and , we have for some elements . But then we have . Since is nonzero, it has an inverse (not necessarily an element of ), that allows us to multiplicatively cancel to obtain . It follows that and , and hence that is a associate to .   "
 },
@@ -1733,7 +1769,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "s_gauss_int.html#d_prime_irreducible",
   "type": "Definition",
-  "number": "1.11.13",
+  "number": "1.12.13",
   "title": "Prime and irreducible.",
   "body": " Prime and irreducible      "
 },
