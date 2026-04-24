@@ -7,912 +7,16 @@
         <ol>
             <li>
                 <p>
-                    Introduce the complex numbers and define various important operations: <eg/>, addition, multiplication, conjugation, and norm. 
-                </p>
-            </li>
-            <li>
-                <p>
                     Define the Gaussian integers and relate complex norm to number theoretic questions. 
                 </p>
             </li>
         </ol>
     </objectives>
-    <subsection xml:id="ss_complex_numbers">
-    <title>Complex numbers</title>
-     <definition xml:id="d_complex_numbers">
-<title>Complex numbers, real and imaginary parts</title>
-<statement>
-<p>
-The <term>complex numbers</term> is the set of all formal expressions of the form <m>a+ib</m>, where <m>a,b\in \R</m>: <ie/>, 
-<me>
-    \C=\{a+ib\colon a,b\in \R\}
-</me>.
-Given a complex number <m>z=a+ib</m>, we call <m>a</m> its <term>real part</term>, denoted <m>\Re z</m>, and we call <m>b</m> its <term>imaginary part</term>, denoted <m>\Im z</m>: <ie/>, we have 
-<md>
-    <mrow>\Re z \amp = a \amp \Im z\amp = b</mrow>
-</md>.
+    <p>
+        We will define the Gaussian integers as the subset of <m>\C</m> consisting of complex numbers whose real and imaginary components are integers. This set is an example of a more general construction called a <em>subring</em> of <m>\C</m>. 
 </p>
-</statement>
-</definition>
 
-<convention>
-    <title>Complex numbers</title>
-    <p>
-      When introducing a complex number as <m>z=a+ib</m>, unless specified otherwise, it is assumed that <m>a,b\in \R</m>. 
-    </p>
-</convention>
-<p>
-    You are justified in wondering what exactly is meant by a <q>formal expression</q>. A more correct formulation would be that a complex number is really just a pair <m>(a,b)\in \R^2</m> of real numbers that for various reasons we denote as <m>a+ib</m>. Since it is somewhat awkward to write a complex number as <m>z=(a,b)</m>, we will live with the ambiguity of <xref ref="d_complex_numbers"/>, and <em>identify</em> complex numbers <m>z=a+ib</m> as pairs of real numbers via the map 
-    <md>
-        <mrow>\C \amp \longleftrightarrow \R^2</mrow>
-        <mrow>a+ib \amp \longmapsto (a,b)</mrow>
-    </md>.
-    To ensure that this is a well-defined bijection between <m>\C</m> and <m>\R^2</m>, we make official when two of our <q>formal expressions</q> are defined to be equal.     
-</p>
-<definition xml:id="d_complex_equality">
-<title>Complex equality</title>
-<statement>
-<p>
-Complex numbers <m>z=a+ib</m> and <m>w=c+id</m> are <term>equal</term>, denoted <m>z=w</m>, if <md>
-    <mrow>a=c \text{ and } b=d</mrow>
-</md>.
-In other words, we have 
-<md>
-    <mrow>z=w \amp \iff \Re z=\Re w \text{ and } \Im z=\Im w</mrow>
-</md>.
-</p>
-</statement>
-</definition>
-<p>
-    For reasons that will be made more clear below, it is natural to identify the set of real numbers <m>\R</m> with the set of complex numbers of the form <m>a+0i</m>. This is the motivation behind the next definition. 
-</p>
-<definition xml:id="d_real_imaginary">
-<title>Real and imaginary numbers</title>
-<statement>
-<p>
-Let <m>z=a+ib</m> be a complex number. We say that <m>z</m> is <term>real</term> if <m>b=\Im z=0</m>, and <term>(purely) imaginary</term> if <m>a=\Re z=0</m>. Henceforth we identify the real numbers <m>\R</m> with the real complex numbers: <ie/>, we declare that 
-<me>
-    \R=\{z\in \C\colon \Im z=0\}=\{a+0i\colon a\in \R\}
-</me>.
-Furthermore we will use the following abbreviations for various real and purely imaginary complex numbers: 
-<md>
-    <mrow>a+i\,0 \amp =a \amp  0+ib\amp =ib</mrow>
-    <mrow>a+i(-b) \amp =a-ib \amp a+i(\pm 1)\amp = a\pm i</mrow>
-</md>.
-</p>
-</statement>
-</definition>
-  <p>
-    <xref ref="d_complex_equality"/> ensures that the map 
-    <me>
-        a+ib\mapsto (a,b)
-    </me>
-    defines a bijection between <m>\C</m> and <m>\R</m>, allowing us to identify complex numbers as pairs of real numbers. This identification in turn gives rise to a visual representation of complex numbers as points in the Cartesian plane <m>\R^2</m>, called the <term>complex plane</term> in this context. To make clear that we are using <m>\R^2</m> to visualize <m>\C</m>, we label the horizontal and vertical axes as <m>\Re</m> and <m>\Im</m>. 
-</p>
-<figure xml:id="fig_complex_plane">
-    <caption>Complex plane</caption>
-    <image width="75%">
-        <shortdescription>Complex plane: points</shortdescription>
-        <sageplot>
-P=point((1,2),color="blue", size=50,axes_labels=["$\\operatorname{Re}$","$\\operatorname{Im}$"],ticks=[list(range(-1,2)),list(range(-2,3))],tick_formatter=[["-1","0","$\\operatorname{Re} z=1$"],[-2,-1,0,1,"$\\operatorname{Im} z=2$"]],aspect_ratio=.5)
-Q=point((0,-2),color="blue", size=50)
-R=point((-1,0),color="blue", size=50)
-t1=text("$z=1+2i$",(1.2,2.2),color="black",fontsize=16)
-t2=text("$w=-2i$",(0.4,-2),color="black",fontsize=16)
-t3=text("$a=-1$",(-1,0.2),color="black",fontsize=16)
-l1=line([(0,2),(1,2)],color="red",linestyle="dotted")
-l2=line([(1,0),(1,2)],color="red",linestyle="dotted")
-P+Q+R+t1+t2+t3+l1+l2
-        </sageplot>
-    </image>
-</figure>
-<p>
-Using our identification 
-<me>
-    \R=\{z\in \C\colon \Im z=0\}
-</me>,
-we see that the real numbers are represented geometrically as the <m>x</m>-axis of the complex plane. Similarly, the purely imaginary complex numbers are represented geometrically as the the <m>y</m>-axis of the complex plane. As you will see, we will get a lot of mileage out of this geometric representation of complex numbers. 
-</p>
-<p>
-        Having defined the complex numbers as a set and given this set some geometric content, we now define some essential operations on <m>\C</m>. 
-    </p>
-    <definition xml:id="d_sum_product">
-        <title>Addition, subtraction, multiplication</title>
-        <statement>
-            <p>
-                Let <m>z=a+ib</m> and <m>w=c+id</m> be complex numbers. 
-                <ul>
-                    <li>
-                        <title>Complex addition</title>
-                        <p>
-                            We define the <term>sum</term>  of <m>z</m> and <m>w</m>, denoted <m>z+w</m>, as 
-                            <mdn >
-                                <mrow xml:id="eq_sum">z+w \amp =(a+c)+i(b+d)</mrow>
-                            </mdn>.
-                        </p>
-                    </li>
-                    <li>
-                        <title>Complex subtraction</title>
-                        <p>
-                            We define the <term>additive inverse</term>  of <m>w</m>, denoted <m>-w</m>,  as <m>-w=-c-id</m>, and the <term>difference</term>  of <m>z</m> and <m>w</m>, denoted <m>z-w</m>, as 
-                            <mdn >
-                                <mrow xml:id="eq_difference">z-w \amp =z+\,-w=(a-c)+i(b-d)</mrow>
-                            </mdn>.
-                        </p>
-                    </li>
-                    <li>
-                        <title>Complex multiplication</title>
-                        <p>
-                           We define the <term>product</term>  of <m>z</m> and <m>w</m>, denoted <m>z\,w</m> (or sometimes <m>z\cdot w</m>) as
-                            <mdn >
-                                <mrow xml:id="eq_product">z\,w \amp= (ac-bd)+i(ad+bc) </mrow>
-                            </mdn>.
-                        </p>
-                    </li>
-                </ul>
-            </p>
-        </statement>
-    </definition>
-    <example xml:id="eg_arithmetic">
-    <title>Complex arithmetic</title>
-    <statement>
-    <p>
-    Let <m>z=-2+i\,3</m>, <m>w=4+i</m>. Compute the following complex numbers. Your answer must be expressed in the form <m>a+ib</m>, where <m>a,b\in \R</m>. 
-    <ol>
-        <li>
-            <p>
-                <m>z+w</m>
-            </p>
-        </li>
-        <li>
-            <p>
-                <m>z-w</m>
-            </p>
-        </li>
-        <li>
-            <p>
-                <m>z\,w</m>
-            </p>
-        </li>
-        <li>
-            <p>
-                <m>a\cdot z</m> (where <m>a=a+0i</m> is real)
-            </p>
-        </li>
-        <li>
-            <p>
-                <m>ib\cdot z</m> (where <m>ib=0+ib</m> is purely imaginary)
-            </p>
-        </li>
-    </ol>
-    </p>
-    </statement>
-    <solution>
-    <p>
-    <ol>
-        <li>
-            <p>
-                We have 
-                <md>
-                    <mrow>z+w \amp =(-2+4)+i(3+1)</mrow>
-                    <mrow> \amp = 2+i\,4</mrow>
-                </md>.
-            </p>
-        </li>
-        <li>
-            <p>
-                We have 
-                <md>
-                    <mrow>z-w \amp = (-2-4)+(3-1)i </mrow>
-                    <mrow> \amp = -6+i\,2</mrow>
-                </md>.
-            </p>
-        </li>
-        <li>
-            <p>
-                We have 
-                <md>
-                    <mrow>z\,w \amp = (-2\cdot 4-3\cdot 1)+i(-2\cdot 1+3\cdot 4)</mrow>
-                    <mrow> \amp = -11+i\,10</mrow>
-                </md>.
-            </p>
-        </li>
-        <li>
-            <p>
-                We have 
-                <md>
-                    <mrow>a\, z \amp = (a+0i)(-2+i\,3)</mrow>
-                    <mrow> \amp = (-2a-0\cdot 3)+i(3a+0\cdot (-2))</mrow>
-                    <mrow> \amp = -2a+i(3a)</mrow>
-                </md>.
-            </p>
-        </li>
-        <li>
-            <p>
-                We have 
-                <md>
-                    <mrow>ib\cdot w \amp = (0+ib)(4+i)</mrow>
-                    <mrow> \amp = -b+i\, 4b</mrow>
-                </md>.
-            </p>
-        </li>
-    </ol>
-    </p>
-    </solution>
-    </example>
-    <remark>
-        <title>Real arithmetic</title>
-        <p>
-            As the last example illustrates, the arithmetic interaction of the real numbers with other complex numbers is particularly simple. For example, for any real number <m>a=a+0i</m> and complex number <m>z=c+id</m>, we have 
-            <md>
-                <mrow>a+z \amp = (a+c)+id</mrow>
-                <mrow>az \amp =ac+id</mrow>
-            </md>.
-            In particular, given two real numbers <m>a+i\,0</m> and <m>b+i\,0</m>, we have 
-            <md>
-                <mrow>(a+i\,0)+(b+i\,0) \amp =(a+b)+i\,0=a+b</mrow>
-                <mrow>(a+i\,0)(b+i\,0) \amp =ab+i\,0=ab </mrow>
-            </md>.
-            In other words, the complex arithmetic of the real numbers, considered now as a subset of the complex numbers, behaves exactly as it does considering the real numbers on their own. We summarize this by saying that the operations of complex addition and complex multiplication are <em>extensions</em> of real addition and real multiplication. In this sense we can think of the complex <em>number system</em> as an extension of the real number system. (Using fancier language from abstract algebra, we say that <m>\C</m> is a <em>ring extension</em> of <m>\R</m>.)
-        </p>
-    </remark>
     
-    <p>
-        The next theorem tells us that complex addition and multiplication are just as well-behaved as their real counterparts. More specifically, using some fancy abstract algebra jargon, the theorem asserts that <m>\C</m>, together with its addition and multiplication operations, constitutes a <em>ring</em>.  
-    </p>
-    <theorem xml:id="th_ring_ops">
-        <title>Ring axioms</title>
-        <statement>
-            <p>
-                Let <m>z,w,u</m> be complex numbers. 
-                <ol cols="2">
-                    <li>
-                        <title>Addition is associative</title>
-                        <p>
-                            <m>z+(w+u)=(z+w)+z</m>.
-                        </p>
-                    </li>
-                    <li>
-                        <title>Addition is commutative</title>
-                        <p>
-                            <m>z+w=w+z</m>.
-                        </p>
-                    </li>
-                    <li>
-                        <title>Additive identity</title>
-                        <p>
-                            <m>0+z=z</m>.
-                        </p>
-                    </li>
-                    <li>
-                        <title>Additive inverse</title>
-                        <p>
-                            <m>-z+z=0</m>.
-                        </p>
-                    </li>
-                    <li>
-                        <title>Multiplication is associative</title>
-                        <p>
-                            <m>z(w\, u)=(z\, w)u</m>.
-                        </p>
-                    </li>
-                    <li>
-                        <title>Multiplication is commutative</title>
-                        <p>
-                            <m>z\, w=w\, z</m>.
-                        </p>
-                    </li>
-                    <li>
-                        <title>Multiplicative identity</title>
-                        <p>
-                            <m>1\cdot z=z</m>.
-                        </p>
-                    </li>
-                    <li>
-                        <title>Distributivity</title>
-                        <p>
-                            <m>z(w+u)=zw+zu</m>. 
-                        </p>
-                    </li>
-                </ol>
-            </p>
-        </statement>
-        <proof>
-            <p>
-                Each property above follows in a straightforward manner from the definitions of these complex operations in combination with familiar properties of real number arithmetic. We prove (6) below, leaving the rest of the proofs as an exercise. 
-                </p>
-                <p>Let <m>z=a+ib</m> and <m>w=c+id</m>. We have 
-                <md>
-                    <mrow>z\, w \amp =(ac-bd)+(ad+bc)i \amp (\text{def.})</mrow>
-                    <mrow> \amp = (ca-db)+(da+bc)i \amp (\text{comm. of real mult.})</mrow>
-                    <mrow> \amp = w\, z \amp (\text{def})</mrow>
-                </md>,
-                as desired. 
-            </p>
-        </proof>
-    </theorem>
-    <example xml:id="eg_square_roots">
-    <title>Real square roots</title>
-    <statement>
-    <p>
-    Show that every real number <m>a=a+0i</m> has a square-root in <m>\C</m>: <ie/>, show that there is a <m>z\in \C</m> satisfying <m>z^2=a</m>. (By definition, <m>z^2=z\, z</m>. See <xref ref="d_integer_powers"/>.) 
-    </p>
-    </statement>
-    <solution>
-    <p>
-    We seek <m>c,d\in \R</m> such that the complex number <m>z=c+id</m> satisfies <m>z^2=a+0i</m>. Since 
-    <me>
-        z^2=(c^2-d^2)+i(2cd)
-    </me>,
-    we see, using <xref ref="d_complex_equality"/>, that <m>z^2=a</m> if and only if 
-    <md>
-        <mrow>c^2-d^2 \amp = a </mrow>
-        <mrow>2cd \amp = 0</mrow>
-    </md>.
-    We now endeavor to solve the (quadratic) system of equations above. We proceed in cases with respect to whether <m>a</m> is zero, positive or negative. Note first that in all cases, the second equation is true if and only if <m>c=0</m> or <m>d=0</m>.  
-    </p>
-    <p>
-        Case: <m>a=0</m>. In this case, it is clear that the only solution to the system above is <m>c=d=0</m>. Thus <m>z=0=0+0i</m> is the only complex square-root of <m>0</m>.
-    </p>
-    <p>
-        Case: <m>a&gt; 0</m>. If <m>c=0</m> (to satisfy the second equation), then <m>z^2=a</m> if and only if <m>-d^2=a</m>, which is impossible since <m>a&gt; 0</m> and <m>-d^2\leq 0</m>. Thus we must have <m>d=0</m>, in which case <m>c^2=a</m> implies <m>c=\pm \sqrt{a}</m>. (Note that <m>\sqrt{a}</m>, the positive square-root of <m>a</m>, exists, since <m>a</m> is positive.) It follows that <m>a</m> has exactly two square-roots in this case: <m>\sqrt{a}=\sqrt{a}+0i</m> and <m>-\sqrt{a}=-\sqrt{a}+0i</m>.
-    </p>
-    <p>
-        Case: <m>a&lt; 0</m>. In this case we cannot have <m>d=0</m>, since the first equation would imply <m>c^2=a</m>, which is impossible since <m>a</m> is negative. Setting <m>c=0</m>, we then see that <m>-d^2=a</m> or <m>d=\pm\sqrt{-a}</m>. (Again, note that <m>\sqrt{-a}</m> is a well-defined real number since <m>-a</m> is positive.) We conclude in this case that <m>a</m> has exactly two square-roots: <m>\sqrt{-a}\, i</m> and <m>-\sqrt{-a}\, i</m>. 
-    </p>
-    <p>
-        We can summarize our analysis above as follows: any <m>a\in \R</m> has a complex square-root <m>z</m>, and in fact we have 
-        <me>
-            z=\begin{cases}
-            \pm \sqrt{\abs{a}} \amp \text{if } a\geq 0 \\
-            \pm \sqrt{\abs{a}}\, i \amp  \text{if } a&lt; 0
-            \end{cases}
-        </me>.
-        Here we have used the fact that 
-        <me>
-            \abs{a}=\begin{cases}
-            a \amp a\geq 0\\
-            -a \amp a&lt; 0
-            \end{cases}
-        </me>.
-    </p>
-    </solution>
-    </example>
-    <remark>
-        <title>Adding square-root of <m>-1</m> to <m>\R</m></title>
-        <p>
-            It follows from our work in <xref ref="eg_square_roots"/> that <m>i^2=-1</m>: <ie/>, <m>i</m> is a square-root of <m>-1</m>. This observation gives rise to a more motivated understanding of the complex number system <m>\C</m>. Roughly speaking, we can think of <m>\C</m> as the smallest number system containing <m>\R</m> and a square-root of <m>-1</m> that we call <m>i</m>. (I say <sq>roughly</sq> here as I haven't really told you what I mean by a number system, or by the smallest number system.) Furthermore, we can think of the definition of complex multiplication given by <xref ref="eq_product"/> as forced upon us: that is, it is the unique multiplication operation on <m>\C</m> that is associative, commutative, and satisfies <m>i^2=-1</m>. 
-        </p>
-    </remark>
-    <p>
-       Our last result tells us that, as in real number arithmetic, all nonzero complex numbers have a <em>multiplicative inverse</em>. Reaching again for some fancy language from abstract algebra, this fact, in conjunction with <xref ref="th_ring_ops"/>, means that <m>\C</m>, like <m>\R</m>, is a <em>field</em>.  
-    </p>
-    <theorem xml:id="th_mult_inv">
-        <title>Multiplicative inverses</title>
-        <statement>
-            <p>
-                Let <m>z=a+ib\ne 0</m> be a nonzero complex number: <ie/>, <m>a\ne 0</m> or <m>b\ne 0</m> (or both). There is a unique complex number <m>w</m> satisfying 
-                <m>zw=1</m>: namely,   
-                <men xml:id="eq_mult_inv">
-                    w=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\, i
-                </men>.
-            </p>
-        </statement>
-        <proof>
-            <p>
-                The fact that <m>zw=1</m> is easily verified using the definition of multiplication given by <xref ref="eq_product
-                "/>. As for uniqueness, given any other complex number <m>u</m>, we have 
-                <md>
-                    <mrow>zu=1 \amp \implies wzu=w</mrow>
-                    <mrow> \amp \implies zwu=w \amp (\text{comm., assoc.})</mrow>
-                    <mrow> \amp\implies u=w \amp (zw=1) </mrow>
-                </md>,
-                showing that <m>w</m> is the only complex number satisfying this property. 
-            </p>
-        </proof>
-    </theorem>
-   
-    <definition xml:id="d_mult_inv">
-    <title>Multiplicative inverses and quotients</title>
-        <statement>
-            <p>
-                Let <m>z=a+ib\ne 0</m> be a nonzero complex number: <ie/>, <m>a\ne 0</m> or <m>b\ne 0</m>. The <term>(multiplicative) inverse</term> of <m>z</m>, denoted <m>z^{-1}</m> or <m>1/z</m>, is defined as 
-                <me>
-                    z^{-1}=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\, i
-                </me>.
-                Given complex numbers <m>w, u</m> with <m>u\ne 0</m>, the <term>quotient</term> of <m>w</m> by <m>u</m>, denoted <m>w/u</m>, is defined as 
-                <me>
-                    \frac{w}{u}=\frac{1}{u}\cdot w= w\, u^{-1}
-                </me>.
-            </p>
-        </statement>
-    </definition>
-    <example xml:id="eg_inverses">
-    <title>Inverses and quotients</title>
-    <statement>
-    <p>
-    Compute the following complex numbers. Your answer must be expressed in the form <m>a+ib</m>, where <m>a,b\in \R</m>. 
-    <ol>
-        <li>
-            <p>
-                <m>z^{-1}</m>, where <m>z=-2-3i</m>
-            </p>
-        </li>
-        <li>
-            <p>
-                <m>(1+i)/(-2-3i)</m>
-            </p>
-        </li>
-        <li>
-            <p>
-                <m>1/i</m>
-            </p>
-        </li>
-        <li>
-            <p>
-                <m>z/a</m>, where <m>z=c+id</m> and <m>a=a+0i\in \R</m>
-            </p>
-        </li>
-        <li>
-            <p>
-                <m>z/(ib)</m>, where <m>z=c+id</m> and <m>b\in \R</m>
-            </p>
-        </li>
-    </ol>
-    </p>
-    </statement>
-    <solution>
-    <p>
-    <ol>
-        <li>
-            <p>
-                Using the formula <xref ref="eq_mult_inv"/>, we have 
-                <me>
-                    z^{-1}=\frac{-2}{4+9}+\frac{3}{4+9}\, i=-\frac{2}{13}+\frac{3}{13}\, i
-                </me>.
-            </p>
-        </li>
-        <li>
-            <p>
-                By definition, we have 
-                <md>
-                    <mrow>\frac{1+i}{-2-3i} \amp=(1+i)(-2-3i)^{-1} </mrow>
-                    <mrow> \amp =(1+i)(-2/13+(3/13)\, i) \amp (\text{by above})</mrow>
-                    <mrow> \amp = \frac{-5}{13}+\frac{1}{13}\, i</mrow>
-                </md>.
-            </p>
-        </li>
-        <li>
-            <p>
-                Using formula <xref ref="eq_mult_inv"/>, we see easily that <m>1/i=i^{-1}=-i</m>.
-            </p>
-        </li>
-        <li>
-            <p>
-                It is easy to see that for a real number <m>a=a+0i</m>, we have <m>a^{-1}=1/a</m>, and hence 
-                <me>
-                    z/a=\frac{1}{a}(c+id)=\frac{c}{a}+\frac{d}{a}\, i
-                </me>.
-            </p>
-        </li>
-        <li>
-            <p>
-                It is easy to see, in general that <m>(uw)^{-1}=u^{-1}w^{-1}</m> for any complex numbers <m>u,w</m>. Thus we have 
-                <md>
-                    <mrow>z/(ib) \amp =z(ib)^{-1}</mrow>
-                    <mrow> \amp = z\cdot \frac{1}{b}(-i) \amp \text{(by above)}</mrow>
-                    <mrow> \amp = \frac{1}{b}(-i z)</mrow>
-                    <mrow> \amp = \frac{d}{b}-\frac{c}{b}\, i</mrow>
-                </md>.
-            </p>
-        </li>
-    </ol>
-    </p>
-    </solution>
-    </example>
-    
-    <definition xml:id="d_integer_powers">
-    <title>Integer powers</title>
-    <statement>
-    <p>
-     Let <m>n\in \Z</m> be an integer. 
-    <ul>
-        <li>
-            <title>Case: <m>n=0</m></title>
-            <p>
-                Given <m>z\in \C</m>, we define 
-                <me>
-                    z^0=1
-                </me>.
-            </p>
-        </li>
-        <li>
-           <title>Case: <m>n&gt; 0</m></title>
-           
-            <p>
-               Given <m>n&gt; 0</m> and <m>z\in \C</m>, we define 
-               <me>
-                z^n=\underset{n \text{ times}}{\underbrace{z\, z\, \cdots z}}
-               </me>.
-            </p>
-        </li>
-        <li>
-            <title>Case: <m>n&lt; 0</m></title>
-            <p>
-                Given <m>n&lt; 0</m> and nonzero <m>z\ne 0 \in \C</m>, we set <m>n=-m</m> where <m>m=-n</m> is positive, and define 
-                <me>
-                    z^n=z^{-m}=\left(z^{-1}\right)^m
-                </me>.
-            </p>
-        </li>
-    </ul>
-    </p>
-    </statement>
-    </definition>
-    <p>
-    The definition of the <em>modulus</em> of a complex number <m>z=a+ib</m>, has a clear connection with our various visualizations of <m>z</m>: it is the length of any arrow representation of <m>z</m>; or equivalently, the distance between <m>O=(0,0)</m> and <m>P=(a,b)</m>; or equivalently, the norm <m>\norm{\boldv}</m> of <m>\boldv=(a,b)</m>, thinking of <m>(a,b)</m> as a vector.  
-</p>
-<definition xml:id="d_modulus">
-<title>Complex modulus</title>
-<statement>
-<p>
-The <term>modulus</term> (or <term>absolute value</term>) of a complex number <m>z=a+ib</m>, denoted <m>\abs{z}</m>, is defined as 
-<me>
-    \abs{z}=\sqrt{a^2+b^2}
-</me>.
-If <m>\abs{z}=1</m>, we say that <m>z</m> has <term>unit length</term>. 
-</p>
-</statement>
-</definition>
-<p>
-    For <m>z=1+2i</m>, we have <m>\abs{z}=\sqrt{1^2+2^2}=\sqrt{5}</m>, which is precisely the length of the various arrow representations of <m>z</m>. 
-</p>
-<figure xml:id="fig_modulus">
-                <caption>Visualizing the modulus of <m>z=1+2i</m></caption>
-                <image width="75%">
-                    <shortdescription>Visualizing the modulus of <m>z=1+2i</m></shortdescription>
-                    <sageplot>
-P=point((1,2),color="blue", size=50,axes_labels=["$\\operatorname{Re}$","$\\operatorname{Im}$"],ticks=[list(range(-3,2)),list(range(-1,4))],aspect_ratio=.8)
-Q=point((-2,0),color="blue", size=50)
-R=point((-1,2),color="blue", size=50)
-A1=arrow((0,0),(1,2), color="red")
-A2=arrow((-2,0),(-1,2), color="red")
-t1=text("$z=1+2i$",(1.2,2.2),color="black",fontsize=16)
-t2=text("$\\vert z\\vert=\\sqrt{5}$",(-1.65,1.3),color="black",fontsize=16)
-t3=text("$\\vert z\\vert=\\sqrt{5}$",(.35,1.3),color="black",fontsize=16)
-P+Q+R+t1+t2+t3+A1+A2
-                    </sageplot>
-                </image>
-            </figure> 
-<remark>
-    <title>Complex numbers of unit length</title>
-    <p>
-        Observe that <m>z=a+ib</m> is a complex number of unit length if and only if the point <m>(a,b)</m> lies on the unit circle <m>S^1: x^2+y^2=1</m>. Thus we obtain the following nifty complex description of the unit circle: 
-        <me>
-            S^1=\{z\in \C \colon \abs{z}=1\}
-        </me>.
-    </p>
-</remark>
-   <theorem xml:id="th_modulus">
-    <title>Modulus properties</title>
-    <statement>
-        <p>
-            Let <m>z</m> and <m>w</m> be complex numbers. 
-            <ol>
-                <li xml:id="mod_pos">
-                    <title>Positivity</title>
-                    <p>
-                        <m>\abs{z}\geq 0</m>, and <m>\abs{z}=0</m> if and only if <m>z=0</m>. 
-                    </p>
-                </li>
-                <li xml:id="mod_tri">
-                    <title>Triangle inequality</title>        
-                    <p>
-                        <m>
-                            \abs{z+w}\leq \abs{z}+\abs{w}
-                        </m>.
-                        
-                    </p>
-                </li>
-                <li xml:id="mod_tri_2">
-                    <title>Triangle inequality variation</title>        
-                    <p>
-                       <m>
-                        \abs{z-w}\geq \abs{\abs{z}-\abs{w}}
-                       </m>.
-                    </p>
-                </li>
-                <li xml:id="mod_comps">
-                    <title>Components modulus</title>
-                    <p>
-                        <m>\abs{\Re z}\leq \abs{z}</m> and <m>\abs{\Im z}\leq \abs{z}</m>.
-                    </p>
-                </li>
-                <li xml:id="mod_mult">
-                    <title>Multiplicative property</title>
-                    <p>
-                        <m>\abs{zw}=\abs{z}\abs{w}</m>.
-                    </p>
-                </li>
-            </ol>
-        </p>
-    </statement>
-    <proof>
-        <p>
-            As mentioned above, all but the last statement follow directly from elementary linear algebra facts. We give a proof of statement (5). Letting <m>z=a+ib</m> and <m>w=c+di</m>, we have  
-            <md>
-                <mrow>\abs{zw} \amp =\abs{(ac-bd)+(ad+bc)i}</mrow>
-                <mrow> \amp = \sqrt{(ac-bd)^2+(ad+bc)^2}</mrow>
-                <mrow> \amp = \sqrt{a^2c^2+b^2d^2+a^2d^2+b^2c^2}</mrow>
-                <mrow> \amp = \sqrt{(a^2+b^2)(c^2+d^2)}</mrow>
-                <mrow> \amp = \sqrt{a^2+b^2}\sqrt{c^2+d^2}</mrow>
-                <mrow> \amp =\abs{z}\abs{w}</mrow>
-            </md>. 
-        </p>
-    </proof>
-</theorem>
- <p>
-        We now introduce complex conjugation, which like the modulus operation has a strong connection to the geometry of the complex plane. 
-    </p>
-    <definition xml:id="d_conj">
-    <title>Complex conjugation</title>
-    <statement>
-    <p>
-        Given the complex number <m>z=a+ib</m>, its <term>(complex) conjugate</term> <m>\overline{z}</m> is defined as 
-        <me>
-            \overline{z}=a-ib
-        </me>.
-    </p>
-    </statement>
-    </definition>
-    <p>
-        What is the geometric relationship between <m>z=a+ib</m> and <m>\overline{z}=a-ib</m>? Identifying <m>z</m> with the point <m>(a,b)</m> and <m>\overline{z}</m> with the point <m>(a,-b)</m>, we see that <m>\overline{z}</m> can be thought of as the <em>reflection</em> of <m>z</m> through the <m>x</m>-axis. In other words, the operation of complex conjugation corresponds to reflection through the <m>x</m>-axis. 
-    </p>
-    <figure xml:id="fig_conj">
-        <caption>Conjugation as reflection</caption>
-        <image width="75%">
-            <shortdescription>Conjugation as reflection</shortdescription>
-            <sageplot>
-            P=point((1,1),color="blue", size=50, ticks=[[-1,1],[-1,1]], tick_formatter=[["$-c$","$a$"],["$-b$","$b$"]], axes_labels=["$\\operatorname{Re}$","$\\operatorname{Im}$"])
-            Q=point((1,-1),color="blue", size=50)
-            R=point((-1,0),color="blue", size=50)
-            S=point((0,1),color="blue", size=50)
-            T=point((0,-1),color="blue",size=50)
-            A1=arrow((0,0),(1,1),color="red")
-            A2=arrow((0,0),(1,-1),color="green")
-            A3=arrow((0,0),(-1,0),color="red")
-            A4=arrow((0,0),(0,1),color="red")
-            A5=arrow((0,0),(0,-1),color="green")
-            t1=text("$z$",(1/2, 5/8),color="black",fontsize=16)
-            t2=text("$\\overline{z}$",(1/2, -5/8),color="black",fontsize=16)
-            t3=text("$u=\\overline{u}$",(-1/2, 1/8),color="black",fontsize=16)
-            t4=text("$w$",(-1/8, 5/8),color="black",fontsize=16)
-            t5=text("$\\overline{w}=-w$",(-3/16, -5/8),color="black",fontsize=16)
-            A1+A2+A3+A4+A5+P+Q+R+S+T+t1+t2+t3+t4+t5
-            </sageplot>
-        </image>
-    </figure>
-    <p>
-        You are likely wondering why reflection through the <m>x</m>-axis would prove to be useful when considered as an operation on complex numbers. The next theorem is a form of answer to this question, as it illustrates how reflection (<ie/>, conjugation) respects the other complex operations, including our new friend the modulus. 
-    </p>
-    <theorem xml:id="th_conj">
-        <title>Conjugation properties</title>
-        <statement>
-            <p>
-               Let <m>z</m> and <m>w</m> be complex numbers. 
-               <ol cols="2">
-                <li>
-                    <p>
-                        <m>\overline{z+w}=\overline{z}+\overline{w}</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <m>\overline{z\, w}=\overline{z}\, \overline{w}</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <m>\overline{\overline{z}}=z</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <m>\abs{\overline{z}}=\abs{z}</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <m>\Re z=\frac{z+\overline{z}}{2}</m> and <m>\Im z=\frac{z-\overline{z}}{2i}</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <m>z\in \R</m> if and only if <m>\overline{z}=z</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <m>z\, \overline{z}=\abs{z}^2</m>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        If <m>z\ne 0</m>, then 
-                        <m>
-                            \displaystyle z^{-1}=\frac{\overline{z}}{\abs{z}^2}=\frac{\overline{z}}{z\overline{z}}
-                        </m>.
-                    </p>
-                </li>
-               </ol> 
-            </p>
-        </statement>
-    </theorem>
-    <p>
-        Recall that for any pair <m>(a,b)\in \R^2</m> we can write
-        <me>
-            (a,b)=(r\cos\theta, r\sin\theta)
-        </me>
-        for some <m>r,\theta\in \R</m>, and we call <m>r</m> and <m>\theta</m> <em>polar coordinates</em> of the point <m>(a,b)</m> in this case. These polar coordinates are not unique, but we do have the following fact: if <m>(a,b)</m> is nonzero, and we have 
-        <me>
-            (a,b)=(r\cos\theta,r\sin\theta)=(s\cos\psi,s\sin\psi)
-        </me>
-        with <m>r\geq 0</m> and <m>s\geq 0</m>, then <m>r=s=\sqrt{a^+b^2}</m> and <m>\psi=\theta+2\pi k</m> for some integer <m>k\in \Z</m>. 
-        This leads directly to the following result about complex numbers. 
-    </p>
-    <theorem xml:id="th_polar_form">
-        <title>Polar form</title>
-        <statement>
-            <p>
-              Let <m>z=a+ib</m> be a complex number.
-              <ol>
-                <li>
-                    <p>
-                        We have 
-                        <men>
-                            z=r\cos\theta+ri\sin\theta=r(\cos\theta+i\sin\theta)
-                        </men>
-                        for some nonnegative <m>r\geq 0</m> and <m>\theta\in \R</m>. The choice of <m>r</m> here is unique; in fact, we have 
-                        <me>
-                            r=\sqrt{a^2+b^2}=\abs{z}
-                        </me>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        If <m>z\ne 0</m> and we have 
-                        <me>
-                            z=r(\cos\theta+i\sin\theta)=r(\cos\psi+i\sin\psi)
-                        </me>
-                        for <m>r&gt; 0</m>, then <m>\psi=\theta+2\pi k</m> for some integer <m>k</m>.
-                    </p>
-                </li>
-              </ol>   
-            </p>
-        </statement>
-    </theorem>
-    
-    <definition xml:id="d_polar">
-    <title>Polar form</title>
-    <statement>
-    <p>
-    Let <m>z</m> be a complex number, and suppose <m>r\geq 0</m> and <m>\theta\in \R</m> satisfy 
-    <men xml:id="eq_polar">z=r(\cos\theta+i\sin\theta)</men>. 
-    We call the expression <m>r(\cos\theta+i\sin\theta)</m> a <term>polar form</term> of <m>z</m> and we call <m>\theta</m> an <term>argument</term> of <m>z</m>.
-    </p>
-    <p>
-        If <m>z\ne 0</m>, we define <m>\Arg z</m> to be the unique <m>\theta\in (-\pi, \pi]</m> satisfying <xref ref="eq_polar"/>, and we define <m>\arg z</m> to be the set of all arguments of <m>z</m>. Equivalently, 
-        <me>
-            \arg z=\{\Arg(z)+2\pi k\colon k\in \Z\}
-        </me>.
-    </p>
-    </statement>
-    </definition>
-    <example xml:id="eg_polar">
-    <title>Polar form</title>
-    <statement>
-    <p>
-    Find a polar form for the given <m>z</m>, and compute <m>\Arg z</m> and <m>\arg z</m>. 
-    <ol>
-        <li>
-            <p>
-                <m>z=-\sqrt{3}-i</m>
-            </p>
-        </li>
-        <li>
-            <p>
-                <m>z=3-4i</m>
-            </p>
-        </li>
-    </ol>
-    </p>
-    </statement>
-    <solution>
-    <p>
-    
-    </p>
-    </solution>
-    </example>
-    
-    <theorem xml:id="th_polar_mult">
-        <title>Polar form properties</title>
-        <statement>
-            <p>
-                Let <m>z=r(\cos\theta+i\sin\theta)</m> and <m>w=s(\cos\psi+i\sin\psi)</m> where <m>r,s\geq 0</m>. 
-                <ol>
-                    <li>
-                        <p>
-                            <men xml:id="eq_polar_mod">\abs{z}=r</men>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <men xml:id="eq_polar_conj">\overline{z}=r(\cos(-\theta)+i\sin(-\theta))</men>.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <men xml:id="eq_polar_mult">zw=rs(\cos(\theta+\psi)+i\sin(\theta+\psi))</men>.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            If <m>z\ne 0</m>, then 
-                            <men xml:id="eq_polar_inv">
-                                z^{-1}=\frac{1}{r}\left(\cos(-\theta)+i\sin(-\theta)\right)
-                            </men>.
-                        </p>
-                    </li>
-                </ol>
-            </p>
-        </statement>
-    </theorem>
-    <remark>
-        <title>Geometric interpretation of complex operations</title>
-        <p>
-            Each of the identities of <xref ref="th_polar_mult"/> can be understood as providing a geometric interpretation of one of our complex operations. 
-            </p>
-            <p>
-                In particular, statement (3) provides us with a more satisfying description of complex multiplication than the algebraic formula given by <xref ref="eq_product"/>. Roughly speaking, the identity <xref ref="eq_polar_mult"/> tells us that to multiply two complex numbers, we (a) add their arguments and (b) multiply their moduli.
-            </p>
-            <p>
-                Alternatively, <xref ref="eq_polar_mult"/> tells us that to multiply <m>w=s(\cos\psi+i\sin\psi)</m> by <m>z=r(\cos\theta+i\sin\theta)</m>, we (a) rotate <m>w</m> (considered as a point) by an angle <m>\theta</m> about the origin, and (b) scale its distance from the origin by <m>r</m>.
-        </p>
-        <p>
-            Similarly, <xref ref="eq_polar_inv"/> tells us that the inverse of a complex number is obtained by taking the reciprocal of its modulus (the <m>1/r</m> in the formula), and <q>flipping</q> its argument (the <m>-\theta</m> in the formula). 
-        </p>
-    </remark>
-    <example xml:id="eg_polar_form_">
-    <title>Polar form arithmetic</title>
-    <statement>
-    <p>
-    Let <m>z=-1+\sqrt{3}i</m> and <m>w=1-i</m>. Compute the following complex numbers. Your answer should be expressed in polar form. 
-    <ol>
-        <li>
-            <p>
-                <m>zw</m>.
-            </p>
-        </li>
-        <li>
-            <p>
-                <m>z/w</m>.
-            </p>
-        </li>
-    </ol>
-    </p>
-    </statement>
-    <solution>
-    <p>
-    
-    </p>
-    </solution>
-    </example>
-    </subsection>
-<subsection xml:id="ss_gauss_integers">
-<title>Gaussian integers</title>
-<p>
-    We now define the Gaussian integers as the subset of <m>\C</m> consisting of complex numbers whose real and imaginary components are integers.
-</p>
 <definition xml:id="d_gauss_int">
 <title>Gaussian integers</title>
 <statement>
@@ -924,44 +28,81 @@ The <term>Gaussian integers</term> is the subset <m>\Z[i]</m> of <m>\C</m> defin
 </p>
 </statement>
 </definition>
+
+
 <p>
-    One particularly useful property of the Gaussian integers is that they are closed under complex addition and multiplication. This means that <m>\Z[i]</m> can be considered as a number system (or ring) of its own. Furthermore, since the complex operations can be viewed as extensions of the corresponding real operations, the addition and multiplication operations of <m>\Z[i]</m> can be viewed as extensions of integer addition and multiplication.  
+    One particularly useful property of the Gaussian integers is that they are closed under complex addition, subtraction, and multiplication. This means that <m>\Z[i]</m> can be considered as a number system (or ring) of its own. Furthermore, since the complex operations can be viewed as extensions of the corresponding real operations, the addition and multiplication operations of <m>\Z[i]</m> can be viewed as extensions of integer addition and multiplication. In this regard, the Gaussian integers are an example of a more general construction called a <em>subring</em> of <m>\C</m>.
 </p>
-<proposition xml:id="prop_gauss_int">
-    <title>Gaussian integers</title>
-    <statement>
-        <p>
-            Let <m>\alpha, \beta\in \Z[i]</m>. 
-           <ol>
-            <title>Closed under addition</title>
-            <li>
-                <p>
-                    <m>\alpha+\beta\in \Z[i]</m>.
-                </p>
-            </li>
-            <li>
-                <title>Closed under multiplication</title>
-                <p>
-                    <m>\alpha\beta\in \Z[i]</m>.
-                </p>
-            </li>
-           </ol>
-        </p>
-    </statement>
-</proposition>
-<p>
-    Like all number systems, we are interested in the elements of <m>\Z[i]</m> that have a multiplicative inverse within <m>\Z[i]</m>.
-</p>
-<definition xml:id="d_gauss_int_units">
-<title>Units of <m>\Z[i]</m></title>
+<definition xml:id="d_subring_C">
+<title>Subring of <m>\C</m></title>
 <statement>
 <p>
-An element <m>\alpha\in \Z[i]</m> is a <term>unit</term> (or is <term>invertible</term>) if there exists a <m>\beta\in \Z[i]</m> satisfying <m>\alpha\beta=1</m>. We denote by <m>(\Z[i])^*</m> the set of all units in <m>\Z[i]</m>. 
+A <term>subring</term> of <m>\C</m> is a subset <m>R\subseteq \C</m> containing <m>0</m> and <m>1</m> that satisfies the following properties. 
+<ol marker="(i)">
+    <li>
+        <title>Closed under addition/subtraction</title>
+        <p>
+            If <m>\alpha,\beta\in R</m>, then <m>\alpha+\beta\in R</m> and <m>\alpha-\beta\in R</m>.
+        </p>
+    </li>
+    <li>
+        <title>Closed under multiplication</title>
+        <p>
+            If <m>\alpha, \beta\in R</m>, then <m>\alpha\beta\in R</m>. 
+        </p>
+    </li>
+</ol>
 </p>
 </statement>
 </definition>
+<proposition xml:id="prop_gauss_int">
+    <title><m>\Z[i]</m> is a subring</title>
+    <statement>
+        <p>
+          The Gaussian integers form a subring of <m>\C</m>. 
+        </p>
+    </statement>
+</proposition>
+
 <p>
-    As a first example of the utility of the modulus function, we give an elegant proof of the fact that 
+   In studying the arithmetic of <m>\Z[i]</m>, it turns out that the modulus function <m>\abs{a+bi}=\sqrt{a^2+b^2}</m> is an invaluable tool. In the current context, it is more convenient to work with <m>\abs{a+bi}^2=a^2+b^2</m>, since this is an integer. Accordingly, we give this slight variation of the modulus function a special name. 
+</p>
+<definition xml:id="d_gaussian_norm">
+<title>Gaussian norm</title>
+<statement>
+<p>
+The <term>norm function</term> on <m>\Z[i]</m> is the function <m>N\colon \Z[i]\rightarrow \Z_{\geq 0}</m> defined as <m>N(\alpha)=\abs{\alpha}^2</m>. Equivalently, if <m>\alpha=a+ib</m>, we have 
+<md number="yes">
+    <mrow>N(\alpha) \amp = \alpha\cdot \overline{\alpha}=a^2+b^2</mrow>
+</md>.
+</p>
+</statement>
+</definition>
+
+<definition xml:id="d_gauss_int_units">
+<title>Units of subrings</title>
+<notation>
+    <usage><m>R^*</m></usage>
+  <description>units of the subring <m>R</m> of <m>\C</m></description>
+</notation>
+<statement>
+<p>
+Let <m>R</m> be a subring of <m>\C</m>.  An element <m>\alpha\in R</m> is a <term>unit</term> (or is <term>invertible</term>) if there exists a <m>\beta\in R</m> satisfying <m>\alpha\beta=1</m>. We denote by <m>R^*</m> the set of all units in <m>R</m>. 
+</p>
+</statement>
+</definition>
+<remark xml:id="rem_units">
+    <title>Units in <m>R</m></title>
+    <p>
+        It is crucial to understand that the notion of invertibility in <m>R</m> is <em>relative</em> to the subring <m>R</m> in question. Consider the element <m>\alpha=1+i\in (\Z[i])^*</m>, for example. Like any nonzero element of <m>\C</m>, it has a multiplicative inverse <m>\alpha^{-1}</m> satisfying <m>\alpha\alpha^{-1}=1</m>. However, we have 
+        <md>
+            \alpha^{-1}=\frac{1}{2}-\frac{1}{2}i\not\in \Z[i]
+        </md>.
+        But is it possible that there is some <em>other</em> element <m>\beta\in \Z[i]</m> satisfying <m>\alpha\beta=1</m>? No! This is a consequence of the fact that inverses in <m>\C</m> are unique: <m>\alpha\alpha^{-1}=\alpha\beta=1</m> implies <m>\alpha^{-1}=\beta</m>. Thus <m>\alpha^{-1}</m> not being an element of <m>\Z[i]</m> is sufficient to conclude that <m>\alpha</m> has no inverse in the subring <m>\Z[i]</m>, and thus that <m>\alpha\notin (\Z[i])^*</m>.
+    </p>
+</remark>
+<p>
+    As a first example of the utility of the norm function, we give an elegant proof of the fact that 
     <md>
         (\Z[i])^*=\{1,-1,i,-i\}
     </md>.
@@ -971,12 +112,28 @@ An element <m>\alpha\in \Z[i]</m> is a <term>unit</term> (or is <term>invertible
     
     <statement>
         <p>
-            The units of <m>\Z[i]</m> are <m>\pm 1</m> and <m>\pm i</m>. In other words, 
-            <md number="yes">
-                <mrow>(\Z[i])^* \amp = \{1,-1,i,-i\}</mrow>
-            </md>.
+           We have 
+           <md number="yes">
+            <mrow>(Z[i])^* \amp =\{\alpha\in \Z[i]\mid N(\alpha)=1\}=\{1,-1,i,-i\}</mrow>
+           </md>.
         </p>
     </statement>
+    <proof>
+        <p>
+            To prove the first set equality, we must show that <m>\alpha</m> is a unit if and only if <m>N(\alpha)=1</m>. 
+        </p>
+        <p>
+            First assume <m>\alpha\in \Z[i]</m>. By definition, there is an element <m>\beta\in \Z[i]</m> such that <m>\alpha\beta=1</m>. Applying <m>N</m> to both sides of this equation, we see that <m>N(\alpha)N(\beta)=N(1)=1</m>. Since <m>N(\alpha)</m> and <m>N(\beta)</m> are integers, we conclude that <m>N(\alpha)\mid 1</m> in <m>\Z</m>, and hence that <m>N(\alpha)=\pm 1</m>. Since <m>N(\alpha)\geq 0</m>, we conclude that <m>N(\alpha)=1</m>. 
+        </p>
+        <p>
+           Now assume <m>N(\alpha)=1</m>. By definition this means <m>\alpha\overline{\alpha}=1</m>. Since <m>\overline{\alpha}\in \Z[i]</m>, we conclude that <m>\alpha\in (\Z[i])^*</m>. 
+        </p>
+        <p>
+            We now know that <m>\alpha=a+bi\in (\Z[i])^*</m> if and only if <m>N(\alpha)=a^2+b^2=1</m>. Since <m>a</m> and <m>b</m> are integers, it is easy to see that we must have 
+            <m>(a,b)\in \{(\pm 1,0),(0,\pm 1)\}</m>, and hence that 
+            <m>(\Z[i])^*=\{1,-1,i,-i\}</m>, as claimed. 
+        </p>
+    </proof>
 </proposition>
 <p>
     The modulus function will also be useful in our analysis of the question of which integers can be expressed as a sum of squares. 
@@ -999,7 +156,7 @@ An element <m>\alpha\in \Z[i]</m> is a <term>unit</term> (or is <term>invertible
                 </li>
                 <li>
                     <p>
-                        <m>n=\abs{\alpha}^2</m> for some <m>\alpha\in \Z</m>. 
+                        <m>n=N(\alpha)</m> for some <m>\alpha\in \Z[i]</m>. 
                     </p>
                 </li>
             </ol>
@@ -1015,9 +172,137 @@ An element <m>\alpha\in \Z[i]</m> is a <term>unit</term> (or is <term>invertible
     </statement>
     <proof>
         <p>
-            
+            Assume <m>m=a^2+b^2</m> and <m>n=c^2+d^2</m>. Letting <m>\alpha=a+bi</m> and <m>\beta=c+di</m>, we have 
+            <md>
+                <mrow>m \amp =N(\alpha) \amp n=N(\beta)</mrow>
+            </md>
+            and hence 
+            <md>
+                <mrow>mn \amp =N(\alpha)N(\beta)=N(\alpha\beta)</mrow>
+            </md>.
+            It follows from <xref ref="prop_sum_of_squares"/> that <m>mn</m> is a sum of squares. In fact, writing 
+            <md>
+                \alpha\beta=(ac-bd)+(ad+bc)i
+            </md>,
+            we see that 
+            <md>
+                mn=(ac-bd)^2+(ad+bc)^2
+            </md>.
         </p>
     </proof>
 </corollary>
-</subsection>
+<definition xml:id="d_divisibility">
+<title>Divisibility in subrings</title>
+<statement>
+<p>
+    Let <m>R</m> be a subring of <m>\C</m>. Given <m>\alpha,\beta\in R</m>, we say that <m>\alpha</m> <term>divides</term> <m>\beta</m> in <m>R</m>, denoted <m>\alpha\mid \beta</m>, if there exists a <m>\gamma\in R</m> such that <m>\beta=\alpha\gamma</m>. We write <m>\alpha\nmid \beta</m> if <m>\alpha</m> does not divide <m>\beta</m>. 
+</p>
+<p>
+    We say that <m>\alpha</m> is an <term>associate</term> of <m>\beta</m> if <m>\alpha=u \beta</m> for some unit <m>u\in R^*</m>. 
+</p>
+</statement>
+</definition>
+<example xml:id="eg_divisibility">
+<title>Divisibility in <m>\Z[i]</m></title>
+<statement>
+<p>
+For the given <m>\alpha, \beta\in \Z[i]</m> determine whether <m>\alpha\mid \beta</m> and whether <m>\beta\mid \alpha</m>.
+<ol>
+    <li>
+        <p>
+            <m>\alpha=1+2i</m>, <m>\beta=3+i</m>
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>\alpha=1+2i</m>, <m>\beta=2-i</m>
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+One way of answering this type of question is to use some logic similar to <xref ref="rem_units"/>, zooming out a bit to the larger number system <m>\C</m>. In general, for nonzero elements <m>\alpha, \beta\in \C</m>, we have <m>\beta=\gamma \alpha</m> for if and only if <m>\gamma=\alpha^{-1}\beta</m>. Thus we have <m>\alpha\mid \beta</m> in a subring <m>R</m> if and only if <m>\alpha^{-1}\beta\in R</m>. 
+</p>
+<p>
+Working in <m>\Z[i]</m>, we can also use the norm function to give a <em>necessary</em> (though not necessarily sufficient condition) for divisibility: namely, if <m>\alpha\mid \beta</m>, then we have <m>\beta=\alpha\gamma</m> for some <m>\gamma\in \Z[i]</m>, in which case <m>N(\beta)=N(\alpha)N(\gamma)</m> and <m>N(\alpha)\mid N(\beta)</m>. 
+</p>
+<p>
+    We illustrate both techniques in the two examples. 
+<ol>
+    <li>
+        <p>
+            Since <m>N(\alpha)=5</m> and <m>N(\beta)=10</m>, we see that <m>\beta\nmid \alpha</m>, but possibly <m>\alpha\mid \beta</m>. To decide the latter question, we compute 
+            <md>
+                \alpha^{-1}\beta=(1/5-(2/5)i)(3+i)=1-i\in \Z[i]
+            </md>.
+            Thus <m>\alpha\mid \beta</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            In this case we have <m>N(\alpha)=N(\beta)=5</m>. Some arithmetic similar to the above shows that <m>\alpha=-i\beta</m> and <m>\beta=-i\alpha</m>. We conclude that <m>\alpha\mid \beta</m> and <m>\beta\mid \alpha</m>. 
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+
+<proposition xml:id="prop_associates">
+    <statement>
+        <p>
+            Let <m>\alpha</m> and <m>\beta</m> be nonzero elements of <m>R</m>. The following statements are equivalent. 
+            <ol>
+                <li>
+                    <p>
+                        <m>\alpha</m> is associate to <m>\beta</m>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\beta</m> is associate to <m>\alpha</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <m>\alpha\mid \beta</m> and <m>\beta\mid \alpha</m> in <m>R</m>. 
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+    <proof>
+        <p>
+            Implication: (i) implies (ii). If <m>\alpha</m> is associate to <m>\beta</m>, then there is a unit <m>u\in R^*</m> such that <m>\alpha=u \beta</m>. Since <m>u\in R^*</m>, we have <m>u^{-1}\in R^*</m> and <m>\beta=u^{-1}\alpha</m>. Thus <m>\beta</m> is associate to <m>\alpha</m>. 
+        </p>
+        <p>
+            Implication: (ii) implies (i). If <m>\beta</m> is associate to <m>\alpha</m>, we have <m>\beta=u \alpha</m> with <m>u\in R^*</m>. In particular, this means <m>\alpha\mid \beta</m>. Since <m>u\in R^*</m>, there is an element <m>u^{-1}\in R</m> such that <m>uu^{-1}=1</m>. It follows that <m>\alpha=u^{-1}\beta</m> and <m>\beta\mid \alpha</m>. 
+        </p>
+        <p>
+            Implication: (iii) implies (i). If <m>\alpha \mid \beta</m> and <m>\beta\mid \alpha</m>, we have 
+            <md>
+                <mrow>\beta \amp = \gamma \alpha</mrow>
+                <mrow>\alpha \amp = \delta \beta</mrow>
+            </md>
+            for some elements <m>\gamma, \delta\in R</m>. But then we have 
+            <md>
+                \alpha=\delta \beta=(\delta\gamma) \alpha
+            </md>.
+            Since <m>\alpha</m> is nonzero, it has an inverse <m>\alha^{-1}\in \C</m> (not necessarily an element of <m>R</m>), that allows us to multiplicatively cancel <m>\alpha</m> to obtain <m>1=\delta\gamma</m>. It follows that <m>\delta\in R^*</m> and <m>\gamma\in R^*</m>, and hence that <m>\alpha</m> is a associate to <m>\beta</m>.
+        </p>
+    </proof>
+</proposition>
+
+<definition xml:id="d_prime_irreducible">
+<title>Prime and irreducible</title>
+<statement>
+<p>
+
+</p>
+</statement>
+</definition>
+
+
 </section>

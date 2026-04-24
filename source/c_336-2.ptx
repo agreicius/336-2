@@ -9,5 +9,6 @@
   <xi:include href="s_quad_resid_recipr.ptx" />
   <xi:include href="s_pseudoprimes.ptx" />
   <xi:include href="s_pyth_trips.ptx" />
+  <xi:include href="s_complex_numbers.ptx" />
   <xi:include href="s_gauss_int.ptx" />
 </chapter>
