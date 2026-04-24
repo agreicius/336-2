@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_flt_descent" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Fermat's last theorem and the method of descent</title>
+<objectives>
+    <ol>
+        <li>
+            <p>
+                Contrast the wealth of solutions to <m>x^2+y^2=z^2</m> with the paucity of solution <m>x^n+y^n=z^n</m> for <m>n\geq 3</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Introduce Fermat's method of descent, and understand it as a version of the well-ordering principle. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Prove the <m>n=4</m> case of Fermat's last theorem. 
+            </p>
+        </li>
+    </ol>
+</objectives>
+<p>
+    We saw in the last section that are many interesting positive solutions to the Pythagorean equation <m>x^2+y^2=z^2</m>. Interestingly, the situation changes dramatically if we increase the exponent 2 in that equation to anything larger. 
+</p>
+<theorem xml:id="th_flt">
+<title>Fermat's last theorem (FLT)</title>
+<statement>
+<p>
+Let <m>n</m> be an integer satisfying <m>n\geq 3</m>. The equation 
+<md number="yes">
+    <mrow>x^n+y^n \amp =z^n</mrow>
+</md>
+has no solutions in nonzero integers. 
+</p>
+</statement>
+</theorem>
+<p>
+    In the 17th century Fermat famously scrawled in his copy of Diophantus's <em>Arithmetica</em> that he had a marvelous proof of this fact that unfortunately did not fit in the margin. Although Fermat did provide a proof of the <m>n=4</m> case of FLT using his method of descent (see below), there is no evidence that he had a valid proof for all cases. Moreover, amazingly it was not until 1994 that a complete proof was provided and accepted by the mathematical community as valid. This was the work of Andrew Wiles, which built off the work of many others (<eg/>, Gerhard Frey, Ken Ribet, and Richard Taylor), and which made use of very deep results that drew connections with elliptic curves and modular curves.  
+</p>
+<theorem xml:id="th_flt_nis4">
+<title>FLT: <m>n=4</m></title>
+<statement>
+<p>
+The equation 
+<md number="yes">
+    <mrow>x^4+y^4 \amp =z^2</mrow>
+</md>
+has no solutions in nonzero integers. As a result Fermat's last theorem holds for <m>n=4</m>.
+</p>
+</statement>
+<proof>
+<p>
+</p>
+</proof>
+</theorem>
+
+    
+
+</section>
