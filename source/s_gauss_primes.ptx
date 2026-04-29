@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_gauss_primes" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Gaussian primes</title>
+
+    <theorem xml:id="th_gauss_primes">
+    <title>Splitting of rational primes</title>
+    <statement>
+    <p>
+    Let <m>p</m> be a prime integer.
+    </p>
+    </statement>
+    <proof>
+    <p>
+    </p>
+    </proof>
+    </theorem>
+
+</section>

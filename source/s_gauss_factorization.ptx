@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_gauss_factorization" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Factorization in Gaussian integers</title>
+<subsection xml:id="ss_division_alg">
+<title>Division and Euclidean algorithms</title>
+<theorem xml:id="th_div_alg_gauss">
+<title>Division algorithm in <m>\Z[i]</m></title>
+<statement>
+<p>
+Let <m>\alpha</m> and <m>\beta</m> be Gaussian integers with <m>\beta\ne 0</m>. There are Gaussian integers <m>q,r\in \Z[i]</m> satisfying the following conditions. 
+<ol marker="(i)">
+    <li>
+        <p>
+            <m>\alpha=q\beta+r</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>0\leq N(r)&lt; N(\beta)</m>. 
+        </p>
+    </li>
+</ol>
+Moreover, <m>q</m> and <m>r</m> can be produced via the following procedure.  
+<ol>
+            <li>
+                <p>
+                    Find <m>\gamma\in \Q[i]</m> satisfying <m>\gamma\beta=\alpha</m>: <ie/>, set <m>\gamma=\beta^{-1}\alpha</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Write <m>\gamma=q+(s+ti)</m>, where <m>q\in \Z[i]</m> and <m>\{\abs{s},\abs{t}\}\subseteq [0,1/2]</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    We have <m>\alpha=q\beta+r</m>, where <m>r=\alpha-q\beta</m> satisfies <m>0\leq N(r)&lt; N(\beta)</m>.
+                </p>
+            </li>
+        </ol>
+</p>
+</statement>
+<proof>
+<p>
+    That the procedure above produces a <m>q</m> and <m>r</m> in <m>\Z[i]</m> satisfying <m>\alpha=q\beta+r</m> is clear. It remains only to show that <m>0\leq N(r)&lt; N(\beta)</m>. We have 
+    <md>
+        <mrow>N(r) \amp =N(\alpha-q\beta)</mrow>
+        <mrow> \amp = N(\gamma\beta-q\beta)</mrow>
+        <mrow> \amp =N(\gamma-q)N(\beta)</mrow>
+        <mrow> \amp =N(s+ti)N(\beta)</mrow>
+        <mrow> \amp =(s^2+t^2)N(\beta)</mrow>
+        <mrow> \amp &lt; N(\beta) \amp (s^2+t^2\leq \tfrac{1}{4}+\tfrac{1}{4}=\tfrac{1}{2})</mrow>
+    </md>
+</p>
+</proof>
+</theorem>
+<example xml:id="eg_div_alg_gauss">
+<title>Division algorithm in <m>\Z[i]</m></title>
+<statement>
+<p>
+For the given <m>\alpha</m> and <m>\beta</m>, find <m>q,r\in \Z[i]</m> satisfying <m>\alpha=q\beta+r</m> and <m>0\leq N(r)&lt; N(\beta)</m>. 
+<ol>
+    <li>
+        <p>
+            <m>\alpha=2+7i</m>, <m>\beta=1+2i</m> 
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>\alpha=5-5i</m>, <m>\beta=2-4i</m>
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+<p>
+    In both cases we follow the procedure described in <xref ref="th_div_alg_gauss"/>. 
+<ol>
+    <li>
+        <p>
+            Set 
+            <md>
+                \gamma=\beta^{-1}\alpha=\frac{1}{5}(1-2i)(2+7i)=\frac{16}{5}+\frac{3}{5}i
+            </md>.
+            We pick <m>q</m> to be a closest Gaussian integer to this element of <m>\C</m>. In this case we can pick <m>q=3+i</m>, in which case 
+            <md>
+                <mrow>r \amp = \alpha-q\beta</mrow>
+                <mrow> \amp = 2+7i-(3+i)(1+2i)</mrow>
+                <mrow> \amp =2+7i-(1+7i)</mrow>
+                <mrow> \amp =1</mrow>
+            </md>.
+            Thus our instance of the division algorithm in this case is 
+            <md>
+                2+7i=(3+i)(1+2i)+1
+            </md>.
+            Note that we have <m>N(1)=1&lt; N(\beta)=5</m>, as stipulated.
+        </p>
+    </li>
+    <li>
+        <p>
+            We have 
+            <md>
+                \gamma=\beta^{-1}\alpha=\frac{1}{20}(2+4i)(5-5i)=\frac{3}{2}-\frac{1}{2}i
+            </md>.
+            In this case, since <m>\gamma</m> lies in the center of the Gaussian square with vertices <m>1</m>, <m>2</m>, <m>1-i</m>, and <m>2-i</m>, any one of those vertices can serve as our <m>q</m>!
+        </p>
+        <p>
+            Clearly, <m>q=1</m> is the easiest to deal with, resulting in <m>r=\alpha-1\beta=3+i</m> and a division algorithm statement of 
+            <md>
+                5-5i=1\cdot (2-4i)+(3+i), \ N(3+i)=10&lt; N(2-4i)=20
+            </md>.
+            Let see what happens for another choice of <m>q</m>. Taking <m>q=1-i</m>, we have 
+            <md>
+                r=\alpha-(1-i)\beta=5-5i-(3-6i)=2+i
+            </md>
+            and our division algorithm statement is 
+            <md>
+                5-5i=(1-i)(2-4i)+(2+i), \ N(2+i)=5&lt; N(2-4i)=20
+            </md>.
+        </p>
+    </li>
+</ol>
+</p>
+</solution>
+</example>
+
+    <definition xml:id="d_gcd_lcm">
+    <title>Greatest common divisor and least common multiple</title>
+    <statement>
+    <p>
+    Let <m>R</m> be a subring of <m>\C</m>. Given elements <m>\alpha, \beta\in R</m> a <term>greatest common divisor</term> (or <term>GCD</term>) of <m>\alpha</m> and <m>\beta</m> is an element <m>\delta\in R</m> satisfying the following conditions: 
+    <ol marker="(i)">
+        <li>
+            <p>
+                <m>\delta\mid \alpha</m> and <m>\delta\mid \beta</m>;
+            </p>
+        </li>
+        <li>
+            <p>
+                if <m>\delta'\in R</m> satisfies <m>\delta'\mid \alpha</m> and <m>\delta'\mid \beta</m>, then <m>\delta'\mid \delta</m>.
+            </p>
+        </li>
+    </ol>
+    </p>
+    <p>
+    A <term>least common multiple</term> (or <term>LCM</term>) of <m>\alpha</m> and <m>\beta</m> is an element <m>\mu\in R</m> satisfying the following conditions:
+    <ol marker="(i)">
+        <li>
+            <p>
+                <m>\alpha\mid \mu</m> and <m>\beta\mid \mu</m>;
+            </p>
+        </li>
+        <li>
+            <p>
+                if <m>\mu'\in R</m> satisfies <m>\alpha\mid \mu'</m> and <m>\beta\mid \mu'</m>, then <m>\mu\mid \mu'</m>.
+            </p>
+        </li>
+    </ol>
+    More generally, a greatest common divisor of elements <m>\alpha_1,\alpha_2,\dots, \alpha_n</m> of <m>R</m> is an element <m>\delta\in R</m> such that <m>\delta\mid \alpha_i</m> for all <m>i</m>, and if <m>\delta'\in R</m> satisfies <m>\delta'\mid \alpha_i</m> for all <m>i</m>, then <m>\delta'\mid \delta</m>. Lastly, we say that elements <m>\alpha_1,\alpha_2,\dots, \alpha_n</m> are <term>relatively prime</term> if they have <m>1</m> as a GCD. 
+    </p>
+    </statement>
+    </definition>
+    <remark>
+        <title>GCDs and LCDs</title>
+        <p>
+            Although the definition of GCDs and LCMs is a straightforward generalization of the corresponding notion from the integers, you should proceed with caution when making use of these concepts. In particular, be aware of the following facts: 
+            <ul>
+                <li>
+                    <p>
+                        GCDs and LCMs need not exist in an arbitrary subring of <m>\C</m>; 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        if GCDs and LCMs do exist, they are only unique modulo multiplication by a unit. 
+                    </p>
+                </li>
+            </ul>
+        The uniqueness issue is already in evidence in the context of the integers. To nonzero integers <m>a, b</m> will always have two GCDs, namely <m>\gcd(a,b)</m> and <m>-\gcd(a,b)</m>, where <m>\gcd(a,b)</m>, as you will recall, is defined to be the greatest <em>positive</em> integer dividing <m>a</m> and <m>b</m>.  
+        </p>
+    </remark>
+
+
+<theorem xml:id="th_euc_alg">
+    <title>Euclidean algorithm in <m>\Z[i]</m></title>
+    <statement>
+    <p>
+       Given elements <m>\alpha,\beta\in \Z[i]</m>, one of which is nonzero, we can produce a GCD following the Euclidean algorithm below.
+    </p>
+    <p>
+        If <m>\alpha\mid \beta</m>, then <m>\alpha</m> is a GCD of <m>\alpha</m> and <m>\beta</m>.  Otherwise,  we can produce a sequence of division algorithm instances 
+            <md number="no">
+                        <mrow>\beta\amp =q_1\alpha+r_1 \amp r_1\amp \ne 0, N(r_1)&lt; N(\alpha) </mrow>
+                        <mrow>\alpha\amp =q_2r_1+r_2 \amp r_2\amp \ne 0, N(r_2)&lt; N(r_1)</mrow>
+                        <mrow> \amp \vdots</mrow>
+                        <mrow>r_{n-1} \amp =q_{n+1}r_{n}+r_{n+1} \amp r_{n+1}\amp\ne 0, N(r_{n+1})&lt; N(r_{n})</mrow>
+                        <mrow>r_{n} \amp = q_{n+2}r_{n+1}+\boxed{0}</mrow>
+                    </md>,
+                and it follows that <m>r_{n+1}</m> is a GCD of <m>\alpha</m> and <m>\beta</m>.
+                Moreover, beginning with the penultimate equation <m>r_{n-1}=q_{n+1}r_n+r_{n+1}</m>, and working our way upward, solving successively for <m>r_{k}</m> in terms of <m>r_{k-1}</m> and <m>r_{k-2}</m>, we can find elements <m>\gamma, \delta\in R</m> satisfying 
+                    <md>
+                        <mrow>r_{n+1} \amp =\gamma\alpha+\delta\beta</mrow> 
+                    </md>.
+                </p>
+           
+    </statement>
+    <proof>
+    <p>
+        First note that if <m>\beta=q\alpha+r</m> for some <m>q,r\in \Z[i]</m>, then <m>\delta</m> is a GCD of <m>\alpha</m> and <m>\beta</m> if and only if it is a GCD of <m>\alpha</m> and <m>r</m>, using the usual divisibility arguments.  
+    </p>
+    <p>
+        It follows by induction that if we have a sequence of division algorithm instances as in (2), then <m>\delta</m> is a GCD of <m>\alpha</m> and <m>\beta</m> if and only if it is a GCD of <m></m>
+        It suffices, then, to show that there is such a sequence. The basic idea is that at each step 
+        <md>
+            <mrow>r_{k} \amp =q_{k+2}r_{k+1}+r_{k+2}</mrow>
+        </md>,
+        if <m>r_{k+2}\ne 0</m>, then we can apply the division algorithm to <m>r_{k+2}</m> and <m>r_{k+1}</m>. Since at each step where the remainder is nonzero, the successive remainder has strictly smaller <m>N</m>-value, the process must terminate: <ie/>, at some point we must have <m>r_{k}=0</m>. 
+    </p>
+    </proof>
+    </theorem>
+    <example xml:id="eg_gauss_ints">
+<title>GCD in <m>\Z[i]</m></title>
+<statement>
+<p>
+Find a GCD <m>\delta</m> of <m>2</m> and <m>1+3i</m> in <m>\Z[i]</m>, and write <m>\delta=2\alpha+(1+3i)\beta</m> for some <m>\alpha, \beta\in \Z[i]</m>. 
+</p>
+</statement>
+<solution>
+<p>
+Noting that <m>N(2)=4</m> and <m>N(1+3i)=10</m>, we start the Euclidean algorithm by dividing <m>1+3i</m> by <m>2</m>. 
+<md>
+    <mrow>1+3i \amp =(1+i)2+(-1+i)</mrow>
+    <mrow>2 \amp =(-1+i)(-1-i)+\boxed{0}</mrow>
+</md>.
+We conclude that <m>z=-1+i</m> is a GCD of <m>2</m> and <m>1+3i</m>. Furthermore, we have
+<md>
+    <mrow>(-1+i) \amp =-(1+i)2+(1+3i)</mrow>
+</md>.
+</p>
+</solution>
+</example>
+<corollary xml:id="cor_bezout_gauss">
+    <title>Bezout's theorem for <m>\Z[i]</m></title>
+    <statement>
+        <p>
+            For any two elements <m>\alpha, \beta\in \Z[i]</m>, one of which is nonzero, there is a GCD <m>\delta\in \Z[i]</m>. Furthermore, we can write 
+            <md number="yes">
+                <mrow>\delta \amp =\gamma \alpha+\omega \beta</mrow> 
+            </md> 
+            for elements <m>\gamma, \omega\in \Z[i]</m>. 
+        </p>
+    </statement>
+</corollary>
+<corollary xml:id="cor_rel_prime_divis">
+    <title>Relatively prime factors</title>
+    <statement>
+        <p>
+            Assume <m>\alpha,\beta</m> are relatively prime elements of <m>\Z[i]</m>. 
+            <ol>
+                <li>
+                    <p>
+                        If <m>\alpha\mid \beta\gamma</m>, then <m>\alpha\mid \gamma</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If <m>\alpha\mid \gamma</m> and <m>\beta\mid \gamma</m>, then <m>\alpha\beta\mid \gamma</m>. 
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+</corollary>
+
+
+</subsection>
+<subsection xml:id="ss_primes_irreducibles">
+<title>Primes and irreducibles in <m>\Z[i]</m></title>
+<definition xml:id="d_prime_irreducible">
+<title>Primes and irreducibles</title>
+<statement>
+<p>
+Let <m>R</m> be a subring of <m>\C</m>, and let <m>\alpha</m> be a nonzero non-unit of <m>R</m>: <ie/>, <m>\alpha\in R-(R^*\cup \{0\})</m>.
+<ul>
+    <li>
+        <p>
+            <m>\alpha</m> is <term>irreducible</term> if <m>\alpha=\beta\gamma</m> implies <m>\beta\in R^*</m> <m>\gamma\in R^*</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>\alpha</m> is <term>prime</term> if <m>\alpha\mid \beta\gamma</m> implies <m>\alpha\mid \beta</m> or <m>\alpha\mid \gamma</m>. 
+        </p>
+    </li>
+</ul>
+</p>
+</statement>
+</definition>
+<remark>
+    <title>Disentangling primes and irreducibles</title>
+    <p>
+        The two separate definitions above might come as a surprise to you, since in the context of <m>\Z</m> the two are equivalent! For a general subring <m>R\subseteq \C</m>, however, this is not the case. Although it is the case that all prime elements are irreducible, there are rings with irreducible elements that are not prime. Thankfully for us, in <m>\Z[i]</m> as in <m>\Z</m>, the two notions are equivalent. 
+    </p>
+    
+    
+</remark>
+<theorem xml:id="th_prime_irr">
+<title>Prime equivalent to irreducible in <m>\Z[i]</m></title>
+<statement>
+<p>
+Let <m>\pi\in \Z[i]</m> be a nonzero non-unit. The following statements are equivalent. 
+<ol>
+    <li>
+        <p>
+        <m>\pi</m> is prime.
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>\pi</m> is irreducible. 
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<proof>
+<p>
+</p>
+</proof>
+</theorem>
+
+<theorem xml:id="th_unique_factorization">
+<title>Unique factorization in <m>\Z[i]</m></title>
+<statement>
+<p>
+Let <m>\alpha\in \Z[i]</m> be a nonzero non-unit element. 
+<ol>
+    <li>
+        <title>Factorization into irreducibles</title>
+        <p>
+            There are irreducible elements <m>\pi_1,\pi_2,\dots, \pi_r</m> of <m>\Z[i]</m> satisfying 
+            <md number="yes">
+                <mrow>\alpha \amp =\pi_1\pi_2\cdots \pi_r</mrow>
+            </md>.
+        </p>
+    </li>
+    <li>
+        <title>Uniqueness of factorization</title>
+        <p>
+            If we have 
+            <md>
+                \alpha=\pi_1\pi_2\cdots \pi_r=\pi_1'\pi_2'\cdots \pi_s'
+            </md>,
+            with <m>\pi_i</m> and <m>\pi_j'</m> irreducible for all <m>i</m> and <m>j</m>, then <m>r=s</m>, and after a reordering, we have <m>\pi_i'=u\pi_i</m> for some unit <m>u\in (\Z[i])^*=\{1,-1,i,-i\}</m>. 
+        </p>
+        <p>
+            In particular, the number of irreducible factors in an irreducible factorization of <m>\alpha</m> is unique, and the irreducible factors are unique up to multiplication by a unit. 
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<proof>
+<p>
+    <ol>
+        <li>
+            <p>
+                The proof is by induction on $N(\alpha)$. If $N(\alpha)=2$, then $\alpha=\pm 1\pm i$, as is easily shown. Since $N(\alpha)=2$ is prime in $\Z$, we conclude that $\alpha$ is itself irreducible, and we are done. 
+            </p>
+
+        </li>
+    </ol>
+</p>
+</proof>
+</theorem>
+
+</subsection>
+    
+
+</section>

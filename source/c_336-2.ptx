@@ -12,4 +12,6 @@
   <xi:include href="s_flt_descent.ptx" />
   <xi:include href="s_complex_numbers.ptx" />
   <xi:include href="s_gauss_int.ptx" />
+  <xi:include href="s_gauss_factorization.ptx" />
+  <xi:include href="s_gauss_primes.ptx" />
 </chapter>

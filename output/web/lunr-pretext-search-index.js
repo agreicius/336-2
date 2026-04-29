@@ -1645,7 +1645,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.12",
   "title": "Gaussian integers",
-  "body": " Gaussian integers     Define the Gaussian integers and relate complex norm to number theoretic questions.     We will define the Gaussian integers as the subset of consisting of complex numbers whose real and imaginary components are integers. This set is an example of a more general construction called a subring of .   Gaussian integers   The Gaussian integers is the subset of defined as .    One particularly useful property of the Gaussian integers is that they are closed under complex addition, subtraction, and multiplication. This means that can be considered as a number system (or ring) of its own. Furthermore, since the complex operations can be viewed as extensions of the corresponding real operations, the addition and multiplication operations of can be viewed as extensions of integer addition and multiplication. In this regard, the Gaussian integers are an example of a more general construction called a subring of .   Subring of   A subring of is a subset containing and that satisfies the following properties.   Closed under addition\/subtraction  If , then and .    Closed under multiplication  If , then .        is a subring   The Gaussian integers form a subring of .    In studying the arithmetic of , it turns out that the modulus function is an invaluable tool. In the current context, it is more convenient to work with , since this is an integer. Accordingly, we give this slight variation of the modulus function a special name.   Gaussian norm   The norm function on is the function defined as . Equivalently, if , we have .     Units of subrings    units of the subring of    Let be a subring of . An element is a unit (or is invertible ) if there exists a satisfying . We denote by the set of all units in .     Units in  It is crucial to understand that the notion of invertibility in is relative to the subring in question. Consider the element , for example. Like any nonzero element of , it has a multiplicative inverse satisfying . However, we have . But is it possible that there is some other element satisfying ? No! This is a consequence of the fact that inverses in are unique: implies . Thus not being an element of is sufficient to conclude that has no inverse in the subring , and thus that .   As a first example of the utility of the norm function, we give an elegant proof of the fact that .   Units of   We have .    To prove the first set equality, we must show that is a unit if and only if .  First assume . By definition, there is an element such that . Applying to both sides of this equation, we see that . Since and are integers, we conclude that in , and hence that . Since , we conclude that .  Now assume . By definition this means . Since , we conclude that .  We now know that if and only if . Since and are integers, it is easy to see that we must have , and hence that , as claimed.    The modulus function will also be useful in our analysis of the question of which integers can be expressed as a sum of squares.   Sum of squares   Let be a positive integer. The following statements are equivalent.    for some integers and .     factors as for some .     for some .        Products of sums of squares   If and are integers that can be written as a sum of two squares of integers, then can be written as a sum of two squares of integers.    Assume and . Letting and , we have and hence . It follows from that is a sum of squares. In fact, writing , we see that .     Divisibility in subrings   Let be a subring of . Given , we say that  divides  in , denoted , if there exists a such that . We write if does not divide .  We say that is an associate of if for some unit .     Divisibility in   For the given determine whether and whether .    ,      ,        One way of answering this type of question is to use some logic similar to , zooming out a bit to the larger number system . In general, for nonzero elements , we have for if and only if . Thus we have in a subring if and only if .  Working in , we can also use the norm function to give a necessary (though not necessarily sufficient condition) for divisibility: namely, if , then we have for some , in which case and .  We illustrate both techniques in the two examples.   Since and , we see that , but possibly . To decide the latter question, we compute . Thus .    In this case we have . Some arithmetic similar to the above shows that and . We conclude that and .         Let and be nonzero elements of . The following statements are equivalent.    is associate to .     is associate to .     and in .       Implication: (i) implies (ii). If is associate to , then there is a unit such that . Since , we have and . Thus is associate to .  Implication: (ii) implies (i). If is associate to , we have with . In particular, this means . Since , there is an element such that . It follows that and .  Implication: (iii) implies (i). If and , we have for some elements . But then we have . Since is nonzero, it has an inverse (not necessarily an element of ), that allows us to multiplicatively cancel to obtain . It follows that and , and hence that is a associate to .     Prime and irreducible       "
+  "body": " Gaussian integers     Define the Gaussian integers and relate complex norm to number theoretic questions.     We will define the Gaussian integers as the subset of consisting of complex numbers whose real and imaginary components are integers. This set is an example of a more general construction called a subring of .   Gaussian integers   The Gaussian integers is the subset of defined as .    One particularly useful property of the Gaussian integers is that they are closed under complex addition, subtraction, and multiplication. This means that can be considered as a number system (or ring) of its own. Furthermore, since the complex operations can be viewed as extensions of the corresponding real operations, the addition and multiplication operations of can be viewed as extensions of integer addition and multiplication. In this regard, the Gaussian integers are an example of a more general construction called a subring of .   Subring of   A subring of is a subset containing and that satisfies the following properties.   Closed under addition\/subtraction  If , then and .    Closed under multiplication  If , then .        is a subring   The Gaussian integers form a subring of .    In studying the arithmetic of , it turns out that the modulus function is an invaluable tool. In the current context, it is more convenient to work with , since this is an integer. Accordingly, we give this slight variation of the modulus function a special name.   Gaussian norm   The norm function on is the function defined as . Equivalently, if , we have .     Units of subrings    units of the subring of    Let be a subring of . An element is a unit (or is invertible ) if there exists a satisfying . We denote by the set of all units in .     Units in  It is crucial to understand that the notion of invertibility in is relative to the subring in question. Consider the element , for example. Like any nonzero element of , it has a multiplicative inverse satisfying . However, we have . But is it possible that there is some other element satisfying ? No! This is a consequence of the fact that inverses in are unique: implies . Thus not being an element of is sufficient to conclude that has no inverse in the subring , and thus that .   As a first example of the utility of the norm function, we give an elegant proof of the fact that .   Units of   We have .    To prove the first set equality, we must show that is a unit if and only if .  First assume . By definition, there is an element such that . Applying to both sides of this equation, we see that . Since and are integers, we conclude that in , and hence that . Since , we conclude that .  Now assume . By definition this means . Since , we conclude that .  We now know that if and only if . Since and are integers, it is easy to see that we must have , and hence that , as claimed.    The modulus function will also be useful in our analysis of the question of which integers can be expressed as a sum of squares.   Sum of squares   Let be a positive integer. The following statements are equivalent.    for some integers and .     factors as for some .     for some .        Products of sums of squares   If and are integers that can be written as a sum of two squares of integers, then can be written as a sum of two squares of integers.    Assume and . Letting and , we have and hence . It follows from that is a sum of squares. In fact, writing , we see that .     Divisibility in subrings   Let be a subring of . Given , we say that  divides  in , denoted , if there exists a such that . We write if does not divide .  We say that is an associate of if for some unit .     Divisibility in   For the given determine whether and whether .    ,      ,        One way of answering this type of question is to use some logic similar to , zooming out a bit to the larger number system . In general, for nonzero elements , we have for if and only if . Thus we have in a subring if and only if .  Working in , we can also use the norm function to give a necessary (though not necessarily sufficient condition) for divisibility: namely, if , then we have for some , in which case and .  We illustrate both techniques in the two examples.   Since and , we see that , but possibly . To decide the latter question, we compute . Thus .    In this case we have . Some arithmetic similar to the above shows that and . We conclude that and .         Let and be nonzero elements of . The following statements are equivalent.    is associate to .     is associate to .     and in .       Implication: (i) implies (ii). If is associate to , then there is a unit such that . Since , we have and . Thus is associate to .  Implication: (ii) implies (i). If is associate to , we have with . In particular, this means . Since , there is an element such that . It follows that and .  Implication: (iii) implies (i). If and , we have for some elements . But then we have . Since is nonzero, it has an inverse (not necessarily an element of ), that allows us to multiplicatively cancel to obtain . It follows that and , and hence that is a associate to .    "
 },
 {
   "id": "s_gauss_int-2",
@@ -1765,13 +1765,130 @@ var ptx_lunr_docs = [
   "body": "  Let and be nonzero elements of . The following statements are equivalent.    is associate to .     is associate to .     and in .       Implication: (i) implies (ii). If is associate to , then there is a unit such that . Since , we have and . Thus is associate to .  Implication: (ii) implies (i). If is associate to , we have with . In particular, this means . Since , there is an element such that . It follows that and .  Implication: (iii) implies (i). If and , we have for some elements . But then we have . Since is nonzero, it has an inverse (not necessarily an element of ), that allows us to multiplicatively cancel to obtain . It follows that and , and hence that is a associate to .   "
 },
 {
+  "id": "s_gauss_factorization",
+  "level": "1",
+  "url": "s_gauss_factorization.html",
+  "type": "Section",
+  "number": "1.13",
+  "title": "Factorization in Gaussian integers",
+  "body": " Factorization in Gaussian integers   Division and Euclidean algorithms   Division algorithm in   Let and be Gaussian integers with . There are Gaussian integers satisfying the following conditions.    .     .   Moreover, and can be produced via the following procedure.   Find satisfying : , set .    Write , where and .    We have , where satisfies .       That the procedure above produces a and in satisfying is clear. It remains only to show that . We have      Division algorithm in   For the given and , find satisfying and .    ,      ,        In both cases we follow the procedure described in .   Set . We pick to be a closest Gaussian integer to this element of . In this case we can pick , in which case . Thus our instance of the division algorithm in this case is . Note that we have , as stipulated.    We have . In this case, since lies in the center of the Gaussian square with vertices , , , and , any one of those vertices can serve as our !  Clearly, is the easiest to deal with, resulting in and a division algorithm statement of . Let see what happens for another choice of . Taking , we have and our division algorithm statement is .        Greatest common divisor and least common multiple   Let be a subring of . Given elements a greatest common divisor (or GCD ) of and is an element satisfying the following conditions:    and ;    if satisfies and , then .     A least common multiple (or LCM ) of and is an element satisfying the following conditions:    and ;    if satisfies and , then .   More generally, a greatest common divisor of elements of is an element such that for all , and if satisfies for all , then . Lastly, we say that elements are relatively prime if they have as a GCD.     GCDs and LCDs  Although the definition of GCDs and LCMs is a straightforward generalization of the corresponding notion from the integers, you should proceed with caution when making use of these concepts. In particular, be aware of the following facts:   GCDs and LCMs need not exist in an arbitrary subring of ;    if GCDs and LCMs do exist, they are only unique modulo multiplication by a unit.   The uniqueness issue is already in evidence in the context of the integers. To nonzero integers will always have two GCDs, namely and , where , as you will recall, is defined to be the greatest positive integer dividing and .    Euclidean algorithm in   Given elements , one of which is nonzero, we can produce a GCD following the Euclidean algorithm below.  If , then is a GCD of and . Otherwise, we can produce a sequence of division algorithm instances , and it follows that is a GCD of and . Moreover, beginning with the penultimate equation , and working our way upward, solving successively for in terms of and , we can find elements satisfying .    First note that if for some , then is a GCD of and if and only if it is a GCD of and , using the usual divisibility arguments.  It follows by induction that if we have a sequence of division algorithm instances as in (2), then is a GCD of and if and only if it is a GCD of It suffices, then, to show that there is such a sequence. The basic idea is that at each step , if , then we can apply the division algorithm to and . Since at each step where the remainder is nonzero, the successive remainder has strictly smaller -value, the process must terminate: , at some point we must have .     GCD in   Find a GCD of and in , and write for some .    Noting that and , we start the Euclidean algorithm by dividing by . . We conclude that is a GCD of and . Furthermore, we have .     Bezout's theorem for   For any two elements , one of which is nonzero, there is a GCD . Furthermore, we can write for elements .     Relatively prime factors   Assume are relatively prime elements of .   If , then .    If and , then .         Primes and irreducibles in   Primes and irreducibles   Let be a subring of , and let be a nonzero non-unit of : , .    is irreducible if implies  .     is prime if implies or .        Disentangling primes and irreducibles  The two separate definitions above might come as a surprise to you, since in the context of the two are equivalent! For a general subring , however, this is not the case. Although it is the case that all prime elements are irreducible, there are rings with irreducible elements that are not prime. Thankfully for us, in as in , the two notions are equivalent.    Prime equivalent to irreducible in   Let be a nonzero non-unit. The following statements are equivalent.    is prime.     is irreducible.            Unique factorization in   Let be a nonzero non-unit element.   Factorization into irreducibles  There are irreducible elements of satisfying .    Uniqueness of factorization  If we have , with and irreducible for all and , then , and after a reordering, we have for some unit .  In particular, the number of irreducible factors in an irreducible factorization of is unique, and the irreducible factors are unique up to multiplication by a unit.            "
+},
+{
+  "id": "th_div_alg_gauss",
+  "level": "2",
+  "url": "s_gauss_factorization.html#th_div_alg_gauss",
+  "type": "Theorem",
+  "number": "1.13.1",
+  "title": "Division algorithm in <span class=\"process-math\">\\(\\Z[i]\\)<\/span>.",
+  "body": " Division algorithm in   Let and be Gaussian integers with . There are Gaussian integers satisfying the following conditions.    .     .   Moreover, and can be produced via the following procedure.   Find satisfying : , set .    Write , where and .    We have , where satisfies .       That the procedure above produces a and in satisfying is clear. It remains only to show that . We have    "
+},
+{
+  "id": "eg_div_alg_gauss",
+  "level": "2",
+  "url": "s_gauss_factorization.html#eg_div_alg_gauss",
+  "type": "Example",
+  "number": "1.13.2",
+  "title": "Division algorithm in <span class=\"process-math\">\\(\\Z[i]\\)<\/span>.",
+  "body": " Division algorithm in   For the given and , find satisfying and .    ,      ,        In both cases we follow the procedure described in .   Set . We pick to be a closest Gaussian integer to this element of . In this case we can pick , in which case . Thus our instance of the division algorithm in this case is . Note that we have , as stipulated.    We have . In this case, since lies in the center of the Gaussian square with vertices , , , and , any one of those vertices can serve as our !  Clearly, is the easiest to deal with, resulting in and a division algorithm statement of . Let see what happens for another choice of . Taking , we have and our division algorithm statement is .      "
+},
+{
+  "id": "d_gcd_lcm",
+  "level": "2",
+  "url": "s_gauss_factorization.html#d_gcd_lcm",
+  "type": "Definition",
+  "number": "1.13.3",
+  "title": "Greatest common divisor and least common multiple.",
+  "body": " Greatest common divisor and least common multiple   Let be a subring of . Given elements a greatest common divisor (or GCD ) of and is an element satisfying the following conditions:    and ;    if satisfies and , then .     A least common multiple (or LCM ) of and is an element satisfying the following conditions:    and ;    if satisfies and , then .   More generally, a greatest common divisor of elements of is an element such that for all , and if satisfies for all , then . Lastly, we say that elements are relatively prime if they have as a GCD.   "
+},
+{
+  "id": "ss_division_alg-5",
+  "level": "2",
+  "url": "s_gauss_factorization.html#ss_division_alg-5",
+  "type": "Remark",
+  "number": "1.13.4",
+  "title": "GCDs and LCDs.",
+  "body": " GCDs and LCDs  Although the definition of GCDs and LCMs is a straightforward generalization of the corresponding notion from the integers, you should proceed with caution when making use of these concepts. In particular, be aware of the following facts:   GCDs and LCMs need not exist in an arbitrary subring of ;    if GCDs and LCMs do exist, they are only unique modulo multiplication by a unit.   The uniqueness issue is already in evidence in the context of the integers. To nonzero integers will always have two GCDs, namely and , where , as you will recall, is defined to be the greatest positive integer dividing and .  "
+},
+{
+  "id": "th_euc_alg",
+  "level": "2",
+  "url": "s_gauss_factorization.html#th_euc_alg",
+  "type": "Theorem",
+  "number": "1.13.5",
+  "title": "Euclidean algorithm in <span class=\"process-math\">\\(\\Z[i]\\)<\/span>.",
+  "body": " Euclidean algorithm in   Given elements , one of which is nonzero, we can produce a GCD following the Euclidean algorithm below.  If , then is a GCD of and . Otherwise, we can produce a sequence of division algorithm instances , and it follows that is a GCD of and . Moreover, beginning with the penultimate equation , and working our way upward, solving successively for in terms of and , we can find elements satisfying .    First note that if for some , then is a GCD of and if and only if it is a GCD of and , using the usual divisibility arguments.  It follows by induction that if we have a sequence of division algorithm instances as in (2), then is a GCD of and if and only if it is a GCD of It suffices, then, to show that there is such a sequence. The basic idea is that at each step , if , then we can apply the division algorithm to and . Since at each step where the remainder is nonzero, the successive remainder has strictly smaller -value, the process must terminate: , at some point we must have .   "
+},
+{
+  "id": "eg_gauss_ints",
+  "level": "2",
+  "url": "s_gauss_factorization.html#eg_gauss_ints",
+  "type": "Example",
+  "number": "1.13.6",
+  "title": "GCD in <span class=\"process-math\">\\(\\Z[i]\\)<\/span>.",
+  "body": " GCD in   Find a GCD of and in , and write for some .    Noting that and , we start the Euclidean algorithm by dividing by . . We conclude that is a GCD of and . Furthermore, we have .   "
+},
+{
+  "id": "cor_bezout_gauss",
+  "level": "2",
+  "url": "s_gauss_factorization.html#cor_bezout_gauss",
+  "type": "Corollary",
+  "number": "1.13.7",
+  "title": "Bezout’s theorem for <span class=\"process-math\">\\(\\Z[i]\\)<\/span>.",
+  "body": " Bezout's theorem for   For any two elements , one of which is nonzero, there is a GCD . Furthermore, we can write for elements .   "
+},
+{
+  "id": "cor_rel_prime_divis",
+  "level": "2",
+  "url": "s_gauss_factorization.html#cor_rel_prime_divis",
+  "type": "Corollary",
+  "number": "1.13.8",
+  "title": "Relatively prime factors.",
+  "body": " Relatively prime factors   Assume are relatively prime elements of .   If , then .    If and , then .      "
+},
+{
   "id": "d_prime_irreducible",
   "level": "2",
-  "url": "s_gauss_int.html#d_prime_irreducible",
+  "url": "s_gauss_factorization.html#d_prime_irreducible",
   "type": "Definition",
-  "number": "1.12.13",
-  "title": "Prime and irreducible.",
-  "body": " Prime and irreducible      "
+  "number": "1.13.9",
+  "title": "Primes and irreducibles.",
+  "body": " Primes and irreducibles   Let be a subring of , and let be a nonzero non-unit of : , .    is irreducible if implies  .     is prime if implies or .      "
+},
+{
+  "id": "ss_primes_irreducibles-3",
+  "level": "2",
+  "url": "s_gauss_factorization.html#ss_primes_irreducibles-3",
+  "type": "Remark",
+  "number": "1.13.10",
+  "title": "Disentangling primes and irreducibles.",
+  "body": " Disentangling primes and irreducibles  The two separate definitions above might come as a surprise to you, since in the context of the two are equivalent! For a general subring , however, this is not the case. Although it is the case that all prime elements are irreducible, there are rings with irreducible elements that are not prime. Thankfully for us, in as in , the two notions are equivalent.  "
+},
+{
+  "id": "th_prime_irr",
+  "level": "2",
+  "url": "s_gauss_factorization.html#th_prime_irr",
+  "type": "Theorem",
+  "number": "1.13.11",
+  "title": "Prime equivalent to irreducible in <span class=\"process-math\">\\(\\Z[i]\\)<\/span>.",
+  "body": " Prime equivalent to irreducible in   Let be a nonzero non-unit. The following statements are equivalent.    is prime.     is irreducible.          "
+},
+{
+  "id": "th_unique_factorization",
+  "level": "2",
+  "url": "s_gauss_factorization.html#th_unique_factorization",
+  "type": "Theorem",
+  "number": "1.13.12",
+  "title": "Unique factorization in <span class=\"process-math\">\\(\\Z[i]\\)<\/span>.",
+  "body": " Unique factorization in   Let be a nonzero non-unit element.   Factorization into irreducibles  There are irreducible elements of satisfying .    Uniqueness of factorization  If we have , with and irreducible for all and , then , and after a reordering, we have for some unit .  In particular, the number of irreducible factors in an irreducible factorization of is unique, and the irreducible factors are unique up to multiplication by a unit.          "
+},
+{
+  "id": "s_gauss_primes",
+  "level": "1",
+  "url": "s_gauss_primes.html",
+  "type": "Section",
+  "number": "1.14",
+  "title": "Gaussian primes",
+  "body": " Gaussian primes  "
 },
 {
   "id": "appendix-notation",

@@ -295,14 +295,4 @@ Working in <m>\Z[i]</m>, we can also use the norm function to give a <em>necessa
     </proof>
 </proposition>
 
-<definition xml:id="d_prime_irreducible">
-<title>Prime and irreducible</title>
-<statement>
-<p>
-
-</p>
-</statement>
-</definition>
-
-
 </section>
