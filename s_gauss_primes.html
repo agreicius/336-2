@@ -494,13 +494,151 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_gauss_primes"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.14</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Gaussian primes</span>
 </h2>
-<article class="theorem theorem-like" id="th_gauss_primes"><h3 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.14.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Splitting of rational primes.</span>
-</h3>
-<div class="para" id="th_gauss_primes-2-1">Let <span class="process-math">\(p\)</span> be a prime integer.<div class="autopermalink" data-description="Paragraph"><a href="#th_gauss_primes-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="objectives goal-like" id="s_gauss_primes-2"><h3 class="heading"><span class="type">Objectives</span></h3>
+<ol class="decimal" id="s_gauss_primes-2-1">
+<li id="s_gauss_primes-2-1-1">
+<div class="para" id="s_gauss_primes-2-1-1-1">Give a complete description of the prime elements of <span class="process-math">\(\Z[i]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_gauss_primes-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.14.1: Splitting of rational primes"><a href="#th_gauss_primes" title="Copy heading and permalink for Theorem 1.14.1: Splitting of rational primes" aria-label="Copy heading and permalink for Theorem 1.14.1: Splitting of rational primes">🔗</a></div></article><details id="th_gauss_primes-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="th_gauss_primes-3-1"><div class="autopermalink" data-description="Paragraph"><a href="#th_gauss_primes-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
-<div class="autopermalink" data-description="Proof 1.14.1.1"><a href="#th_gauss_primes-3" title="Copy heading and permalink for Proof 1.14.1.1" aria-label="Copy heading and permalink for Proof 1.14.1.1">🔗</a></div></article></details><div class="autopermalink" data-description="Section 1.14: Gaussian primes"><a href="#s_gauss_primes" title="Copy heading and permalink for Section 1.14: Gaussian primes" aria-label="Copy heading and permalink for Section 1.14: Gaussian primes">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Objective 1.14.1"><a href="#s_gauss_primes-2-1-1" title="Copy heading and permalink for Objective 1.14.1" aria-label="Copy heading and permalink for Objective 1.14.1">🔗</a></div>
+</li>
+<li id="s_gauss_primes-2-1-2">
+<div class="para" id="s_gauss_primes-2-1-2-1">Describe the “splitting” behavior of integer primes in <span class="process-math">\(\Z[i]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_gauss_primes-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.14.2"><a href="#s_gauss_primes-2-1-2" title="Copy heading and permalink for Objective 1.14.2" aria-label="Copy heading and permalink for Objective 1.14.2">🔗</a></div>
+</li>
+<li id="s_gauss_primes-2-1-3">
+<div class="para" id="s_gauss_primes-2-1-3-1">Give a complete description of which integers can be expressed as a sum of two squares.<div class="autopermalink" data-description="Paragraph"><a href="#s_gauss_primes-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective 1.14.3"><a href="#s_gauss_primes-2-1-3" title="Copy heading and permalink for Objective 1.14.3" aria-label="Copy heading and permalink for Objective 1.14.3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Objectives 1.14"><a href="#s_gauss_primes-2" title="Copy heading and permalink for Objectives 1.14" aria-label="Copy heading and permalink for Objectives 1.14">🔗</a></div></article><div class="para" id="s_gauss_primes-3">From proposition <a href="s_gauss_factorization.html#prop_primes_norm" class="xref" data-knowl="./knowl/xref/prop_primes_norm.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.13.13: Primes, norms, and conjugates">Proposition 1.13.13</a>, we know that if <span class="process-math">\(\pi\)</span> is a Gaussian prime, then <span class="process-math">\(N(\pi)=\pi\overline{\pi}\in \{p,p^2\}\)</span> for some prime integer <span class="process-math">\(p\text{.}\)</span>  As a consequence, every Gaussian prime <span class="process-math">\(\pi\)</span> satisfies <span class="process-math">\(\pi\mid p\)</span> for a unique prime integer <span class="process-math">\(p\text{.}\)</span> We will say <span class="process-math">\(\pi\)</span> <dfn class="terminology">lies over</dfn> <span class="process-math">\(p\)</span> in this case.<div class="autopermalink" data-description="Paragraph"><a href="#s_gauss_primes-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_lying_over"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.14.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lying over <span class="process-math">\(p\)</span>.</span>
+</h3>
+<div class="para" id="d_lying_over-2-1">For every Gaussian prime <span class="process-math">\(p\text{,}\)</span> there is a unique prime <span class="process-math">\(p\)</span> such that <span class="process-math">\(\pi\mid p\text{.}\)</span> We say that <span class="process-math">\(\pi\)</span> <dfn class="terminology">lies over</dfn> the integer prime <span class="process-math">\(p\)</span> in this case.<div class="autopermalink" data-description="Paragraph"><a href="#d_lying_over-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.14.1: Lying over p"><a href="#d_lying_over" title="Copy heading and permalink for Definition 1.14.1: Lying over p" aria-label="Copy heading and permalink for Definition 1.14.1: Lying over p">🔗</a></div></article><div class="para" id="s_gauss_primes-5">Given a Gaussian prime <span class="process-math">\(\pi\)</span> lying over <span class="process-math">\(p\text{,}\)</span> since <span class="process-math">\(\pi\mid p\text{,}\)</span> it is associate to one of the Gaussian primes appearing the factorization of <span class="process-math">\(p\)</span> in <span class="process-math">\(\Z[i]\text{.}\)</span> Thus, we can determine all the Gaussian primes by explicitly describing how the integer primes <span class="process-math">\(p\)</span> factor in <span class="process-math">\(\Z[i]\text{,}\)</span> the so-called <em class="emphasis">splitting behavior</em> of the integer primes.<div class="autopermalink" data-description="Paragraph"><a href="#s_gauss_primes-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="th_splitting_gauss"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.14.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Splitting of rational primes.</span>
+</h3>
+<div class="para logical" id="th_splitting_gauss-2-1">
+<div class="para">Let <span class="process-math">\(p\)</span> be an integer prime. The following statements are equivalent.</div>
+<ol class="decimal" id="th_splitting_gauss-2-1-2">
+<li id="th_splitting_gauss-2-1-2-1">
+<div class="para" id="th_splitting_gauss-2-1-2-1-1">
+<span class="process-math">\(p\)</span> is not prime in <span class="process-math">\(\Z[i]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_splitting_gauss-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_splitting_gauss-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_splitting_gauss-2-1-2-2">
+<div class="para" id="th_splitting_gauss-2-1-2-2-1">
+<span class="process-math">\(p=N(\pi)\)</span> for some prime element <span class="process-math">\(\pi\in \Z[i]\)</span> and thus has prime factorization <span class="process-math">\(p=\pi\overline{\pi}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_splitting_gauss-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_splitting_gauss-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="th_splitting_gauss-2-1-2-3">
+<div class="para" id="th_splitting_gauss-2-1-2-3-1">
+<span class="process-math">\(p=a^2+b^2\)</span> for some integers <span class="process-math">\(a,b\in \Z\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_splitting_gauss-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#th_splitting_gauss-2-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="th_splitting_gauss-2-1-2-4">
+<div class="para" id="th_splitting_gauss-2-1-2-4-1">
+<span class="process-math">\(p=2\)</span> or <span class="process-math">\(p\equiv 1\pmod 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_splitting_gauss-2-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#th_splitting_gauss-2-1-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_splitting_gauss-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.14.2: Splitting of rational primes"><a href="#th_splitting_gauss" title="Copy heading and permalink for Theorem 1.14.2: Splitting of rational primes" aria-label="Copy heading and permalink for Theorem 1.14.2: Splitting of rational primes">🔗</a></div></article><details id="th_splitting_gauss-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="th_splitting_gauss-3-1">We first show that (1) and (2) are equivalent. The reverse implication is the easier one: if <span class="process-math">\(p=N(\pi)=\pi\overline{\pi}\text{,}\)</span> then <span class="process-math">\(p\)</span> has a nontrivial factorization in <span class="process-math">\(\Z[i]\)</span> and hence is not prime/irreducible. For the forward implication, if <span class="process-math">\(p\)</span> is not prime/irreducible in <span class="process-math">\(\Z[i]\text{,}\)</span> then we have <span class="process-math">\(p=\alpha\beta\)</span> for non-units <span class="process-math">\(\alpha,\beta\in \Z[i]\text{.}\)</span> But then <span class="process-math">\(p^2=N(p)=N(\beta)N(\beta)\text{.}\)</span> Since the norms of <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\beta\)</span> are not equal to 1, we must have <span class="process-math">\(N(\alpha)=N(\beta)=p\text{.}\)</span> Thus <span class="process-math">\(p=N(\alpha)=\alpha\overline{\alpha}\)</span> for some <span class="process-math">\(\alpha\in\Z[i]\text{.}\)</span> Since <span class="process-math">\(N(\alpha)\)</span> is prime, <span class="process-math">\(\alpha\)</span> and <span class="process-math">\(\overline{\alpha}\)</span> are primes in <span class="process-math">\(\Z[i]\)</span> and thus <span class="process-math">\(p=\alpha\overline{\alpha}\)</span> is a prime factorization.<div class="autopermalink" data-description="Paragraph"><a href="#th_splitting_gauss-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="th_splitting_gauss-3-2">The equivalence of (2) and (3) is clear from the definition of <span class="process-math">\(N\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_splitting_gauss-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="th_splitting_gauss-3-3">Next, we prove the implication (3)<span class="process-math">\(\implies\)</span>(4) via the contrapositive. If <span class="process-math">\(p\ne 2\)</span> and <span class="process-math">\(p\not\equiv 1\pmod 4\text{,}\)</span> then <span class="process-math">\(p\equiv 3\pmod 4\text{.}\)</span> But then we cannot have <span class="process-math">\(p=a^2+b^2\)</span> for integers <span class="process-math">\(a,b\in \Z\text{,}\)</span> since looking at things modulo <span class="process-math">\(3\text{,}\)</span> we see that there is no solution to the congruence <span class="process-math">\(3\equiv a^2+b^2 \pmod 4\text{,}\)</span> as is easily checked.<div class="autopermalink" data-description="Paragraph"><a href="#th_splitting_gauss-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="th_splitting_gauss-3-4">It remains to show that (4)<span class="process-math">\(\implies\)</span>(1). We have seen already that <span class="process-math">\(2=(1+i)(1-i)\)</span> is not prime in <span class="process-math">\(\Z[i]\text{.}\)</span> Assume <span class="process-math">\(p\)</span> is a prime integer satisfying  <span class="process-math">\(p\equiv 1\pmod 4\text{.}\)</span> From quadratic reside theory, we know that <span class="process-math">\(\qr{-1}{p}=1\text{,}\)</span> and hence there is an integer <span class="process-math">\(c\in \Z\)</span> such that <span class="process-math">\(c^2\equiv -1\pmod p\text{,}\)</span> or equivalently, <span class="process-math">\(p\mid c^2+1\text{.}\)</span> It follows that <span class="process-math">\(p\mid c^2+1=(c+i)(c-i)\)</span> in the Gaussian integers. But since clearly <span class="process-math">\(p\nmid c+i\)</span> and <span class="process-math">\(p\nmid c-i\text{,}\)</span> we conclude that <span class="process-math">\(p\)</span> is not prime in <span class="process-math">\(\Z[i]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_splitting_gauss-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.14.2.1"><a href="#th_splitting_gauss-3" title="Copy heading and permalink for Proof 1.14.2.1" aria-label="Copy heading and permalink for Proof 1.14.2.1">🔗</a></div></article></details><div class="para" id="s_gauss_primes-7">The next corollary is nothing more than a slight reformulation of our splitting behavior theorem that more explicitly classifies the factorization of integer primes in <span class="process-math">\(\Z[i]\text{.}\)</span> The only additional information is the fact that for <span class="process-math">\(p\equiv 1\pmod 4\text{,}\)</span> given <span class="process-math">\(\pi=a+bi\)</span> with <span class="process-math">\(N(\pi)=p\text{,}\)</span> the primes <span class="process-math">\(\pi\)</span> and <span class="process-math">\(\overline{\pi}\)</span> are not associate. This follows from the fact that the only elements of <span class="process-math">\(\Z[i]\)</span> that are associate to their conjugate are of the form <span class="process-math">\(\alpha=a+bi\text{,}\)</span> where <span class="process-math">\(a,b\in \{-1,0,1\}\text{,}\)</span> as is easily shown.<div class="autopermalink" data-description="Paragraph"><a href="#s_gauss_primes-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="corollary theorem-like" id="cor_split_gauss"><h3 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.14.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Splitting of rational primes.</span>
+</h3>
+<div class="para logical" id="cor_split_gauss-2-1">
+<ol class="decimal" id="cor_split_gauss-2-1-1">
+<li id="cor_split_gauss-2-1-1-1">
+<div class="para logical" id="cor_split_gauss-2-1-1-1-1">
+<div class="para">The integer prime <span class="process-math">\(2\)</span> has prime (power) factorization</div>
+<div class="displaymath process-math" id="cor_split_gauss-2-1-1-1-1-2">
+\begin{equation*}
+2=(1+i)(1-i)=(-i)(1+i)^2\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_split_gauss-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#cor_split_gauss-2-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="cor_split_gauss-2-1-1-2">
+<div class="para logical" id="cor_split_gauss-2-1-1-2-1">
+<div class="para">If <span class="process-math">\(p\)</span> is an integer prime satisfying <span class="process-math">\(p\equiv 1\pmod 4\text{,}\)</span> then there are integers <span class="process-math">\(a,b\in \Z\)</span> satisfying</div>
+<div class="displaymath process-math" id="cor_split_gauss-2-1-1-2-1-4">
+\begin{equation*}
+p=a^2+b^2\text{,}
+\end{equation*}
+</div>
+<div class="para">and <span class="process-math">\(p\)</span> has prime factorization</div>
+<div class="displaymath process-math" id="cor_split_gauss-2-1-1-2-1-6">
+\begin{equation*}
+p=\pi\overline{\pi}\text{,}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\pi=a+bi\)</span> and <span class="process-math">\(\overline{\pi}=a-bi\)</span> are non-associate Gaussian primes.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_split_gauss-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#cor_split_gauss-2-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="cor_split_gauss-2-1-1-3">
+<div class="para" id="cor_split_gauss-2-1-1-3-1">If <span class="process-math">\(p\)</span> is an integer prime satisfying <span class="process-math">\(p\equiv 3\pmod 4\text{,}\)</span> then <span class="process-math">\(p\)</span> cannot be written in the form <span class="process-math">\(p=a^2+b^2\)</span> for integers <span class="process-math">\(a,b\in \Z\)</span> and <span class="process-math">\(p\)</span> is prime in <span class="process-math">\(\Z[i]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_split_gauss-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#cor_split_gauss-2-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_split_gauss-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 1.14.3: Splitting of rational primes"><a href="#cor_split_gauss" title="Copy heading and permalink for Corollary 1.14.3: Splitting of rational primes" aria-label="Copy heading and permalink for Corollary 1.14.3: Splitting of rational primes">🔗</a></div></article><div class="para" id="s_gauss_primes-9">With our explicit description of the factorization of prime integers, we now can give a complete description of the Gaussian primes.<div class="autopermalink" data-description="Paragraph"><a href="#s_gauss_primes-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="corollary theorem-like" id="cor_gauss_primes"><h3 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.14.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Gaussian primes.</span>
+</h3>
+<div class="para logical" id="cor_gauss_primes-2-1">
+<div class="para">Let <span class="process-math">\(\pi\)</span> be a Gaussian prime.</div>
+<ol class="decimal" id="cor_gauss_primes-2-1-2">
+<li id="cor_gauss_primes-2-1-2-1">
+<div class="para" id="cor_gauss_primes-2-1-2-1-1">If <span class="process-math">\(\pi\mid 2\text{,}\)</span> then <span class="process-math">\(\pi\)</span> is associate to <span class="process-math">\(1+i\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_gauss_primes-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#cor_gauss_primes-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="cor_gauss_primes-2-1-2-2">
+<div class="para" id="cor_gauss_primes-2-1-2-2-1">Let <span class="process-math">\(p\)</span> be a prime integer satisfying <span class="process-math">\(p\equiv 1\pmod 4\text{,}\)</span> and let <span class="process-math">\(a,b\in \Z\)</span> satisfy <span class="process-math">\(p=a^2+b^2\text{.}\)</span> If <span class="process-math">\(\pi\mid p\text{,}\)</span> then <span class="process-math">\(\pi\)</span> is associate either to the prime <span class="process-math">\(a+bi\)</span> or the prime <span class="process-math">\(\overline{a+bi}\text{,}\)</span> but not both.<div class="autopermalink" data-description="Paragraph"><a href="#cor_gauss_primes-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#cor_gauss_primes-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="cor_gauss_primes-2-1-2-3">
+<div class="para" id="cor_gauss_primes-2-1-2-3-1">Let <span class="process-math">\(p\)</span> be a prime integer satisfying <span class="process-math">\(p\equiv 3\pmod 4\text{.}\)</span> If <span class="process-math">\(\pi\mid p\text{,}\)</span> then <span class="process-math">\(\pi\)</span> is associate to <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_gauss_primes-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#cor_gauss_primes-2-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#cor_gauss_primes-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 1.14.4: Gaussian primes"><a href="#cor_gauss_primes" title="Copy heading and permalink for Corollary 1.14.4: Gaussian primes" aria-label="Copy heading and permalink for Corollary 1.14.4: Gaussian primes">🔗</a></div></article><div class="para" id="s_gauss_primes-11">
+<a href="s_gauss_primes.html#fig_specZ_specZi" class="xref" data-knowl="./knowl/xref/fig_specZ_specZi.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.14.5">Figure 1.14.5</a> visualizes the “lying over” relation between primes of <span class="process-math">\(\Z[i]\)</span> and primes of <span class="process-math">\(\Z\text{.}\)</span> Each prime <span class="process-math">\(p\)</span> of <span class="process-math">\(\Z\)</span> is represented by a point. This prime either remains prime in <span class="process-math">\(\Z[i]\text{,}\)</span> or factors as <span class="process-math">\(p=\pi\overline{\pi}\text{.}\)</span> In number theory jargon, these two behaviors are described (roughly) as <em class="emphasis">remains inert</em> and <em class="emphasis">splits</em>. However, the prime <span class="process-math">\(2\)</span> is somewhat special in that its prime factorization does not contain two non-associate primes: i.e., we have <span class="process-math">\(2=(-i)(1+i)(1+i)=(-i)(1+i)^2\text{.}\)</span> This phenomenon is called <dfn class="terminology">ramification</dfn> (more precisely, we say that <span class="process-math">\(2\)</span> <dfn class="terminology">ramifies</dfn> in <span class="process-math">\(\Z[i]\)</span>) and is indicated in the diagram by the funny dot above <span class="process-math">\(2\text{.}\)</span> Lastly, you may be wondering why our diagram also includes the non-prime integer <span class="process-math">\(0\text{.}\)</span> This has something to do with notions from abstract algebra (namely, prime ideals). We can make good sense of those dots as well, and explain why they are fuzzy, but that is somewhat outside the score of this course. We leave them here anyway hopefully to spur you on to take the abstract algebra sequence.<div class="autopermalink" data-description="Paragraph"><a href="#s_gauss_primes-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig_specZ_specZi"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/fig_specZ_specZi-2.svg" role="img" class="contained" alt="Diagram of relationship between primes of integers and primes of Gaussian integers"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.14.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Primes of <span class="process-math">\(\Z[i]\)</span> lying over primes of <span class="process-math">\(\Z\)</span><div class="autopermalink" data-description="Figure 1.14.5"><a href="#fig_specZ_specZi" title="Copy heading and permalink for Figure 1.14.5" aria-label="Copy heading and permalink for Figure 1.14.5">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Section 1.14: Gaussian primes"><a href="#s_gauss_primes" title="Copy heading and permalink for Section 1.14: Gaussian primes" aria-label="Copy heading and permalink for Section 1.14: Gaussian primes">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="s_gauss_factorization.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="my-great-book-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
