@@ -1924,16 +1924,79 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.14",
   "title": "Gaussian primes",
-  "body": " Gaussian primes   Splitting of rational primes   Let be a prime integer.        "
+  "body": " Gaussian primes     Give a complete description of the prime elements of .    Describe the splitting behavior of integer primes in .    Give a complete description of which integers can be expressed as a sum of two squares.     From proposition , we know that if is a Gaussian prime, then for some prime integer . As a consequence, every Gaussian prime satisfies for a unique prime integer . We will say  lies over  in this case.   Lying over   For every Gaussian prime , there is a unique prime such that . We say that  lies over the integer prime in this case.    Given a Gaussian prime lying over , since , it is associate to one of the Gaussian primes appearing the factorization of in . Thus, we can determine all the Gaussian primes by explicitly describing how the integer primes factor in , the so-called splitting behavior of the integer primes.   Splitting of rational primes   Let be an integer prime. The following statements are equivalent.    is not prime in .     for some prime element and thus has prime factorization .     for some integers .     or .       We first show that (1) and (2) are equivalent. The reverse implication is the easier one: if , then has a nontrivial factorization in and hence is not prime\/irreducible. For the forward implication, if is not prime\/irreducible in , then we have for non-units . But then . Since the norms of and are not equal to 1, we must have . Thus for some . Since is prime, and are primes in and thus is a prime factorization.  The equivalence of (2) and (3) is clear from the definition of .  Next, we prove the implication (3) (4) via the contrapositive. If and , then . But then we cannot have for integers , since looking at things modulo , we see that there is no solution to the congruence , as is easily checked.  It remains to show that (4) (1). We have seen already that is not prime in . Assume is a prime integer satisfying . From quadratic reside theory, we know that , and hence there is an integer such that , or equivalently, . It follows that in the Gaussian integers. But since clearly and , we conclude that is not prime in .    The next corollary is nothing more than a slight reformulation of our splitting behavior theorem that more explicitly classifies the factorization of integer primes in . The only additional information is the fact that for , given with , the primes and are not associate. This follows from the fact that the only elements of that are associate to their conjugate are of the form , where , as is easily shown.   Splitting of rational primes      The integer prime has prime (power) factorization .    If is an integer prime satisfying , then there are integers satisfying , and has prime factorization , where and are non-associate Gaussian primes.    If is an integer prime satisfying , then cannot be written in the form for integers and is prime in .       With our explicit description of the factorization of prime integers, we now can give a complete description of the Gaussian primes.   Gaussian primes   Let be a Gaussian prime.   If , then is associate to .    Let be a prime integer satisfying , and let satisfy . If , then is associate either to the prime or the prime , but not both.    Let be a prime integer satisfying . If , then is associate to .       visualizes the lying over relation between primes of and primes of . Each prime of is represented by a point. This prime either remains prime in , or factors as . In number theory jargon, these two behaviors are described (roughly) as remains inert and splits . However, the prime is somewhat special in that its prime factorization does not contain two non-associate primes: , we have . This phenomenon is called ramification (more precisely, we say that  ramifies in ) and is indicated in the diagram by the funny dot above . Lastly, you may be wondering why our diagram also includes the non-prime integer . This has something to do with notions from abstract algebra (namely, prime ideals). We can make good sense of those dots as well, and explain why they are fuzzy, but that is somewhat outside the score of this course. We leave them here anyway hopefully to spur you on to take the abstract algebra sequence.   Primes of lying over primes of   Diagram of relationship between primes of integers and primes of Gaussian integers     "
 },
 {
-  "id": "th_gauss_primes",
+  "id": "s_gauss_primes-2",
   "level": "2",
-  "url": "s_gauss_primes.html#th_gauss_primes",
-  "type": "Theorem",
+  "url": "s_gauss_primes.html#s_gauss_primes-2",
+  "type": "Objectives",
+  "number": "1.14",
+  "title": "",
+  "body": "   Give a complete description of the prime elements of .    Describe the splitting behavior of integer primes in .    Give a complete description of which integers can be expressed as a sum of two squares.    "
+},
+{
+  "id": "s_gauss_primes-3",
+  "level": "2",
+  "url": "s_gauss_primes.html#s_gauss_primes-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "lies over "
+},
+{
+  "id": "d_lying_over",
+  "level": "2",
+  "url": "s_gauss_primes.html#d_lying_over",
+  "type": "Definition",
   "number": "1.14.1",
+  "title": "Lying over <span class=\"process-math\">\\(p\\)<\/span>.",
+  "body": " Lying over   For every Gaussian prime , there is a unique prime such that . We say that  lies over the integer prime in this case.   "
+},
+{
+  "id": "th_splitting_gauss",
+  "level": "2",
+  "url": "s_gauss_primes.html#th_splitting_gauss",
+  "type": "Theorem",
+  "number": "1.14.2",
   "title": "Splitting of rational primes.",
-  "body": " Splitting of rational primes   Let be a prime integer.       "
+  "body": " Splitting of rational primes   Let be an integer prime. The following statements are equivalent.    is not prime in .     for some prime element and thus has prime factorization .     for some integers .     or .       We first show that (1) and (2) are equivalent. The reverse implication is the easier one: if , then has a nontrivial factorization in and hence is not prime\/irreducible. For the forward implication, if is not prime\/irreducible in , then we have for non-units . But then . Since the norms of and are not equal to 1, we must have . Thus for some . Since is prime, and are primes in and thus is a prime factorization.  The equivalence of (2) and (3) is clear from the definition of .  Next, we prove the implication (3) (4) via the contrapositive. If and , then . But then we cannot have for integers , since looking at things modulo , we see that there is no solution to the congruence , as is easily checked.  It remains to show that (4) (1). We have seen already that is not prime in . Assume is a prime integer satisfying . From quadratic reside theory, we know that , and hence there is an integer such that , or equivalently, . It follows that in the Gaussian integers. But since clearly and , we conclude that is not prime in .   "
+},
+{
+  "id": "cor_split_gauss",
+  "level": "2",
+  "url": "s_gauss_primes.html#cor_split_gauss",
+  "type": "Corollary",
+  "number": "1.14.3",
+  "title": "Splitting of rational primes.",
+  "body": " Splitting of rational primes      The integer prime has prime (power) factorization .    If is an integer prime satisfying , then there are integers satisfying , and has prime factorization , where and are non-associate Gaussian primes.    If is an integer prime satisfying , then cannot be written in the form for integers and is prime in .      "
+},
+{
+  "id": "cor_gauss_primes",
+  "level": "2",
+  "url": "s_gauss_primes.html#cor_gauss_primes",
+  "type": "Corollary",
+  "number": "1.14.4",
+  "title": "Gaussian primes.",
+  "body": " Gaussian primes   Let be a Gaussian prime.   If , then is associate to .    Let be a prime integer satisfying , and let satisfy . If , then is associate either to the prime or the prime , but not both.    Let be a prime integer satisfying . If , then is associate to .      "
+},
+{
+  "id": "s_gauss_primes-11",
+  "level": "2",
+  "url": "s_gauss_primes.html#s_gauss_primes-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "ramification ramifies "
+},
+{
+  "id": "fig_specZ_specZi",
+  "level": "2",
+  "url": "s_gauss_primes.html#fig_specZ_specZi",
+  "type": "Figure",
+  "number": "1.14.5",
+  "title": "",
+  "body": " Primes of lying over primes of   Diagram of relationship between primes of integers and primes of Gaussian integers    "
 },
 {
   "id": "appendix-notation",

@@ -2,18 +2,248 @@
 
 <section xml:id="s_gauss_primes" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Gaussian primes</title>
-
-    <theorem xml:id="th_gauss_primes">
+<objectives>
+    <ol>
+        <li>
+            <p>
+                Give a complete description of the prime elements of <m>\Z[i]</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Describe the <q>splitting</q> behavior of integer primes in <m>\Z[i]</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Give a complete description of which integers can be expressed as a sum of two squares. 
+            </p>
+        </li>
+    </ol>
+</objectives>
+    <p>
+        From proposition <xref ref="prop_primes_norm"/>, we know that if <m>\pi</m> is a Gaussian prime, then <m>N(\pi)=\pi\overline{\pi}\in \{p,p^2\}</m> for some prime integer <m>p</m>.  As a consequence, every Gaussian prime <m>\pi</m> satisfies <m>\pi\mid p</m> for a unique prime integer <m>p</m>. We will say <m>\pi</m> <term>lies over</term> <m>p</m> in this case.  
+    </p>
+    <definition xml:id="d_lying_over">
+    <title>Lying over <m>p</m></title>
+    <statement>
+    <p>
+    For every Gaussian prime <m>p</m>, there is a unique prime <m>p</m> such that <m>\pi\mid p</m>. We say that <m>\pi</m> <term>lies over</term> the integer prime <m>p</m> in this case. 
+    </p>
+    </statement>
+    </definition>
+    <p>
+        Given a Gaussian prime <m>\pi</m> lying over <m>p</m>, since <m>\pi\mid p</m>, it is associate to one of the Gaussian primes appearing the factorization of <m>p</m> in <m>\Z[i]</m>. Thus, we can determine all the Gaussian primes by explicitly describing how the integer primes <m>p</m> factor in <m>\Z[i]</m>, the so-called <em>splitting behavior</em> of the integer primes.  
+    </p>
+    <theorem xml:id="th_splitting_gauss">
     <title>Splitting of rational primes</title>
     <statement>
     <p>
-    Let <m>p</m> be a prime integer.
-    </p>
-    </statement>
-    <proof>
+        Let <m>p</m> be an integer prime. The following statements are equivalent. 
+        <ol>
+            <li>
+                <p>
+                    <m>p</m> is not prime in <m>\Z[i]</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>p=N(\pi)</m> for some prime element <m>\pi\in \Z[i]</m> and thus has prime factorization <m>p=\pi\overline{\pi}</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>p=a^2+b^2</m> for some integers <m>a,b\in \Z</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>p=2</m> or <m>p\equiv 1\pmod 4</m>. 
+                </p>
+            </li>
+        </ol>
+</p>
+</statement>
+<proof>
     <p>
+        We first show that (1) and (2) are equivalent. The reverse implication is the easier one: if <m>p=N(\pi)=\pi\overline{\pi}</m>, then <m>p</m> has a nontrivial factorization in <m>\Z[i]</m> and hence is not prime/irreducible. For the forward implication, if <m>p</m> is not prime/irreducible in <m>\Z[i]</m>, then we have <m>p=\alpha\beta</m> for non-units <m>\alpha,\beta\in \Z[i]</m>. But then <m>p^2=N(p)=N(\beta)N(\beta)</m>. Since the norms of <m>\alpha</m> and <m>\beta</m> are not equal to 1, we must have <m>N(\alpha)=N(\beta)=p</m>. Thus <m>p=N(\alpha)=\alpha\overline{\alpha}</m> for some <m>\alpha\in\Z[i]</m>. Since <m>N(\alpha)</m> is prime, <m>\alpha</m> and <m>\overline{\alpha}</m> are primes in <m>\Z[i]</m> and thus <m>p=\alpha\overline{\alpha}</m> is a prime factorization.
     </p>
-    </proof>
+    <p>
+        The equivalence of (2) and (3) is clear from the definition of <m>N</m>. 
+    </p>
+    <p>
+    Next, we prove the implication (3)<m>\implies</m>(4) via the contrapositive. If <m>p\ne 2</m> and <m>p\not\equiv 1\pmod 4</m>, then <m>p\equiv 3\pmod 4</m>. But then we cannot have <m>p=a^2+b^2</m> for integers <m>a,b\in \Z</m>, since looking at things modulo <m>3</m>, we see that there is no solution to the congruence <m>3\equiv a^2+b^2 \pmod 4</m>, as is easily checked. 
+    </p>
+    <p>
+       It remains to show that (4)<m>\implies</m>(1). We have seen already that <m>2=(1+i)(1-i)</m> is not prime in <m>\Z[i]</m>. Assume <m>p</m> is a prime integer satisfying  <m>p\equiv 1\pmod 4</m>. From quadratic reside theory, we know that <m>\qr{-1}{p}=1</m>, and hence there is an integer <m>c\in \Z</m> such that <m>c^2\equiv -1\pmod p</m>, or equivalently, <m>p\mid c^2+1</m>. It follows that <m>p\mid c^2+1=(c+i)(c-i)</m> in the Gaussian integers. But since clearly <m>p\nmid c+i</m> and <m>p\nmid c-i</m>, we conclude that <m>p</m> is not prime in <m>\Z[i]</m>.  
+    </p>
+</proof>
     </theorem>
+<p>
+    The next corollary is nothing more than a slight reformulation of our splitting behavior theorem that more explicitly classifies the factorization of integer primes in <m>\Z[i]</m>. The only additional information is the fact that for <m>p\equiv 1\pmod 4</m>, given <m>\pi=a+bi</m> with <m>N(\pi)=p</m>, the primes <m>\pi</m> and <m>\overline{\pi}</m> are not associate. This follows from the fact that the only elements of <m>\Z[i]</m> that are associate to their conjugate are of the form <m>\alpha=a+bi</m>, where <m>a,b\in \{-1,0,1\}</m>, as is easily shown. 
+</p>
+<corollary xml:id="cor_split_gauss">
+    <title>Splitting of rational primes</title>
+    <statement>
+        <p>
+            <ol>
+        <li>
+            <p>
+                The integer prime <m>2</m> has prime (power) factorization
+                <md>
+                    2=(1+i)(1-i)=(-i)(1+i)^2
+                </md>.
+            </p>
+        </li>
+        <li>
+            <p>
+                If <m>p</m> is an integer prime satisfying <m>p\equiv 1\pmod 4</m>, then there are integers <m>a,b\in \Z</m> satisfying 
+                <md>
+                    p=a^2+b^2
+                </md>,
+                and <m>p</m> has prime factorization 
+                <md>
+                    p=\pi\overline{\pi}
+                </md>,
+                where <m>\pi=a+bi</m> and <m>\overline{\pi}=a-bi</m> are non-associate Gaussian primes. 
+            </p>
+        </li>
+        <li>
+            <p>
+                If <m>p</m> is an integer prime satisfying <m>p\equiv 3\pmod 4</m>, then <m>p</m> cannot be written in the form <m>p=a^2+b^2</m> for integers <m>a,b\in \Z</m> and <m>p</m> is prime in <m>\Z[i]</m>.
+            </p>
+        </li>
+    </ol>
+        </p>
+    </statement>
+</corollary>
+<p>
+    With our explicit description of the factorization of prime integers, we now can give a complete description of the Gaussian primes. 
+</p>
+<corollary xml:id="cor_gauss_primes">
+    <title>Gaussian primes</title>
+    <statement>
+        <p>
+            Let <m>\pi</m> be a Gaussian prime. 
+            <ol>
+                <li>
+                    <p>
+                     If <m>\pi\mid 2</m>, then <m>\pi</m> is associate to <m>1+i</m>. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Let <m>p</m> be a prime integer satisfying <m>p\equiv 1\pmod 4</m>, and let <m>a,b\in \Z</m> satisfy <m>p=a^2+b^2</m>. If <m>\pi\mid p</m>, then <m>\pi</m> is associate either to the prime <m>a+bi</m> or the prime <m>\overline{a+bi}</m>, but not both. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Let <m>p</m> be a prime integer satisfying <m>p\equiv 3\pmod 4</m>. If <m>\pi\mid p</m>, then <m>\pi</m> is associate to <m>p</m>. 
+                    </p>
+                </li>
+            </ol>
+        </p>
+    </statement>
+</corollary>
+<p><xref ref="fig_specZ_specZi"/> visualizes the <q>lying over</q> relation between primes of <m>\Z[i]</m> and primes of <m>\Z</m>. Each prime <m>p</m> of <m>\Z</m> is represented by a point. This prime either remains prime in <m>\Z[i]</m>, or factors as <m>p=\pi\overline{\pi}</m>. In number theory jargon, these two behaviors are described (roughly) as <em>remains inert</em> and <em>splits</em>. However, the prime <m>2</m> is somewhat special in that its prime factorization does not contain two non-associate primes: <ie/>, we have <m>2=(-i)(1+i)(1+i)=(-i)(1+i)^2</m>. This phenomenon is called <term>ramification</term> (more precisely, we say that <m>2</m> <term>ramifies</term> in <m>\Z[i]</m>) and is indicated in the diagram by the funny dot above <m>2</m>. Lastly, you may be wondering why our diagram also includes the non-prime integer <m>0</m>. This has something to do with notions from abstract algebra (namely, prime ideals). We can make good sense of those dots as well, and explain why they are fuzzy, but that is somewhat outside the score of this course. We leave them here anyway hopefully to spur you on to take the abstract algebra sequence. 
+</p>
+<figure xml:id="fig_specZ_specZi">
+    <caption>Primes of <m>\Z[i]</m> lying over primes of <m>\Z</m></caption>
+<image>
+    <shortdescription>Diagram of relationship between primes of integers and primes of Gaussian integers</shortdescription>
+    
+<latex-image>
+\begin{tikzpicture}[x=1cm,y=1cm]
+  %------------------------------------------------------------
+  % Parameters
+  %------------------------------------------------------------
+  \definecolor{NUblue}{RGB}{0,80,180} % pleasant blue
+  \def\yUpper{1.6}      % y of the upper line
+  \def\yLower{0}        % y of the lower line
+  \def\RLeft{-0.8}      % left end of the segments (x)
+  \def\RRight{10.4}     % right end of the segments (x) — extended for 13
+  \def\rDot{0.12}       % radius of filled dots (larger and blue)
+  \def\rRing{0.18}      % radius of ring for ramification at p=2
+  \def\vertSplit{0.18}  % vertical offset for split points (above/below)
+  % helper macro to draw a "fuzzy" dot at (X,Y) in color C
+  % draws a crisp core plus diffuse halos
+  \newcommand{\fuzzydot}[3]{%
+    \fill[#3, opacity=0.15] (#1,#2) circle (0.32);%
+    \fill[#3, opacity=0.25] (#1,#2) circle (0.24);%
+    \fill[#3]               (#1,#2) circle (\rDot);%
+  }
 
+  % x-positions (in cm) for 0, 2, 3, 5, 7, 11, 13
+  \def\xZero{0.0}
+  \def\xTwo{1.6}
+  \def\xThree{3.2}
+  \def\xFive{4.8}
+  \def\xSeven{6.4}
+  \def\xEleven{8.0}
+  \def\xThirteen{9.6}
+
+  %------------------------------------------------------------
+  % Lines
+  %------------------------------------------------------------
+  \draw[very thick] (\RLeft,\yLower) -- (\RRight,\yLower);
+  \draw[very thick] (\RLeft,\yUpper) -- (\RRight,\yUpper);
+
+  % Labels for lines
+  \node[anchor=east] at (\RLeft,\yLower) {$\mathbb{Z}$};
+  \node[anchor=east] at (\RLeft,\yUpper) {$\mathbb{Z}[i]$};
+
+  %------------------------------------------------------------
+  % Lower line: points and labels
+  %   • 0 is shown "fuzzy" (prime but not maximal)
+  %   • primes 2,3,5,7,11,13 are crisp blue points
+  %------------------------------------------------------------
+  % 0 (fuzzy)
+  \fuzzydot{\xZero}{\yLower}{NUblue}
+  \node[below=3pt] at (\xZero,\yLower) {$0$};
+
+  % primes on lower line
+  \foreach \x/\lab in {\xTwo/$2$, \xThree/$3$, \xFive/$5$, \xSeven/$7$, \xEleven/$11$, \xThirteen/$13$} {
+    \fill[NUblue] (\x,\yLower) circle (\rDot);
+    \node[below=3pt] at (\x,\yLower) {\(\lab\)};
+  }
+
+  %------------------------------------------------------------
+  % Upper line: fibers over each lower point
+  %   • 0 (fuzzy) to indicate (0) is prime but not maximal
+  %   • 2 is ramified (circled dot)
+  %   • 3,7,11 inert (single dot on the line)
+  %   • 5,13 split (two dots, one just above and one just below the line)
+  %------------------------------------------------------------
+
+  % 0 (fuzzy) on upper line
+  \fuzzydot{\xZero}{\yUpper}{NUblue}
+
+  % p = 2 (ramified): circled blue dot
+  \fill[NUblue] (\xTwo,\yUpper) circle (\rDot);
+  \draw[NUblue, line width=0.7pt] (\xTwo,\yUpper) circle (\rRing);
+
+  % inert primes (3,7,11): single blue dot exactly on the upper line
+  \foreach \x in {\xThree,\xSeven,\xEleven} {
+    \fill[NUblue] (\x,\yUpper) circle (\rDot);
+  }
+
+  % split primes (5 and 13): two blue dots, one slightly above, one slightly below
+  \foreach \x in {\xFive,\xThirteen} {
+    \fill[NUblue] (\x,\yUpper+\vertSplit) circle (\rDot);
+    \fill[NUblue] (\x,\yUpper-\vertSplit) circle (\rDot);
+  }
+
+  % (Optional annotations — leave commented for a clean figure)
+  % \node[above=2pt] at (\xTwo,\yUpper) {\scriptsize ramified};
+  % \node[above=2pt] at (\xFive,\yUpper+\vertSplit) {\scriptsize splits};
+  % \node[above=2pt] at (\xThirteen,\yUpper+\vertSplit) {\scriptsize splits};
+  % \node[above=2pt] at (\xThree,\yUpper) {\scriptsize inert};
+  % \node[above=2pt] at (\xSeven,\yUpper) {\scriptsize inert};
+  % \node[above=2pt] at (\xEleven,\yUpper) {\scriptsize inert};
+
+\end{tikzpicture}
+</latex-image>
+
+</image>
+</figure> 
 </section>
