@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.13.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Gaussian primes.</span>
+</h4>
+<div class="para logical">
+<div class="para">For each Gaussian integer <span class="process-math">\(\alpha\)</span> verify directly whether it is prime or not, and compare your answer with <span class="process-math">\(N(\alpha)\text{.}\)</span>
+</div>
+<ol class="decimal" id="eg_gauss_primes-2-1-3">
+<li>
+<div class="para">
+<span class="process-math">\(\displaystyle \alpha=1+i\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_gauss_primes-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg_gauss_primes-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(\displaystyle \alpha=1-i\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_gauss_primes-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg_gauss_primes-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(\displaystyle \alpha=3\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_gauss_primes-2-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#eg_gauss_primes-2-1-3-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(\displaystyle \alpha=-1+3i\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_gauss_primes-2-1-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#eg_gauss_primes-2-1-3-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_gauss_primes-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Note that <span class="process-math">\(N(1+i)=N(1-i)=2\text{,}\)</span> which implies (indirectly) that these elements are both prime. To verify this directly, it is easiest to show that <span class="process-math">\(\alpha\)</span> in this case is irreducible, and this is done using a norm argument identical to the one used in the proof of <a href="s_gauss_factorization.html#prop_primes_norm" class="xref" data-knowl="./knowl/xref/prop_primes_norm.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.13.13: Primes, norms, and conjugates">Proposition 1.13.13</a>. Note that <span class="process-math">\(1-i=\overline{1+i}\text{,}\)</span> and thus the primality of either element implies the primality of the other. Interestingly, we also have <span class="process-math">\(1-i=(-i)(1+i)\text{,}\)</span> so these two primes are in fact associates of each other. More on that later. Lastly, the nontrivial factorization <span class="process-math">\(2=(1+i)(1-i)\)</span> shows that <span class="process-math">\(2\text{,}\)</span> though prime in <span class="process-math">\(\Z\text{,}\)</span> is not prime in <span class="process-math">\(\Z[i]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_gauss_primes-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">We claim <span class="process-math">\(3\)</span> is prime in <span class="process-math">\(\Z[i]\text{.}\)</span> If <span class="process-math">\(3=\alpha\beta\text{,}\)</span> then <span class="process-math">\(9=N(3)=N(\alpha)N(\beta)\text{.}\)</span> Since the divisors of <span class="process-math">\(9\)</span> are <span class="process-math">\(1,3,9\text{,}\)</span> we see that either <span class="process-math">\(\{N(\alpha),N(\beta)\}=\{3\}\text{,}\)</span> or <span class="process-math">\(\{N(\alpha), N(\beta)\}=\{1,9\}\text{.}\)</span> The first option is impossible, as there are no integers <span class="process-math">\(a,b\in \Z\)</span> satisfying <span class="process-math">\(3=a^2+b^2\text{.}\)</span> The latter implies that <span class="process-math">\(\alpha\)</span> is a unit or <span class="process-math">\(\beta\)</span> is a unit, as desired. Note in this case that <span class="process-math">\(3\)</span> is prime in <span class="process-math">\(\Z[i]\text{,}\)</span> but its norm <span class="process-math">\(N(3)=9\)</span> is not prime. It is, however, equal to the square of a prime, as predicted by <a href="s_gauss_factorization.html#prop_primes_norm" class="xref" data-knowl="./knowl/xref/prop_primes_norm.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 1.13.13: Primes, norms, and conjugates">Proposition 1.13.13</a>.<div class="autopermalink" data-description="Paragraph"><a href="#eg_gauss_primes-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">We first compute <span class="process-math">\(N(\alpha)=1+9=10\text{.}\)</span> Since <span class="process-math">\(10\)</span> is not <span class="process-math">\(p\)</span> or <span class="process-math">\(p^2\)</span> for any prime integer <span class="process-math">\(p\text{,}\)</span> we must have <span class="process-math">\(\alpha\)</span> not prime/irreducible. To verify this directly, note that if <span class="process-math">\(\alpha=\beta\gamma\)</span> is a nontrivial factorization, then <span class="process-math">\(\{N(\beta),N(\gamma)\}=\{2,5\}\text{.}\)</span> This tells us to look for factors of <span class="process-math">\(\alpha\)</span> with norm <span class="process-math">\(2\)</span> and <span class="process-math">\(5\text{,}\)</span> which leads us to the nontrivial factorization <span class="process-math">\(-1+3i=(1+i)(1+2i)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_gauss_primes-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.13.14.1"><a href="#eg_gauss_primes-3" title="Copy heading and permalink for Solution 1.13.14.1" aria-label="Copy heading and permalink for Solution 1.13.14.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.13.14: Gaussian primes"><a href="#eg_gauss_primes" title="Copy heading and permalink for Example 1.13.14: Gaussian primes" aria-label="Copy heading and permalink for Example 1.13.14: Gaussian primes">🔗</a></div></article><span class="incontext"><a class="internal" href="s_gauss_factorization.html#eg_gauss_primes">in-context</a></span>
+</body>
+</html>

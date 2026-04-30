@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.13.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Prime equivalent to irreducible in <span class="process-math">\(\Z[i]\)</span>.</span>
+</h4>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(\pi\in \Z[i]\)</span> be a nonzero non-unit. The following statements are equivalent.</div>
+<ol class="decimal" id="th_prime_irr-2-1-2">
+<li>
+<div class="para">
+<span class="process-math">\(\pi\)</span> is prime.<div class="autopermalink" data-description="Paragraph"><a href="#th_prime_irr-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_prime_irr-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(\pi\)</span> is irreducible.<div class="autopermalink" data-description="Paragraph"><a href="#th_prime_irr-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_prime_irr-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_prime_irr-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.13.11: Prime equivalent to irreducible in \Z[i]"><a href="#th_prime_irr" title="Copy heading and permalink for Theorem 1.13.11: Prime equivalent to irreducible in \Z[i]" aria-label="Copy heading and permalink for Theorem 1.13.11: Prime equivalent to irreducible in \Z[i]">🔗</a></div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">The easier implication is (1)<span class="process-math">\(\implies\)</span>(2); and indeed this implication holds for <em class="emphasis">any</em> subring <span class="process-math">\(R\subseteq \C\text{.}\)</span>  Assume <span class="process-math">\(\pi\)</span> is prime. If <span class="process-math">\(\pi=\alpha\beta\text{,}\)</span> then in particular <span class="process-math">\(\pi\mid \alpha\beta\text{.}\)</span> Since <span class="process-math">\(\pi\)</span> is prime, we have <span class="process-math">\(\pi\mid \alpha\)</span> or <span class="process-math">\(\pi\mid \beta\text{.}\)</span> If <span class="process-math">\(\pi\mid \alpha\text{,}\)</span> then we have <span class="process-math">\(\alpha=\pi\gamma\)</span> for some <span class="process-math">\(\gamma\in \Z[i]\text{,}\)</span> and hence</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pi=\alpha\beta=\pi\gamma\beta\text{.}
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(\pi\)</span> is nonzero, it has a multiplicative inverse in <span class="process-math">\(\C\text{,}\)</span> allowing us to cancel and conclude <span class="process-math">\(1=\gamma\beta\text{.}\)</span> Since <span class="process-math">\(\gamma\in \Z[i]\text{,}\)</span> we conclude that <span class="process-math">\(\beta\in (\Z[i])^*\text{.}\)</span> The case where <span class="process-math">\(\pi\mid \beta\)</span> is exactly similar.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_prime_irr-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">The implication (2)<span class="process-math">\(\implies\)</span>(1) is <em class="emphasis">not true</em> for a general subring <span class="process-math">\(R\subseteq \C\text{.}\)</span> As you will see, the key property of <span class="process-math">\(\Z[i]\)</span> we use is the existence of GCDs and Bezout’s theorem. Assume <span class="process-math">\(\pi\)</span> is irreducible, and that <span class="process-math">\(\pi\mid \alpha\beta\)</span> for <span class="process-math">\(\alpha,\beta\in \Z[i]\text{.}\)</span> We wish to show that <span class="process-math">\(\pi\mid \alpha\)</span> or <span class="process-math">\(\pi\mid \beta\text{.}\)</span> To this end, assume that <span class="process-math">\(\pi\nmid \alpha\text{.}\)</span> We claim that <span class="process-math">\(\pi\)</span> and <span class="process-math">\(\alpha\)</span> are relatively prime in this case. Indeed, since <span class="process-math">\(\pi\)</span> is irreducible, its only divisors are units and associates of itself. It follows that a common divisor of <span class="process-math">\(\pi\)</span> and <span class="process-math">\(\alpha\)</span> would be a unit or an associate of <span class="process-math">\(\pi\text{.}\)</span> But since <span class="process-math">\(\pi\nmid \alpha\text{,}\)</span> no associate of <span class="process-math">\(\pi\)</span> divides <span class="process-math">\(\alpha\text{.}\)</span> We conclude that the only common divisors of <span class="process-math">\(\pi\)</span> and <span class="process-math">\(\alpha\)</span> are units, and hence that the two are are relatively prime. From <a href="s_gauss_factorization.html#cor_rel_prime_divis" class="xref" data-knowl="./knowl/xref/cor_rel_prime_divis.html" data-reveal-label="Reveal" data-close-label="Close" title="Corollary 1.13.8: Relatively prime factors">Corollary 1.13.8</a> we conclude that <span class="process-math">\(\pi\mid \beta\text{,}\)</span> as desired.<div class="autopermalink" data-description="Paragraph"><a href="#th_prime_irr-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.13.11.1"><a href="#th_prime_irr-3" title="Copy heading and permalink for Proof 1.13.11.1" aria-label="Copy heading and permalink for Proof 1.13.11.1">🔗</a></div></article></details><span class="incontext"><a class="internal" href="s_gauss_factorization.html#th_prime_irr">in-context</a></span>
+</body>
+</html>
