@@ -246,4 +246,72 @@
 
 </image>
 </figure> 
+<example xml:id="eg_gauss_factor">
+<title>Prime factorization in <m>\Z[i]</m></title>
+<statement>
+<p>
+Give a prime factorization of <m>\alpha=-11+2i</m> in <m>\Z[i]</m>.
+</p>
+</statement>
+<solution>
+<p>
+
+</p>
+</solution>
+</example>
+
+<p>
+    With a full picture of factorization in <m>\Z[i]</m> we can now tackle the question of which integers can be expressed as a sum of two squares, Moreover, we will be able to count the number of different ways an integer can be so expressed. The connection with <m>\Z[i]</m> is the following simple observation: <m>n=a^2+b^2</m> if and only if <m>n=(a+ib)(a-ib)=N(\alpha)</m>, where <m>\alpha=a+bi</m>. Thus <m>n</m> can be written as a sum of two squares if and only if <m>n=N(\alpha)</m> for some <m>\alpha\in \Z[i]</m>. This norm relation between <m>n</m> and <m>\alpha</m> allows us to deduce the possible factorization of <m>\alpha</m> in <m>\Z[i]</m> from the factorization of <m>n</m> in <m>\Z</m>. 
+</p>
+<theorem xml:id="th_integer_sum_squares">
+    <title>Sums of two squares</title>
+    <statement>
+        <p>
+            Let <m>n</m> be a positive integer with factorization 
+            <md>
+                <mrow>n \amp = 2^k\cdot \prod_{i=1}^{r}p_i^{n_i}\cdot \prod_{j=1}^s q_j^{m_j}</mrow>
+            </md>,
+            where the <m>p_i</m> and <m>q_j</m> are distinct odd primes, <m>p_i\equiv 1 \pmod 4</m> for all <m>i</m>, and <m>q_j\equiv 3\pmod 4</m> for all <m>j</m>. We have <m>n=a^2+b^2</m> for integers <m>a</m> and <m>b</m> if and only if <m>m_j</m> is even for all <m>j</m>. Furthermore, when this is the case there are exactly 
+            <md>
+                <mrow>4(n_1+1)(n_2+1)\cdots (n_r+1) \amp </mrow>
+            </md>
+            pairs <m>(a,b)\in \Z^2</m> satisfying <m>n=a^2+b^2</m>. 
+        </p>
+    </statement>
+    <proof>
+        <p>
+            We have <m>n=a^2+b^2</m> if and only if <m>n=N(\alpha)</m>, where <m>\alpha=a+bi</m>. Consider now the primes appearing in the factorization of <m>\alpha</m>. Since <m>N(\alpha)=\alpha\overline{\alpha}=n</m>, we have <m>\alpha\mid n</m>. If <m>\pi</m> is a prime dividing <m>\alpha</m>, then it also divides <m>n</m>, and hence divides (<ie/>, lies over) one of the primes appearing in the factorization of <m>n</m>. Since primes <m>\Z[i]</m> lie over a <em>unique</em> prime in <m>\Z</m>, we conclude that any prime element <m>\pi</m> appearing in the factorization of <m>n</m> lies over <m>2</m>, <m>p_i</m> for some <m>1\leq i\leq r</m>, or <m>q_j</m> for some <m>1\leq j\leq s</m>. For counting purposes, we will pick specific (non-associate) primes <m>\pi_i</m> and <m>\overline{\pi_i}</m> lying over the primes <m>p_i</m>. It follows from the description of primes in <xref ref="cor_gauss_primes"/> that if <m>N(\alpha)=n</m>, we can write <m>\alpha</m> <em>uniquely</em> in the form 
+            <md>
+                <mrow>\alpha \amp =u (1+i)^{k'}\prod_{i=1}^r \pi_i^{a_i}\overline{\pi}_i^{b_i} \prod_{j=1}^s q_j^{m_j'}</mrow>
+            </md>,
+            where <m>u\in \{1,-1,i,-i\}</m> is a unit. 
+            But then we have 
+            <md>
+                <mrow>N(\alpha)=n \amp \iff 
+                    N(u)N(1+i)^{k'}\prod_{i=1}^r N(\pi_i)^{a_i}N(\overline{\pi}_i)^{b_i} \prod_{j=1}^s N(q_j)^{m_j'} =2^{k}\prod_{i=1}^r p_i^{n_i} \prod_{j=1}^s q_j^{m_j}</mrow>
+                    <mrow>\amp\iff  2^{k'}\prod_{i=1}^rp_i^{a_i+b_i}\cdot \prod_{j=1}^s q_j^{2m_j'} = 2^{k}\prod_{i=1}^r p_i^{n_i} \prod_{j=1}^s q_j^{m_j} </mrow>
+                    <mrow> \amp \iff k'=k, a_i+b_i=n_i, 2m_j'=m_j</mrow>
+            </md>
+            for all <m>1\leq i\leq r</m>, <m>1\leq j\leq s</m>. Equivalently, we must have <m>m_j</m> even for all <m>j</m>, and <m>(a_i,b_i)=(a_i, n_i-a_i)</m> for <m>a_i\in \{0,1,\dots, n_i\}</m>. We conclude that <m>n=a^2+b^2</m> if and only if <m>n=N(\alpha)</m> for an element <m>\alpha\in \Z[i]</m> that can we written uniquely as 
+            <md>
+                <mrow>\alpha \amp = u (1+i)^k \cdot \prod_{i=1}^r \pi_i^{a_i}\overline{\pi}_i^{n_i-a_i}\cdot \prod_{j=1}^s q_j^{m_j/2}</mrow>
+            </md>,
+            where <m>u\in \{1,-1,i,-i\}</m> is any unit, and <m>a_i\in \{0,1,\dots, n_i\}</m>. Since we have <m>4</m> choices for <m>u</m> and <m>n_i+1</m> choices for each <m>a_i</m>, the result follows. 
+        </p>
+    </proof>
+</theorem>
+<example xml:id="eg_sum_squares">
+<title>Sum of squares</title>
+<statement>
+<p>
+Find all pairs <m>(a,b)</m> satisfying <m>65=a^2+b^2</m>. 
+</p>
+</statement>
+<solution>
+<p>
+
+</p>
+</solution>
+</example>
+
 </section>
