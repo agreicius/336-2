@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_ring_integers" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Quadratic rings of integers</title>
+
+    <subsection xml:id="ss_quadratic_ext">
+    <title>Quadratic extensions of <m>\Q</m></title>
+    <definition xml:id="d_">
+    <title>Quadratic extension of <m>\Q</m></title>
+    <statement>
+    <p>
+    Let <m>d\in \Z-\{0,1\}</m> be a squarefree integer. We define <m>\Q(\sqrt{d})</m> to be the following subset of <m>\C</m>: 
+    <md number="yes">
+        <mrow>\Q(\sqrt{d}) \amp = \{z\in \C\mid z=q_1+q_2\sqrt{d} \text{ for some } q_1,q_2\in \Q\}</mrow>
+    </md>.
+    We call <m>\Q(\sqrt{d})</m> a <term>quadratic field extension</term> of <m>\Q</m>, or a <term>quadratic subfield</term> of <m>\C</m>. 
+    </p>
+    <p>
+        The quadratic field <m>\Q(\sqrt{d})</m> is <term>real</term> if <m>\Q(\sqrt{d})\subseteq \R</m> (<ie/>, if <m>d\geq 0</m>) and <term>imaginary</term> otherwise (<ie/>, if <m>d&lt; 0</m>).
+    </p>
+    </statement>
+    </definition>
+    <remark>
+    <title>Quadratic field extensions</title>
+    <p>
+    You will likely notice the similarity in notation between quadratic fields <m>\Q(\sqrt{d})</m> and the Gaussian integers <m>\Z[i]</m>. Notice further some important differences: the <m>\Q</m> in the first notation is an indication that the set consists of <m>Q</m>-linear combinations <m>q_1+q_2\sqrt{d}</m>, <m>q_1,q_2\in \Q</m> as opposed to <m>\Z</m>-linear combinations <m>a+b\sqrt{d}</m>, <m>a,b\in \Z</m>. Moreover, the use of parentheses in <m>\Q(\sqrt{d})</m> as opposed to brackets (as in <m>\Z[i]</m>) is a notational indication that <m>\Q(\sqrt{d})</m> is a <em>field</em> and not just a ring. (See <xref ref="th_quad_ext_field"/>.)
+    </p>
+    <p>
+        The quadratic fields <m>K=\Q(\sqrt{d})</m> can be thought of as generalizations of <m>\Q</m>. The analog of <m>\Z</m> in these settings is given by the <em>ring of integers</em> <m>\mathcal{O}_K</m> defined below. 
+    </p>
+    </remark>
+    <p>
+    You might be wondering about the importance of this squarefree condition. This will arise at various points in our discussion. Our first example is the simple characterization of equality in <m>\Q(\sqrt{d})</m> given below. 
+    </p>
+    <proposition xml:id="prop_quad_ext_equality">
+        <title>Equality in <m>\Q(\sqrt{d})</m></title>
+        <statement>
+            <p>
+                Let <m>d\in \Z-\{0,1\}</m> be a squarefree integer, and let <m>K=\Q(\sqrt{d})</m>.
+                <ol>
+                    <li>
+                        <p>
+                            For all nonzero <m>q\in \Q</m>, <m>q^2d</m> is not a square in <m>\Q</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We have 
+                            <md>
+                            <mrow>q_1+q_2\sqrt{d}=q_1'+q_2'\sqrt{d} \amp \iff q_1=q_1' \text{ and } q_2=q_2'</mrow>
+                                </md>
+                        for all <m>\alpha=q_1+q_2\sqrt{d}</m> and <m>\beta=q_1'+q_2'\sqrt{d}</m> in <m>K</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </statement>
+        <proof>
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            If <m>d</m> is negative, then clearly <m>q^2d</m> is negative, and hence not a square in <m>\Q</m>. Assume <m>d&gt; 1</m>. If <m>q^2d=r^2</m> for some <m>r\in \Q</m>, then after expressing <m>q</m> and <m>r</m> as quotients of integers and clearing denominators, we see that we have <m>n^2d=m^2</m> for some nonzero integers <m>n</m> and <m>m</m>. Let <m>p</m> be any prime divisor of <m>d</m>. Since it appears with exponent <m>1</m> in the prime factorization of <m>d</m> (<m>d</m> is squarefree), it appears with odd exponent in the prime factorization of <m>n^2d</m>. But this contradicts the fact that <m>n^2d=m^2</m>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The reverse implication is obvious. For the forward implication, we have 
+    <md number="yes">
+        <mrow>q_1+q_2\sqrt{d}=q_1'+q_2'\sqrt{d} \amp \implies (q_1-q_1')+(q_2-q_2')\sqrt{d}=0 </mrow>
+    </md>.
+    If <m>q_2-q_2'\ne 0</m>, we would have <m>\sqrt{d}\in \Q</m>. But this is impossible: if <m>d=(m/n)^2</m>, then we would have <m>n^2d=m^2</m>, contradicting (1). Thus we must have <m>q_2-q_2'=0</m>, or equivalently <m>q_2=q_2'</m>. It then follows tautologically that <m>q_1=q_1'</m>. 
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </proof>
+    </proposition>
+    <definition xml:id="d_quad_conjugate_norm">
+    <title>Quadratic norm and conjugate</title>
+    <statement>
+    <p>
+    Let <m>d\in \Z-\{0,1\}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. For any <m>\alpha=q_1+q_2\sqrt{d}\in K</m>, we define its <term>conjugate</term> <m>\overline{\alpha}</m> and <term>norm</term> <m>N_K(\alpha)</m> as follows: 
+    <md>
+        <mrow>\overline{\alpha} \amp =q_1-q_2\sqrt{d}\amp N_K(\alpha)\amp=\alpha\overline{\alpha}=q_1^2-q_2^2\sqrt{d}</mrow>
+    </md>.
+    We call the resulting function <m>N_K\colon K\rightarrow \Q</m> the <term>norm funcion</term> of <m>K</m> over <m>\Q</m>. 
+    </p>
+    </statement>
+    </definition>
+    
+    <warning>
+    <p>
+        It is important not to conflate the general conjugate and norm operations of a quadratic field with <em>complex conjugation</em> and the <em>Gaussian norm</em> function. 
+    </p>
+    <p>
+        Take quadratic field <m>K=\Q(\sqrt{2})</m>, for example. Given any <m>\alpha=q_1+q_2\sqrt{2}\in K</m>, we have 
+        <md>
+            <mrow>\overline{\alpha} \amp = q_1-q_2\sqrt{2} \amp N_K(\alpha)=q_1^2-2q_2^2</mrow>
+        </md>.
+        There operations are clearly different than complex conjugation and the Gaussian norm. For instance we have <m>\overline{3+2\sqrt{2}}=3-2\sqrt{2}</m>, whereas the complex conjugate of <m>3+2\sqrt{2}</m> is itself (since it is real)! Furthermore, note that <m>N_K</m> can assume negative values (<m>N_K(2+3\sqrt{2})=4-18=-14</m>), whereas the Gaussian norm is a nonnegative function. 
+    </p>
+    <p>
+        That said, in the case where <m>K=\Q(\sqrt{d})</m> is imaginary (<ie/>, <m>d&lt; 0</m>), then the quadratic conjugate and norm operations are in fact identical to complex conjugation and modulus squared. 
+    </p>
+    </warning>
+    <proposition xml:id="prop_quad_norm">
+        <title>Quadratic conjugates and norms</title>
+        <statement>
+            <p>
+                Let <m>d\in \Z-\{0,1\}</m> be a squarefree integer, and let <m>K=\Q(\sqrt{d})</m>. As usual, given <m>\alpha=q_1+q_2\sqrt{d}</m>, we define <m>\overline{\alpha}=q_1-q_2\sqrt{d}</m>. 
+                <ol>
+                    <li>
+                        <p>
+                          For all <m>\alpha,\beta\in K</m>, we have 
+                <md number="yes">
+                    <mrow>\overline{\alpha\beta} \amp =\overline{\alpha}\, \overline{\beta}</mrow>
+                    <mrow>\overline{\alpha+\beta} \amp = \overline{\alpha}+\overline{\beta} </mrow>
+                    <mrow>N_K(\alpha\beta) \amp =N_K(\alpha)N_K(\beta)</mrow>
+                </md>. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Given <m>\alpha\in K</m>, we have 
+                            <md number="yes">
+                                <mrow>\alpha\in \Q \amp \iff \overline{\alpha}=\alpha</mrow>
+                                <mrow>N_K(\alpha)=0\amp \iff \alpha=0 </mrow>
+                            </md>.
+                        </p>
+                    </li>
+                </ol>
+                
+            </p>
+        </statement>
+        <proof>
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            These are simple algebraic arguments left to the reader. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Observe first that <m>\Q=\{\alpha\in \Q(\sqrt{d})\mid \alpha=q+0\sqrt{d}\}</m>. Now given <m>\alpha=q_1+q_2\sqrt{d}</m>, we have 
+                            <md>
+                                <mrow>\alpha=\overline{\alpha} \amp \iff q_1+q_2\sqrt{d}=q_1-q_2\sqrt{d}</mrow>
+                                <mrow> \amp \iff q_1=q_1 \text{ and } q_2=-q_2 \amp (<xref ref="prop_quad_ext_equality" text="global"/>)</mrow>
+                                <mrow> \amp \iff q_2=0</mrow>
+                                <mrow> \amp \iff \alpha\in \Q</mrow>
+                            </md>.
+                            For the second part, given <m>\alpha=q_1+q_2\sqrt{d}</m>,  we have 
+                            <md number="yes">   
+                                <mrow>N_K(\alpha)=0  \amp \iff  q_1^2-q_2^2d=0 </mrow>
+                                <mrow> \amp \iff  q_1^2=q_2^2d</mrow>
+                                <mrow> \amp \iff q_1=q_2=0 \amp (<xref ref="prop_quad_ext_equality" text="global"/>)</mrow>
+                                <mrow> \amp \iff \alpha=0</mrow>
+                            </md>.
+                        </p>
+                    </li>
+                </ol>
+            </p>
+        </proof>
+    </proposition>
+    <theorem xml:id="th_quad_ext_field">
+    <title>Quadratic extensions of <m>\Q</m> are fields</title>
+    <statement>
+    <p>
+    Let <m>d\in \Z-\{0,1\}</m> be a squarefree integer, and let <m>K=\Q(\sqrt{d})</m>. 
+    <ol>
+        <li>
+            <p>
+                <m>K</m> is a subring of <m>\C</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Every nonzero element of <m>K</m> has a multiplicative inverse: <ie/>, <m>K</m> is a <em>field</em>. More explicitly, given nonzero <m>\alpha=q_1+q_2\sqrt{d}\in K</m>, we have 
+                <md number="yes">
+                    <mrow>\alpha^{-1} \amp =\frac{q_1}{q_1^2-q_2^2d}-\frac{q_2}{q_1^2-q_2^2d}=\frac{\overline{\alpha}}{N_K(\alpha)}</mrow>
+                </md>.
+
+            </p>
+        </li>
+    </ol>
+    </p>
+    </statement>
+    <proof>
+    <p>
+        <ol>
+            <li>
+                <p>
+                    We need only show that <m>K</m> contains <m>0</m> and <m>1</m>, and is closed under addition, additive inverses (<m>-\alpha</m>), and multiplication. These are simple algebraic arguments left to the reader. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    This is an immediate consequence of the fact that <m>\alpha\ne 0</m> implies <m>N_K(\alpha)\ne 0</m> and the following algebra: 
+                    <md>
+                        <mrow>\alpha\cdot \frac{\alpha}{N_K(\alpha)} \amp = \frac{\alpha\overline{\alpha}}{N_K(\alpha)}</mrow>
+                        <mrow> \amp =\frac{N_K(\alpha)}{N_K(\alpha)}</mrow>
+                        <mrow> \amp = 1</mrow>
+                    </md>.
+                </p>
+            </li>
+        </ol>
+    </p>
+    </proof>
+    </theorem>
+    
+    </subsection>
+
+</section>
