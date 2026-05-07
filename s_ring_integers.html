@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Fermat’s last theorem and the method of descent</title>
+<title>Quadratic rings of integers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -147,7 +147,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_pyth_trips.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="c_336-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_complex_numbers.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_gauss_primes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="c_336-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="my-great-book-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\( \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\N}{{\mathbb N}}
@@ -467,7 +467,7 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <div class="toc-title-box"><a href="s_pyth_trips.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Pythagorean triples</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_pyth_trips.html#ss_pyth_trips" class="internal"><span class="codenumber">1.9.1</span> <span class="title">Pythagorean triples</span></a></div></li></ul>
 </li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="s_flt_descent.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Fermat’s last theorem and the method of descent</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_flt_descent.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Fermat’s last theorem and the method of descent</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="s_complex_numbers.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Complex numbers</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="s_gauss_int.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Gaussian integers</span></a></div></li>
 <li class="toc-item toc-section">
@@ -478,9 +478,9 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </ul>
 </li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="s_gauss_primes.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Gaussian primes</span></a></div></li>
-<li class="toc-item toc-section">
+<li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="s_ring_integers.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Quadratic rings of integers</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_ring_integers.html#ss_quadratic_ext" class="internal"><span class="codenumber">1.15.1</span> <span class="title">Quadratic extensions of <span class="process-math">\(\Q\)</span></span></a></div></li></ul>
+<ul class="structural toc-item-list active"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_ring_integers.html#ss_quadratic_ext" class="internal"><span class="codenumber">1.15.1</span> <span class="title">Quadratic extensions of <span class="process-math">\(\Q\)</span></span></a></div></li></ul>
 </li>
 </ul>
 </li>
@@ -495,108 +495,247 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_flt_descent"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fermat’s last theorem and the method of descent</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_ring_integers"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic rings of integers</span>
 </h2>
-<article class="objectives goal-like" id="s_flt_descent-2"><h3 class="heading"><span class="type">Objectives</span></h3>
-<ol class="decimal" id="s_flt_descent-2-1">
-<li id="s_flt_descent-2-1-1">
-<div class="para" id="s_flt_descent-2-1-1-1">Contrast the wealth of solutions to <span class="process-math">\(x^2+y^2=z^2\)</span> with the paucity of solution <span class="process-math">\(x^n+y^n=z^n\)</span> for <span class="process-math">\(n\geq 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_flt_descent-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="subsection" id="ss_quadratic_ext"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic extensions of <span class="process-math">\(\Q\)</span></span>
+</h3>
+<article class="definition definition-like" id="d_"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic extension of <span class="process-math">\(\Q\)</span>.</span>
+</h4>
+<div class="para logical" id="d_-2-1">
+<div class="para">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a squarefree integer. We define <span class="process-math">\(\Q(\sqrt{d})\)</span> to be the following subset of <span class="process-math">\(\C\text{:}\)</span>
 </div>
-<div class="autopermalink" data-description="Objective 1.10.1"><a href="#s_flt_descent-2-1-1" title="Copy heading and permalink for Objective 1.10.1" aria-label="Copy heading and permalink for Objective 1.10.1">🔗</a></div>
+<div class="displaymath process-math" id="d_-2-1-4">
+\begin{align}
+\Q(\sqrt{d}) \amp = \{z\in \C\mid z=q_1+q_2\sqrt{d} \text{ for some } q_1,q_2\in \Q\}\text{.}\tag{1.15.1}
+\end{align}
+</div>
+<div class="para">We call <span class="process-math">\(\Q(\sqrt{d})\)</span> a <dfn class="terminology">quadratic field extension</dfn> of <span class="process-math">\(\Q\text{,}\)</span> or a <dfn class="terminology">quadratic subfield</dfn> of <span class="process-math">\(\C\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_-2-2">The quadratic field <span class="process-math">\(\Q(\sqrt{d})\)</span> is <dfn class="terminology">real</dfn> if <span class="process-math">\(\Q(\sqrt{d})\subseteq \R\)</span> (i.e., if <span class="process-math">\(d\geq 0\)</span>) and <dfn class="terminology">imaginary</dfn> otherwise (i.e., if <span class="process-math">\(d&lt; 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#d_-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.15.1: Quadratic extension of \Q"><a href="#d_" title="Copy heading and permalink for Definition 1.15.1: Quadratic extension of \Q" aria-label="Copy heading and permalink for Definition 1.15.1: Quadratic extension of \Q">🔗</a></div></article><article class="remark remark-like" id="ss_quadratic_ext-3"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic field extensions.</span>
+</h4>
+<div class="para" id="ss_quadratic_ext-3-2">You will likely notice the similarity in notation between quadratic fields <span class="process-math">\(\Q(\sqrt{d})\)</span> and the Gaussian integers <span class="process-math">\(\Z[i]\text{.}\)</span> Notice further some important differences: the <span class="process-math">\(\Q\)</span> in the first notation is an indication that the set consists of <span class="process-math">\(Q\)</span>-linear combinations <span class="process-math">\(q_1+q_2\sqrt{d}\text{,}\)</span> <span class="process-math">\(q_1,q_2\in \Q\)</span> as opposed to <span class="process-math">\(\Z\)</span>-linear combinations <span class="process-math">\(a+b\sqrt{d}\text{,}\)</span> <span class="process-math">\(a,b\in \Z\text{.}\)</span> Moreover, the use of parentheses in <span class="process-math">\(\Q(\sqrt{d})\)</span> as opposed to brackets (as in <span class="process-math">\(\Z[i]\)</span>) is a notational indication that <span class="process-math">\(\Q(\sqrt{d})\)</span> is a <em class="emphasis">field</em> and not just a ring. (See <a href="s_ring_integers.html#th_quad_ext_field" class="xref" data-knowl="./knowl/xref/th_quad_ext_field.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.15.7: Quadratic extensions of \Q are fields">Theorem 1.15.7</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ss_quadratic_ext-3-3">The quadratic fields <span class="process-math">\(K=\Q(\sqrt{d})\)</span> can be thought of as generalizations of <span class="process-math">\(\Q\text{.}\)</span> The analog of <span class="process-math">\(\Z\)</span> in these settings is given by the <em class="emphasis">ring of integers</em> <span class="process-math">\(\mathcal{O}_K\)</span> defined below.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.15.2: Quadratic field extensions"><a href="#ss_quadratic_ext-3" title="Copy heading and permalink for Remark 1.15.2: Quadratic field extensions" aria-label="Copy heading and permalink for Remark 1.15.2: Quadratic field extensions">🔗</a></div></article><div class="para" id="ss_quadratic_ext-4">You might be wondering about the importance of this squarefree condition. This will arise at various points in our discussion. Our first example is the simple characterization of equality in <span class="process-math">\(\Q(\sqrt{d})\)</span> given below.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="proposition theorem-like" id="prop_quad_ext_equality"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equality in <span class="process-math">\(\Q(\sqrt{d})\)</span>.</span>
+</h4>
+<div class="para logical" id="prop_quad_ext_equality-2-1">
+<div class="para">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a squarefree integer, and let <span class="process-math">\(K=\Q(\sqrt{d})\text{.}\)</span>
+</div>
+<ol class="decimal" id="prop_quad_ext_equality-2-1-3">
+<li id="prop_quad_ext_equality-2-1-3-1">
+<div class="para" id="prop_quad_ext_equality-2-1-3-1-1">For all nonzero <span class="process-math">\(q\in \Q\text{,}\)</span> <span class="process-math">\(q^2d\)</span> is not a square in <span class="process-math">\(\Q\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ext_equality-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#prop_quad_ext_equality-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
 </li>
-<li id="s_flt_descent-2-1-2">
-<div class="para" id="s_flt_descent-2-1-2-1">Introduce Fermat’s method of descent, and understand it as a version of the well-ordering principle.<div class="autopermalink" data-description="Paragraph"><a href="#s_flt_descent-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="prop_quad_ext_equality-2-1-3-2">
+<div class="para logical" id="prop_quad_ext_equality-2-1-3-2-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="prop_quad_ext_equality-2-1-3-2-1-1">
+\begin{align*}
+q_1+q_2\sqrt{d}=q_1'+q_2'\sqrt{d} \amp \iff q_1=q_1' \text{ and } q_2=q_2'
+\end{align*}
 </div>
-<div class="autopermalink" data-description="Objective 1.10.2"><a href="#s_flt_descent-2-1-2" title="Copy heading and permalink for Objective 1.10.2" aria-label="Copy heading and permalink for Objective 1.10.2">🔗</a></div>
-</li>
-<li id="s_flt_descent-2-1-3">
-<div class="para" id="s_flt_descent-2-1-3-1">Prove the <span class="process-math">\(n=4\)</span> case of Fermat’s last theorem.<div class="autopermalink" data-description="Paragraph"><a href="#s_flt_descent-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">for all <span class="process-math">\(\alpha=q_1+q_2\sqrt{d}\)</span> and <span class="process-math">\(\beta=q_1'+q_2'\sqrt{d}\)</span> in <span class="process-math">\(K\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Objective 1.10.3"><a href="#s_flt_descent-2-1-3" title="Copy heading and permalink for Objective 1.10.3" aria-label="Copy heading and permalink for Objective 1.10.3">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ext_equality-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#prop_quad_ext_equality-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Objectives 1.10"><a href="#s_flt_descent-2" title="Copy heading and permalink for Objectives 1.10" aria-label="Copy heading and permalink for Objectives 1.10">🔗</a></div></article><div class="para" id="s_flt_descent-3">We saw in the last section that are many interesting positive solutions to the Pythagorean equation <span class="process-math">\(x^2+y^2=z^2\text{.}\)</span> Interestingly, the situation changes dramatically if we increase the exponent 2 in that equation to anything larger.<div class="autopermalink" data-description="Paragraph"><a href="#s_flt_descent-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ext_equality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="th_flt"><h3 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fermat’s last theorem (FLT).</span>
-</h3>
-<div class="para logical" id="th_flt-2-1">
-<div class="para">Let <span class="process-math">\(n\)</span> be an integer satisfying <span class="process-math">\(n\geq 3\text{.}\)</span> The equation</div>
-<div class="displaymath process-math" id="th_flt-2-1-3">
+<div class="autopermalink" data-description="Proposition 1.15.3: Equality in \Q(\sqrt{d})"><a href="#prop_quad_ext_equality" title="Copy heading and permalink for Proposition 1.15.3: Equality in \Q(\sqrt{d})" aria-label="Copy heading and permalink for Proposition 1.15.3: Equality in \Q(\sqrt{d})">🔗</a></div></article><details id="prop_quad_ext_equality-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="prop_quad_ext_equality-3-1">
+<ol class="decimal" id="prop_quad_ext_equality-3-1-1">
+<li id="prop_quad_ext_equality-3-1-1-1">
+<div class="para" id="prop_quad_ext_equality-3-1-1-1-1">If <span class="process-math">\(d\)</span> is negative, then clearly <span class="process-math">\(q^2d\)</span> is negative, and hence not a square in <span class="process-math">\(\Q\text{.}\)</span> Assume <span class="process-math">\(d&gt; 1\text{.}\)</span> If <span class="process-math">\(q^2d=r^2\)</span> for some <span class="process-math">\(r\in \Q\text{,}\)</span> then after expressing <span class="process-math">\(q\)</span> and <span class="process-math">\(r\)</span> as quotients of integers and clearing denominators, we see that we have <span class="process-math">\(n^2d=m^2\)</span> for some nonzero integers <span class="process-math">\(n\)</span> and <span class="process-math">\(m\text{.}\)</span> Let <span class="process-math">\(p\)</span> be any prime divisor of <span class="process-math">\(d\text{.}\)</span> Since it appears with exponent <span class="process-math">\(1\)</span> in the prime factorization of <span class="process-math">\(d\)</span> (<span class="process-math">\(d\)</span> is squarefree), it appears with odd exponent in the prime factorization of <span class="process-math">\(n^2d\text{.}\)</span> But this contradicts the fact that <span class="process-math">\(n^2d=m^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ext_equality-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#prop_quad_ext_equality-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="prop_quad_ext_equality-3-1-1-2">
+<div class="para logical" id="prop_quad_ext_equality-3-1-1-2-1">
+<div class="para">The reverse implication is obvious. For the forward implication, we have</div>
+<div class="displaymath process-math" id="prop_quad_ext_equality-3-1-1-2-1-1">
 \begin{align}
-x^n+y^n \amp =z^n\tag{1.10.1}
+q_1+q_2\sqrt{d}=q_1'+q_2'\sqrt{d} \amp \implies (q_1-q_1')+(q_2-q_2')\sqrt{d}=0 \text{.}\tag{1.15.2}
 \end{align}
 </div>
-<div class="para">has no solutions in nonzero integers.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#th_flt-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">If <span class="process-math">\(q_2-q_2'\ne 0\text{,}\)</span> we would have <span class="process-math">\(\sqrt{d}\in \Q\text{.}\)</span> But this is impossible: if <span class="process-math">\(d=(m/n)^2\text{,}\)</span> then we would have <span class="process-math">\(n^2d=m^2\text{,}\)</span> contradicting (1). Thus we must have <span class="process-math">\(q_2-q_2'=0\text{,}\)</span> or equivalently <span class="process-math">\(q_2=q_2'\text{.}\)</span> It then follows tautologically that <span class="process-math">\(q_1=q_1'\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Theorem 1.10.1: Fermat’s last theorem (FLT)"><a href="#th_flt" title="Copy heading and permalink for Theorem 1.10.1: Fermat’s last theorem (FLT)" aria-label="Copy heading and permalink for Theorem 1.10.1: Fermat’s last theorem (FLT)">🔗</a></div></article><div class="para" id="s_flt_descent-5">In the 17th century Fermat famously scrawled in his copy of Diophantus’s <em class="emphasis">Arithmetica</em> that he had a marvelous proof of this fact that unfortunately did not fit in the margin. Although Fermat did provide a proof of the <span class="process-math">\(n=4\)</span> case of FLT using his method of descent (see below), there is no evidence that he had a valid proof for all cases. Moreover, amazingly it was not until 1994 that a complete proof was provided and accepted by the mathematical community as valid. This was the work of Andrew Wiles, which built off the work of many others (e.g., Gerhard Frey, Ken Ribet, and Richard Taylor), and which made use of very deep results that drew connections with elliptic curves and modular curves.<div class="autopermalink" data-description="Paragraph"><a href="#s_flt_descent-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ext_equality-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="th_flt_nis4"><h3 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">FLT: <span class="process-math">\(n=4\)</span>.</span>
-</h3>
-<div class="para logical" id="th_flt_nis4-2-1">
-<div class="para">The equation</div>
-<div class="displaymath process-math" id="th_flt_nis4-2-1-1">
+<div class="autopermalink" data-description="Item 2"><a href="#prop_quad_ext_equality-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ext_equality-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.15.3.1"><a href="#prop_quad_ext_equality-3" title="Copy heading and permalink for Proof 1.15.3.1" aria-label="Copy heading and permalink for Proof 1.15.3.1">🔗</a></div></article></details><article class="definition definition-like" id="d_quad_conjugate_norm"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic norm and conjugate.</span>
+</h4>
+<div class="para logical" id="d_quad_conjugate_norm-2-1">
+<div class="para">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be squarefree, and let <span class="process-math">\(K=\Q(\sqrt{d})\text{.}\)</span> For any <span class="process-math">\(\alpha=q_1+q_2\sqrt{d}\in K\text{,}\)</span> we define its <dfn class="terminology">conjugate</dfn> <span class="process-math">\(\overline{\alpha}\)</span> and <dfn class="terminology">norm</dfn> <span class="process-math">\(N_K(\alpha)\)</span> as follows:</div>
+<div class="displaymath process-math" id="d_quad_conjugate_norm-2-1-8">
+\begin{align*}
+\overline{\alpha} \amp =q_1-q_2\sqrt{d}\amp N_K(\alpha)\amp=\alpha\overline{\alpha}=q_1^2-q_2^2\sqrt{d}\text{.}
+\end{align*}
+</div>
+<div class="para">We call the resulting function <span class="process-math">\(N_K\colon K\rightarrow \Q\)</span> the <dfn class="terminology">norm funcion</dfn> of <span class="process-math">\(K\)</span> over <span class="process-math">\(\Q\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_quad_conjugate_norm-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.15.4: Quadratic norm and conjugate"><a href="#d_quad_conjugate_norm" title="Copy heading and permalink for Definition 1.15.4: Quadratic norm and conjugate" aria-label="Copy heading and permalink for Definition 1.15.4: Quadratic norm and conjugate">🔗</a></div></article><article class="warning remark-like" id="ss_quadratic_ext-7"><h4 class="heading">
+<span class="type">Warning</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="ss_quadratic_ext-7-1">It is important not to conflate the general conjugate and norm operations of a quadratic field with <em class="emphasis">complex conjugation</em> and the <em class="emphasis">Gaussian norm</em> function.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ss_quadratic_ext-7-2">
+<div class="para">Take quadratic field <span class="process-math">\(K=\Q(\sqrt{2})\text{,}\)</span> for example. Given any <span class="process-math">\(\alpha=q_1+q_2\sqrt{2}\in K\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="ss_quadratic_ext-7-2-3">
+\begin{align*}
+\overline{\alpha} \amp = q_1-q_2\sqrt{2} \amp N_K(\alpha)=q_1^2-2q_2^2\text{.}
+\end{align*}
+</div>
+<div class="para">There operations are clearly different than complex conjugation and the Gaussian norm. For instance we have <span class="process-math">\(\overline{3+2\sqrt{2}}=3-2\sqrt{2}\text{,}\)</span> whereas the complex conjugate of <span class="process-math">\(3+2\sqrt{2}\)</span> is itself (since it is real)! Furthermore, note that <span class="process-math">\(N_K\)</span> can assume negative values (<span class="process-math">\(N_K(2+3\sqrt{2})=4-18=-14\)</span>), whereas the Gaussian norm is a nonnegative function.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ss_quadratic_ext-7-3">That said, in the case where <span class="process-math">\(K=\Q(\sqrt{d})\)</span> is imaginary (i.e., <span class="process-math">\(d&lt; 0\)</span>), then the quadratic conjugate and norm operations are in fact identical to complex conjugation and modulus squared.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Warning 1.15.5"><a href="#ss_quadratic_ext-7" title="Copy heading and permalink for Warning 1.15.5" aria-label="Copy heading and permalink for Warning 1.15.5">🔗</a></div></article><article class="proposition theorem-like" id="prop_quad_norm"><h4 class="heading">
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic conjugates and norms.</span>
+</h4>
+<div class="para logical" id="prop_quad_norm-2-1">
+<div class="para">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a squarefree integer, and let <span class="process-math">\(K=\Q(\sqrt{d})\text{.}\)</span> As usual, given <span class="process-math">\(\alpha=q_1+q_2\sqrt{d}\text{,}\)</span> we define <span class="process-math">\(\overline{\alpha}=q_1-q_2\sqrt{d}\text{.}\)</span>
+</div>
+<ol class="decimal" id="prop_quad_norm-2-1-5">
+<li id="prop_quad_norm-2-1-5-1">
+<div class="para logical" id="prop_quad_norm-2-1-5-1-1">
+<div class="para">For all <span class="process-math">\(\alpha,\beta\in K\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="prop_quad_norm-2-1-5-1-1-2">
 \begin{align}
-x^4+y^4 \amp =z^2\tag{1.10.2}
+\overline{\alpha\beta} \amp =\overline{\alpha}\, \overline{\beta}\tag{1.15.3}\\
+\overline{\alpha+\beta} \amp = \overline{\alpha}+\overline{\beta} \tag{1.15.4}\\
+N_K(\alpha\beta) \amp =N_K(\alpha)N_K(\beta)\text{.}\tag{1.15.5}
 \end{align}
 </div>
-<div class="para">has no solutions in nonzero integers. As a result Fermat’s last theorem holds for <span class="process-math">\(n=4\text{.}\)</span>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_norm-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#th_flt_nis4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Item 1"><a href="#prop_quad_norm-2-1-5-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="prop_quad_norm-2-1-5-2">
+<div class="para logical" id="prop_quad_norm-2-1-5-2-1">
+<div class="para">Given <span class="process-math">\(\alpha\in K\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="prop_quad_norm-2-1-5-2-1-2">
+\begin{align}
+\alpha\in \Q \amp \iff \overline{\alpha}=\alpha\tag{1.15.6}\\
+N_K(\alpha)=0\amp \iff \alpha=0 \text{.}\tag{1.15.7}
+\end{align}
 </div>
-<div class="autopermalink" data-description="Theorem 1.10.2: FLT: n=4"><a href="#th_flt_nis4" title="Copy heading and permalink for Theorem 1.10.2: FLT: n=4" aria-label="Copy heading and permalink for Theorem 1.10.2: FLT: n=4">🔗</a></div></article><details id="th_flt_nis4-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="th_flt_nis4-3-1">First observe that if <span class="process-math">\((a,b,c)\)</span> is a nontrivial solution to the <span class="process-math">\(n=4\)</span> Fermat equation <span class="process-math">\(x^4+y^4=z^4\text{,}\)</span> then <span class="process-math">\((a,b,c^2)\)</span> is a nontrivial solution to <span class="process-math">\(x^4+y^4=z^2\text{.}\)</span> Thus the given result implies FLT for <span class="process-math">\(n=4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_flt_nis4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_norm-2-1-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="th_flt_nis4-3-2">
-<div class="para">We argue by contradiction. If <span class="process-math">\((a,b,c)\)</span> is a solution in nonzero integers, then <span class="process-math">\((\abs{a},\abs{b},\abs{c})\)</span> is a solution in positive integers. As such the set</div>
-<div class="displaymath process-math" id="th_flt_nis4-3-2-3">
-\begin{equation*}
-X=\{c\in \Z_{&gt;0} \mid a^4+b^4=c^2 \text{ for some } a,b\in \Z_{&gt; 0}\}
-\end{equation*}
+<div class="autopermalink" data-description="Item 2"><a href="#prop_quad_norm-2-1-5-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_norm-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">is nonempty. By the well-ordering principle, <span class="process-math">\(X\)</span> has a least element <span class="process-math">\(c\text{,}\)</span> which means there is a nontrivial solution in positive integers <span class="process-math">\((a,b,c)\)</span> to the equation <span class="process-math">\(x^4+y^4=z^2\)</span> whose third component <span class="process-math">\(c\)</span> is minimal. We will derive a contradiction by showing that there is a solution <span class="process-math">\((a',b',c')\)</span> in positive integers with <span class="process-math">\(c'&lt; c\text{.}\)</span>
+<div class="autopermalink" data-description="Proposition 1.15.6: Quadratic conjugates and norms"><a href="#prop_quad_norm" title="Copy heading and permalink for Proposition 1.15.6: Quadratic conjugates and norms" aria-label="Copy heading and permalink for Proposition 1.15.6: Quadratic conjugates and norms">🔗</a></div></article><details id="prop_quad_norm-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="prop_quad_norm-3-1">
+<ol class="decimal" id="prop_quad_norm-3-1-1">
+<li id="prop_quad_norm-3-1-1-1">
+<div class="para" id="prop_quad_norm-3-1-1-1-1">These are simple algebraic arguments left to the reader.<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_norm-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#th_flt_nis4-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="th_flt_nis4-3-3">
-<div class="para">First observe that if the prime <span class="process-math">\(p\)</span> is a common divisor of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> then <span class="process-math">\(p^4\mid c^2\text{,}\)</span> in which case <span class="process-math">\(p^2\mid c\)</span> and <span class="process-math">\((a/p,b/p,c/p^2)\)</span> is a solution to <span class="process-math">\(x^4+y^4=c^2\)</span> with smaller third component. As this is a contradiction, we may assume that <span class="process-math">\(\gcd(a,b)=1\text{.}\)</span> It follows that <span class="process-math">\(\gcd(a^2,b^2)=1\text{,}\)</span> and hence that the Pythagorean triple <span class="process-math">\((a^2,b^2,c)\)</span> is primitive. Without loss of generality, we may assume that <span class="process-math">\(a^2\)</span> is even and <span class="process-math">\(b\)</span> is odd, in which case we have</div>
-<div class="displaymath process-math" id="th_flt_nis4-3-3-13">
+<div class="autopermalink" data-description="Item 1"><a href="#prop_quad_norm-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="prop_quad_norm-3-1-1-2">
+<div class="para logical" id="prop_quad_norm-3-1-1-2-1">
+<div class="para">Observe first that <span class="process-math">\(\Q=\{\alpha\in \Q(\sqrt{d})\mid \alpha=q+0\sqrt{d}\}\text{.}\)</span> Now given <span class="process-math">\(\alpha=q_1+q_2\sqrt{d}\text{,}\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_quad_ext_equality.html ./knowl/xref/prop_quad_ext_equality.html" id="prop_quad_norm-3-1-1-2-1-3">
 \begin{align*}
-a^2\amp=2mn \amp b^2\amp=m^2-n^2 \amp c\amp =m^2+n^2 
+\alpha=\overline{\alpha} \amp \iff q_1+q_2\sqrt{d}=q_1-q_2\sqrt{d}\\
+\amp \iff q_1=q_1 \text{ and } q_2=-q_2 \amp (\knowl{./knowl/xref/prop_quad_ext_equality.html}{\text{1.15.3}})\\
+\amp \iff q_2=0\\
+\amp \iff \alpha\in \Q\text{.}
 \end{align*}
 </div>
-<div class="para">for positive integers <span class="process-math">\(m\)</span>   and <span class="process-math">\(n\)</span> satisfying <span class="process-math">\(m&gt; n\text{,}\)</span> <span class="process-math">\(\gcd(m,n)=1\text{,}\)</span> and <span class="process-math">\(m\not\equiv n\pmod 2\text{.}\)</span>
+<div class="para">For the second part, given <span class="process-math">\(\alpha=q_1+q_2\sqrt{d}\text{,}\)</span>  we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop_quad_ext_equality.html ./knowl/xref/prop_quad_ext_equality.html" id="prop_quad_norm-3-1-1-2-1-5">
+\begin{align}
+N_K(\alpha)=0  \amp \iff  q_1^2-q_2^2d=0 \tag{1.15.8}\\
+\amp \iff  q_1^2=q_2^2d\tag{1.15.9}\\
+\amp \iff q_1=q_2=0 \amp (\knowl{./knowl/xref/prop_quad_ext_equality.html}{\text{1.15.3}})\tag{1.15.10}\\
+\amp \iff \alpha=0\text{.}\tag{1.15.11}
+\end{align}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#th_flt_nis4-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_norm-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="th_flt_nis4-3-4">
-<div class="para">Since <span class="process-math">\(b^2+n^2=m^2\)</span> and <span class="process-math">\(\gcd(m,n)=1\text{,}\)</span> the triple <span class="process-math">\((b,n,m)\)</span> is a primitive Pythagorean triple. Furthermore, since <span class="process-math">\(b\)</span> is odd, we see that <span class="process-math">\(n\)</span> is even, and we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem_product_square.html" id="th_flt_nis4-3-4-6">
+<div class="autopermalink" data-description="Item 2"><a href="#prop_quad_norm-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_norm-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.15.6.1"><a href="#prop_quad_norm-3" title="Copy heading and permalink for Proof 1.15.6.1" aria-label="Copy heading and permalink for Proof 1.15.6.1">🔗</a></div></article></details><article class="theorem theorem-like" id="th_quad_ext_field"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic extensions of <span class="process-math">\(\Q\)</span> are fields.</span>
+</h4>
+<div class="para logical" id="th_quad_ext_field-2-1">
+<div class="para">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a squarefree integer, and let <span class="process-math">\(K=\Q(\sqrt{d})\text{.}\)</span>
+</div>
+<ol class="decimal" id="th_quad_ext_field-2-1-3">
+<li id="th_quad_ext_field-2-1-3-1">
+<div class="para" id="th_quad_ext_field-2-1-3-1-1">
+<span class="process-math">\(K\)</span> is a subring of <span class="process-math">\(\C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ext_field-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_quad_ext_field-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_quad_ext_field-2-1-3-2">
+<div class="para logical" id="th_quad_ext_field-2-1-3-2-1">
+<div class="para">Every nonzero element of <span class="process-math">\(K\)</span> has a multiplicative inverse: i.e., <span class="process-math">\(K\)</span> is a <em class="emphasis">field</em>. More explicitly, given nonzero <span class="process-math">\(\alpha=q_1+q_2\sqrt{d}\in K\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="th_quad_ext_field-2-1-3-2-1-6">
+\begin{align}
+\alpha^{-1} \amp =\frac{q_1}{q_1^2-q_2^2d}-\frac{q_2}{q_1^2-q_2^2d}=\frac{\overline{\alpha}}{N_K(\alpha)}\text{.}\tag{1.15.12}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ext_field-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_quad_ext_field-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ext_field-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.15.7: Quadratic extensions of \Q are fields"><a href="#th_quad_ext_field" title="Copy heading and permalink for Theorem 1.15.7: Quadratic extensions of \Q are fields" aria-label="Copy heading and permalink for Theorem 1.15.7: Quadratic extensions of \Q are fields">🔗</a></div></article><details id="th_quad_ext_field-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_quad_ext_field-3-1">
+<ol class="decimal" id="th_quad_ext_field-3-1-1">
+<li id="th_quad_ext_field-3-1-1-1">
+<div class="para" id="th_quad_ext_field-3-1-1-1-1">We need only show that <span class="process-math">\(K\)</span> contains <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{,}\)</span> and is closed under addition, additive inverses (<span class="process-math">\(-\alpha\)</span>), and multiplication. These are simple algebraic arguments left to the reader.<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ext_field-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_quad_ext_field-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_quad_ext_field-3-1-1-2">
+<div class="para logical" id="th_quad_ext_field-3-1-1-2-1">
+<div class="para">This is an immediate consequence of the fact that <span class="process-math">\(\alpha\ne 0\)</span> implies <span class="process-math">\(N_K(\alpha)\ne 0\)</span> and the following algebra:</div>
+<div class="displaymath process-math" id="th_quad_ext_field-3-1-1-2-1-3">
 \begin{align*}
-n \amp = 2uv \amp b\amp =u^2-v^2 \amp m\amp =u^2+v^2
+\alpha\cdot \frac{\alpha}{N_K(\alpha)} \amp = \frac{\alpha\overline{\alpha}}{N_K(\alpha)}\\
+\amp =\frac{N_K(\alpha)}{N_K(\alpha)}\\
+\amp = 1\text{.}
 \end{align*}
 </div>
-<div class="para">for relatively prime positive integers <span class="process-math">\(u\)</span> and <span class="process-math">\(v\text{.}\)</span> Substituting <span class="process-math">\(n=2uv\)</span> into the equation <span class="process-math">\(a^2=2mn\)</span> above, we see that <span class="process-math">\(a^2=4muv\text{.}\)</span> Thus <span class="process-math">\(2\mid a\text{,}\)</span> and we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem_product_square.html" id="th_flt_nis4-3-4-13">
-\begin{align*}
-(a/2)^2 \amp = muv\text{.}
-\end{align*}
+<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ext_field-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">Next, since <span class="process-math">\(\gcd(m,n)=1\)</span> and <span class="process-math">\(n=2uv\)</span> with <span class="process-math">\(\gcd(u,v)=1\text{,}\)</span> we see that <span class="process-math">\(m\text{,}\)</span> <span class="process-math">\(u\text{,}\)</span> and <span class="process-math">\(v\)</span> are pairwise relatively prime. Since their product is a square, it follows from <a href="s_pyth_trips.html#lem_product_square" class="xref" data-knowl="./knowl/xref/lem_product_square.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 1.9.3">Lemma 1.9.3</a> (and induction) that <span class="process-math">\(m\text{,}\)</span> <span class="process-math">\(u\text{,}\)</span> and <span class="process-math">\(v\)</span> are all squares. Let <span class="process-math">\(m=r^2\text{,}\)</span> <span class="process-math">\(u=s^2\text{,}\)</span> and <span class="process-math">\(v=t^2\text{.}\)</span> From the equation <span class="process-math">\(m=u^2+v^2\)</span> we conclude that <span class="process-math">\(s^4+t^4=r^2\text{,}\)</span> and thus that <span class="process-math">\((s,t,r)\)</span> is a solution to <span class="process-math">\(x^4+y^4=z^2\)</span> in positive integers. Since <span class="process-math">\(r\leq r^2=m\)</span> and since</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem_product_square.html" id="th_flt_nis4-3-4-32">
-\begin{equation*}
-m\leq m^2&lt; m^2+n^2=c\text{,}
-\end{equation*}
+<div class="autopermalink" data-description="Item 2"><a href="#th_quad_ext_field-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ext_field-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">we conclude that <span class="process-math">\(r&lt; c\text{.}\)</span> Thus the solution <span class="process-math">\((s,t,r)\)</span> has a smaller third component than <span class="process-math">\((a,b,c)\text{,}\)</span> contradicting the minimality of <span class="process-math">\(c\text{.}\)</span>
-</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#th_flt_nis4-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Proof 1.10.2.1"><a href="#th_flt_nis4-3" title="Copy heading and permalink for Proof 1.10.2.1" aria-label="Copy heading and permalink for Proof 1.10.2.1">🔗</a></div></article></details><div class="autopermalink" data-description="Section 1.10: Fermat’s last theorem and the method of descent"><a href="#s_flt_descent" title="Copy heading and permalink for Section 1.10: Fermat’s last theorem and the method of descent" aria-label="Copy heading and permalink for Section 1.10: Fermat’s last theorem and the method of descent">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Proof 1.15.7.1"><a href="#th_quad_ext_field-3" title="Copy heading and permalink for Proof 1.15.7.1" aria-label="Copy heading and permalink for Proof 1.15.7.1">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.15.1: Quadratic extensions of \Q"><a href="#ss_quadratic_ext" title="Copy heading and permalink for Subsection 1.15.1: Quadratic extensions of \Q" aria-label="Copy heading and permalink for Subsection 1.15.1: Quadratic extensions of \Q">🔗</a></div></section><div class="autopermalink" data-description="Section 1.15: Quadratic rings of integers"><a href="#s_ring_integers" title="Copy heading and permalink for Section 1.15: Quadratic rings of integers" aria-label="Copy heading and permalink for Section 1.15: Quadratic rings of integers">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="s_pyth_trips.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_complex_numbers.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="s_gauss_primes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="my-great-book-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
