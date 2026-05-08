@@ -84,7 +84,7 @@
     <md>
         <mrow>\overline{\alpha} \amp =q_1-q_2\sqrt{d}\amp N_K(\alpha)\amp=\alpha\overline{\alpha}=q_1^2-q_2^2\sqrt{d}</mrow>
     </md>.
-    We call the resulting function <m>N_K\colon K\rightarrow \Q</m> the <term>norm funcion</term> of <m>K</m> over <m>\Q</m>. 
+    We call the resulting function <m>N_K\colon K\rightarrow \Q</m> the <term>norm function</term> of <m>K</m> over <m>\Q</m>. 
     </p>
     </statement>
     </definition>
@@ -209,6 +209,185 @@
     </proof>
     </theorem>
     
-    </subsection>
+</subsection>
+<subsection xml:id="ss_ring_of_integers">
+<title>Ring of integers</title>
+<definition xml:id="d_monic">
+<title>Monic polynomial</title>
+<statement>
+<p>
+Let <m>R</m> be a ring. A polynomial <m>f\in R[x]</m> is <term>monic</term> if its leading coefficient is 1: <ie/>, if <m>f(x)=\anmonic</m>, with <m>a_i\in R</m> for all <m>0\leq i\leq n-1</m>. 
+</p>
+</statement>
+</definition>
+
+<definition xml:id="d_alg_integers">
+<title>Algebraic integers of <m>\C</m></title>
+<statement>
+<p>
+A complex number <m>\alpha\in \C</m> is an <term>algebraic integer</term> if there is a monic polynomial <m>f\in \Z[x]</m> such that <m>f(\alpha)=0</m>. 
+</p>
+</statement>
+</definition>
+<remark>
+<title>Algebraic versus algebraic integer</title>
+<p>
+Recall that an element <m>\alpha\in \Q</m> is <em>algebraic</em> if there is a polynomial <m>f\in \Q[x]</m> such that <m>f(\alpha)=0</m>. The condition for being an algebraic integer is stricter on two counts: we must be able to find a polynomial not just with rational coefficients, but integer ones; furthermore, the polynomial must be monic.
+</p>
+<p>
+    Note in this regard that any algebraic element <m>\alpha\in \C</m> will satisfy a polynomial with integer coefficients, just by clearing denominators in the polynomial <m>f\in \Q[x]</m> satisfying <m>f(\alpha)=0</m>. For example, the element <m>\alpha=\frac{\sqrt{2}}{3}</m> satisfies the monic rational polynomial <m>f(x)=x^2-2/9</m> and the integer polynomial <m>g(x)=9x^2-2</m>. However, we will be able to show that <m>\alpha</m> does <em>not</em> satisfy a <em>monic</em> integer polynomial. 
+</p>
+</remark>
+<p>
+    We will primarily be interested in the algebraic integers lying within one of our quadratic fields <m>\Q(\sqrt{d})</m>. Before we get there, we assemble some general results about algebraic integers. 
+</p>
+<theorem xml:id="th_alg_int_ring">
+<title>Algebraic integers form a ring</title>
+<statement>
+<p>
+Let <m>\mathcal{O}</m> be the set of all algebraic integers in <m>\C</m>: <ie/>, 
+<md>\mathcal{O}=\{\alpha\in \C\mid f(\alpha)=0 \text{ for some monic } f\in \Z[x]\}</md>.
+<ol>
+    <li>
+        <p>
+            <m>\mathcal{O}\cap \Q=\Z</m>. In other words, all integers are algebraic integers, and furthermore, the set of rational numbers that are algebraic integers is precisely <m>\Z</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>\mathcal{O}</m> is closed under addition and multiplication: <ie/>, we have 
+            <md>
+                <mrow>\alpha,\beta\in \mathcal{O} \amp \implies \alpha+\beta, \alpha\beta\in \mathcal{O}</mrow>
+            </md>.
+        </p>
+    </li>
+</ol>
+As a result, <m>\mathcal{O}</m> is a subring of <m>\C</m>. 
+</p>
+</statement>
+<proof>
+<p>
+    <ol>
+        <li>
+            <p>
+                If <m>n\in \Z</m>, then <m>f(n)=0</m> for the monic integer polynomial <m>f(x)=x-n</m>. Thus <m>\Z\subseteq \mathcal{O}\cap \Q</m>. 
+            </p>
+            <p>
+                Conversely, suppose <m>q\in \mathcal{O}\cap \Q</m>. Let <m>f(x)=\anmonic</m> be a monic polynomial satisfying <m>f(q)=0</m>. Writing <m>q=r/s</m> with <m>\gcd(r,s)=1</m> and clearing denominators in the equation <m>f(r/s)=0</m>, we see that 
+                <md>
+                    r^n+a_{n-1}r^{n-1}s+\cdots +a_1rs^{n-1}+a_0s^n=0
+                </md>.
+                Since all constants above are integers, we see that <m>s\mid r^n</m>, a contradiction since <m>\gcd(r,s)=1</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                As intuitive as this property might sound, we resort to a little linear algebra trickery to prove it. Namely, we first prove the following sufficient condition for an element <m>\alpha\in \C</m> to be an algebraic integer: if there is a set <m>\{\theta_1,\theta_2,\dots, \theta_k\}</m> of complex numbers, not all zero, such that for all <m>1\leq j\leq k</m> we have 
+                <md>
+                    \alpha\theta_j=\sum_{i=1}^kb_{ij}\theta_i
+                </md>
+                for some integer constants <m>b_{ij}\in \Z</m>, then <m>\alpha</m> is an algebraic integer.
+            </p>
+            <p>
+                Before proving this claim, let's see why it yields the desired result. Suppose that <m>\alpha</m> and <m>\beta</m> are algebraic integers satisfying <m>f(\alpha)=0</m> and <m>g(\beta)=0</m>, where <m>f(x)=\anmonic</m> and <m>g(x)=x^m+b_{m-1}x^{m-1}+\cdots +b_1x+b_0</m> are monic integer polynomials. Since 
+                <md>
+                    <mrow>\alpha^n \amp =-\sum_{i=0}^{n-1}a_i\alpha^{i}</mrow>
+                    <mrow>\beta^m \amp = -\sum_{i=0}^{m-1}b_i\beta^{i}</mrow>
+                </md>,
+                it follows that the set 
+                <md>
+                    X=\{\alpha^{i}\beta^{j}\mid 0\leq i\leq n-1, 0\leq j\leq m-1\}
+                </md>
+                satisfies the condition above for <m>\alpha</m> and <m>\beta</m>. Indeed, we have 
+                <md>
+                    <mrow>\alpha (\alpha^i\beta^j) \amp = \begin{cases}
+                    \alpha^{i+1}\beta^j\amp  \text{if } 0\leq i\leq n-2\\
+                    -\sum_{\ell=0}^{n-1}a_{\ell}\alpha^\ell \beta^j\amp  \text{if } i=n-1
+                    \end{cases}</mrow>
+                     <mrow>\beta (\alpha^i\beta^j) \amp = \begin{cases}
+                    \alpha^{i}\beta^{j+1}\amp  \text{if } 0\leq j\leq m-2\\
+                    -\sum_{\ell=0}^{m-1}b_{\ell}\alpha^i \beta^\ell \amp  \text{if } j=m-1
+                    \end{cases}</mrow>
+                </md>.
+                But then it follows easily that <m>\alpha+\beta</m> and <m>\alpha\beta</m> also satisfy the claims condition with respect to <m>X</m>, showing that these elements are also algebraic integers. 
+            </p>
+        </li>
+    </ol>
+</p>
+</proof>
+</theorem>
+<p>
+    With these generalities out of the way, we can now define the ring of integers of a quadratic field <m>\Q(\sqrt{d})</m>. 
+</p>
+<definition xml:id="d_quad_ring_integers">
+<title>Quadratic ring of integers</title>
+<statement>
+<p>
+Let <m>d\in \Z-\{0,1\}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. The <term>ring of integers</term> of <m>K</m>, denoted <m>\mathcal{O}_K</m> is the set of all elements of <m>K</m> that are algebraic integers: <ie/>, 
+<md number="yes">
+    <mrow>\mathcal{O}_K \amp = \{\alpha\in K\mid f(\alpha)=0 \text{ for some monic } f\in \Z[x]\}</mrow>
+</md>.
+We call <m>\mathcal{O}_K</m> a <term>quadratic ring of integers</term>. 
+</p>
+</statement>
+</definition>
+<theorem xml:id="th_quad_ring_integers">
+<title>Quadratic ring of integers</title>
+<statement>
+<p>
+Let <m>d\in \Z-\{0,1\}</m> be a squarefree integer, and let <m>K=\Q(\sqrt{d})</m>. 
+<ol>
+    <li>
+        <p>
+            <m>\mathcal{O}_K</m> is a subring of <m>\C</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Given <m>\alpha\in K</m>, we have <m>\alpha\in \mathcal{O}_K</m> if and only if <m>\alpha+\overline{\alpha}\in \mathcal{O}_K</m> and <m>\alpha\overline{\alpha}\in \mathcal{O}_K</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            We have 
+            <md>
+                <mrow>\mathcal{O}_K \amp =\begin{cases}
+                \Z[\sqrt{d}]=\{a+b\sqrt{d}\mid a,b\in \Z\} \amp \text{if } d\equiv 2,3\pmod 4\\
+                \Z[\omega]=\{a+b\omega\mid a,b\in \Z\}, \text{ where } \omega=\tfrac{1}{2}+\tfrac{\sqrt{d}}{2} \amp \text{if } d\equiv 1\pmod 4
+                \end{cases}</mrow>
+            </md>.
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<proof>
+<p>
+</p>
+</proof>
+</theorem>
+<definition xml:id="d_norm_euclidean">
+<title>Norm Euclidean</title>
+<statement>
+<p>
+Let <m>d\in \Z-\{0,1\}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. The norm <m>N_K</m> <term>satisfies the division algorithm</term> if given <m>\alpha,\beta\in \mathcal{O}_K</m> with <m>\beta\ne 0</m>, there exist <m>\gamma,\delta\in \mathcal{O}_K</m> satisfying the following conditions. 
+<ol>
+    <li>
+        <p>
+            <m>\alpha=\gamma\beta+\delta</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            <m>0\leq \abs{N_K(\delta)}\leq \abs{N_K(\beta)}</m>.
+        </p>
+    </li>
+</ol>
+We also say that <m>\mathcal{O}_K</m> is <term>norm Euclidean</term> in this case. 
+</p>
+</statement>
+</definition>
+
+</subsection>
 
 </section>
