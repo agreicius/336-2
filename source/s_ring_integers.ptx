@@ -387,6 +387,38 @@ We also say that <m>\mathcal{O}_K</m> is <term>norm Euclidean</term> in this cas
 </p>
 </statement>
 </definition>
+<p>
+    The importance of a quadratic ring of integer <m>\mathcal{O}_K</m> being norm-Euclidean is that we can perform a version of the Euclidean algorithm (<xref ref="th_euc_alg"/>) using <m>\abs{N_K}</m> to compute GCDs of elements <m>\alpha, \beta\in \mathcal{O}_K</m>, and moreover, express a GCD in the form <m>\gamma\alpha+\delta\beta</m> as in Bezout's theorem. As we saw in the discussion of <m>\Z[i]</m>, that fact then leads to a cascade of useful properties we used to classify the prime elements of <m>\Z[i]</m>. As a result, these same properties hold for a norm-Euclidean <m>\mathcal{O}_K</m>.
+</p>
+<theorem xml:id="th_">
+<title>Norm-Euclidean rings of integers</title>
+<statement>
+<p>
+Let <m>d\in \Z-\{0,1}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. If <m>\mathcal{O}_K</m> is norm-Euclidean then it enjoys the following properties. 
+<ol>
+    <li>
+        <p>
+            Let <m>\alpha,\beta\in \mathcal{O}_K</m> and assume <m>\alpha\ne 0</m> or <m>\beta\ne 0</m>. There is a GCD <m>\delta</m> of <m>\alpha</m> and <m>\beta</m>, and we have <m>\delta=\gamma \alpha+\epsilon \beta</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            An element <m>\pi\in \mathcal{O}_K</m> is prime if and only if it is irreducible. 
+        </p>
+    </li>
+    <li>
+        <p>
+            If <m>\alpha\in \mathcal{O}_K</m> is a nonzero non-unit, then it has a factorization <m>\alpha=\prod_{i=1}^r\pi_i</m>, and this factorization is unique in the sense of <xref ref="th_unique_factorization_gauss"/>.
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<proof>
+<p>
+</p>
+</proof>
+</theorem>
 
 </subsection>
 
