@@ -394,11 +394,11 @@ We also say that <m>\mathcal{O}_K</m> is <term>norm Euclidean</term> in this cas
 <title>Norm-Euclidean rings of integers</title>
 <statement>
 <p>
-Let <m>d\in \Z-\{0,1}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. If <m>\mathcal{O}_K</m> is norm-Euclidean then it enjoys the following properties. 
+Let <m>d\in \Z-\{0,1\}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. If <m>\mathcal{O}_K</m> is norm-Euclidean then it enjoys the following properties. 
 <ol>
     <li>
         <p>
-            Let <m>\alpha,\beta\in \mathcal{O}_K</m> and assume <m>\alpha\ne 0</m> or <m>\beta\ne 0</m>. There is a GCD <m>\delta</m> of <m>\alpha</m> and <m>\beta</m>, and we have <m>\delta=\gamma \alpha+\epsilon \beta</m>. 
+            Let <m>\alpha,\beta\in \mathcal{O}_K</m> and assume <m>\alpha\ne 0</m> or <m>\beta\ne 0</m>. There is a GCD <m>\delta</m> of <m>\alpha</m> and <m>\beta</m>, and we have <m>\delta=\gamma \alpha+\epsilon \beta</m> for some <m>\gamma, \epsilon\in \mathcal{O}_K</m>. 
         </p>
     </li>
     <li>
@@ -416,6 +416,7 @@ Let <m>d\in \Z-\{0,1}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. If <m>\m
 </statement>
 <proof>
 <p>
+    The proofs of these statements can be adapted immediately from the proofs of the corresponding results for <m>\Z[i]</m>, all of which build on the fact that the norm satisfies the division algorithm. 
 </p>
 </proof>
 </theorem>
