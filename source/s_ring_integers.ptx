@@ -344,14 +344,14 @@ Let <m>d\in \Z-\{0,1\}</m> be a squarefree integer, and let <m>K=\Q(\sqrt{d})</m
     </li>
     <li>
         <p>
-            Given <m>\alpha\in K</m>, we have <m>\alpha\in \mathcal{O}_K</m> if and only if <m>\alpha+\overline{\alpha}\in \mathcal{O}_K</m> and <m>\alpha\overline{\alpha}\in \mathcal{O}_K</m>. 
+            Given <m>\alpha\in K</m>, we have <m>\alpha\in \mathcal{O}_K</m> if and only if <m>\alpha+\overline{\alpha}\in \ZZ</m> and <m>\alpha\overline{\alpha}\in \Z</m>. 
         </p>
     </li>
     <li>
         <p>
             We have 
-            <md>
-                <mrow>\mathcal{O}_K \amp =\begin{cases}
+            <md number="yes">
+                <mrow xml:id="eq_quad_ring_int">\mathcal{O}_K \amp =\begin{cases}
                 \Z[\sqrt{d}]=\{a+b\sqrt{d}\mid a,b\in \Z\} \amp \text{if } d\equiv 2,3\pmod 4\\
                 \Z[\omega]=\{a+b\omega\mid a,b\in \Z\}, \text{ where } \omega=\tfrac{1}{2}+\tfrac{\sqrt{d}}{2} \amp \text{if } d\equiv 1\pmod 4
                 \end{cases}</mrow>
@@ -363,11 +363,71 @@ Let <m>d\in \Z-\{0,1\}</m> be a squarefree integer, and let <m>K=\Q(\sqrt{d})</m
 </statement>
 <proof>
 <p>
+    <ol>
+        <li>
+            <p>
+                This follows easily from the fact the set of algebraic integers is closed under addition and multiplication, as is <m>K</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Note that <m>\alpha</m> is a root of the monic polynomial 
+                <md>
+                    <mrow>f(x) \amp =(x-\alpha)(x-\overline{\alpha})=x^2-(\alpha+\overline{\alpha})x+\alpha\overline{\alpha}</mrow>
+                </md>.
+                If <m>\alpha+\overline{\alpha}\in \Z</m> and <m>\alpha\overline{\alpha}\in \Z</m>, then <m>f\in \Z[x]</m> and thus <m>\alpha\in \mathcal{O}_K</m>. 
+            </p>
+            <p>
+                Conversely, assume <m>\alpha\in\mathcal{O}_K</m>, and suppose <m>f(\alpha)=0</m> for the polynomial <m>f(x)=\anmonic\in \Z</m>. Since <m>\overline{a_i}=a_i</m> for all <m>0\leq i\leq n-1</m>, we see that 
+                <md>
+                    <mrow>0 \amp =\overline{f(\alpha)}</mrow>
+                    <mrow> \amp =\overline{a_n}\overline{\alpha}^n+\overline{a_{n-1}}\overline{\alpha}^{n-1}+\cdots +\overline{a_1}\alpha+\overline{a_0}</mrow>
+                    <mrow> \amp = a_n\overline{\alpha}^n+a_{n-1}\overline{\alpha}^{n-1}+\cdots +a_1\alpha+a_0</mrow>
+                    <mrow> \amp = f(\overline{\alpha})</mrow>
+                </md>.
+                Thus <m>\overline{\alpha}</m> is also a root of <m>f</m>, showing tha that <m>\overline{\alpha}\in \mathcal{O}_K</m>. It follows that <m>\alpha+\overline{\alpha}</m> and <m>\alpha\overline{\alpha}</m> are elements of <m>\mathcal{O}_K</m>. Lastly, since 
+                <md>
+                    <mrow>\overline{\alpha+\overline{\alpha}} \amp =\overline{\alpha}+\alpha</mrow>
+                    <mrow>\overline{\alpha\overline{\alpha}} \amp = \overline{\alpha}\alpha</mrow>
+                </md>,
+                we see that <m>\alpha+\overline{\alpha},\alpha\overline{\alpha}\in \Q</m>. From (1) of <xref ref="th_alg_int_ring"/>, we conclude that <m>\alpha+\overline{\alpha},\alpha\overline{\alpha}\in \Z</m>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Using the condition from (2), it is easy to see that elements of the rings on the right side of the equality <xref ref="eq_quad_ring_int"/> are elements of <m>\mathcal{O}_K</m>. It remains to show that the reverse inclusion. 
+            </p>
+            <p>
+                Assume <m>\alpha=q_1+q_2\sqrt{d}\in \mathcal{O}_K</m>. From (2) it follows that <m>\alpha+\overline{\alpha},\alpha\overline{\alpha}\in \Z</m>. We have 
+                <md>
+                    <mrow>\alpha+\overline{\alpha} \amp =2q_1</mrow>
+                    <mrow>\alpha\overline{\alpha} \amp =q_1^2-q_2^2d</mrow>
+                </md>.
+                Since <m>2q_1\in \Z</m>, we have <m>q_1=m/2</m> for some integer <m>m</m>. 
+            </p>
+            <p>
+                Assume first that <m>m</m> is even, so that <m>q_1\in \Z</m>. It follows that <m>q_2^2d=a\in \Z</m>. Using the fact that <m>d</m> is square free, we can show that <m>q_2\in \Z</m> in this case. Indeed, writing <m>q_2=r/s</m> with <m>\gcd(r,s)=1</m>, we have <m>r^2d=s^2a</m>. If <m>s</m> had a prime divisor <m>p</m>, <m>p^2\mid s^2a</m>, and since <m>\gcd(r,s)=1</m>, we'd have <m>p^2\mid d</m>. Thus when <m>q_1\in \Z</m> is an integer, <m>q_2\in \Z</m>, and we have <m>\alpha\in \Z[\sqrt{d}]\subseteq \Z[\omega]</m>. 
+            </p>
+            <p>
+                Now assume <m>q_1=m/2</m> with <m>m</m> odd. Since 
+                <md>
+                    \frac{m^2}{4}-q_2^2d\in \Z
+                </md>,
+                we have <m>4q_2^2=(2q_2)^2d\in \Z</m>. The same argument above implies that <m>2q_2\in \Z</m>, and thus <m>q_2=n/2</m> for some integer <m>n\in \Z</m>. But then we have 
+                <md>
+                    \frac{m^2}{4}-\frac{n^2}{4}d\in \Z
+                </md>,
+                in which case <m>m^2-n^2d\equiv 1-n^2d 0\pmod 4</m>. But this can happen if and only if <m>n^2d\equiv 1\pmod 4</m>. This in turn forces <m>n</m> and <m>d</m> to both be odd, in which case <m>n^2d\equiv 1d\equiv d\equiv 1\pmod 4</m>. Thus in this case we must have <m>d\equiv 1\pmod 4</m>, and 
+                
+                
+            </p>
+        </li>
+    </ol>
 </p>
 </proof>
 </theorem>
 <definition xml:id="d_norm_euclidean">
-<title>Norm Euclidean</title>
+<title>Norm-Euclidean</title>
 <statement>
 <p>
 Let <m>d\in \Z-\{0,1\}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. The norm <m>N_K</m> <term>satisfies the division algorithm</term> if given <m>\alpha,\beta\in \mathcal{O}_K</m> with <m>\beta\ne 0</m>, there exist <m>\gamma,\delta\in \mathcal{O}_K</m> satisfying the following conditions. 
@@ -383,7 +443,7 @@ Let <m>d\in \Z-\{0,1\}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. The nor
         </p>
     </li>
 </ol>
-We also say that <m>\mathcal{O}_K</m> is <term>norm Euclidean</term> in this case. 
+We also say that <m>\mathcal{O}_K</m> is <term>norm-Euclidean</term> in this case. 
 </p>
 </statement>
 </definition>
