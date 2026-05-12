@@ -344,7 +344,7 @@ Let <m>d\in \Z-\{0,1\}</m> be a squarefree integer, and let <m>K=\Q(\sqrt{d})</m
     </li>
     <li>
         <p>
-            Given <m>\alpha\in K</m>, we have <m>\alpha\in \mathcal{O}_K</m> if and only if <m>\alpha+\overline{\alpha}\in \ZZ</m> and <m>\alpha\overline{\alpha}\in \Z</m>. 
+            Given <m>\alpha\in K</m>, we have <m>\alpha\in \mathcal{O}_K</m> if and only if <m>\alpha+\overline{\alpha}\in \Z</m> and <m>\alpha\overline{\alpha}\in \Z</m>. 
         </p>
     </li>
     <li>
@@ -431,6 +431,45 @@ Let <m>d\in \Z-\{0,1\}</m> be a squarefree integer, and let <m>K=\Q(\sqrt{d})</m
 </p>
 </proof>
 </theorem>
+<p>
+    As with <m>\Z[i]</m>, the multiplicative units of <m>\mathcal{O}_K</m> play an important role in our analysis of these rings. We will say much more about these units in the next section. For now we content ourselves with a definition and a first elementary proposition. 
+</p>
+<definition xml:id="d_quad_ring_units">
+<title>Units of <m>\mathcal{O}_K</m></title>
+<statement>
+<p>
+Let <m>d\in \Z-\{0,1\}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. An element <m>\alpha \in \mathcal{O}_K</m> is a <term>unit</term> (or <term>invertible</term>) if there is an element <m>\beta\in \mathcal{O}_K</m> such that <m>\alpha\beta=1</m>. The <term>group of units</term> of <m>\mathcal{O}_K</m> is the set <m>\mathcal{O}_K^*</m> of all units: <ie/>, 
+<md>
+    \mathcal{O}_K^*=\{\alpha\in \mathcal{O}_K\mid \alpha\beta=1 \text{ for some } \beta\in \mathcal{O}_K^*\}
+</md>.
+</p>
+</statement>
+</definition>
+<proposition xml:id="prop_quad_ring_units">
+    <title>Units of <m>\mathcal{O}_K</m></title>
+    <statement>
+        <p>
+            Let <m>d\in \Z-\{0,1\}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. An element <m>\alpha\in \mathcal{O}_K</m> if and only if <m>N_K(\alpha)=\pm 1</m>. In other words
+            <md>
+                \mathcal{O}_K=\{\alpha\in \mathcal{O}_K\mid N_K(\alpha)=\pm 1\}
+            </md>.
+        </p>
+    </statement>
+    <proof>
+        <p>
+            We prove both implications separately. 
+        </p>
+        <p>
+            If <m>\alpha\in \mathcal{O}_K^*</m>, then there is an element <m>\beta\in \mathcal{O}_K</m> such that <m>\alpha\beta=1</m>. Taking norms, we conclude that <m>N_K(\alpha)N_K(\beta)=1</m>. Since <m>N_K(\alpha)</m> and <m>N_K(\beta)</m> are both integers by <xref ref="th_quad_ring_integers"/>, and since the only divisors of <m>1</m> are <m>\pm 1</m>, we conclude that <m>N_K(\alpha)\in \{-1,1\}</m>. 
+        </p>
+        <p>
+            Conversely, if <m>N_K(\alpha)=\alpha\overline{\alpha}=\pm 1</m>, then we see that <m>\alpha(\pm \overline{\alpha}}=1</m> and thus <m>\pm \overline{\alpha}</m> is an inverse of <m>\alpha</m> in <m>\C</m>. Since <m>\alpha\in \mathcal{O}_K</m> if and only if <m>\overline{\alpha}\in \mathcal{O}_K</m>, we see that <m>\pm \overline{\alpha}\in \mathcal{O}_K</m>, showing that <m>\alpha\in \mathcal{O}_K^*</m>. 
+        </p>
+    </proof>
+</proposition>
+<p>
+    When analyzing <m>\Z[i]</m> we made heavy use of the fact that the Gaussian norm function <m>N\colon \Z[i]\rightarrow \Z</m> satisfied a division algorithm property. Interestingly, the same cannot be said of a general norm function <m>N_K</m> for the ring of integers <m>\mathcal{O}_K</m>. Accordingly, we give a name to those special rings for which this is true. 
+</p>
 <definition xml:id="d_norm_euclidean">
 <title>Norm-Euclidean</title>
 <statement>
@@ -455,7 +494,7 @@ We also say that <m>\mathcal{O}_K</m> is <term>norm-Euclidean</term> in this cas
 <p>
     The importance of a quadratic ring of integer <m>\mathcal{O}_K</m> being norm-Euclidean is that we can perform a version of the Euclidean algorithm (<xref ref="th_euc_alg"/>) using <m>\abs{N_K}</m> to compute GCDs of elements <m>\alpha, \beta\in \mathcal{O}_K</m>, and moreover, express a GCD in the form <m>\gamma\alpha+\delta\beta</m> as in Bezout's theorem. As we saw in the discussion of <m>\Z[i]</m>, that fact then leads to a cascade of useful properties we used to classify the prime elements of <m>\Z[i]</m>. As a result, these same properties hold for a norm-Euclidean <m>\mathcal{O}_K</m>.
 </p>
-<theorem xml:id="th_">
+<theorem xml:id="th_norm_euc">
 <title>Norm-Euclidean rings of integers</title>
 <statement>
 <p>
@@ -473,7 +512,7 @@ Let <m>d\in \Z-\{0,1\}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. If <m>\
     </li>
     <li>
         <p>
-            If <m>\alpha\in \mathcal{O}_K</m> is a nonzero non-unit, then it has a factorization <m>\alpha=\prod_{i=1}^r\pi_i</m>, and this factorization is unique in the sense of <xref ref="th_unique_factorization_gauss"/>.
+            If <m>\alpha\in \mathcal{O}_K</m> is a nonzero non-unit, then it has a factorization <m>\alpha=\prod_{i=1}^r\pi_i</m> where <m>\pi_i</m> is irreducible for all <m>1\leq i\leq r</m>, and this factorization is unique in the sense of <xref ref="th_unique_factorization_gauss"/>.
         </p>
     </li>
 </ol>
@@ -485,6 +524,96 @@ Let <m>d\in \Z-\{0,1\}</m> be squarefree, and let <m>K=\Q(\sqrt{d})</m>. If <m>\
 </p>
 </proof>
 </theorem>
+<p>
+    Without making things official here, a ring that satisfies the factorization property described in (4) of <xref ref="th_norm_euc"/> is called a <em>unique factorization domain</em>, or <em>UFD</em> for short. Thus, the theorem tells us that if a quadratic ring of integers <m>\mathcal{O}_K</m> is norm-equivalent, then it is a UFD. Interestingly, although not all of these rings are UFDs, they all do admit irreducible factorizations. Note that we are careful to say <em>irreducible</em> factorizations in this context, as we cannot assume that prime and irreducible are equivalent. 
+</p>
+<theorem xml:id="th_quad_ring_irr_fact">
+<title>Irreducible factorizations in quadratic rings of integers</title>
+<statement>
+<p>
+Let <m>d\in \Z-\{0,1\}</m> be a squarefree, let <m>K=\Q(\sqrt{d})</m>, and let <m>\alpha</m> be a nonzero non-unit of <m>\mathcal{O}_K</m>. There are irreducible elements <m>\pi_i\in \mathcal{O}_K</m>, <m>1\leq i\leq r</m> such that <m>\alpha=\prod_{i=1}^r\pi_i</m>.  
+</p>
+</statement>
+<proof>
+    
+<p>
+    We will prove by by strong induction on <m>\abs{N_K(\alpha)}</m> that every element <m>\alpha\in \mathcal{O}_K</m> can be factored into irreducibles. 
+</p>
+<p>
+    First observe that <m>\abs{N(\sqrt{d})}=\abs{d}&gt; 1</m>, and thus that the set <m>X=\{\abs{N_K(\alpha)}\mid \alpha\in \mathcal{O}_K\}-\{1\}</m> is nonempty. Let <m>n_0</m> be the least element of <m>X</m>. This is our base case for the induction argument. Assume <m>\abs{N_K(\alpha)}=n_0</m>. If <m>\alpha=\beta\gamma</m>, then 
+    <md>
+        n_0=\abs{N_K(\alpha)}=\abs{N_K(\beta\gamma)}=\abs{N_K(\beta)}\abs{N_K(\gamma)}
+    </md>,
+    and thus <m>1\leq \abs{N_K(\beta)},\abs{N_K(\gamma)}\leq n_0</m>. Since <m>n_0</m> is the minimal absolute norm of elements of <m>\mathcal{O}_K</m>, it follows that <m>\{\abs{N_K(\beta)},\abs{N_K(\gamma)}\}=\{1,n_0\}</m>. But then <m>\beta</m> or <m>\gamma</m> is a unit, by <xref ref="prop_quad_ring_units"/>. This proves <m>\alpha</m> is irreducible. 
+</p>
+<p>
+    Now assume the statement is true for all <m>\beta\in \mathcal{O}_K</m> with <m>n_0\leq \abs{N_K(\beta)}&lt; n</m>, and assume <m>\abs{N_K(\alpha)}=n</m>. If <m>\alpha</m> is irreducible, then we are done. Otherwise, we can write <m>\alpha=\beta\gamma</m>, where <m>\beta</m> and <m>\gamma</m> are non-units. It follows that 
+    <md>
+        n_0\leq  \abs{N_K(\beta)}, \abs{N_K(\gamma)}&lt; n
+    </md>,
+    whence the induction hypothesis applies. We conclude that <m>\gamma</m> and <m>\beta</m> have irreducible factorizations. Since <m>\alpha=\beta\gamma</m>, the product of these two irreducible factorizations is an irreducible factorization of <m>\alpha</m>.
+</p>
+</proof>
+</theorem>
+<example xml:id="eg_quad_ring_UFD">
+<title><m>\Z[\sqrt{-5}]</m> is not a UFD</title>
+<statement>
+<p>
+Let <m>K=\Q(\sqrt{5}i)</m>and consider <m>\mathcal{O}_K=\Z[\sqrt{-5}]=\Z[\sqrt{5}i]</m>. (Note that <m>-5\equiv 3\pmod 4</m>.)
+<ol>
+    <li>
+        <p>
+            Compute <m>\mathcal{O}_K^*</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Show that <m>2</m>, <m>3</m>, <m>1+\sqrt{5}i</m> and <m>1-\sqrt{5}i</m> are pairwise non-associate irreducible elements of <m>\Z[\sqrt{5}i]</m>. 
+        </p>
+    </li>
+    <li>
+       <p>
+        Show that <m>\Z[\sqrt{5}i]</m> is not a UFD. 
+       </p>
+    </li>
+    <li>
+        <p>
+            Show that none of the irreducible elements <m>2</m>, <m>3</m>, <m>1+\sqrt{5}i</m>, <m>1-\sqrt{5}i</m> are prime. Thus prime is not equivalent to irreducible in <m>\Z[\sqrt{5}i]</m>. 
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+<solution>
+    <p>
+        <ol>
+            <li>
+                <p>
+                    An element <m>\alpha=a+b\sqrt{5}i</m> is a unit if and only if <m>N_K(\alpha)=a^2+5b^2=1</m>. It follows easily that the only units of <m>\mathcal{O}_K</m> are <m>1</m> and <m>-1</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    Since <m>\mathcal{O}_K=\{1,-1\}</m>, it follows easily that the listed elements are pairwise non-associate. 
+                </p>
+                <p>
+                    We prove <m>2</m> is irreducible; the same argument can be used for the remaining elements. If <m>2=\alpha\beta</m> for <m>\alpha,\beta\in \Z[\sqrt{5}i]</m>, then taking norms, we see that <m>4=N_K(\alpha)N_K(\beta)</m>. It is easy to see that there are no elements of <m>\Z[\sqrt{5}i]</m> with norm equal to <m>2</m> (or <m>3</m>). Thus we must have <m>\{N_K(\alpha),N_K(\beta)\}=\{1, 4\}</m>, showing that <m>\alpha</m> or <m>\beta</m> is a unit, and hence <m>2</m> is irreducible.
+                </p>
+            </li>
+            <li>
+                <p>
+                   The factorizations <m>6=2\cdot 3</m> and <m>6=(1+\sqrt{5}i)(1-\sqrt{5}i)</m> give us two irreducible factorizations of 6 consisting of non-associate irreducibles. Thus irreducible factorization is not unique in <m>\mathcal{O}_K</m>, showing that it is not a UFD. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    The two factorizations above also show us that <m>2</m>, <m>3</m>, <m>1+\sqrt{5}i</m>, and <m>1-\sqrt{5}i</m> are not prime. For example, we have <m>2\mid 6=(1+\sqrt{5}i)(1-\sqrt{5}i)</m>, but <m>2\nmid(1+\sqrt{5}i)</m> and <m>2\nmid (1-\sqrt{5}i)</m>. 
+                </p>
+            </li>
+        </ol>
+    </p>
+</solution>
+</example>
 
 </subsection>
 
