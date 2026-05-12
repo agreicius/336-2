@@ -417,9 +417,14 @@ Let <m>d\in \Z-\{0,1\}</m> be a squarefree integer, and let <m>K=\Q(\sqrt{d})</m
                 <md>
                     \frac{m^2}{4}-\frac{n^2}{4}d\in \Z
                 </md>,
-                in which case <m>m^2-n^2d\equiv 1-n^2d 0\pmod 4</m>. But this can happen if and only if <m>n^2d\equiv 1\pmod 4</m>. This in turn forces <m>n</m> and <m>d</m> to both be odd, in which case <m>n^2d\equiv 1d\equiv d\equiv 1\pmod 4</m>. Thus in this case we must have <m>d\equiv 1\pmod 4</m>, and 
-                
-                
+                in which case <m>m^2-n^2d\equiv 1-n^2d 0\pmod 4</m>. But this can happen if and only if <m>n^2d\equiv 1\pmod 4</m>. This in turn forces <m>n</m> and <m>d</m> to both be odd, in which case <m>n^2d\equiv 1d\equiv d\equiv 1\pmod 4</m>. Thus in this case we must have <m>d\equiv 1\pmod 4</m>, and we have 
+                <md>
+                    <mrow>\alpha \amp = q_1+q_2\sqrt{d}</mrow>
+                    <mrow> \amp = \frac{m}{2}+\frac{n}{2}\sqrt{d}</mrow>
+                    <mrow> \amp = \frac{m-n}{2}+n\left(\frac{1}{2}+\sqrt{d}{2}\right)</mrow>
+                    <mrow> \amp =m'+n\omega</mrow>
+                </md>,
+                where <m>m',n\in \Z</m> since <m>m-n</m> is even. 
             </p>
         </li>
     </ol>
