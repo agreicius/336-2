@@ -2206,6 +2206,87 @@ var ptx_lunr_docs = [
   "body": " is not a UFD   Let and consider . (Note that .)   Compute .    Show that , , and are pairwise non-associate irreducible elements of .    Show that is not a UFD.    Show that none of the irreducible elements , , , are prime. Thus prime is not equivalent to irreducible in .          An element is a unit if and only if . It follows easily that the only units of are and .    Since , it follows easily that the listed elements are pairwise non-associate.  We prove is irreducible; the same argument can be used for the remaining elements. If for , then taking norms, we see that . It is easy to see that there are no elements of with norm equal to (or ). Thus we must have , showing that or is a unit, and hence is irreducible.    The factorizations and give us two irreducible factorizations of 6 consisting of non-associate irreducibles. Thus irreducible factorization is not unique in , showing that it is not a UFD.    The two factorizations above also show us that , , , and are not prime. For example, we have , but and .      "
 },
 {
+  "id": "s_quad_ring_units",
+  "level": "1",
+  "url": "s_quad_ring_units.html",
+  "type": "Section",
+  "number": "1.16",
+  "title": "Unit groups of quadratic extensions",
+  "body": " Unit groups of quadratic extensions   Unit groups of imaginary quadratic extensions   Let be a negative squarefree integer, and let .   If , then .    If , then , where .    If or , then .            It is worth pointing out a notational trick employed in the proof above that allows us to avoid the annoyance of dealing with the different descriptions of depending on whether or not . Namely, we make the simple observation that in all cases ( ), an arbitrary element of can be written as for some integers and . Of course, it is not the case that any choice of integers and will produce an element of in this way. In fact, if , then we must have and even; and if , we must have . However, for many of the arguments below, the exact nature of of the coefficients in our expression of is not important. When this is the case, we will simply write , with the assumption that and are at worst half-integers.   We see then that the story of the unit groups of imaginary quadratic rings of integers is quite a simple one. Things are significantly more complicated for the real quadratic extensions.   Units of   Let . Show that is infinite.         Unit group of real quadratic extensions   Let be a positive squarefree integer, and let .   There is a unit such that .    The set has a least element , and we have .        Fundamental unit   Let be a positive squarefree integer, and let . A fundamental unit of is an element such that .    We defer the proof of (1) of until the next section. That argument will involve an analysis of the Pell equation  . For now, we will content ourselves with showing how (1) implies (2). For this, the following lemma will come in handy.   Units in   Let be a positive squarefree integer, and let . Assume .   We have .    We have .    Each interval appearing in contains exactly one of the elements .     if and only if and are positive.          Since , . Since , we must have . And by assumption we have . It follows that     Clearly if and only if . Furthermore, since if and only if , and since , we have if and only if . Lastly, the set equality follows easily from our formula for inverses and the fact that .    In general, for any , we have , and thus each of the four intervals of contains exactly one of the elements of .    First note that since and , we cannot have ; and since , we cannot have .  Next, since is clearly the maximum element of , and since exactly one of these elements lies in , must be the sole element of . It follows that if and only if if and only if and are positive.       And now for the proof that the existence of a nontrivial unit implies the existence of a fundamental unit.   Proof that (1) implies (2) in  Assume we have . From we may assume and are both positive and thus that .   Finding the smallest element of might actually be tricky, since we are comparing sizes of irrational elements. The next corollary simplifies things for us significantly: for elements of , we can compare size simply by looking at the second coefficient .   Unit group of real quadratic extensions   Let and be elements of . We have if and only if .  As a result, the fundamental unit described in is the element of with minimal second coefficient .    Homework exercise.    "
+},
+{
+  "id": "th_quad_ring_units_imaginary",
+  "level": "2",
+  "url": "s_quad_ring_units.html#th_quad_ring_units_imaginary",
+  "type": "Theorem",
+  "number": "1.16.1",
+  "title": "Unit groups of imaginary quadratic extensions.",
+  "body": " Unit groups of imaginary quadratic extensions   Let be a negative squarefree integer, and let .   If , then .    If , then , where .    If or , then .          "
+},
+{
+  "id": "s_quad_ring_units-3",
+  "level": "2",
+  "url": "s_quad_ring_units.html#s_quad_ring_units-3",
+  "type": "Remark",
+  "number": "1.16.2",
+  "title": "",
+  "body": " It is worth pointing out a notational trick employed in the proof above that allows us to avoid the annoyance of dealing with the different descriptions of depending on whether or not . Namely, we make the simple observation that in all cases ( ), an arbitrary element of can be written as for some integers and . Of course, it is not the case that any choice of integers and will produce an element of in this way. In fact, if , then we must have and even; and if , we must have . However, for many of the arguments below, the exact nature of of the coefficients in our expression of is not important. When this is the case, we will simply write , with the assumption that and are at worst half-integers.  "
+},
+{
+  "id": "eg_quad_ring_units_2",
+  "level": "2",
+  "url": "s_quad_ring_units.html#eg_quad_ring_units_2",
+  "type": "Example",
+  "number": "1.16.3",
+  "title": "Units of <span class=\"process-math\">\\(\\Z[\\sqrt{2}]\\)<\/span>.",
+  "body": " Units of   Let . Show that is infinite.       "
+},
+{
+  "id": "th_quad_rings_units",
+  "level": "2",
+  "url": "s_quad_ring_units.html#th_quad_rings_units",
+  "type": "Theorem",
+  "number": "1.16.4",
+  "title": "Unit group of real quadratic extensions.",
+  "body": " Unit group of real quadratic extensions   Let be a positive squarefree integer, and let .   There is a unit such that .    The set has a least element , and we have .      "
+},
+{
+  "id": "d_fund_unit",
+  "level": "2",
+  "url": "s_quad_ring_units.html#d_fund_unit",
+  "type": "Definition",
+  "number": "1.16.5",
+  "title": "Fundamental unit.",
+  "body": " Fundamental unit   Let be a positive squarefree integer, and let . A fundamental unit of is an element such that .   "
+},
+{
+  "id": "lem_quad_ring_units",
+  "level": "2",
+  "url": "s_quad_ring_units.html#lem_quad_ring_units",
+  "type": "Lemma",
+  "number": "1.16.6",
+  "title": "Units in <span class=\"process-math\">\\(\\mathcal{O}_K^*\\cap (1,\\infty)\\)<\/span>.",
+  "body": " Units in   Let be a positive squarefree integer, and let . Assume .   We have .    We have .    Each interval appearing in contains exactly one of the elements .     if and only if and are positive.          Since , . Since , we must have . And by assumption we have . It follows that     Clearly if and only if . Furthermore, since if and only if , and since , we have if and only if . Lastly, the set equality follows easily from our formula for inverses and the fact that .    In general, for any , we have , and thus each of the four intervals of contains exactly one of the elements of .    First note that since and , we cannot have ; and since , we cannot have .  Next, since is clearly the maximum element of , and since exactly one of these elements lies in , must be the sole element of . It follows that if and only if if and only if and are positive.      "
+},
+{
+  "id": "s_quad_ring_units-11",
+  "level": "2",
+  "url": "s_quad_ring_units.html#s_quad_ring_units-11",
+  "type": "Proof",
+  "number": "1.16.1",
+  "title": "Proof that (1) implies (2) in Theorem 1.16.4.",
+  "body": " Proof that (1) implies (2) in  Assume we have . From we may assume and are both positive and thus that .  "
+},
+{
+  "id": "cor_quad_ring_units",
+  "level": "2",
+  "url": "s_quad_ring_units.html#cor_quad_ring_units",
+  "type": "Corollary",
+  "number": "1.16.7",
+  "title": "Unit group of real quadratic extensions.",
+  "body": " Unit group of real quadratic extensions   Let and be elements of . We have if and only if .  As a result, the fundamental unit described in is the element of with minimal second coefficient .    Homework exercise.   "
+},
+{
   "id": "appendix-notation",
   "level": "1",
   "url": "appendix-notation.html",

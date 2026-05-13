@@ -15,4 +15,5 @@
   <xi:include href="s_gauss_factorization.ptx" />
   <xi:include href="s_gauss_primes.ptx" />
   <xi:include href="s_ring_integers.ptx" />
+  <xi:include href="s_quad_ring_units.ptx" />
 </chapter>

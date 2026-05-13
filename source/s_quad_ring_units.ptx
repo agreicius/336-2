@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_quad_ring_units" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Unit groups of quadratic extensions</title>
+<theorem xml:id="th_quad_ring_units_imaginary">
+<title>Unit groups of imaginary quadratic extensions</title>
+<statement>
+<p>
+Let <m>d</m> be a negative squarefree integer, and let <m>K=\Q(\sqrt{d})</m>. 
+<ul>
+    <li>
+        <p>
+            If <m>d=-1</m>, then <m>\mathcal{O}_K^*=\{1,-1,i,-i\}</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            If <m>d=-3</m>, then <m>\mathcal{O}_K=\{1,\omega, \dots, \omega^5\}</m>, where 
+            <m>\omega=\frac{1}{2}+\frac{\sqrt{3}}{2}i=e^{\pi i/3}</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            If <m>d=-2</m> or <m>d\leq -5</m>, then <m>\mathcal{O}_K^*=\{1,-1\}</m>. 
+        </p>
+    </li>
+</ul>
+</p>
+</statement>
+<proof>
+<p>
+</p>
+</proof>
+</theorem>
+<remark>
+<p>
+    It is worth pointing out a notational trick employed in the proof above that allows us to avoid the annoyance of dealing with the different descriptions of <m>\mathcal{O}_K</m> depending on whether or not <m>d\equiv 1\pmod 4</m>. Namely, we make the simple observation that in all cases (<m>d\equiv 1,2,3\pmod 4</m>), an arbitrary element of <m>\mathcal{O}_K</m> can be written as 
+    <md>
+        <mrow>\alpha \amp =\frac{m}{2}+\frac{n}{2}\sqrt{d}</mrow>
+    </md>
+    for some integers <m>m</m> and <m>n</m>. Of course, it is not the case that any choice of integers <m>m</m> and <m>n</m> will produce an element of <m>\mathcal{O}_K</m> in this way. In fact, if <m>d\equiv 2,3\pmod 4</m>, then we must have <m>m</m> and <m>n</m> even; and if <m>d\equiv 1\pmod 4</m>, we must have <m>m\equiv n\pmod 2</m>. However, for many of the arguments below, the exact nature of of the coefficients in our expression of <m>\alpha</m> is not important. When this is the case, we will simply write <md>\alpha=q_1+q_2\mathcal{d}</md>, with the assumption that <m>q_1</m> and <m>q_2</m> are at worst half-integers. 
+</p>
+    
+</remark>
+<p>
+    We see then that the story of the unit groups of imaginary quadratic rings of integers is quite a simple one. Things are significantly more complicated for the real quadratic extensions. 
+</p>
+<example xml:id="eg_quad_ring_units_2">
+<title>Units of <m>\Z[\sqrt{2}]</m></title>
+<statement>
+<p>
+Let <m>K=\Q(\sqrt{2})</m>.  Show that <m>\mathcal{O}_K^*</m> is infinite. 
+</p>
+</statement>
+<solution>
+<p>
+
+</p>
+</solution>
+</example>
+<theorem xml:id="th_quad_rings_units">
+<title>Unit group of real quadratic extensions</title>
+<statement>
+<p>
+Let <m>d\in \Z-\{0,1\}</m> be a positive squarefree integer, and let <m>K=\Q(\sqrt{d})</m>. 
+<ol>
+    <li>
+        <p>
+            There is a unit <m>u\in \mathcal{O}_K^*</m> such that <m>u\ne \pm 1</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            The set <m>\mathcal{O}_K^*\cap (1,\infty)</m> has a least element <m>\epsilon_d</m>, and we have 
+            <md number="yes">
+                <mrow>\mathcal{O}_K^* \amp =\{\pm \epsilon_d^n\mid n\in \Z\}</mrow>
+            </md>.
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+</theorem>
+<definition xml:id="d_fund_unit">
+<title>Fundamental unit</title>
+<statement>
+<p>
+Let <m>d\in \Z-\{0,1\}</m> be a positive squarefree integer, and let <m>K=\Q(\sqrt{d})</m>. A <term>fundamental unit</term> of <m>\mathcal{O}_K</m> is an element <m>\epsilon\in \mathcal{O}_K^*</m> such that <m>\mathcal{O}_K^*=\{\pm \epsilon^n\mid n\}</m>. 
+</p>
+</statement>
+</definition>
+<p>
+    We defer the proof of (1) of <xref ref="th_quad_rings_units"/> until the next section. That argument will involve an analysis of the <em>Pell equation</em> <m>x^2-dy^2=1</m>. For now, we will content ourselves with showing how (1) implies (2). For this, the following lemma will come in handy. 
+</p>
+<lemma xml:id="lem_quad_ring_units">
+    <title>Units in <m>\mathcal{O}_K^*\cap (1,\infty)</m></title>
+    <statement>
+        <p>
+        Let <m>d\in \Z-\{0,1\}</m> be a positive squarefree integer, and let <m>K=\Q(\sqrt{d})</m>. Assume <m>u=q_1+q_2\sqrt{d}\in \mathcal{O}_K^*-\{1,-1\}</m>.
+        <ol>
+            <li>
+                <p>
+                    We have 
+                    <md number="yes">
+                        <mrow xml:id="eq_quad_ring_partition">u \amp \in (-\infty, -1)\cup (-1,0)\cup (0,1)\cup (1,\infty) </mrow>
+                    </md>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    We have 
+                    <md number="yes">
+                        <mrow> \{u,-u,u^{-1},-u^{-1}\} \amp = \{q_1+q_2\sqrt{d}, q_1-q_2\sqrt{d},-q_1+q_2\sqrt{d}, -q_1-q_2\sqrt{d}\}\subseteq \mathcal{O}_K^* </mrow>
+                    </md>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Each interval appearing in <xref ref="eq_quad_ring_partition"/> contains exactly one of the elements <m>\{u,-u,u^{-1},-u^{-1}\}</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>u\in (1,\infty)</m> if and only if <m>q_1</m> and <m>q_2</m> are positive. 
+                </p>
+            </li>
+        </ol>
+            
+        </p>
+    </statement>
+    <proof>
+        <p>
+            <ol>
+                <li>
+                    <p>
+                        Since <m>d&gt; 0</m>, <m>K\subseteq \R</m>. Since <m>u\in \mathcal{O}_K^*</m>, we must have <m>u\ne 0</m>. And by assumption we have <m>u\ne \pm 1</m>. It follows that <m>\alpha\in \R-\{-1,1,0\}</m>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                     Clearly <m>u\in \mathcal{O}_K^*</m> if and only if <m>-u\in \mathcal{O}_K^*</m>. Furthermore, since <m>u\in \mathcal{O}_K</m> if and only if <m>\overline{u}\in \mathcal{O}_K</m>, and since <m>u^{-1}=\pm \overline{u}</m>, we have <m>u\in \mathcal{O}_K</m> if and only if <m>u^{-1}\in \mathcal{O}_K</m>. Lastly, the set equality follows easily from our formula for inverses and the fact that <m>N_K(u)=\pm 1</m>.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        In general, for any <m>\alpha\in \R-\{-1,0,1\}</m>, we have 
+                        <md>
+        <mrow>\alpha\in (1,\infty) \amp\iff \alpha^{-1}\in (0,1) </mrow>
+        <mrow>\amp \iff -\alpha^{-1}\in (-1, 0)</mrow>
+        <mrow> \amp \iff -\alpha\in (-\infty,-1) </mrow>
+       </md>, 
+       and thus each of the four intervals of <xref ref="eq_quad_ring_partition"/> contains exactly one of the elements of <m>\{u, u{-1},-u^{-1},-u\}</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            First note that since <m>N_K(u)=q_1^2-q_2^2d=\pm 1</m> and <m>d\geq 2</m>, we cannot have <m>q_1=0</m>; and since <m>u\ne \pm 1</m>, we cannot have <m>q_2=0</m>.
+        </p>
+        <p>
+            Next,  
+            since <m>u'=\abs{q_1}+\abs{q_2}\sqrt{d}</m> is clearly the maximum element of <m>\{u,-u,u^{-1},-u^{-1}\}</m>, and since exactly one of these elements lies in <m>(1,\infty)</m>, <m>u'</m> must be the sole element of <m>(1,\infty)</m>. It follows that <m>u\in (1,\infty)</m> if and only if <m>u=u'</m> if and only if <m>q_1</m> and <m>q_2</m> are positive. 
+        </p>
+    </li>
+</ol>
+</p>
+    </proof>
+</lemma>
+<p>
+    And now for the proof that the existence of a nontrivial unit implies the existence of a fundamental unit. 
+</p>
+<proof>
+    <title>Proof that (1) implies (2) in <xref ref="th_quad_rings_units"/></title>
+    <p>
+       Assume we have <m>u=q_1+q_2\sqrt{d}\in \mathcal{O}_K^*-\{1,-1\}</m>. From <xref ref="lem_quad_ring_units"/> we may assume <m>q_1</m> and <m>q_2</m> are both positive and thus that <m>u\in \mathcal{O}_K^*\cap (1,\infty)</m>. 
+    </p>
+</proof>
+<p>
+    Finding the smallest element of <m>\mathcal{O}_K^*\cap (1,\infty)</m> might actually be tricky, since we are comparing sizes of irrational elements. The next corollary simplifies things for us significantly: for elements <m>u=q_1+q_2\sqrt{d}</m> of <m>\mathcal{O}_K^*\cap (1,\infty)</m>, we can compare size simply by looking at the second coefficient <m>q_2</m>. 
+</p>
+<corollary xml:id="cor_quad_ring_units">
+    <title>Unit group of real quadratic extensions</title>
+    <statement>
+        <p>
+            Let <m>u=q_1+q_2\sqrt{d}</m> and <m>u'=q_1'+q_2'\sqrt{d}</m> be elements of <m>\mathcal{O}_K^*\cap (1,\infty)</m>. We have <m>u&lt; u'</m> if and only if <m>q_2&lt; q_2'</m>. 
+        </p>
+        <p>
+            As a result, the fundamental unit <m>\epsilon_d</m> described in <xref ref="th_quad_rings_units"/> is the element <m>q_1+q_2\sqrt{d}</m> of <m>\mathcal{O}_K^*\cap (1,\infty)</m> with minimal second coefficient <m>q_2</m>. 
+        </p>
+    </statement>
+    <proof>
+        <p>
+            Homework exercise. 
+        </p>
+    </proof>
+</corollary>
+    
+
+</section>
