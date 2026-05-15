@@ -16,4 +16,5 @@
   <xi:include href="s_gauss_primes.ptx" />
   <xi:include href="s_ring_integers.ptx" />
   <xi:include href="s_quad_ring_units.ptx" />
+  <xi:include href="s_pells_eqn.ptx" />
 </chapter>

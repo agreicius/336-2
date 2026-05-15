@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_pells_eqn" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Pell's equation</title>
+
+    <definition xml:id="d_pell_eqn">
+    <title>Pell's equations</title>
+    <statement>
+    <p>
+    Let <m>d</m> be a positive integer that is not a square. The equation 
+    <md>
+        x^2-dy^2=1
+    </md>
+    is called <term>Pell's equation</term>. A <term>generalized Pell equation</term> is any equation of the form 
+    <md>
+        x^2-dy^2=n
+    </md>
+    where <m>n</m> is a nonzero integer. The <term>negative Pell equation</term> is the equation 
+    <md>
+        x^2-dy^2=-1
+    </md>.
+    </p>
+    </statement>
+    </definition>
+    <theorem xml:id="th_dirichlet_approx">
+    <title>Dirichlet's approximation theorem</title>
+    <statement>
+    <p>
+    Let <m>\alpha</m> be an irrational real number. There are infinitely many integer pairs <m>(m,n)</m> satisfying <m>\gcd(m,n)=1</m>,  <m>n\gt; 0</m>, and 
+    <md>
+        \abs{n\alpha-m}&lt; \frac{1}{n}
+    </md>.
+    </p>
+    </statement>
+    <proof>
+    <p>
+        Fix a positive integer <m>N</m> and partition the interval <m>[0,1)</m> into the <m>n</m> disjoint subintervals 
+        <md>
+            I_k=[(k-1)/N, k/N)
+        </md>,
+        where <m>1\leq k\leq N</m>. For each <m>k\in \in \{0,1,\dots, N\}</m>, write 
+        <md>
+            k\alpha=\floor{k\alpha}+\beta_k, \ \beta_k=k\alpha-\floor{\alpha}
+        </md>.
+        Note that since <m>\alpha</m> is irrational, the <m>\beta_i</m> are themselves irrational (with the exception of <m>\beta_0=0</m>), are distinct, and satisfy <m>0&lt; \beta_k &lt; 1</m>. It follows that each <m>\beta_i</m> lies in exactly one of the intervals <m>I_k</m>, and furthermore, since there are <m>N</m> intervals <m>I_k</m> and <m>N+1</m> distinct elements <m>\beta_i</m>, by the Pigeonhole principle, there are integers <m>0\leq i&lt; j \leq n</m>, such that <m>\beta_i,\beta_j\in I_k</m> for some <m>k</m>. But then we have 
+        <md>
+            <mrow>\frac{1}{N} \amp &gt; \abs{\beta_j-\beta_i}</mrow>
+            <mrow> \amp = \abs{(j-i)\alpha- (\floor{j\alpha}-\floor{i\alpha})}</mrow>
+            <mrow> \amp = \abs{n\alpha-m}</mrow>
+        </md>,
+        where 
+        <md>
+            <mrow>n \amp =j-i\leq N \amp m= \floor{j\alpha}-\floor{i\alpha}</mrow>
+        </md>,
+        in which case 
+        <md>
+            \abs{n\alpha-m} &lt; \frac{1}{N}\leq \frac{1}{n}
+        </md>.
+        Moreover, letting <m>d=gcd(m,n)</m>, we have 
+        <md>
+            \abs{(n/d)\alpha-(m/d)}&lt; \frac{1}{dN}\leq \frac{1}{N}\leq  \frac{1}{n}\leq \frac{1}{(n/d)}
+        </md>.
+        Replacing <m>m</m> and <m>n</m> with  <m>m/d</m> and <m>n/d</m>, we have shown that for any positive integer <m>N</m>, we can  find a pair of relatively prime integers <m>m</m> and <m>n</m> with <m>n&gt; 0</m> satisfying <m>\abs{n\alpha-m}&lt; \frac{1}{N}\leq \frac{1}{n}</m>. To create an infinite sequence <m>(m_k,n_k)</m> of such pairs proceed recursively as follows: 
+        <ul>
+            <li>
+                <p>
+                    Pick any postive <m>N_1</m>, and let <m>(m_1,n_1)</m> satisfy <m>0&lt; \abs{n_1\alpha-m_1}&lt; \frac{1}{N_1}\leq \frac{1}{n_1}</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Given pair <m>(m_k,n_k)</m>, pick any positive integer <m>N_{k+1}\geq N_K</m> satisfying <m>\frac{1}{N_{k+1}}&lt; \abs{n_k\alpha-m_k}</m>, and pick <m>(m_{k+1}, n_{k+1})</m> satisfying <m>\abs{n_{k+1}\alpha-m_{k+1}}&lt; \frac{1}{N_{k+1}}\leq \frac{1}{n_{k+1}}</m>.
+                </p>
+            </li>
+        </ul>
+        For any <m>k\geq 2</m>, we have 
+        <md>
+            <mrow>\frac{1}{N_{k+1}} \amp &lt; \abs{n_k\alpha-m_k}&lt; \frac{1}{N_{k}}</mrow>
+        </md>,
+        from whence it follows that pairs <m>(m_k,n_k)</m> are distinct.
+    </p>
+    </proof>
+    </theorem>
+    <theorem xml:id="th_pells_equation">
+    <title>Pell's equation</title>
+    <statement>
+    <p>
+    Let <m>d</m> be a positive integer that is not a square. There is a solution to the equation 
+    <md>
+        x^2-dy^2=1
+    </md>
+    in positive integers.
+    </p>
+    </statement>
+    <proof>
+    <p>
+        The proof proceeds in steps. First we show that there is a positive integer <m>M</m> such that the generalized Pell's.
+    </p>
+    </proof>
+    </theorem>
+    
+
+</section>

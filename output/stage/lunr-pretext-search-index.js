@@ -2287,6 +2287,33 @@ var ptx_lunr_docs = [
   "body": " Unit group of real quadratic extensions   Let and be elements of . We have if and only if .  As a result, the fundamental unit described in is the element of with minimal second coefficient .    Homework exercise.   "
 },
 {
+  "id": "s_pells_eqn",
+  "level": "1",
+  "url": "s_pells_eqn.html",
+  "type": "Section",
+  "number": "1.17",
+  "title": "Pell’s equation",
+  "body": " Pell's equation   Pell's equations   Let be a positive integer that is not a square. The equation is called Pell's equation . A generalized Pell equation is any equation of the form where is a nonzero integer. The negative Pell equation is the equation .     Dirichlet's approximation theorem   Let be an irrational real number. There are infinitely many integer pairs satisfying , , and .    Fix a positive integer and partition the interval into the disjoint subintervals , where . For each , write . Note that since is irrational, the are themselves irrational (with the exception of ), are distinct, and satisfy . It follows that each lies in exactly one of the intervals , and furthermore, since there are intervals and distinct elements , by the Pigeonhole principle, there are integers , such that for some . But then we have , where , in which case . Moreover, letting , we have . Replacing and with and , we have shown that for any positive integer , we can find a pair of relatively prime integers and with satisfying . To create an infinite sequence of such pairs proceed recursively as follows:   Pick any postive , and let satisfy .    Given pair , pick any positive integer satisfying , and pick satisfying .   For any , we have , from whence it follows that pairs are distinct.    "
+},
+{
+  "id": "d_pell_eqn",
+  "level": "2",
+  "url": "s_pells_eqn.html#d_pell_eqn",
+  "type": "Definition",
+  "number": "1.17.1",
+  "title": "Pell’s equations.",
+  "body": " Pell's equations   Let be a positive integer that is not a square. The equation is called Pell's equation . A generalized Pell equation is any equation of the form where is a nonzero integer. The negative Pell equation is the equation .   "
+},
+{
+  "id": "th_dirichlet_approx",
+  "level": "2",
+  "url": "s_pells_eqn.html#th_dirichlet_approx",
+  "type": "Theorem",
+  "number": "1.17.2",
+  "title": "Dirichlet’s approximation theorem.",
+  "body": " Dirichlet's approximation theorem   Let be an irrational real number. There are infinitely many integer pairs satisfying , , and .    Fix a positive integer and partition the interval into the disjoint subintervals , where . For each , write . Note that since is irrational, the are themselves irrational (with the exception of ), are distinct, and satisfy . It follows that each lies in exactly one of the intervals , and furthermore, since there are intervals and distinct elements , by the Pigeonhole principle, there are integers , such that for some . But then we have , where , in which case . Moreover, letting , we have . Replacing and with and , we have shown that for any positive integer , we can find a pair of relatively prime integers and with satisfying . To create an infinite sequence of such pairs proceed recursively as follows:   Pick any postive , and let satisfy .    Given pair , pick any positive integer satisfying , and pick satisfying .   For any , we have , from whence it follows that pairs are distinct.   "
+},
+{
   "id": "appendix-notation",
   "level": "1",
   "url": "appendix-notation.html",
