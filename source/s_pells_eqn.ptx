@@ -214,6 +214,7 @@
             <mrow> \amp \implies p_i\not\equiv 3\pmod 4</mrow>
         </md>,
         since as we have seen <m>\qr{-1}{p}=1</m> if and only if <m>p=2</m> or <m>p\equiv 1\pmod 4</m>. It follows that a <em>necessary condition</em> for the negative Pell's equation to have a solution is that no prime divisor of <m>d</m> is congruent to 3 modulo <m>4</m>. Interestingly, this is not in general a <em>sufficient condition</em>. The following <url href="https://arxiv.org/pdf/2201.13424">recent theorem by Koymans and Pagano</url>, building off of work by Northwestern's own Alex Smith, gives a precise quantitative description of just how far our necessary condition fails to be a sufficient one.
+    </p>
         <theorem xml:id="th_neg_pells">
         <title>Negative Pell's equation
         </title>
