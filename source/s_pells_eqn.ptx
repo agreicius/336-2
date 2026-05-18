@@ -230,7 +230,22 @@
         </p>
         </statement>
         </theorem>
-
+        <p>
+            This theorem uses advanced material well outside the scope of this course. However, we can prove the following result, which tells us that in the case where <m>d=p</m> is itself prime, our necessary condition is also sufficient. 
+        </p>
+        <theorem xml:id="th_neg_pell_prime">
+        <title>Negative Pell equation for prime <m>p</m></title>
+        <statement>
+        <p>
+        Let <m>p</m> be a prime integer. The negative Pell equation <m>x^2-py^2=-1</m> has a solution if and only if <m>p\not\equiv 3\pmod 4</m>. 
+        </p>
+        </statement>
+        <proof>
+        <p>
+        </p>
+        </proof>
+        </theorem>
+        
     </subsection>
 
 </section>
