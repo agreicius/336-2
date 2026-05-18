@@ -94,8 +94,103 @@
     </statement>
     <proof>
     <p>
-        The proof proceeds in steps. First we show that there is a positive integer <m>M</m> such that the generalized Pell's.
+        Let <m>X</m> be the set of all pairs <m>(m,n)</m> satisfying  
+        <md>
+            \abs{m-n\sqrt{d}}=\abs{n\sqrt{d}-m}&lt; \frac{1}{n}
+        </md>
+        The set <m>X</m> is infinite by <xref ref="th_dirichlet_approx"/>. The proof will proceed in a number of steps.
+        <ol>
+            <li>
+                <p>
+                    We show that there is a nonzero integer <m>M</m> such that <m>m^2-n^2d=M</m> for infinitely many pairs <m>(m,n)\in X</m>. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    We show that there is an infinite subset <m>Y</m> of <m>X</m> satisfying the following properties: 
+                    <ul>
+                        <li>
+                            <p>
+                                <m>m^2-n^2d=1</m> for all <m>(m,n)\in Y</m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                If <m>(m,n), (m',n')\in Y</m>, then <m>m\equiv m'\pmod \abs{M}</m> and <m>n\equiv n'\pmod \abs{M}</m>. 
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Associating to pairs <m>(m,n)\in Y</m> the element <m>m+n\sqrt{d}</m>, we will do some algebra in <m>\Q(\sqrt{d})</m> to construct an element <m>u=a+b\sqrt{d}\ne \pm 1</m> satisfying <m>a^2-b^2d=1</m>. 
+                </p>
+            </li>
+        </ol>
     </p>
+    <case>
+    <title>Step 1</title>
+    <p>
+    For all <m>(m,n)\in X</m>, we have 
+    <md>
+        <mrow>\abs{m^2-n^2d} \amp =\abs{m+n\sqrt{d}}\abs{m-n\sqrt{d}}</mrow>
+        <mrow> \amp =\abs{(m-n\sqrt{d})+2n\sqrt{d}}\abs{m-n\sqrt{d}}</mrow>
+        <mrow> \amp &lt; (\abs{m-n\sqrt{d}}+\abs{2n\sqrt{d}})\cdot \frac{1}{n}</mrow>
+        <mrow> \amp &lt; (\frac{1}{n}+2\sqrt{d})\cdot \frac{1}{n} </mrow>
+        <mrow> \amp &lt; 1+2\sqrt{d}</mrow>
+    </md>.
+    Since <m>m^2-n^d\in \Z</m> for all <m>(m,n)\in X</m>, it follows that <m>m^2-n^2d</m> assumes finitely many values as <m>(m,n)</m> ranges over <m>X</m>. Since <m>X</m> is infinite, there is one value <m>M\in \Z</m> such that <m>m^2-n^2d=M</m> for infinitely-many elements of <m>X</m>. Since <m>\sqrt{d}</m> is irrational, it follows that <m>M\ne 0</m>.  
+    </p>
+    </case>
+    <case>
+    <title>Step 2</title>
+    <p>
+    Let <m>X'</m> be the set of all <m>(m,n)</m> satisfying <m>m^2-n^2d=M</m>, and consider the map 
+    <md>
+        <mrow> X'\amp \rightarrow \{0,1,\dots, \abs{M}-1\}\times \{0,1,\dots, \abs{M}-1\} \amp </mrow>
+        <mrow>(m,n) \amp \mapsto (m\boldmod \abs{M}, n\boldmod \abs{M}) \amp </mrow>
+    </md>
+    Since <m>X'</m> is infinite and the set of pairs <m>(a,b)</m> with <m>a,b\in \{0,1,\dots, \abs{M}-1\}</m> is finite, there must be infinitely many pairs <m>(m,n)\in X'</m> that get set sent to the same pair <m>(a,b)\in \{0,1,\dots, \abs{M}-1\}\times \{0,1,\dots, \abs{M}-1\}</m>. Let <m>Y</m> be the set of all such pairs <m>(m,n)\in X'</m>. Any pair <m>(m,n)</m> in <m>Y</m> satisfies <m>m^2-n^2d=M</m>, and any two pairs in <m>(m,n),(m',n')\in Y</m> satisfy 
+    <md>
+        <mrow>m \amp \equiv m'\equiv a</mrow>
+        <mrow>n \amp\equiv n'\equiv b </mrow>
+    </md>.
+    </p>
+    </case>
+    <case>
+    <title>Step 3</title>
+    <p>
+    Since <m>Y</m> is infinite, we can find pairs <m>(m,n)</m> and <m>(m',n')</m> satisfying <m>m^2-n^2d=(m')^2-(n')^2d=M</m> and <m>m\ne \pm m'</m>, <m>n\ne \pm n'</m>. Let <m>K=\Q(\sqrt{d})</m> and consider the elements <m>\alpha=m+n\sqrt{d}</m>, <m>\beta=m'-n'\sqrt{d}</m> of <m>\mathcal{O}_K</m>. We have 
+    <md>
+        \alpha\beta=(mm'-nn'd)+(m'n-mn')\sqrt{d}
+    </md>.
+    Since 
+    <md>
+        <mrow>mm'-nn'd \amp \equiv m^2-n^2d= M \equiv 0\pmod \abs{M}</mrow>
+        <mrow>m'n-mn' \amp \equiv mn-mn \equiv 0 \pmod \abs{M}</mrow>
+    </md>,
+    we see that <m>M\mid \alpha\beta</m>, and thus we have 
+    <md>
+        \alpha\beta=Mu
+    </md>
+    for some <m>u\in \mathcal{O}_K</m>. Now take norms of both sides and simplify: 
+    <md>
+        <mrow>N_K(\alpha)N_K(\beta) \amp = N_K(M)N_K(u)</mrow>
+        <mrow>M\cdot M \amp = M^2N_K(u)</mrow>
+        <mrow>1 \amp =N_K(u) \amp (M\ne 0)</mrow>
+    </md>.
+    We conclude that <m>u=a+b\sqrt{d}</m> satisfies <m>a^2-b^2d=1</m>, and is thus a solution to Pell's equation. It remains only to show that <m>u\ne \pm 1</m>. We have 
+    <md>
+        <mrow>u=\pm 1 \amp \implies \alpha\beta=\pm M </mrow>
+        <mrow> \amp \implies \alpha\beta\overline{\beta}=\pm M\overline{\beta}</mrow>
+        <mrow> \amp \implies \alpha\cdot M=\pm M \overline{\beta}</mrow>
+        <mrow> \amp \implies \alpha=\pm \overline{\beta}</mrow>
+    </md>.
+    Since the last equality is excluded by our condition <m>m\ne \pm m'</m>, <m>n\ne\pm n'</m>, we see that <m>u\ne \pm 1</m>.
+    </p>
+    </case>
+    
     </proof>
     </theorem>
     
