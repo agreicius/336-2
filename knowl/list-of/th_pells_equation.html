@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.17.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Pell’s equation.</span>
+</h3>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(d\)</span> be a positive integer that is not a square. There is a solution to the equation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x^2-dy^2=1
+\end{equation*}
+</div>
+<div class="para">in positive integers.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_pells_equation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.17.3: Pell’s equation"><a href="#th_pells_equation" title="Copy heading and permalink for Theorem 1.17.3: Pell’s equation" aria-label="Copy heading and permalink for Theorem 1.17.3: Pell’s equation">🔗</a></div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">Let <span class="process-math">\(X\)</span> be the set of all pairs <span class="process-math">\((m,n)\)</span> satisfying</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/th_dirichlet_approx.html">
+\begin{equation*}
+\abs{m-n\sqrt{d}}=\abs{n\sqrt{d}-m}&lt; \frac{1}{n}
+\end{equation*}
+</div>
+<div class="para">The set <span class="process-math">\(X\)</span> is infinite by <a href="s_pells_eqn.html#th_dirichlet_approx" class="xref" data-knowl="./knowl/xref/th_dirichlet_approx.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.17.2: Dirichlet’s approximation theorem">Theorem 1.17.2</a>. The proof will proceed in a number of steps.</div>
+<ol class="decimal" id="th_pells_equation-3-1-6">
+<li>
+<div class="para">We show that there is a nonzero integer <span class="process-math">\(M\)</span> such that <span class="process-math">\(m^2-n^2d=M\)</span> for infinitely many pairs <span class="process-math">\((m,n)\in X\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_pells_equation-3-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_pells_equation-3-1-6-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">We show that there is an infinite subset <span class="process-math">\(Y\)</span> of <span class="process-math">\(X\)</span> satisfying the following properties:</div>
+<ul class="disc" id="th_pells_equation-3-1-6-2-1-3">
+<li>
+<div class="para">
+<span class="process-math">\(m^2-n^2d=1\)</span> for all <span class="process-math">\((m,n)\in Y\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_pells_equation-3-1-6-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#th_pells_equation-3-1-6-2-1-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li>
+<div class="para">If <span class="process-math">\((m,n), (m',n')\in Y\text{,}\)</span> then <span class="process-math">\(m\equiv m'\pmod \abs{M}\)</span> and <span class="process-math">\(n\equiv n'\pmod \abs{M}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_pells_equation-3-1-6-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#th_pells_equation-3-1-6-2-1-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_pells_equation-3-1-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_pells_equation-3-1-6-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li>
+<div class="para">Associating to pairs <span class="process-math">\((m,n)\in Y\)</span> the element <span class="process-math">\(m+n\sqrt{d}\text{,}\)</span> we will do some algebra in <span class="process-math">\(\Q(\sqrt{d})\)</span> to construct an element <span class="process-math">\(u=a+b\sqrt{d}\ne \pm 1\)</span> satisfying <span class="process-math">\(a^2-b^2d=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_pells_equation-3-1-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#th_pells_equation-3-1-6-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_pells_equation-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="case"><h4 class="heading">Step 1.</h4>
+<div class="para logical">
+<div class="para">For all <span class="process-math">\((m,n)\in X\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{align*}
+\abs{m^2-n^2d} \amp =\abs{m+n\sqrt{d}}\abs{m-n\sqrt{d}}\\
+\amp =\abs{(m-n\sqrt{d})+2n\sqrt{d}}\abs{m-n\sqrt{d}}\\
+\amp &lt; (\abs{m-n\sqrt{d}}+\abs{2n\sqrt{d}})\cdot \frac{1}{n}\\
+\amp &lt; (\frac{1}{n}+2\sqrt{d})\cdot \frac{1}{n} \\
+\amp &lt; 1+2\sqrt{d}\text{.}
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(m^2-n^d\in \Z\)</span> for all <span class="process-math">\((m,n)\in X\text{,}\)</span> it follows that <span class="process-math">\(m^2-n^2d\)</span> assumes finitely many values as <span class="process-math">\((m,n)\)</span> ranges over <span class="process-math">\(X\text{.}\)</span> Since <span class="process-math">\(X\)</span> is infinite, there is one value <span class="process-math">\(M\in \Z\)</span> such that <span class="process-math">\(m^2-n^2d=M\)</span> for infinitely-many elements of <span class="process-math">\(X\text{.}\)</span> Since <span class="process-math">\(\sqrt{d}\)</span> is irrational, it follows that <span class="process-math">\(M\ne 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_pells_equation-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Case: Step 1"><a href="#th_pells_equation-3-2" title="Copy heading and permalink for Case: Step 1" aria-label="Copy heading and permalink for Case: Step 1">🔗</a></div></article><article class="case"><h4 class="heading">Step 2.</h4>
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(X'\)</span> be the set of all <span class="process-math">\((m,n)\)</span> satisfying <span class="process-math">\(m^2-n^2d=M\text{,}\)</span> and consider the map</div>
+<div class="displaymath process-math">
+\begin{align*}
+X'\amp \rightarrow \{0,1,\dots, \abs{M}-1\}\times \{0,1,\dots, \abs{M}-1\} \amp \\
+(m,n) \amp \mapsto (m\boldmod \abs{M}, n\boldmod \abs{M}) \amp 
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(X'\)</span> is infinite and the set of pairs <span class="process-math">\((a,b)\)</span> with <span class="process-math">\(a,b\in \{0,1,\dots, \abs{M}-1\}\)</span> is finite, there must be infinitely many pairs <span class="process-math">\((m,n)\in X'\)</span> that get set sent to the same pair <span class="process-math">\((a,b)\in \{0,1,\dots, \abs{M}-1\}\times \{0,1,\dots, \abs{M}-1\}\text{.}\)</span> Let <span class="process-math">\(Y\)</span> be the set of all such pairs <span class="process-math">\((m,n)\in X'\text{.}\)</span> Any pair <span class="process-math">\((m,n)\)</span> in <span class="process-math">\(Y\)</span> satisfies <span class="process-math">\(m^2-n^2d=M\text{,}\)</span> and any two pairs in <span class="process-math">\((m,n),(m',n')\in Y\)</span> satisfy</div>
+<div class="displaymath process-math">
+\begin{align*}
+m \amp \equiv m'\equiv a\\
+n \amp\equiv n'\equiv b \text{.}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_pells_equation-3-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Case: Step 2"><a href="#th_pells_equation-3-3" title="Copy heading and permalink for Case: Step 2" aria-label="Copy heading and permalink for Case: Step 2">🔗</a></div></article><article class="case"><h4 class="heading">Step 3.</h4>
+<div class="para logical">
+<div class="para">Since <span class="process-math">\(Y\)</span> is infinite, we can find pairs <span class="process-math">\((m,n)\)</span> and <span class="process-math">\((m',n')\)</span> satisfying <span class="process-math">\(m^2-n^2d=(m')^2-(n')^2d=M\)</span> and <span class="process-math">\(m\ne \pm m'\text{,}\)</span> <span class="process-math">\(n\ne \pm n'\text{.}\)</span> Let <span class="process-math">\(K=\Q(\sqrt{d})\)</span> and consider the elements <span class="process-math">\(\alpha=m+n\sqrt{d}\text{,}\)</span> <span class="process-math">\(\beta=m'-n'\sqrt{d}\)</span> of <span class="process-math">\(\mathcal{O}_K\text{.}\)</span> We have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\alpha\beta=(mm'-nn'd)+(m'n-mn')\sqrt{d}\text{.}
+\end{equation*}
+</div>
+<div class="para">Since</div>
+<div class="displaymath process-math">
+\begin{align*}
+mm'-nn'd \amp \equiv m^2-n^2d= M \equiv 0\pmod \abs{M}\\
+m'n-mn' \amp \equiv mn-mn \equiv 0 \pmod \abs{M}\text{,}
+\end{align*}
+</div>
+<div class="para">we see that <span class="process-math">\(M\mid \alpha\beta\text{,}\)</span> and thus we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\alpha\beta=Mu
+\end{equation*}
+</div>
+<div class="para">for some <span class="process-math">\(u\in \mathcal{O}_K\text{.}\)</span> Now take norms of both sides and simplify:</div>
+<div class="displaymath process-math">
+\begin{align*}
+N_K(\alpha)N_K(\beta) \amp = N_K(M)N_K(u)\\
+M\cdot M \amp = M^2N_K(u)\\
+1 \amp =N_K(u) \amp (M\ne 0)\text{.}
+\end{align*}
+</div>
+<div class="para">We conclude that <span class="process-math">\(u=a+b\sqrt{d}\)</span> satisfies <span class="process-math">\(a^2-b^2d=1\text{,}\)</span> and is thus a solution to Pell’s equation. It remains only to show that <span class="process-math">\(u\ne \pm 1\text{.}\)</span> We have</div>
+<div class="displaymath process-math">
+\begin{align*}
+u=\pm 1 \amp \implies \alpha\beta=\pm M \\
+\amp \implies \alpha\beta\overline{\beta}=\pm M\overline{\beta}\\
+\amp \implies \alpha\cdot M=\pm M \overline{\beta}\\
+\amp \implies \alpha=\pm \overline{\beta}\text{.}
+\end{align*}
+</div>
+<div class="para">Since the last equality is excluded by our condition <span class="process-math">\(m\ne \pm m'\text{,}\)</span> <span class="process-math">\(n\ne\pm n'\text{,}\)</span> we see that <span class="process-math">\(u\ne \pm 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_pells_equation-3-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Case: Step 3"><a href="#th_pells_equation-3-4" title="Copy heading and permalink for Case: Step 3" aria-label="Copy heading and permalink for Case: Step 3">🔗</a></div></article><div class="autopermalink" data-description="Proof 1.17.3.1"><a href="#th_pells_equation-3" title="Copy heading and permalink for Proof 1.17.3.1" aria-label="Copy heading and permalink for Proof 1.17.3.1">🔗</a></div></article></details><span class="incontext"><a class="internal" href="s_pells_eqn.html#th_pells_equation">in-context</a></span>
+</body>
+</html>
