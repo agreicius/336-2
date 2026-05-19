@@ -189,8 +189,30 @@ Let <m>d\in \Z-\{0,1\}</m> be a positive squarefree integer, and let <m>K=\Q(\sq
     </statement>
     <proof>
         <p>
-            Proof on its way.
-        </p>
+            Let <m>\epsilon</m> be the smallest element of <m>\mathcal{O}_K\cap(1,\infty)</m>, and write <m>\epsilon=r+s\sqrt{d}</m>, where <m>r=m/2</m> and <m>s=n/2</m> for some positive integers <m>m,n\in \Z</m>. Since <m>\mathcal{O}_K^*=\{\pm \epsilon^n\mid n\in \Z\}</m>, and since <m>\abs{\epsilon^{n}}\leq 1</m> for all <m>n\leq 0 </m>, it follows that 
+            <md>
+                \mathcal{O}_K^*\cap (1,\infty)=\{\epsilon^n\mid n\geq 1\}
+            </md>.
+            Since furthermore the function <m>f(x)=\epsilon^x</m> is increasing, we have 
+            <md>
+                \epsilon&lt; \epsilon^2&lt; \epsilon^3&lt; \dots
+            </md>.
+            Thus for all <m>u,v\in \mathcal{O}_K^*\cap (1,\infty)</m>, we have <m>u=\epsilon^m</m> and <m>v=\epsilon^n</m> for some positive integers <m>m</m> and <m>n</m>, and <m>u&lt; v</m> if and only if <m>m&lt; n</m>. Let <m>\epsilon^n=r_n+s_n\sqrt{d}</m>. To finish the proof, it suffices to show that <m>r_n&lt; r_{n+1}</m> for all <m>n\geq 1</m>, or equivalently, that <m>r_n</m> is an increasing function of <m>n</m>. Since 
+            <md>
+                <mrow>\epsilon^{n+1} \amp =\epsilon \epsilon^{n}</mrow>
+                <mrow> \amp =(r_1+s_1\sqrt{d})(r_n+s_n\sqrt{d})</mrow>
+                <mrow> \amp =(r_1r_n+s_1s_nd)+(r_1s_n+r_ns_1)\sqrt{d}</mrow>
+            </md>,
+            we see that 
+            <md>
+                <mrow>r_{n+1} \amp = r_1r_n+s_1s_nd \amp s_{n+1}\amp=r_1s_n+r_ns_1</mrow>
+            </md>.
+            Recall that since <m>\epsilon\in (1,\infty)</m>, we have <m>r_1,s_1&gt; 0</m>. If <m>r_1&gt; 1</m>, then <m>r_{n+1}&gt; r_n+s_1s_nd&gt; r_n</m>. The only other option is <m>r_1=\frac{1}{2}</m>. In this case we must have <m>d\equiv 1\pmod 4</m>. Furthermore, since 
+            <md>
+                <mrow>s_1^2d=r_1^2\pm 1=\frac{1}{4}\pm 1 \amp </mrow>
+            </md>,
+            we must have <m>s_1^2d=1/4+1=5/4</m>, from whence it follows that <m>d\leq 5</m>. But then <m>d=5</m> (since <m>d\equiv 1\pmod 4</m>), and we have <m>s_1=1/2</m>. Now we are in the very special case where <m>\epsilon=\frac{1}{2}+\frac{\sqrt{5}}{2}</m>. Since <m>\epsilon</m> satisfies <m>f(x)=(x-\epsilon)(x-\overline{\epsilon})=x^2-x-1</m>, it follows that <m>\epsilon^2=\epsilon+1</m>, and by induction <m>\epsilon^{n+1}=\epsilon^{n}+\epsilon^{n-1}</m> for all <m>n\geq 2</m>. As a result, looking only at the first coefficients of these powers, we have <m>r_{n+1}=r_{n}+r_{n-1}</m> for all <m>n</m> (and <m>s_{n+1}=s_n+s_{n-1}</m>). Since <m>r_k&gt; 0</m> for all <m>k\geq 1</m>, we see that <m>r_{n+1}&gt; r_n</m>, as desired. 
+        </p>  
     </proof>
 </corollary>
     
