@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Fermat’s last theorem and the method of descent</title>
+<title>Unit groups of quadratic extensions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -147,7 +147,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_pyth_trips.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="c_336-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_complex_numbers.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_ring_integers.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="c_336-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="s_pells_eqn.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\( \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\N}{{\mathbb N}}
@@ -467,7 +467,7 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <div class="toc-title-box"><a href="s_pyth_trips.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Pythagorean triples</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_pyth_trips.html#ss_pyth_trips" class="internal"><span class="codenumber">1.9.1</span> <span class="title">Pythagorean triples</span></a></div></li></ul>
 </li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="s_flt_descent.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Fermat’s last theorem and the method of descent</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_flt_descent.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Fermat’s last theorem and the method of descent</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="s_complex_numbers.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Complex numbers</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="s_gauss_int.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Gaussian integers</span></a></div></li>
 <li class="toc-item toc-section">
@@ -485,7 +485,7 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_ring_integers.html#ss_ring_of_integers" class="internal"><span class="codenumber">1.15.2</span> <span class="title">Ring of integers</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_quad_ring_units.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Unit groups of quadratic extensions</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="s_quad_ring_units.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Unit groups of quadratic extensions</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="s_pells_eqn.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Pell’s equations</span></a></div>
 <ul class="structural toc-item-list">
@@ -506,108 +506,199 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_flt_descent"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fermat’s last theorem and the method of descent</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_quad_ring_units"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unit groups of quadratic extensions</span>
 </h2>
-<article class="objectives goal-like" id="s_flt_descent-2"><h3 class="heading"><span class="type">Objectives</span></h3>
-<ol class="decimal" id="s_flt_descent-2-1">
-<li id="s_flt_descent-2-1-1">
-<div class="para" id="s_flt_descent-2-1-1-1">Contrast the wealth of solutions to <span class="process-math">\(x^2+y^2=z^2\)</span> with the paucity of solution <span class="process-math">\(x^n+y^n=z^n\)</span> for <span class="process-math">\(n\geq 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_flt_descent-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="theorem theorem-like" id="th_quad_ring_units_imaginary"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unit groups of imaginary quadratic extensions.</span>
+</h3>
+<div class="para logical" id="th_quad_ring_units_imaginary-2-1">
+<div class="para">Let <span class="process-math">\(d\)</span> be a negative squarefree integer, and let <span class="process-math">\(K=\Q(\sqrt{d})\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Objective 1.10.1"><a href="#s_flt_descent-2-1-1" title="Copy heading and permalink for Objective 1.10.1" aria-label="Copy heading and permalink for Objective 1.10.1">🔗</a></div>
+<ul class="disc" id="th_quad_ring_units_imaginary-2-1-3">
+<li id="th_quad_ring_units_imaginary-2-1-3-1">
+<div class="para" id="th_quad_ring_units_imaginary-2-1-3-1-1">If <span class="process-math">\(d=-1\text{,}\)</span> then <span class="process-math">\(\mathcal{O}_K^*=\{1,-1,i,-i\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_units_imaginary-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#th_quad_ring_units_imaginary-2-1-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="s_flt_descent-2-1-2">
-<div class="para" id="s_flt_descent-2-1-2-1">Introduce Fermat’s method of descent, and understand it as a version of the well-ordering principle.<div class="autopermalink" data-description="Paragraph"><a href="#s_flt_descent-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="th_quad_ring_units_imaginary-2-1-3-2">
+<div class="para" id="th_quad_ring_units_imaginary-2-1-3-2-1">If <span class="process-math">\(d=-3\text{,}\)</span> then <span class="process-math">\(\mathcal{O}_K=\{1,\omega, \dots, \omega^5\}\text{,}\)</span> where <span class="process-math">\(\omega=\frac{1}{2}+\frac{\sqrt{3}}{2}i=e^{\pi i/3}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_units_imaginary-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Objective 1.10.2"><a href="#s_flt_descent-2-1-2" title="Copy heading and permalink for Objective 1.10.2" aria-label="Copy heading and permalink for Objective 1.10.2">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#th_quad_ring_units_imaginary-2-1-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="s_flt_descent-2-1-3">
-<div class="para" id="s_flt_descent-2-1-3-1">Prove the <span class="process-math">\(n=4\)</span> case of Fermat’s last theorem.<div class="autopermalink" data-description="Paragraph"><a href="#s_flt_descent-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="th_quad_ring_units_imaginary-2-1-3-3">
+<div class="para" id="th_quad_ring_units_imaginary-2-1-3-3-1">If <span class="process-math">\(d=-2\)</span> or <span class="process-math">\(d\leq -5\text{,}\)</span> then <span class="process-math">\(\mathcal{O}_K^*=\{1,-1\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_units_imaginary-2-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Objective 1.10.3"><a href="#s_flt_descent-2-1-3" title="Copy heading and permalink for Objective 1.10.3" aria-label="Copy heading and permalink for Objective 1.10.3">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#th_quad_ring_units_imaginary-2-1-3-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_units_imaginary-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.16.1: Unit groups of imaginary quadratic extensions"><a href="#th_quad_ring_units_imaginary" title="Copy heading and permalink for Theorem 1.16.1: Unit groups of imaginary quadratic extensions" aria-label="Copy heading and permalink for Theorem 1.16.1: Unit groups of imaginary quadratic extensions">🔗</a></div></article><details id="th_quad_ring_units_imaginary-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="th_quad_ring_units_imaginary-3-1"><div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_units_imaginary-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="autopermalink" data-description="Proof 1.16.1.1"><a href="#th_quad_ring_units_imaginary-3" title="Copy heading and permalink for Proof 1.16.1.1" aria-label="Copy heading and permalink for Proof 1.16.1.1">🔗</a></div></article></details><article class="remark remark-like" id="s_quad_ring_units-3"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="s_quad_ring_units-3-1">
+<div class="para">It is worth pointing out a notational trick employed in the proof above that allows us to avoid the annoyance of dealing with the different descriptions of <span class="process-math">\(\mathcal{O}_K\)</span> depending on whether or not <span class="process-math">\(d\equiv 1\pmod 4\text{.}\)</span> Namely, we make the simple observation that in all cases (<span class="process-math">\(d\equiv 1,2,3\pmod 4\)</span>), an arbitrary element of <span class="process-math">\(\mathcal{O}_K\)</span> can be written as</div>
+<div class="displaymath process-math" id="s_quad_ring_units-3-1-5">
+\begin{align*}
+\alpha \amp =\frac{m}{2}+\frac{n}{2}\sqrt{d}
+\end{align*}
+</div>
+<div class="para">for some integers <span class="process-math">\(m\)</span> and <span class="process-math">\(n\text{.}\)</span> Of course, it is not the case that any choice of integers <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> will produce an element of <span class="process-math">\(\mathcal{O}_K\)</span> in this way. In fact, if <span class="process-math">\(d\equiv 2,3\pmod 4\text{,}\)</span> then we must have <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> even; and if <span class="process-math">\(d\equiv 1\pmod 4\text{,}\)</span> we must have <span class="process-math">\(m\equiv n\pmod 2\text{.}\)</span> However, for many of the arguments below, the exact nature of of the coefficients in our expression of <span class="process-math">\(\alpha\)</span> is not important. When this is the case, we will simply write</div>
+<div class="displaymath process-math" id="s_quad_ring_units-3-1-17">
+\begin{equation*}
+\alpha=q_1+q_2\mathcal{d}\text{,}
+\end{equation*}
+</div>
+<div class="para">with the assumption that <span class="process-math">\(q_1\)</span> and <span class="process-math">\(q_2\)</span> are at worst half-integers.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.16.2"><a href="#s_quad_ring_units-3" title="Copy heading and permalink for Remark 1.16.2" aria-label="Copy heading and permalink for Remark 1.16.2">🔗</a></div></article><div class="para" id="s_quad_ring_units-4">We see then that the story of the unit groups of imaginary quadratic rings of integers is quite a simple one. Things are significantly more complicated for the real quadratic extensions.<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_quad_ring_units_2"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Units of <span class="process-math">\(\Z[\sqrt{2}]\)</span>.</span>
+</h3>
+<div class="para" id="eg_quad_ring_units_2-2-1">Let <span class="process-math">\(K=\Q(\sqrt{2})\text{.}\)</span>  Show that <span class="process-math">\(\mathcal{O}_K^*\)</span> is infinite.<div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_ring_units_2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="eg_quad_ring_units_2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="eg_quad_ring_units_2-3-1"><div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_ring_units_2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="autopermalink" data-description="Solution 1.16.3.1"><a href="#eg_quad_ring_units_2-3" title="Copy heading and permalink for Solution 1.16.3.1" aria-label="Copy heading and permalink for Solution 1.16.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.16.3: Units of \Z[\sqrt{2}]"><a href="#eg_quad_ring_units_2" title="Copy heading and permalink for Example 1.16.3: Units of \Z[\sqrt{2}]" aria-label="Copy heading and permalink for Example 1.16.3: Units of \Z[\sqrt{2}]">🔗</a></div></article><article class="theorem theorem-like" id="th_quad_rings_units"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unit group of real quadratic extensions.</span>
+</h3>
+<div class="para logical" id="th_quad_rings_units-2-1">
+<div class="para">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a positive squarefree integer, and let <span class="process-math">\(K=\Q(\sqrt{d})\text{.}\)</span>
+</div>
+<ol class="decimal" id="th_quad_rings_units-2-1-3">
+<li id="th_quad_rings_units-2-1-3-1">
+<div class="para" id="th_quad_rings_units-2-1-3-1-1">There is a unit <span class="process-math">\(u\in \mathcal{O}_K^*\)</span> such that <span class="process-math">\(u\ne \pm 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_quad_rings_units-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#th_quad_rings_units-2-1-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="th_quad_rings_units-2-1-3-2">
+<div class="para logical" id="th_quad_rings_units-2-1-3-2-1">
+<div class="para">The set <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\)</span> has a least element <span class="process-math">\(\epsilon_d\text{,}\)</span> and we have</div>
+<div class="displaymath process-math" id="th_quad_rings_units-2-1-3-2-1-3">
+\begin{align}
+\mathcal{O}_K^* \amp =\{\pm \epsilon_d^n\mid n\in \Z\}\text{.}\tag{1.16.1}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_rings_units-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#th_quad_rings_units-2-1-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Objectives 1.10"><a href="#s_flt_descent-2" title="Copy heading and permalink for Objectives 1.10" aria-label="Copy heading and permalink for Objectives 1.10">🔗</a></div></article><div class="para" id="s_flt_descent-3">We saw in the last section that are many interesting positive solutions to the Pythagorean equation <span class="process-math">\(x^2+y^2=z^2\text{.}\)</span> Interestingly, the situation changes dramatically if we increase the exponent 2 in that equation to anything larger.<div class="autopermalink" data-description="Paragraph"><a href="#s_flt_descent-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_rings_units-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="th_flt"><h3 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fermat’s last theorem (FLT).</span>
+<div class="autopermalink" data-description="Theorem 1.16.4: Unit group of real quadratic extensions"><a href="#th_quad_rings_units" title="Copy heading and permalink for Theorem 1.16.4: Unit group of real quadratic extensions" aria-label="Copy heading and permalink for Theorem 1.16.4: Unit group of real quadratic extensions">🔗</a></div></article><article class="definition definition-like" id="d_fund_unit"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fundamental unit.</span>
 </h3>
-<div class="para logical" id="th_flt-2-1">
-<div class="para">Let <span class="process-math">\(n\)</span> be an integer satisfying <span class="process-math">\(n\geq 3\text{.}\)</span> The equation</div>
-<div class="displaymath process-math" id="th_flt-2-1-3">
+<div class="para" id="d_fund_unit-2-1">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a positive squarefree integer, and let <span class="process-math">\(K=\Q(\sqrt{d})\text{.}\)</span> A <dfn class="terminology">fundamental unit</dfn> of <span class="process-math">\(\mathcal{O}_K\)</span> is an element <span class="process-math">\(\epsilon\in \mathcal{O}_K^*\)</span> such that <span class="process-math">\(\mathcal{O}_K^*=\{\pm \epsilon^n\mid n\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_fund_unit-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.16.5: Fundamental unit"><a href="#d_fund_unit" title="Copy heading and permalink for Definition 1.16.5: Fundamental unit" aria-label="Copy heading and permalink for Definition 1.16.5: Fundamental unit">🔗</a></div></article><div class="para" id="s_quad_ring_units-8">We defer the proof of (1) of <a href="s_quad_ring_units.html#th_quad_rings_units" class="xref" data-knowl="./knowl/xref/th_quad_rings_units.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.16.4: Unit group of real quadratic extensions">Theorem 1.16.4</a> until the next section. That argument will involve an analysis of the <em class="emphasis">Pell equation</em> <span class="process-math">\(x^2-dy^2=1\text{.}\)</span> For now, we will content ourselves with showing how (1) implies (2). For this, the following lemma will come in handy.<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="lemma theorem-like" id="lem_quad_ring_units"><h3 class="heading">
+<span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Units in <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\)</span>.</span>
+</h3>
+<div class="para logical" id="lem_quad_ring_units-2-1">
+<div class="para">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a positive squarefree integer, and let <span class="process-math">\(K=\Q(\sqrt{d})\text{.}\)</span> Assume <span class="process-math">\(u=q_1+q_2\sqrt{d}\in \mathcal{O}_K^*-\{1,-1\}\text{.}\)</span>
+</div>
+<ol class="decimal" id="lem_quad_ring_units-2-1-4">
+<li id="lem_quad_ring_units-2-1-4-1">
+<div class="para logical" id="lem_quad_ring_units-2-1-4-1-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="lem_quad_ring_units-2-1-4-1-1-1">
 \begin{align}
-x^n+y^n \amp =z^n\tag{1.10.1}
+u \amp \in (-\infty, -1)\cup (-1,0)\cup (0,1)\cup (1,\infty) \text{.}\tag{1.16.2}
 \end{align}
 </div>
-<div class="para">has no solutions in nonzero integers.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#th_flt-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.10.1: Fermat’s last theorem (FLT)"><a href="#th_flt" title="Copy heading and permalink for Theorem 1.10.1: Fermat’s last theorem (FLT)" aria-label="Copy heading and permalink for Theorem 1.10.1: Fermat’s last theorem (FLT)">🔗</a></div></article><div class="para" id="s_flt_descent-5">In the 17th century Fermat famously scrawled in his copy of Diophantus’s <em class="emphasis">Arithmetica</em> that he had a marvelous proof of this fact that unfortunately did not fit in the margin. Although Fermat did provide a proof of the <span class="process-math">\(n=4\)</span> case of FLT using his method of descent (see below), there is no evidence that he had a valid proof for all cases. Moreover, amazingly it was not until 1994 that a complete proof was provided and accepted by the mathematical community as valid. This was the work of Andrew Wiles, which built off the work of many others (e.g., Gerhard Frey, Ken Ribet, and Richard Taylor), and which made use of very deep results that drew connections with elliptic curves and modular curves.<div class="autopermalink" data-description="Paragraph"><a href="#s_flt_descent-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<article class="theorem theorem-like" id="th_flt_nis4"><h3 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.10.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">FLT: <span class="process-math">\(n=4\)</span>.</span>
-</h3>
-<div class="para logical" id="th_flt_nis4-2-1">
-<div class="para">The equation</div>
-<div class="displaymath process-math" id="th_flt_nis4-2-1-1">
+<div class="autopermalink" data-description="Item 1"><a href="#lem_quad_ring_units-2-1-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="lem_quad_ring_units-2-1-4-2">
+<div class="para logical" id="lem_quad_ring_units-2-1-4-2-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="lem_quad_ring_units-2-1-4-2-1-1">
 \begin{align}
-x^4+y^4 \amp =z^2\tag{1.10.2}
+\{u,-u,u^{-1},-u^{-1}\} \amp = \{q_1+q_2\sqrt{d}, q_1-q_2\sqrt{d},-q_1+q_2\sqrt{d}, -q_1-q_2\sqrt{d}\}\subseteq \mathcal{O}_K^* \text{.}\tag{1.16.3}
 \end{align}
 </div>
-<div class="para">has no solutions in nonzero integers. As a result Fermat’s last theorem holds for <span class="process-math">\(n=4\text{.}\)</span>
+<div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-2-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#th_flt_nis4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Item 2"><a href="#lem_quad_ring_units-2-1-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="lem_quad_ring_units-2-1-4-3">
+<div class="para" id="lem_quad_ring_units-2-1-4-3-1">Each interval appearing in <a href="s_quad_ring_units.html#lem_quad_ring_units-2-1-4-1-1-1" class="xref" data-knowl="./knowl/xref/eq_quad_ring_partition.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.16.2">(1.16.2)</a> contains exactly one of the elements <span class="process-math">\(\{u,-u,u^{-1},-u^{-1}\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-2-1-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.10.2: FLT: n=4"><a href="#th_flt_nis4" title="Copy heading and permalink for Theorem 1.10.2: FLT: n=4" aria-label="Copy heading and permalink for Theorem 1.10.2: FLT: n=4">🔗</a></div></article><details id="th_flt_nis4-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="th_flt_nis4-3-1">First observe that if <span class="process-math">\((a,b,c)\)</span> is a nontrivial solution to the <span class="process-math">\(n=4\)</span> Fermat equation <span class="process-math">\(x^4+y^4=z^4\text{,}\)</span> then <span class="process-math">\((a,b,c^2)\)</span> is a nontrivial solution to <span class="process-math">\(x^4+y^4=z^2\text{.}\)</span> Thus the given result implies FLT for <span class="process-math">\(n=4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_flt_nis4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Item 3"><a href="#lem_quad_ring_units-2-1-4-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="lem_quad_ring_units-2-1-4-4">
+<div class="para" id="lem_quad_ring_units-2-1-4-4-1">
+<span class="process-math">\(u\in (1,\infty)\)</span> if and only if <span class="process-math">\(q_1\)</span> and <span class="process-math">\(q_2\)</span> are positive.<div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-2-1-4-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="th_flt_nis4-3-2">
-<div class="para">We argue by contradiction. If <span class="process-math">\((a,b,c)\)</span> is a solution in nonzero integers, then <span class="process-math">\((\abs{a},\abs{b},\abs{c})\)</span> is a solution in positive integers. As such the set</div>
-<div class="displaymath process-math" id="th_flt_nis4-3-2-3">
-\begin{equation*}
-X=\{c\in \Z_{&gt;0} \mid a^4+b^4=c^2 \text{ for some } a,b\in \Z_{&gt; 0}\}
-\end{equation*}
+<div class="autopermalink" data-description="Item 4"><a href="#lem_quad_ring_units-2-1-4-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">is nonempty. By the well-ordering principle, <span class="process-math">\(X\)</span> has a least element <span class="process-math">\(c\text{,}\)</span> which means there is a nontrivial solution in positive integers <span class="process-math">\((a,b,c)\)</span> to the equation <span class="process-math">\(x^4+y^4=z^2\)</span> whose third component <span class="process-math">\(c\)</span> is minimal. We will derive a contradiction by showing that there is a solution <span class="process-math">\((a',b',c')\)</span> in positive integers with <span class="process-math">\(c'&lt; c\text{.}\)</span>
+<div class="autopermalink" data-description="Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)"><a href="#lem_quad_ring_units" title="Copy heading and permalink for Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)" aria-label="Copy heading and permalink for Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)">🔗</a></div></article><details id="lem_quad_ring_units-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="lem_quad_ring_units-3-1">
+<ol class="decimal" id="lem_quad_ring_units-3-1-1">
+<li id="lem_quad_ring_units-3-1-1-1">
+<div class="para" id="lem_quad_ring_units-3-1-1-1-1">Since <span class="process-math">\(d&gt; 0\text{,}\)</span> <span class="process-math">\(K\subseteq \R\text{.}\)</span> Since <span class="process-math">\(u\in \mathcal{O}_K^*\text{,}\)</span> we must have <span class="process-math">\(u\ne 0\text{.}\)</span> And by assumption we have <span class="process-math">\(u\ne \pm 1\text{.}\)</span> It follows that <span class="process-math">\(\alpha\in \R-\{-1,1,0\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#th_flt_nis4-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Item 1"><a href="#lem_quad_ring_units-3-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="lem_quad_ring_units-3-1-1-2">
+<div class="para" id="lem_quad_ring_units-3-1-1-2-1">Clearly <span class="process-math">\(u\in \mathcal{O}_K^*\)</span> if and only if <span class="process-math">\(-u\in \mathcal{O}_K^*\text{.}\)</span> Furthermore, since <span class="process-math">\(u\in \mathcal{O}_K\)</span> if and only if <span class="process-math">\(\overline{u}\in \mathcal{O}_K\text{,}\)</span> and since <span class="process-math">\(u^{-1}=\pm \overline{u}\text{,}\)</span> we have <span class="process-math">\(u\in \mathcal{O}_K\)</span> if and only if <span class="process-math">\(u^{-1}\in \mathcal{O}_K\text{.}\)</span> Lastly, the set equality follows easily from our formula for inverses and the fact that <span class="process-math">\(N_K(u)=\pm 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="th_flt_nis4-3-3">
-<div class="para">First observe that if the prime <span class="process-math">\(p\)</span> is a common divisor of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> then <span class="process-math">\(p^4\mid c^2\text{,}\)</span> in which case <span class="process-math">\(p^2\mid c\)</span> and <span class="process-math">\((a/p,b/p,c/p^2)\)</span> is a solution to <span class="process-math">\(x^4+y^4=c^2\)</span> with smaller third component. As this is a contradiction, we may assume that <span class="process-math">\(\gcd(a,b)=1\text{.}\)</span> It follows that <span class="process-math">\(\gcd(a^2,b^2)=1\text{,}\)</span> and hence that the Pythagorean triple <span class="process-math">\((a^2,b^2,c)\)</span> is primitive. Without loss of generality, we may assume that <span class="process-math">\(a^2\)</span> is even and <span class="process-math">\(b\)</span> is odd, in which case we have</div>
-<div class="displaymath process-math" id="th_flt_nis4-3-3-13">
+<div class="autopermalink" data-description="Item 2"><a href="#lem_quad_ring_units-3-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="lem_quad_ring_units-3-1-1-3">
+<div class="para logical" id="lem_quad_ring_units-3-1-1-3-1">
+<div class="para">In general, for any <span class="process-math">\(\alpha\in \R-\{-1,0,1\}\text{,}\)</span> we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq_quad_ring_partition.html" id="lem_quad_ring_units-3-1-1-3-1-2">
 \begin{align*}
-a^2\amp=2mn \amp b^2\amp=m^2-n^2 \amp c\amp =m^2+n^2 
+\alpha\in (1,\infty) \amp\iff \alpha^{-1}\in (0,1) \\
+\amp \iff -\alpha^{-1}\in (-1, 0)\\
+\amp \iff -\alpha\in (-\infty,-1) \text{,}
 \end{align*}
 </div>
-<div class="para">for positive integers <span class="process-math">\(m\)</span>   and <span class="process-math">\(n\)</span> satisfying <span class="process-math">\(m&gt; n\text{,}\)</span> <span class="process-math">\(\gcd(m,n)=1\text{,}\)</span> and <span class="process-math">\(m\not\equiv n\pmod 2\text{.}\)</span>
+<div class="para">and thus each of the four intervals of <a href="s_quad_ring_units.html#lem_quad_ring_units-2-1-4-1-1-1" class="xref" data-knowl="./knowl/xref/eq_quad_ring_partition.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.16.2">(1.16.2)</a> contains exactly one of the elements of <span class="process-math">\(\{u, u{-1},-u^{-1},-u\}\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#th_flt_nis4-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para logical" id="th_flt_nis4-3-4">
-<div class="para">Since <span class="process-math">\(b^2+n^2=m^2\)</span> and <span class="process-math">\(\gcd(m,n)=1\text{,}\)</span> the triple <span class="process-math">\((b,n,m)\)</span> is a primitive Pythagorean triple. Furthermore, since <span class="process-math">\(b\)</span> is odd, we see that <span class="process-math">\(n\)</span> is even, and we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem_product_square.html" id="th_flt_nis4-3-4-6">
-\begin{align*}
-n \amp = 2uv \amp b\amp =u^2-v^2 \amp m\amp =u^2+v^2
-\end{align*}
+<div class="autopermalink" data-description="Item 3"><a href="#lem_quad_ring_units-3-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="lem_quad_ring_units-3-1-1-4">
+<div class="para" id="lem_quad_ring_units-3-1-1-4-1">First note that since <span class="process-math">\(N_K(u)=q_1^2-q_2^2d=\pm 1\)</span> and <span class="process-math">\(d\geq 2\text{,}\)</span> we cannot have <span class="process-math">\(q_1=0\text{;}\)</span> and since <span class="process-math">\(u\ne \pm 1\text{,}\)</span> we cannot have <span class="process-math">\(q_2=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-3-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">for relatively prime positive integers <span class="process-math">\(u\)</span> and <span class="process-math">\(v\text{.}\)</span> Substituting <span class="process-math">\(n=2uv\)</span> into the equation <span class="process-math">\(a^2=2mn\)</span> above, we see that <span class="process-math">\(a^2=4muv\text{.}\)</span> Thus <span class="process-math">\(2\mid a\text{,}\)</span> and we have</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem_product_square.html" id="th_flt_nis4-3-4-13">
-\begin{align*}
-(a/2)^2 \amp = muv\text{.}
-\end{align*}
+<div class="para" id="lem_quad_ring_units-3-1-1-4-2">Next, since <span class="process-math">\(u'=\abs{q_1}+\abs{q_2}\sqrt{d}\)</span> is clearly the maximum element of <span class="process-math">\(\{u,-u,u^{-1},-u^{-1}\}\text{,}\)</span> and since exactly one of these elements lies in <span class="process-math">\((1,\infty)\text{,}\)</span> <span class="process-math">\(u'\)</span> must be the sole element of <span class="process-math">\((1,\infty)\text{.}\)</span> It follows that <span class="process-math">\(u\in (1,\infty)\)</span> if and only if <span class="process-math">\(u=u'\)</span> if and only if <span class="process-math">\(q_1\)</span> and <span class="process-math">\(q_2\)</span> are positive.<div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-3-1-1-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">Next, since <span class="process-math">\(\gcd(m,n)=1\)</span> and <span class="process-math">\(n=2uv\)</span> with <span class="process-math">\(\gcd(u,v)=1\text{,}\)</span> we see that <span class="process-math">\(m\text{,}\)</span> <span class="process-math">\(u\text{,}\)</span> and <span class="process-math">\(v\)</span> are pairwise relatively prime. Since their product is a square, it follows from <a href="s_pyth_trips.html#lem_product_square" class="xref" data-knowl="./knowl/xref/lem_product_square.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 1.9.3">Lemma 1.9.3</a> (and induction) that <span class="process-math">\(m\text{,}\)</span> <span class="process-math">\(u\text{,}\)</span> and <span class="process-math">\(v\)</span> are all squares. Let <span class="process-math">\(m=r^2\text{,}\)</span> <span class="process-math">\(u=s^2\text{,}\)</span> and <span class="process-math">\(v=t^2\text{.}\)</span> From the equation <span class="process-math">\(m=u^2+v^2\)</span> we conclude that <span class="process-math">\(s^4+t^4=r^2\text{,}\)</span> and thus that <span class="process-math">\((s,t,r)\)</span> is a solution to <span class="process-math">\(x^4+y^4=z^2\)</span> in positive integers. Since <span class="process-math">\(r\leq r^2=m\)</span> and since</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/lem_product_square.html" id="th_flt_nis4-3-4-32">
-\begin{equation*}
-m\leq m^2&lt; m^2+n^2=c\text{,}
-\end{equation*}
+<div class="autopermalink" data-description="Item 4"><a href="#lem_quad_ring_units-3-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">we conclude that <span class="process-math">\(r&lt; c\text{.}\)</span> Thus the solution <span class="process-math">\((s,t,r)\)</span> has a smaller third component than <span class="process-math">\((a,b,c)\text{,}\)</span> contradicting the minimality of <span class="process-math">\(c\text{.}\)</span>
+<div class="autopermalink" data-description="Proof 1.16.6.1"><a href="#lem_quad_ring_units-3" title="Copy heading and permalink for Proof 1.16.6.1" aria-label="Copy heading and permalink for Proof 1.16.6.1">🔗</a></div></article></details><div class="para" id="s_quad_ring_units-10">And now for the proof that the existence of a nontrivial unit implies the existence of a fundamental unit.<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#th_flt_nis4-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<details id="s_quad_ring_units-11" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Proof that (1) implies (2) in Theorem 1.16.4.</span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="s_quad_ring_units-11-2">Assume we have <span class="process-math">\(u=q_1+q_2\sqrt{d}\in \mathcal{O}_K^*-\{1,-1\}\text{.}\)</span> From <a href="s_quad_ring_units.html#lem_quad_ring_units" class="xref" data-knowl="./knowl/xref/lem_quad_ring_units.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)">Lemma 1.16.6</a> we may assume <span class="process-math">\(q_1\)</span> and <span class="process-math">\(q_2\)</span> are both positive and thus that <span class="process-math">\(u\in \mathcal{O}_K^*\cap (1,\infty)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.10.2.1"><a href="#th_flt_nis4-3" title="Copy heading and permalink for Proof 1.10.2.1" aria-label="Copy heading and permalink for Proof 1.10.2.1">🔗</a></div></article></details><div class="autopermalink" data-description="Section 1.10: Fermat’s last theorem and the method of descent"><a href="#s_flt_descent" title="Copy heading and permalink for Section 1.10: Fermat’s last theorem and the method of descent" aria-label="Copy heading and permalink for Section 1.10: Fermat’s last theorem and the method of descent">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Proof 1.16.1: Proof that (1) implies (2) in Theorem 1.16.4"><a href="#s_quad_ring_units-11" title="Copy heading and permalink for Proof 1.16.1: Proof that (1) implies (2) in Theorem 1.16.4" aria-label="Copy heading and permalink for Proof 1.16.1: Proof that (1) implies (2) in Theorem 1.16.4">🔗</a></div></article></details><div class="para" id="s_quad_ring_units-12">Finding the smallest element of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\)</span> might actually be tricky, since we are comparing sizes of irrational elements. The next corollary simplifies things for us significantly: for elements <span class="process-math">\(u=q_1+q_2\sqrt{d}\)</span> of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\text{,}\)</span> we can compare size simply by looking at the second coefficient <span class="process-math">\(q_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="corollary theorem-like" id="cor_quad_ring_units"><h3 class="heading">
+<span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unit group of real quadratic extensions.</span>
+</h3>
+<div class="para" id="cor_quad_ring_units-2-1">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a positive squarefree integer, let <span class="process-math">\(K=\Q(\sqrt{d})\text{,}\)</span> and let <span class="process-math">\(u=q_1+q_2\sqrt{d}\)</span> and <span class="process-math">\(u'=q_1'+q_2'\sqrt{d}\)</span> be elements of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\text{.}\)</span> We have <span class="process-math">\(u&lt; u'\)</span> if and only if <span class="process-math">\(q_1&lt; q_1'\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_quad_ring_units-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="cor_quad_ring_units-2-2">As a result, the fundamental unit <span class="process-math">\(\epsilon_d\)</span> described in <a href="s_quad_ring_units.html#th_quad_rings_units" class="xref" data-knowl="./knowl/xref/th_quad_rings_units.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.16.4: Unit group of real quadratic extensions">Theorem 1.16.4</a> is the element <span class="process-math">\(q_1+q_2\sqrt{d}\)</span> of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\)</span> with minimal first coefficient <span class="process-math">\(q_1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_quad_ring_units-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Corollary 1.16.7: Unit group of real quadratic extensions"><a href="#cor_quad_ring_units" title="Copy heading and permalink for Corollary 1.16.7: Unit group of real quadratic extensions" aria-label="Copy heading and permalink for Corollary 1.16.7: Unit group of real quadratic extensions">🔗</a></div></article><details id="cor_quad_ring_units-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="cor_quad_ring_units-3-1">Proof on its way.<div class="autopermalink" data-description="Paragraph"><a href="#cor_quad_ring_units-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.16.7.1"><a href="#cor_quad_ring_units-3" title="Copy heading and permalink for Proof 1.16.7.1" aria-label="Copy heading and permalink for Proof 1.16.7.1">🔗</a></div></article></details><div class="autopermalink" data-description="Section 1.16: Unit groups of quadratic extensions"><a href="#s_quad_ring_units" title="Copy heading and permalink for Section 1.16: Unit groups of quadratic extensions" aria-label="Copy heading and permalink for Section 1.16: Unit groups of quadratic extensions">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="s_pyth_trips.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_complex_numbers.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="s_ring_integers.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_pells_eqn.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
