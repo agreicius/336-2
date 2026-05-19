@@ -181,15 +181,15 @@ Let <m>d\in \Z-\{0,1\}</m> be a positive squarefree integer, and let <m>K=\Q(\sq
     <title>Unit group of real quadratic extensions</title>
     <statement>
         <p>
-            Let <m>u=q_1+q_2\sqrt{d}</m> and <m>u'=q_1'+q_2'\sqrt{d}</m> be elements of <m>\mathcal{O}_K^*\cap (1,\infty)</m>. We have <m>u&lt; u'</m> if and only if <m>q_2&lt; q_2'</m>. 
+            Let <m>d\in \Z-\{0,1\}</m> be a positive squarefree integer, let <m>K=\Q(\sqrt{d})</m>, and let <m>u=q_1+q_2\sqrt{d}</m> and <m>u'=q_1'+q_2'\sqrt{d}</m> be elements of <m>\mathcal{O}_K^*\cap (1,\infty)</m>. We have <m>u&lt; u'</m> if and only if <m>q_1&lt; q_1'</m>. 
         </p>
         <p>
-            As a result, the fundamental unit <m>\epsilon_d</m> described in <xref ref="th_quad_rings_units"/> is the element <m>q_1+q_2\sqrt{d}</m> of <m>\mathcal{O}_K^*\cap (1,\infty)</m> with minimal second coefficient <m>q_2</m>. 
+            As a result, the fundamental unit <m>\epsilon_d</m> described in <xref ref="th_quad_rings_units"/> is the element <m>q_1+q_2\sqrt{d}</m> of <m>\mathcal{O}_K^*\cap (1,\infty)</m> with minimal first coefficient <m>q_1</m>. 
         </p>
     </statement>
     <proof>
         <p>
-            Homework exercise. 
+            Proof on its way.
         </p>
     </proof>
 </corollary>
