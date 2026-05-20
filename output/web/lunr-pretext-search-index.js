@@ -2341,6 +2341,69 @@ var ptx_lunr_docs = [
   "body": " Negative Pell equation for prime   Let be a prime integer. The negative Pell equation has a solution if and only if .       "
 },
 {
+  "id": "s_crypto",
+  "level": "1",
+  "url": "s_crypto.html",
+  "type": "Section",
+  "number": "1.18",
+  "title": "Cryptology",
+  "body": " Cryptology  What is cryptography?  Crypto comes from the Greek , which means hidden or concealed . Graph comes from , meaning to write .   Cryptology   Cryptography is the design of systems allowing for secure communication over a nonsecure channel.  Cryptology is the overall study or science of secure communication.  Cryptanalysis is the practice or science of breaking cryptographic systems.  A cryptographic system takes a message , the plaintext , encrypts it to a ciphertext , , whose meaning can only be fathomed by decrypting back to the plaintext .     Alice and Bob communicating over a channel with the eavesdropping Eve.   Alice and Bob are connected by a communication channel while Eve listens in from above.      Jardon disentanglement  Cryptography is to be distinguished from coding theory which deals more with the representation of data and its communication over noisy channels. It should also be distinguished from steganography ('stegano' means covered ), which is the practice of physically hiding messages (with invisible ink, under wax coatings, on the inside of egg shells, etc.).  Cryptography doesn't hide the message itself, but rather the meaning of the message.    Caesar shift cipher   The Caesar shift cipher is a cryptosystem allegedly used by Julius Caesar which encrpyts a plaintext by replacing each letter with the letter three steps away (in a cyclic manner).  The plaintext 'veni, vidi, vici' is encrpyted as follows: The ciphertext can than be decrypted back to the original by shifting three letters to the left, or equivalently, by shifting 23 letters to the right.  There is nothing special about shifting by letters. We can shift by for any , though wouldn't be very interesting. We will call this shifting by encryption method the Caesar -shift cipher .    The Caesar shift cipher captures the basic elements of a crpytosystem , which we now formally define.   Cryptosystem   A cryptosystem consists of a set of keys  , called the keyspace , sets and consisting of the possible plaintexts and ciphertexts, respectively, and for each key a pair of functions satisfying for all . For each , the functions and are called the encryption and decryption functions for the key .  Equivalently, we can describe a cryptosystem as a pair of functions such that for all and all , . The functions and are called the encryption and decryption methods of the cryptosystem.     Kirchoff's principle   The security of a cryptosystem should not rely on the methods and being kept secret.     "
+},
+{
+  "id": "d_crpytology",
+  "level": "2",
+  "url": "s_crypto.html#d_crpytology",
+  "type": "Definition",
+  "number": "1.18.1",
+  "title": "Cryptology.",
+  "body": " Cryptology   Cryptography is the design of systems allowing for secure communication over a nonsecure channel.  Cryptology is the overall study or science of secure communication.  Cryptanalysis is the practice or science of breaking cryptographic systems.  A cryptographic system takes a message , the plaintext , encrypts it to a ciphertext , , whose meaning can only be fathomed by decrypting back to the plaintext .   "
+},
+{
+  "id": "fig_alice_bob_eve",
+  "level": "2",
+  "url": "s_crypto.html#fig_alice_bob_eve",
+  "type": "Figure",
+  "number": "1.18.2",
+  "title": "",
+  "body": " Alice and Bob communicating over a channel with the eavesdropping Eve.   Alice and Bob are connected by a communication channel while Eve listens in from above.    "
+},
+{
+  "id": "ch-what-is-cryptography--5",
+  "level": "2",
+  "url": "s_crypto.html#ch-what-is-cryptography--5",
+  "type": "Remark",
+  "number": "1.18.3",
+  "title": "Jardon disentanglement.",
+  "body": " Jardon disentanglement  Cryptography is to be distinguished from coding theory which deals more with the representation of data and its communication over noisy channels. It should also be distinguished from steganography ('stegano' means covered ), which is the practice of physically hiding messages (with invisible ink, under wax coatings, on the inside of egg shells, etc.).  Cryptography doesn't hide the message itself, but rather the meaning of the message.  "
+},
+{
+  "id": "eg_caesar_shift_cipher",
+  "level": "2",
+  "url": "s_crypto.html#eg_caesar_shift_cipher",
+  "type": "Example",
+  "number": "1.18.4",
+  "title": "Caesar shift cipher.",
+  "body": " Caesar shift cipher   The Caesar shift cipher is a cryptosystem allegedly used by Julius Caesar which encrpyts a plaintext by replacing each letter with the letter three steps away (in a cyclic manner).  The plaintext 'veni, vidi, vici' is encrpyted as follows: The ciphertext can than be decrypted back to the original by shifting three letters to the left, or equivalently, by shifting 23 letters to the right.  There is nothing special about shifting by letters. We can shift by for any , though wouldn't be very interesting. We will call this shifting by encryption method the Caesar -shift cipher .   "
+},
+{
+  "id": "d_cryptosystem",
+  "level": "2",
+  "url": "s_crypto.html#d_cryptosystem",
+  "type": "Definition",
+  "number": "1.18.5",
+  "title": "Cryptosystem.",
+  "body": " Cryptosystem   A cryptosystem consists of a set of keys  , called the keyspace , sets and consisting of the possible plaintexts and ciphertexts, respectively, and for each key a pair of functions satisfying for all . For each , the functions and are called the encryption and decryption functions for the key .  Equivalently, we can describe a cryptosystem as a pair of functions such that for all and all , . The functions and are called the encryption and decryption methods of the cryptosystem.   "
+},
+{
+  "id": "principle-",
+  "level": "2",
+  "url": "s_crypto.html#principle-",
+  "type": "Mantra",
+  "number": "1.18.6",
+  "title": "Kirchoff’s principle.",
+  "body": " Kirchoff's principle   The security of a cryptosystem should not rely on the methods and being kept secret.   "
+},
+{
   "id": "appendix-notation",
   "level": "1",
   "url": "appendix-notation.html",

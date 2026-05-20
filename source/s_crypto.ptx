@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_crypto" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Cryptology</title>
+<subsection xml:id="ch-what-is-cryptography-"><title>What is cryptography?</title>
+    <p><sq>Crypto</sq> comes from the Greek <m>\kappa\rho\upsilon\pi\tau\omega\zeta\</m>, which means <q>hidden</q> or <q>concealed</q>. <sq>Graph</sq> comes from <m>\gamma\rho\alpha\phi\omega</m>, meaning <q>to write</q>.
+    </p>
+    <definition xml:id="d_crpytology">
+        <title>Cryptology</title>
+        <statement>
+           <p><term>Cryptography</term> is the design of systems allowing for secure communication over a nonsecure channel.</p>
+           <p><term>Cryptology</term> is the overall study or science of secure communication.</p>
+           <p><term>Cryptanalysis</term> is the practice or science of breaking cryptographic systems.
+        </p>
+        <p>
+         A cryptographic system takes a message <m>m</m>, the <term>plaintext</term>, <term>encrypts</term> it to a <term>ciphertext</term>, <m>c</m>, whose meaning can only be fathomed by <term>decrypting</term> back to the plaintext <m>m</m>.</p>
+        </statement>
+    </definition>
+    <figure xml:id="fig_alice_bob_eve">
+        <caption>Alice and Bob communicating over a channel with the eavesdropping Eve.</caption>
+        <image width="75%">
+            <shortdescription>Alice and Bob are connected by a communication channel while Eve listens in from above.</shortdescription>
+            <latex-image>
+\begin{tikzpicture}[>=stealth]
+\node[draw, rounded corners, minimum width=2.2cm, minimum height=1cm] (alice) at (0,0) {Alice};
+\node[draw, rounded corners, minimum width=2.2cm, minimum height=1cm] (bob) at (7,0) {Bob};
+\draw[&lt;-&gt;, thick] (alice.east) -- node[below]{communication channel} (bob.west);
+\node[draw, rounded corners, minimum width=2cm, minimum height=1cm, fill=gray!15] (eve) at (3.5,2) {Eve};
+\draw[->, dashed, thick] (eve.south) -- (3.5,0.2) node[midway, right]{eavesdrops};
+\end{tikzpicture}
+            </latex-image>
+        </image>
+    </figure>
+    <remark>
+    <title>Jardon disentanglement</title>    
+    <p>Cryptography is to be distinguished from <term>coding theory</term> which deals more with the representation of data and its communication over noisy channels. It should also be distinguished from <term>steganography</term> ('stegano' means <q>covered</q>), which is the practice of physically hiding messages (with invisible ink, under wax coatings, on the inside of egg shells, etc.).</p>
+    <p>Cryptography doesn't hide the message itself, but rather the <em>meaning</em> of the message.
+    </p>
+    </remark>
+    
+    <example xml:id="eg_caesar_shift_cipher">
+    <title>Caesar shift cipher</title>
+    <statement>
+    <p>
+        The <em>Caesar shift cipher</em> is a cryptosystem allegedly used by Julius Caesar which encrpyts a plaintext <m>m</m> by replacing each letter with the letter three steps away (in a cyclic manner).
+    </p>
+    <p>
+    The plaintext 'veni, vidi, vici' is encrpyted as follows:
+<md>
+  \begin{array}{c|c|c|c|c|c|c|c}v&#x26;e&#x26;n&#x26;i&#x26;v&#x26;i&#x26;d&#x26;i&#x26;v&#x26;i&#x26;c&#x26;i\\ \hline \\ Y&#x26;H&#x26;Q&#x26;L&#x26;Y&#x26;L&#x26;G&#x26;L&#x26;Y&#x26;L&#x26;F&#x26;L\end{array}
+</md>
+The ciphertext can than be decrypted back to the original by shifting three letters to the left, or equivalently, by shifting 23 letters to the right.
+</p>
+
+<p>
+  There is nothing special about shifting by <m>k=3</m> letters.
+  We can shift by <m>n</m> for any <m>k\in\{0,1,\dots,25\}</m>, though <m>k=0</m> wouldn't be very interesting. We will call this shifting by <m>k</m> encryption method the <term>Caesar <m>k</m>-shift cipher</term>. 
+</p>
+    </statement>
+</example>
+<p>
+    The Caesar shift cipher captures the basic elements of a <em>crpytosystem</em>, which we now formally define. 
+</p>
+<definition xml:id="d_cryptosystem">
+<title>Cryptosystem</title>
+<statement>
+<p>
+A <term>cryptosystem</term> consists of a set of <term>keys</term> <m>\mathcal{K}</m>, called the <term>keyspace</term>, sets <m>\mathcal{P}</m> and <m>\mathcal{C}</m> consisting of the possible plaintexts and ciphertexts, respectively, and for each key <m>k\in \mathcal{K}</m> a pair of functions
+<md number="no">
+    <mrow>E_k\colon \mathcal{P} \amp \rightarrow \mathcal{C}</mrow>
+    <mrow>D_k\colon \mathcal{C} \amp \rightarrow \mathcal{P}</mrow>
+</md>
+satisfying <m>D_k(E_k(p))=p</m> for all <m>p\in \mathcal{P}</m>. For each <m>k\in \mathcal{K}</m>, the functions <m>E_k</m> and <m>D_k</m> are called the <term>encryption and decryption functions for the key <m>k</m></term>. 
+</p>
+<p>
+    Equivalently, we can describe a cryptosystem as a pair of functions 
+    <md number="yes">
+        <mrow>E\colon \mathcal{K}\times \mathcal{P}\amp \rightarrow \mathcal{C} \amp D\colon \mathcal{K}\times \mathcal{C} \amp\rightarrow \mathcal{P}</mrow>
+        <mrow>(k,p) \amp \rightarrow E_k(p) \amp (k,c)\amp\mapsto D_k(c)</mrow>
+    </md>
+    such that for all <m>k\in \mathcal{K}</m> and all <m>p\in \mathcal{P}</m>, <m>D(k,E(k,p))=p</m>. The functions <m>E</m> and <m>D</m> are called the <term>encryption and decryption methods</term> of the cryptosystem. 
+</p>
+</statement>
+</definition>
+<principle xml:id="principle-">
+    <title>Kirchoff's principle</title>
+    <statement>
+        <p>
+            The security of a cryptosystem <m>(E,D)</m> should not rely on the methods <m>E</m> and <m>D</m> being kept secret. 
+        </p>
+    </statement>
+</principle>
+    
+
+</subsection>
+
+</section>
