@@ -664,11 +664,13 @@ s='takealoadofffannytakealoadforfreetakealoadofffannyandyouputtheloadrightonme'
 print(sigma)
 print(encrypt(s,sigma))
 </script></div>
-<div class="autopermalink" data-description="Sage example 5: Substitution cipher: encryption and decryption"><a href="#ss_sub_cipher-4" title="Copy heading and permalink for Sage example 5: Substitution cipher: encryption and decryption" aria-label="Copy heading and permalink for Sage example 5: Substitution cipher: encryption and decryption">🔗</a></div></article></details><figure class="table table-like" id="ss_sub_cipher-5"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Frequency of letters and bigrams. Pulled from from practical cryptography<div class="autopermalink" data-description="Table 1.18.10: Frequency of letters and bigrams. Pulled from from practical cryptography"><a href="#ss_sub_cipher-5" title="Copy heading and permalink for Table 1.18.10: Frequency of letters and bigrams. Pulled from from practical cryptography" aria-label="Copy heading and permalink for Table 1.18.10: Frequency of letters and bigrams. Pulled from from practical cryptography">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="autopermalink" data-description="Sage example 5: Substitution cipher: encryption and decryption"><a href="#ss_sub_cipher-4" title="Copy heading and permalink for Sage example 5: Substitution cipher: encryption and decryption" aria-label="Copy heading and permalink for Sage example 5: Substitution cipher: encryption and decryption">🔗</a></div></article></details><figure class="table table-like" id="ss_sub_cipher-5"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Frequency of letters, bigrams, and trigrams. Pulled from from practical cryptography<div class="autopermalink" data-description="Table 1.18.10: Frequency of letters, bigrams, and trigrams. Pulled from from practical cryptography"><a href="#ss_sub_cipher-5" title="Copy heading and permalink for Table 1.18.10: Frequency of letters, bigrams, and trigrams. Pulled from from practical cryptography" aria-label="Copy heading and permalink for Table 1.18.10: Frequency of letters, bigrams, and trigrams. Pulled from from practical cryptography">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b2 r0 l0 t0 lines">Letter</th>
 <th scope="col" class="l m b2 r0 l0 t0 lines">Frequency (%)</th>
 <th scope="col" class="l m b2 r0 l0 t0 lines">Bigram</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">Frequency (%)</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">Trigram</th>
 <th scope="col" class="l m b2 r0 l0 t0 lines">Frequency (%)</th>
 </tr>
 <tr>
@@ -676,36 +678,48 @@ print(encrypt(s,sigma))
 <td class="l m b0 r0 l0 t0 lines">12.10</td>
 <td class="l m b0 r0 l0 t0 lines">th</td>
 <td class="l m b0 r0 l0 t0 lines">2.71</td>
+<td class="l m b0 r0 l0 t0 lines">the</td>
+<td class="l m b0 r0 l0 t0 lines">1.81</td>
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">t</td>
 <td class="l m b0 r0 l0 t0 lines">8.94</td>
 <td class="l m b0 r0 l0 t0 lines">he</td>
 <td class="l m b0 r0 l0 t0 lines">2.33</td>
+<td class="l m b0 r0 l0 t0 lines">and</td>
+<td class="l m b0 r0 l0 t0 lines">0.73</td>
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">a</td>
 <td class="l m b0 r0 l0 t0 lines">8.55</td>
 <td class="l m b0 r0 l0 t0 lines">in</td>
 <td class="l m b0 r0 l0 t0 lines">2.03</td>
+<td class="l m b0 r0 l0 t0 lines">ing</td>
+<td class="l m b0 r0 l0 t0 lines">0.63</td>
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">o</td>
 <td class="l m b0 r0 l0 t0 lines">7.47</td>
 <td class="l m b0 r0 l0 t0 lines">er</td>
 <td class="l m b0 r0 l0 t0 lines">1.78</td>
+<td class="l m b0 r0 l0 t0 lines">ent</td>
+<td class="l m b0 r0 l0 t0 lines">0.42</td>
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">i</td>
 <td class="l m b0 r0 l0 t0 lines">7.33</td>
 <td class="l m b0 r0 l0 t0 lines">an</td>
 <td class="l m b0 r0 l0 t0 lines">1.61</td>
+<td class="l m b0 r0 l0 t0 lines">ion</td>
+<td class="l m b0 r0 l0 t0 lines">0.42</td>
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines">n</td>
 <td class="l m b0 r0 l0 t0 lines">7.17</td>
 <td class="l m b0 r0 l0 t0 lines">re</td>
 <td class="l m b0 r0 l0 t0 lines">1.41</td>
+<td class="l m b0 r0 l0 t0 lines">her</td>
+<td class="l m b0 r0 l0 t0 lines">0.36</td>
 </tr>
 </table></div></figure><details id="ss_sub_cipher-6" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Sage example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cryptanalysis of substitution cipher.</span>
@@ -719,18 +733,24 @@ print(encrypt(s,sigma))
     s=list(s)
     table={x:s.count(x) for x in 'abcdefghijklmnopqrstuvwxyz'}
     bigrams={}
+    trigrams={}
     for i in range(len(s)-1):
         di=s[i]+s[i+1]
         bigrams[di]=bigrams.get(di,0)+1
-    return table, bigrams
+    for i in range(len(s)-2):
+        ti=s[i]+s[i+1]+s[i+2]
+        trigrams[ti]=trigrams.get(ti,0)+1
+    return table, bigrams, trigrams
 </script></div>
-<div class="para" id="ss_sub_cipher-6-6">Let’s look at the top ten most common letters and bigrams.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ss_sub_cipher-6-6">Let’s look at the top ten most common letters, bigrams, and trigrams.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="ss_sub_cipher-6-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">l,b=freq_anal(c)
+<div id="ss_sub_cipher-6-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">l,b,t=freq_anal(c)
 for x in sorted(l.keys(),key=lambda k:l[k], reverse=True)[:10]:
     print(x, l[x]/len(c))
-for x in sorted(b.keys(),key=lambda k:b[k], reverse=True)[:50]:
+for x in sorted(b.keys(),key=lambda k:b[k], reverse=True)[:15]:
     print(x, b[x])
+for x in sorted(t.keys(),key=lambda k:t[k], reverse=True)[:15]:
+    print(x, t[x])
 </script></div>
 <div class="para" id="ss_sub_cipher-6-8">The the next function allows us to make guesses about what the letter substitutions are and update our guess at the deciphered text.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>

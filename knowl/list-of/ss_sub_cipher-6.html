@@ -44,18 +44,24 @@ sagecell.makeSagecell({
     s=list(s)
     table={x:s.count(x) for x in 'abcdefghijklmnopqrstuvwxyz'}
     bigrams={}
+    trigrams={}
     for i in range(len(s)-1):
         di=s[i]+s[i+1]
         bigrams[di]=bigrams.get(di,0)+1
-    return table, bigrams
+    for i in range(len(s)-2):
+        ti=s[i]+s[i+1]+s[i+2]
+        trigrams[ti]=trigrams.get(ti,0)+1
+    return table, bigrams, trigrams
 </script></div>
-<div class="para">Let’s look at the top ten most common letters and bigrams.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Let’s look at the top ten most common letters, bigrams, and trigrams.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="ss_sub_cipher-6-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">l,b=freq_anal(c)
+<div id="ss_sub_cipher-6-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">l,b,t=freq_anal(c)
 for x in sorted(l.keys(),key=lambda k:l[k], reverse=True)[:10]:
     print(x, l[x]/len(c))
-for x in sorted(b.keys(),key=lambda k:b[k], reverse=True)[:50]:
+for x in sorted(b.keys(),key=lambda k:b[k], reverse=True)[:15]:
     print(x, b[x])
+for x in sorted(t.keys(),key=lambda k:t[k], reverse=True)[:15]:
+    print(x, t[x])
 </script></div>
 <div class="para">The the next function allows us to make guesses about what the letter substitutions are and update our guess at the deciphered text.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
