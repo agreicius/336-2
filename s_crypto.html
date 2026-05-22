@@ -756,12 +756,13 @@ for x in sorted(t.keys(),key=lambda k:t[k], reverse=True)[:15]:
 </script></div>
 <div class="para" id="ss_sub_cipher-7-8">The the next function allows us to make guesses about what the letter substitutions are and update our guess at the deciphered text.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-7-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="ss_sub_cipher-7-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">        t=['_']*len(c)
+<div id="ss_sub_cipher-7-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"> t=['_']*len(c)
 guesses={}
 def guess(x,y):
-    guesses[x]=y
     for i in range(len(c)):
-        if c[i]==x: t[i]=y
+        if c[i]==x: 
+            t[i]=y
+            guesses[x]=y
     print('Guesses: ', guesses)
     k=50
     for i in range(len(c)//50):
