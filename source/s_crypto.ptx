@@ -26,13 +26,13 @@
 \node[draw, rounded corners, minimum width=2.2cm, minimum height=1cm] (bob) at (7,0) {Bob};
 \draw[&lt;-&gt;, thick] (alice.east) -- node[below]{communication channel} (bob.west);
 \node[draw, rounded corners, minimum width=2cm, minimum height=1cm, fill=gray!15] (eve) at (3.5,2) {Eve};
-\draw[->, dashed, thick] (eve.south) -- (3.5,0.2) node[midway, right]{eavesdrops};
+\draw[->, dashed, thick] (eve.south) -- (3.5,0.2) node[midway, right]{};
 \end{tikzpicture}
             </latex-image>
         </image>
     </figure>
     <remark>
-    <title>Jardon disentanglement</title>    
+    <title>Jargon disentanglement</title>    
     <p>Cryptography is to be distinguished from <term>coding theory</term> which deals more with the representation of data and its communication over noisy channels. It should also be distinguished from <term>steganography</term> ('stegano' means <q>covered</q>), which is the practice of physically hiding messages (with invisible ink, under wax coatings, on the inside of egg shells, etc.).</p>
     <p>Cryptography doesn't hide the message itself, but rather the <em>meaning</em> of the message.
     </p>
@@ -46,9 +46,19 @@
     </p>
     <p>
     The plaintext 'veni, vidi, vici' is encrpyted as follows:
-<md>
-  \begin{array}{c|c|c|c|c|c|c|c}v&#x26;e&#x26;n&#x26;i&#x26;v&#x26;i&#x26;d&#x26;i&#x26;v&#x26;i&#x26;c&#x26;i\\ \hline \\ Y&#x26;H&#x26;Q&#x26;L&#x26;Y&#x26;L&#x26;G&#x26;L&#x26;Y&#x26;L&#x26;F&#x26;L\end{array}
-</md>
+    </p>
+    <table xml:id="t_veni_vidi_vici_shift">
+        <title>Caesar shift for <q>veni, vidi, vici</q></title>
+        <tabular>
+            <row>
+                <cell>Plaintext</cell><cell>v</cell><cell>e</cell><cell>n</cell><cell>i</cell><cell>v</cell><cell>i</cell><cell>d</cell><cell>i</cell><cell>v</cell><cell>i</cell><cell>c</cell><cell>i</cell>
+            </row>
+            <row>
+                <cell>Ciphertext</cell><cell>Y</cell><cell>H</cell><cell>Q</cell><cell>L</cell><cell>Y</cell><cell>L</cell><cell>G</cell><cell>L</cell><cell>Y</cell><cell>L</cell><cell>F</cell><cell>L</cell>
+            </row>
+        </tabular>
+    </table>
+    <p>
 The ciphertext can than be decrypted back to the original by shifting three letters to the left, or equivalently, by shifting 23 letters to the right.
 </p>
 
@@ -83,14 +93,253 @@ satisfying <m>D_k(E_k(p))=p</m> for all <m>p\in \mathcal{P}</m>. For each <m>k\i
 </statement>
 </definition>
 <principle xml:id="principle-">
-    <title>Kirchoff's principle</title>
+    <title>Kerchoff's principle</title>
     <statement>
         <p>
             The security of a cryptosystem <m>(E,D)</m> should not rely on the methods <m>E</m> and <m>D</m> being kept secret. 
         </p>
     </statement>
 </principle>
+</subsection>
+<subsection xml:id="ss_sub_cipher">
+    <title>Subsititution cipher</title>
     
+
+<definition xml:id="d_symmetric_group">
+<title>Symmetric group</title>
+<statement>
+<p>
+Let <m>X=\{x_1,x_2,\dots, x_n\}</m> be a finite group of cardinality <m>n</m>. A <term>permutation</term> of <m>X</m> is a bijection (equivalently, invertible function) <m>\sigma\colon X\rightarrow X</m>. The set <m>S_X</m> of all permutations of <m>X</m> is called the <term>symmetric group</term> on <m>X</m>. In the case where <m>X=\{1,2,\dots, n\}</m>, we write <m>S_n</m> for <m>S_X</m>. 
+</p>
+</statement>
+</definition>
+<definition xml:id="d_subst_cipher">
+<title>Subsitution cipher</title>
+<statement>
+<p>
+Let <m>\mathcal{A}</m> be a set alphabet. The substitution cipher on <m>\mathcal{A}</m> is the cryptosystem with <m>\mathcal{P}=\mathcal{C}=\mathcal{A}</m>, keyspace <m>\mathcal{K}=S_{\mathcal{A}}</m> and encryption and decryption methods <m>E</m> and <m>D</m> defined as 
+<md>
+    <mrow>E_\sigma(p) \amp =\sigma(p) \amp D_\sigma(c)=\sigma^{-1}(c)</mrow>
+</md>
+for all <m>\sigma\in S_\mathcal{A}</m>, <m>p\in \mathcal{P}=\mathcal{A}</m> and <m>c\in\mathcal{C}=\mathcal{A} </m>.
+</p>
+</statement>
+</definition>
+<project>
+    <title>Substitution cipher: encryption and decryption</title>
+    <p>
+        It is very straightforward to implement the substitution cipher using Sage. We create the symmetric group on the standard lowercase alphabet using <c>G=SymmetricGroup(list('abcdefghijklmnopqrstuvwxyz'))</c>. The routine <c>G.random_element()</c> produces a random element of <m>G</m>. 
+    </p>
+    <sage>
+        <input>
+            G=SymmetricGroup(list('abcdefghijklmnopqrstuvwxyz'))
+            sigma=G.random_element()
+            sigma
+        </input>
+        <output>
+            ('a','h','m','d','t','k','z','w','x','e','q','g','i','p','v','b','r','l','s','o','y','j','u','c')('f','n')
+
+        </output>
+    </sage>
+    <p>
+        Our encryption/decryption methods will require taking strings of characters and making substitutions. We will use Python's regular expressions library to help with this, using the <c>import re</c> command and the substitution method <c>re.sub()</c>.
+    </p>
+    <sage>
+        <input>
+        import re
+def encrypt(s,sigma): #s a string, sigma a permutation of alphabet
+    t=re.sub('[a-z]',lambda m: sigma(m.group(0)), s)
+    return t
+sigma=G.random_element()
+s='takealoadofffannytakealoadforfreetakealoadofffannyandyouputtheloadrightonme'
+print(sigma)
+print(encrypt(s,sigma))
+        </input>
+        <output>
+            ('a','i','r','b','e','l','v','y','o','h','n','f','t','m')('c','q','z','u','s','d','w','j','x','k','p')
+miplivhiwhtttiffomiplivhiwthbtbllmiplivhiwhtttiffoifwohscsmmnlvhiwbrgnmhfal
+        </output>
+    </sage>
+</project>
+<table>
+    <title>Frequency of letters and bigrams. Pulled from from <url href="http://www.practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies/">practical cryptography</url></title>
+    <tabular>
+    <row header="yes" bottom="medium">
+        <cell>Letter</cell><cell>Frequency (%)</cell><cell>Bigram</cell><cell>Frequency (%)</cell>
+        </row>
+    <row>
+        <cell>e</cell><cell>12.10</cell><cell>th</cell><cell>2.71</cell>
+        </row>
+    <row>
+        <cell>t</cell><cell>8.94</cell><cell>he</cell><cell>2.33</cell>
+        </row>
+    <row>
+        <cell>a</cell><cell>8.55</cell><cell>in</cell><cell>2.03</cell>
+        </row>
+    
+        <row>
+        <cell>o</cell><cell>7.47</cell><cell>er</cell><cell>1.78</cell>
+        </row>
+    <row>
+        <cell>i</cell><cell>7.33</cell><cell>an</cell><cell>1.61</cell>
+        </row>
+    <row>
+        <cell>n</cell><cell>7.17</cell><cell>re</cell><cell>1.41</cell>
+        </row>
+    </tabular>
+</table>
+<project>
+    <title>Cryptanalysis of substitution cipher</title>
+<p>
+    Eve has intercepted the following ciphertext message, and suspects it was encrypted using a substitution cipher. 
+</p>
+<sage>
+    <input>
+        c='avupclxwmfoxxavoamfavudofuavupclxwmfavuacaoxmatckkodafbcackavmbhfavupclxwmfwuaulnmbuwztavukodafobwztavumlzumbhoxxavukodafkclavuacaoxmatckkodafwuaulnmbufpvoamfavudofuobwoxfcpvoauiulmfbcaavudofuavukodafmbxchmdoxfeoduoluavupclxwavupclxwwmimwufmbackodafuodvmaundobzuavudofuclbcaavudofupvmxuuiultavmbhuxfulunombfavufonupvoamfavudofuokodamfavuujmfaubduckfaoaufckokkomlfofaoauckokkomlfofaoauckavmbhfmfodcnzmboamcbckczyudafavmbhfmamfuffubamoxacavmbhfavoaavutfvcrxwzuecffmzxudcbfamarubafckfaoaufckokkomlfmbxchmdbcavmbhmfoddmwubaoxmkoavmbhdobcddrlmbofaoauckokkomlfavuecffmzmxmatckavufaoauckokkomlfnrfazuplmaaubmbacavuavmbhmafuxkmapcrxwfuunaczuofclackoddmwubamkmaarlbuwcraavoaofmaroamcbpcrxwkmaoavmbhavoadcrxwoxluowtujmfaubamluxtcbmafcpbmkavmbhfdobcddrlmbfaoaufckokkomlfavmfecffmzmxmatnrfazumbavunklcnavuzuhmbbmbhbcavmbhmbavuelcimbduckxchmddobzunuluxtecffmzxuxchmdwuoxfpmavuiultecffmzmxmatobwoxxecffmzmxmamufolumafkodafyrfaofpuoluqrmaurbozxuacmnohmbufeoamoxczyudafcrafmwufeoduclaunecloxczyudafcrafmwuamnufcaccavulumfbcczyudaavoapudobmnohmbuujdxrwuwklcnavuecffmzmxmatckdcnzmbmbhpmavcavulfmkmdobmnohmbuczyudafdcnzmbuwmbfaoaufckokkomlfmdobbcamnohmbuavunujdxrwuwklcnavuecffmzmxmatckfrdvdcnzmboamcbfavmbhfolumbwueubwubambfckolofavutdobcddrlmboxxecffmzxufmaroamcbfzraavmfkclnckmbwueubwubdumfokclnckdcbbujmcbpmavfaoaufckokkomlfokclnckwueubwubdumamfmnecffmzxukclpclwfacoeeuolmbapcwmkkulubalcxufztavunfuxiufobwmbelcecfmamcbfmkmgbcpobczyudamoxfcgbcpoxxmafecffmzxucddrllubdufmbfaoaufckokkomlfuiultcbuckavufuecffmzmxmamufnrfazueolackavuboarluckavuczyudaobupecffmzmxmatdobbcazuwmfdciuluwxoaulmkmonacgbcpobczyudaavcrhvambuuwbcagbcpmafujaulboxelceulamufmnrfagbcpoxxmafmbaulboxelceulamufmkoxxczyudafoluhmiubavuboaavufonuamnuoxxecffmzxufaoaufckokkomlfoluoxfchmiubuodvavmbhmfofmapulumbofeoduckecffmzxufaoaufckokkomlfavmffeodumdobmnohmbuuneatzramdobbcamnohmbuavuavmbhpmavcraavufeoduofeoamoxczyudanrfazufmaroauwmbmbkmbmaufeoduofeoamoxecmbamfobolhrnubaexoduofeudgmbavuimfroxkmuxwavcrhvamabuuwbcazuluwnrfavoiufcnudcxcrlmamffcacfeuogfrllcrbwuwztdcxcrlfeodubcaufnrfavoiufcnuemadvczyudafckavufubfuckacrdvfcnuwuhluuckvolwbuffobwfccbczyudafdcbaombavuecffmzmxmatckoxxfmaroamcbfavuecffmzmxmatckmafcddrllmbhmbfaoaufckokkomlfmfavukclnckobczyuda'
+    </input>
+    <output>
+    
+    </output>
+</sage>
+<p>
+    Here is function that performs frequency analysis on a string.
+</p>
+<sage>
+    <input>
+def freq_anal(s):
+    s=list(s)
+    table={x:s.count(x) for x in 'abcdefghijklmnopqrstuvwxyz'}
+    bigrams={}
+    for i in range(len(s)-1):
+        di=s[i]+s[i+1]
+        bigrams[di]=bigrams.get(di,0)+1
+    return table, bigrams
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    Let's look at the top ten most common letters and bigrams. 
+</p>
+<sage>
+    <input>
+l,b=freq_anal(c)
+for x in sorted(l.keys(),key=lambda k:l[k], reverse=True)[:10]:
+    print(x, l[x]/len(c))
+for x in sorted(b.keys(),key=lambda k:b[k], reverse=True)[:50]:
+    print(x, b[x])
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    The the next function allows us to make guesses about what the letter substitutions are and update our guess at the deciphered text. 
+</p>
+<sage>
+    <input>
+        t=['_']*len(c)
+guesses={}
+def guess(x,y):
+    guesses[x]=y
+    for i in range(len(c)):
+        if c[i]==x: t[i]=y
+    print('Guesses: ', guesses)
+    k=50
+    for i in range(len(c)//50):
+        print('\n'+c[i*k:(i+1)*k]+'\n')
+        tstr=str()
+        for x in t[i*k: (i+1)*k]: tstr=tstr+x
+        print(tstr)
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    Use the Sage cell below to decrypt the intercepted message. If you want to start your guesses from scratch, run the cell above this paragraph again. 
+</p>
+<sage>
+    <input>
+        
+    </input>
+    <output>
+        
+    </output>
+</sage>
+    
+</project>
+</subsection>
+<subsection xml:id="ss_vignere_cipher">
+    <title>Vigenère cipher</title>
+    <p>
+        What made the substitution cipher vulnerable to frequency analysis is that the encryption was defined on the level of single letters. We call this a <em>monographic</em> cryptosystem. A <em>polygraphic</em> (<em>block</em>) cryptosystem, in contrast, defines an encrpytion method on a block, or list of letters. The <em>Vignère cipher</em> defined below is a classic example of a block cipher that at first glance appears to be invulnerable to frequency analysis, and indeed was long considered to be unbreakable. 
+    </p>
+    <definition xml:id="d_vignere">
+    <title>Vigenère cipher</title>
+    <statement>
+    <p>
+    Let <m>\mathcal{A}=\{0,1,\dots, 25\}</m>, and let <m>n</m> be a positive integer. Define 
+    <md>
+        \mathcal{K}=\mathcal{P}=\mathcal{C}=\mathcal{A}^n
+    </md>, 
+    and encryption methods <m>E</m> and <m>D</m> as <md>
+        <mrow>E_{(k_1,k_2,\dots, k_n)}(p_1,p_2,\dots, p_n) \amp = (p_1+k_1\boldmod{26}, p_2+k_2\boldmod{26},\dots p_n+k_n\boldmod{26})</mrow>
+        <mrow>D_{(k_1,k_2,\dots, k_n)}(c_1,c_2,\dots, c_n) \amp = (c_1-k_1\boldmod{26}, c_2-k_2\boldmod{26},\dots c_n-k_n\boldmod{26})</mrow>
+    </md>
+    for each key <m>k=(k_1,k_2,\dots, k_n)\in \mathcal{K}</m>, plaintext <m>p=(p_1,p_2,\dots, p_n)\in \mathcal{P}</m> and ciphertext <m>c=(c_1,c_2,\dots, c_n)\in \mathcal{C}</m>.
+    </p>
+    </statement>
+    </definition>
+<project xml:id="sage_vignere">
+        <title>Vigenère cipher: encryption and decryption</title>
+        <p>
+           Again, using Sage we can easily implement the Vigenère cipher. 
+        </p>
+        <sage>
+            <input>
+                AlphaNum={}
+for x in 'abcdefghijklmnopqrstuvwxyz':
+    AlphaNum[x]=ord(x)-97
+NumAlpha={y:x for (x,y) in AlphaNum.items()}
+
+def vig_enc(m,k):
+    r=len(k)
+    seq=[]
+    for x in k:
+        seq.append(AlphaNum[x])
+    c=''
+    for i in range(len(m)):
+        c=c+NumAlpha[(AlphaNum[m[i]]+seq[i%r])%26]
+    return c
+def vig_dec(c,k):
+    kbar=''
+    for x in k:
+        kbar=kbar+NumAlpha[-AlphaNum[x]%26]
+    return vig_enc(c,kbar)
+            </input>
+            <output>
+                
+            </output>
+        </sage>
+        <sage>
+            <input>
+                c='ebhswxwxloirwnkwbodnkakgdywdmczlozqyebhpwzlflpguqzdybyyiwknzscqcazsyzkzrocvzmzplpevkovbppkqufpagyxeubnpcuxmoyadhtzsyiwkzdzrnbnpnrpirtnbknllwwolkeyuiqtpmzdiztmwdmilmhwvjlfvkenlnhrmxtmqkbzsyfwakebhbiiemljturcfwtyaufaixpnkaeucfgppkhiuhljtplzmythwkngnnvaiiscwauilheabnpwdomuchrpbnpwdomcscoambplbppoyahhakcypwqtdnkaagxyzdiztmwdmilmhwngnnlobnpyaeazphfawldndpmyzzdbngtlvwazlnhkngqzdezylmwwbkzzwdqtrmloiizgeevgecrjwlzvmakzdnkevmdcweakdmhjbolfwkbnthjobnlnwdmedbrqtjmyskaytvoakuymwebaphwowldndpmyzzdbngtlvevrzalyvuebljoodufyqjphwwtoquwdqtrwdjwinouevgdndpmuquibiocmwdmvzmvejowcwuwlebhobgeyrbilqulnasfmwxmcccwpmtthwkbnpnkevmtnvatltnzkcromhauzzvhwaucnrbiincgavztzlpbachhzwaenkwbgdcwqiztiqswawxiebgebljozsuwywawxdhzklxbafodnhjbocyouwttnvkettzwdqtrmfwvunwxnqtdndpmyzzdbngtlvppodjroaomcoebexovpjkthwdmsqlribnpvhcqtycqcvuebljooynkaxxzpljkkzzokoonwdjjkxyuateaivoqhwyokoonxhwtyhcwdmbplblwydceetoesdjlgwfskaytvlhqztyvwzktnvbiiemmqazlmzaixpkxebkfhdxtkeiliimthhoxgecdhwhuyfpaufnvelkdjdymucnhixucuokjppwwowaemlzmztghowzziwdmxpcvjwumdhybzsuwsmilhliimthhafiwogallcipppkaivoqhtflpguqwrijoycqceoebrppkcmlbqilhliimthhkjppwwokuxvljmjthvpizpmrbilqulnaonuqjwztgdcqtpnkaukiwoqlkozukuzsyskaytvlhqzjiiociswrijoyuwewtdnkevmduuaqtoysavjphwevyzzdniyebhukgyifycxthdhtvzmvejrpmlpcgecrjahfnwdqyqiuiwlthgaxkyxhjkktmdbwxxiiywtyyaewthcwdazlnhowllziwqxduikzszzgaxkyxhjkktnloqsaivoqhwyikzczlgobuljsaixthwswjtziazkynuktkdvbppkxmhhdkduqzqtalrlwytnlkvytzlgvuhuqkjppwweirdinjwclfoebyaivoqhwyrykaclhjkkdcqobgeyvkngqzdezypphnguyyrbbnpmhlwydceetoechouadneaxgcnrbbnphdpcxpiippkzvmakzlhhsxudmlxqrtnbyityiwxmjtmfkdkcyghizpllbqgxnrgvuhuqkjppwwppufakpqtpygjwzvhrsqzdyapmxyuolzuayupqkdcpqazvhrsirwcwoqteyujiralrlmxechoqllfokjppwwoixpalrmtebhjizebhoispnlimgwfskaytvoaazlnhowllziwqxduuairdijedkyydypzscqcqylmlpekcyljiyaufawlaivoqhwyvpizpmrbilqulnazscvoxgnylyittgdcqtpyplbemowekgyhrpqslaljmzsywdqtrqlppufnwdmyaufaiyauweirzvmakzxovpjkdcwqizpxljqtqcqebkdjdymgdjdpqgwjrevztmdjixropavzafdymgdjhysoynkadododhnopfgppufakpqzyyhzvuevhnmjxovppggyvkukniokcxtnloaueivlmgvmxnzufhgalhjwrhwacmswkkyiwaasfmwdibpmrimvtnfdwhuyfpauqnkaakymhknzzofdauxygaoxpyrbpgcxqaaylhgowuyiefmiemfkvzlcqppkaivoqhtflpguquohaoeodpquymwdmvzmvejowcwuwltnvkkifluevmthvpizpmrbilqulnaodnkanucgrbitzvmakz'
+            </input>
+            <output>
+                
+            </output>
+        </sage>  
+        <sage>
+            <input>
+                
+            </input>
+            <output>
+                
+            </output>
+        </sage> 
+    </project>      
 
 </subsection>
 
