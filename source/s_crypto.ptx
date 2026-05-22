@@ -162,7 +162,7 @@ miplivhiwhtttiffomiplivhiwthbtbllmiplivhiwhtttiffoifwohscsmmnlvhiwbrgnmhfal
     </sage>
 </project>
 <p>
-    The table below was pulled from <url href="https://www.practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies/">practical cryptography</url>. 
+    The table below was pulled from <url href="http://www.practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies/">practical cryptography</url>. 
 </p>
 <table>
     <title>Frequency of letters, bigrams, and trigrams.</title>
