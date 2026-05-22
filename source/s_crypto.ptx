@@ -248,12 +248,13 @@ for x in sorted(t.keys(),key=lambda k:t[k], reverse=True)[:15]:
 </p>
 <sage>
     <input>
-        t=['_']*len(c)
+ t=['_']*len(c)
 guesses={}
 def guess(x,y):
-    guesses[x]=y
     for i in range(len(c)):
-        if c[i]==x: t[i]=y
+        if c[i]==x: 
+            t[i]=y
+            guesses[x]=y
     print('Guesses: ', guesses)
     k=50
     for i in range(len(c)//50):
