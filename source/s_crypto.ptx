@@ -142,7 +142,7 @@ for all <m>\sigma\in S_\mathcal{A}</m>, <m>p\in \mathcal{P}=\mathcal{A}</m> and 
         </output>
     </sage>
     <p>
-        Our encryption/decryption methods will require taking strings of characters and making substitutions. We will use Python's regular expressions library to help with this, using the <c>import re</c> command and the substitution method <c>re.sub()</c>.
+        Our encryption/decryption methods will require taking strings of characters and making substitutions. We will use Python's regular expressions library to help with this, using the <c>import re</c> command and the substitution method <c>re.sub()</c>. 
     </p>
     <sage>
         <input>
@@ -161,8 +161,11 @@ miplivhiwhtttiffomiplivhiwthbtbllmiplivhiwhtttiffoifwohscsmmnlvhiwbrgnmhfal
         </output>
     </sage>
 </project>
+<p>
+    The table below was pulled from <url href="https://www.practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies/">practical cryptography</url>. 
+</p>
 <table>
-    <title>Frequency of letters, bigrams, and trigrams. Pulled from from <url href="https://www.practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies/">practical cryptography</url></title>
+    <title>Frequency of letters, bigrams, and trigrams.</title>
     <tabular>
     <row header="yes" bottom="medium">
         <cell>Letter</cell><cell>Frequency (%)</cell><cell>Bigram</cell><cell>Frequency (%)</cell><cell>Trigram</cell><cell>Frequency (%)</cell>
