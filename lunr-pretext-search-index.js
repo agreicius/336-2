@@ -2341,6 +2341,132 @@ var ptx_lunr_docs = [
   "body": " Negative Pell equation for prime   Let be a prime integer. The negative Pell equation has a solution if and only if .       "
 },
 {
+  "id": "s_crypto",
+  "level": "1",
+  "url": "s_crypto.html",
+  "type": "Section",
+  "number": "1.18",
+  "title": "Cryptology",
+  "body": " Cryptology  What is cryptography?  Crypto comes from the Greek , which means hidden or concealed . Graph comes from , meaning to write .   Cryptology   Cryptography is the design of systems allowing for secure communication over a nonsecure channel.  Cryptology is the overall study or science of secure communication.  Cryptanalysis is the practice or science of breaking cryptographic systems.  A cryptographic system takes a message , the plaintext , encrypts it to a ciphertext , , whose meaning can only be fathomed by decrypting back to the plaintext .     Alice and Bob communicating over a channel with the eavesdropping Eve.   Alice and Bob are connected by a communication channel while Eve listens in from above.      Jargon disentanglement  Cryptography is to be distinguished from coding theory which deals more with the representation of data and its communication over noisy channels. It should also be distinguished from steganography ('stegano' means covered ), which is the practice of physically hiding messages (with invisible ink, under wax coatings, on the inside of egg shells, etc.).  Cryptography doesn't hide the message itself, but rather the meaning of the message.    Caesar shift cipher   The Caesar shift cipher is a cryptosystem allegedly used by Julius Caesar which encrpyts a plaintext by replacing each letter with the letter three steps away (in a cyclic manner).  The plaintext 'veni, vidi, vici' is encrpyted as follows:   Caesar shift for veni, vidi, vici    Plaintext v e n i v i d i v i c i    Ciphertext Y H Q L Y L G L Y L F L     The ciphertext can than be decrypted back to the original by shifting three letters to the left, or equivalently, by shifting 23 letters to the right.  There is nothing special about shifting by letters. We can shift by for any , though wouldn't be very interesting. We will call this shifting by encryption method the Caesar -shift cipher .    The Caesar shift cipher captures the basic elements of a crpytosystem , which we now formally define.   Cryptosystem   A cryptosystem consists of a set of keys  , called the keyspace , sets and consisting of the possible plaintexts and ciphertexts, respectively, and for each key a pair of functions satisfying for all . For each , the functions and are called the encryption and decryption functions for the key .  Equivalently, we can describe a cryptosystem as a pair of functions such that for all and all , . The functions and are called the encryption and decryption methods of the cryptosystem.     Kerchoff's principle   The security of a cryptosystem should not rely on the methods and being kept secret.      Subsititution cipher   Symmetric group   Let be a finite group of cardinality . A permutation of is a bijection (equivalently, invertible function) . The set of all permutations of is called the symmetric group on . In the case where , we write for .     Subsitution cipher   Let be a set alphabet. The substitution cipher on is the cryptosystem with , keyspace and encryption and decryption methods and defined as for all , and .     Substitution cipher: encryption and decryption  It is very straightforward to implement the substitution cipher using Sage. We create the symmetric group on the standard lowercase alphabet using G=SymmetricGroup(list('abcdefghijklmnopqrstuvwxyz')) . The routine G.random_element() produces a random element of .   Our encryption\/decryption methods will require taking strings of characters and making substitutions. We will use Python's regular expressions library to help with this, using the import re command and the substitution method re.sub() .     Frequency of letters and bigrams. Pulled from from practical cryptography    Letter Frequency (%) Bigram Frequency (%)    e 12.10 th 2.71    t 8.94 he 2.33    a 8.55 in 2.03    o 7.47 er 1.78    i 7.33 an 1.61    n 7.17 re 1.41      Cryptanalysis of substitution cipher  Eve has intercepted the following ciphertext message, and suspects it was encrypted using a substitution cipher.   Here is function that performs frequency analysis on a string.   Let's look at the top ten most common letters and bigrams.   The the next function allows us to make guesses about what the letter substitutions are and update our guess at the deciphered text.   Use the Sage cell below to decrypt the intercepted message. If you want to start your guesses from scratch, run the cell above this paragraph again.      Vigenère cipher  What made the substitution cipher vulnerable to frequency analysis is that the encryption was defined on the level of single letters. We call this a monographic cryptosystem. A polygraphic ( block ) cryptosystem, in contrast, defines an encrpytion method on a block, or list of letters. The Vignère cipher defined below is a classic example of a block cipher that at first glance appears to be invulnerable to frequency analysis, and indeed was long considered to be unbreakable.   Vigenère cipher   Let , and let be a positive integer. Define , and encryption methods and as for each key , plaintext and ciphertext .     Vigenère cipher: encryption and decryption  Again, using Sage we can easily implement the Vigenère cipher.       "
+},
+{
+  "id": "d_crpytology",
+  "level": "2",
+  "url": "s_crypto.html#d_crpytology",
+  "type": "Definition",
+  "number": "1.18.1",
+  "title": "Cryptology.",
+  "body": " Cryptology   Cryptography is the design of systems allowing for secure communication over a nonsecure channel.  Cryptology is the overall study or science of secure communication.  Cryptanalysis is the practice or science of breaking cryptographic systems.  A cryptographic system takes a message , the plaintext , encrypts it to a ciphertext , , whose meaning can only be fathomed by decrypting back to the plaintext .   "
+},
+{
+  "id": "fig_alice_bob_eve",
+  "level": "2",
+  "url": "s_crypto.html#fig_alice_bob_eve",
+  "type": "Figure",
+  "number": "1.18.2",
+  "title": "",
+  "body": " Alice and Bob communicating over a channel with the eavesdropping Eve.   Alice and Bob are connected by a communication channel while Eve listens in from above.    "
+},
+{
+  "id": "ch-what-is-cryptography--5",
+  "level": "2",
+  "url": "s_crypto.html#ch-what-is-cryptography--5",
+  "type": "Remark",
+  "number": "1.18.3",
+  "title": "Jargon disentanglement.",
+  "body": " Jargon disentanglement  Cryptography is to be distinguished from coding theory which deals more with the representation of data and its communication over noisy channels. It should also be distinguished from steganography ('stegano' means covered ), which is the practice of physically hiding messages (with invisible ink, under wax coatings, on the inside of egg shells, etc.).  Cryptography doesn't hide the message itself, but rather the meaning of the message.  "
+},
+{
+  "id": "eg_caesar_shift_cipher",
+  "level": "2",
+  "url": "s_crypto.html#eg_caesar_shift_cipher",
+  "type": "Example",
+  "number": "1.18.4",
+  "title": "Caesar shift cipher.",
+  "body": " Caesar shift cipher   The Caesar shift cipher is a cryptosystem allegedly used by Julius Caesar which encrpyts a plaintext by replacing each letter with the letter three steps away (in a cyclic manner).  The plaintext 'veni, vidi, vici' is encrpyted as follows:   Caesar shift for veni, vidi, vici    Plaintext v e n i v i d i v i c i    Ciphertext Y H Q L Y L G L Y L F L     The ciphertext can than be decrypted back to the original by shifting three letters to the left, or equivalently, by shifting 23 letters to the right.  There is nothing special about shifting by letters. We can shift by for any , though wouldn't be very interesting. We will call this shifting by encryption method the Caesar -shift cipher .   "
+},
+{
+  "id": "d_cryptosystem",
+  "level": "2",
+  "url": "s_crypto.html#d_cryptosystem",
+  "type": "Definition",
+  "number": "1.18.6",
+  "title": "Cryptosystem.",
+  "body": " Cryptosystem   A cryptosystem consists of a set of keys  , called the keyspace , sets and consisting of the possible plaintexts and ciphertexts, respectively, and for each key a pair of functions satisfying for all . For each , the functions and are called the encryption and decryption functions for the key .  Equivalently, we can describe a cryptosystem as a pair of functions such that for all and all , . The functions and are called the encryption and decryption methods of the cryptosystem.   "
+},
+{
+  "id": "principle-",
+  "level": "2",
+  "url": "s_crypto.html#principle-",
+  "type": "Mantra",
+  "number": "1.18.7",
+  "title": "Kerchoff’s principle.",
+  "body": " Kerchoff's principle   The security of a cryptosystem should not rely on the methods and being kept secret.   "
+},
+{
+  "id": "d_symmetric_group",
+  "level": "2",
+  "url": "s_crypto.html#d_symmetric_group",
+  "type": "Definition",
+  "number": "1.18.8",
+  "title": "Symmetric group.",
+  "body": " Symmetric group   Let be a finite group of cardinality . A permutation of is a bijection (equivalently, invertible function) . The set of all permutations of is called the symmetric group on . In the case where , we write for .   "
+},
+{
+  "id": "d_subst_cipher",
+  "level": "2",
+  "url": "s_crypto.html#d_subst_cipher",
+  "type": "Definition",
+  "number": "1.18.9",
+  "title": "Subsitution cipher.",
+  "body": " Subsitution cipher   Let be a set alphabet. The substitution cipher on is the cryptosystem with , keyspace and encryption and decryption methods and defined as for all , and .   "
+},
+{
+  "id": "ss_sub_cipher-4",
+  "level": "2",
+  "url": "s_crypto.html#ss_sub_cipher-4",
+  "type": "Sage example",
+  "number": "5",
+  "title": "Substitution cipher: encryption and decryption.",
+  "body": " Substitution cipher: encryption and decryption  It is very straightforward to implement the substitution cipher using Sage. We create the symmetric group on the standard lowercase alphabet using G=SymmetricGroup(list('abcdefghijklmnopqrstuvwxyz')) . The routine G.random_element() produces a random element of .   Our encryption\/decryption methods will require taking strings of characters and making substitutions. We will use Python's regular expressions library to help with this, using the import re command and the substitution method re.sub() .   "
+},
+{
+  "id": "ss_sub_cipher-5",
+  "level": "2",
+  "url": "s_crypto.html#ss_sub_cipher-5",
+  "type": "Table",
+  "number": "1.18.10",
+  "title": "Frequency of letters and bigrams. Pulled from from practical cryptography",
+  "body": " Frequency of letters and bigrams. Pulled from from practical cryptography    Letter Frequency (%) Bigram Frequency (%)    e 12.10 th 2.71    t 8.94 he 2.33    a 8.55 in 2.03    o 7.47 er 1.78    i 7.33 an 1.61    n 7.17 re 1.41    "
+},
+{
+  "id": "ss_sub_cipher-6",
+  "level": "2",
+  "url": "s_crypto.html#ss_sub_cipher-6",
+  "type": "Sage example",
+  "number": "6",
+  "title": "Cryptanalysis of substitution cipher.",
+  "body": " Cryptanalysis of substitution cipher  Eve has intercepted the following ciphertext message, and suspects it was encrypted using a substitution cipher.   Here is function that performs frequency analysis on a string.   Let's look at the top ten most common letters and bigrams.   The the next function allows us to make guesses about what the letter substitutions are and update our guess at the deciphered text.   Use the Sage cell below to decrypt the intercepted message. If you want to start your guesses from scratch, run the cell above this paragraph again.   "
+},
+{
+  "id": "d_vignere",
+  "level": "2",
+  "url": "s_crypto.html#d_vignere",
+  "type": "Definition",
+  "number": "1.18.11",
+  "title": "Vigenère cipher.",
+  "body": " Vigenère cipher   Let , and let be a positive integer. Define , and encryption methods and as for each key , plaintext and ciphertext .   "
+},
+{
+  "id": "sage_vignere",
+  "level": "2",
+  "url": "s_crypto.html#sage_vignere",
+  "type": "Sage example",
+  "number": "7",
+  "title": "Vigenère cipher: encryption and decryption.",
+  "body": " Vigenère cipher: encryption and decryption  Again, using Sage we can easily implement the Vigenère cipher.     "
+},
+{
   "id": "appendix-notation",
   "level": "1",
   "url": "appendix-notation.html",

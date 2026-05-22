@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Cryptology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Elementary number theory">
+<meta property="book:author" content="Aaron Greicius">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.0.0';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.ce7e0a2163cb330f.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.f4a2ffb04bb978bb.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body id="elemnumbthyNU" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Elementary number theory</span> <span class="subtitle">A Kursobjekt for Math 336</span></a></h1>
+<p class="byline">Aaron Greicius</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="s_pells_eqn.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="c_336-2.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="my-great-book-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\( \renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\T}{{\mathbb T}}
+\newcommand{\F}{{\mathbb F}}
+\newcommand{\PP}{{\mathbb P}}
+\newcommand{\HH}{{\mathbb H}}
+\newcommand{\compose}{\circ}
+\newcommand{\bolda}{{\mathbf a}}
+\newcommand{\boldb}{{\mathbf b}}
+\newcommand{\boldc}{{\mathbf c}}
+\newcommand{\boldd}{{\mathbf d}}
+\newcommand{\bolde}{{\mathbf e}}
+\newcommand{\boldi}{{\mathbf i}}
+\newcommand{\boldj}{{\mathbf j}}
+\newcommand{\boldk}{{\mathbf k}}
+\newcommand{\boldn}{{\mathbf n}}
+\newcommand{\boldp}{{\mathbf p}}
+\newcommand{\boldq}{{\mathbf q}}
+\newcommand{\boldr}{{\mathbf r}}
+\newcommand{\bolds}{{\mathbf s}}
+\newcommand{\boldt}{{\mathbf t}}
+\newcommand{\boldu}{{\mathbf u}}
+\newcommand{\boldv}{{\mathbf v}}
+\newcommand{\boldw}{{\mathbf w}}
+\newcommand{\boldx}{{\mathbf x}}
+\newcommand{\boldy}{{\mathbf y}}
+\newcommand{\boldz}{{\mathbf z}}
+\newcommand{\boldzero}{{\mathbf 0}}
+\newcommand{\boldmod}{\boldsymbol{ \bmod }}
+\newcommand{\boldT}{{\mathbf T}}
+\newcommand{\boldN}{{\mathbf N}}
+\newcommand{\boldB}{{\mathbf B}}
+\newcommand{\boldF}{{\mathbf F}}
+\newcommand{\boldS}{{\mathbf S}}
+\newcommand{\boldE}{{\mathbf E}}
+\newcommand{\boldG}{{\mathbf G}}
+\newcommand{\boldK}{{\mathbf K}}
+\newcommand{\boldL}{{\mathbf L}}
+\DeclareMathOperator{\ch}{char}
+\DeclareMathOperator{\lns}{lns}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\NS}{null}
+\DeclareMathOperator{\RS}{row}
+\DeclareMathOperator{\CS}{col}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arcsin}{Arcsin}
+\DeclareMathOperator{\Arccos}{Arccos}
+\DeclareMathOperator{\Arctan}{Arctan}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Aff}{Aff}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\mdeg}{mdeg}
+\DeclareMathOperator{\Lt}{Lt}
+\DeclareMathOperator{\Lc}{Lc}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\Frob}{Frob}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\diver}{div}
+\DeclareMathOperator{\flux}{flux}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\ML}{M}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\len}{len}
+\DeclareMathOperator{\proj}{proj}
+\newcommand{\surjects}{\twoheadrightarrow}
+\newcommand{\injects}{\hookrightarrow}
+\newcommand{\bijects}{\leftrightarrow}
+\newcommand{\isomto}{\overset{\sim}{\rightarrow}}
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil#1\right\rceil}
+\newcommand{\mclass}[2][m]{[#2]_{#1}}
+\newcommand{\val}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\abs}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\valuation}[2][]{\left\lvert #2\right\rvert_{#1}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\anpoly}{a_nx^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\anmonic}{x^n+a_{n-1}x^{n-1}\cdots +a_1x+a_0}
+\newcommand{\bmpoly}{b_mx^m+b_{m-1}x^{m-1}\cdots +b_1x+b_0}
+\newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\normalin}{\trianglelefteq}
+\newcommand{\angvec}[1]{\langle #1\rangle}
+\newcommand{\varpoly}[2]{#1_{#2}x^{#2}+#1_{#2-1}x^{#2-1}\cdots +#1_1x+#1_0}
+\newcommand{\varpower}[1][a]{#1_0+#1_1x+#1_1x^2+\cdots}
+\newcommand{\limasto}[2][x]{\lim_{#1\rightarrow #2}}
+\newcommand{\abcdmatrix}[4]{\begin{bmatrix}#1\amp #2\\ #3\amp #4 \end{bmatrix}
+}
+\newenvironment{amatrix}[1][ccc|c]{\left[\begin{array}{#1}}{\end{array}\right]}
+\newenvironment{linsys}[2][m]{
+\begin{array}[#1]{@{}*{#2}{rc}r@{}}
+}{
+\end{array}}
+\newcommand{\eqsys}{\begin{array}{rcrcrcr}
+a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
+a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \\
+a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp b_m
+\end{array}
+}
+\newcommand{\numeqsys}{\begin{array}{rrcrcrcr}
+e_1:\amp  a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp b_1\\
+e_2: \amp a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp b_2\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp  \\
+e_m: \amp a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp b_m
+\end{array}
+}
+\newcommand{\homsys}{\begin{array}{rcrcrcr}
+a_{11}x_{1}\amp +\amp a_{12}x_{2}\amp +\cdots+\amp  a_{1n}x_{n}\amp =\amp 0\\
+a_{21}x_{1}\amp +\amp a_{22}x_{2}\amp +\cdots+\amp a_{2n}x_{n}\amp =\amp 0\\
+\amp \vdots\amp   \amp \vdots \amp  \amp \vdots \amp \\
+a_{m1}x_{1}\amp +\amp a_{m2}x_{2}\amp +\cdots +\amp a_{mn}x_{n}\amp =\amp 0
+\end{array}
+}
+\newcommand{\vareqsys}[4]{
+\begin{array}{ccccccc}
+#3_{11}x_{1}\amp +\amp #3_{12}x_{2}\amp +\cdots+\amp  #3_{1#2}x_{#2}\amp =\amp #4_1\\
+#3_{21}x_{1}\amp +\amp #3_{22}x_{2}\amp +\cdots+\amp #3_{2#2}x_{#2}\amp =\amp #4_2\\
+\vdots \amp \amp \vdots \amp  \amp \vdots \amp =\amp  \\
+#3_{#1 1}x_{1}\amp +\amp #3_{#1 2}x_{2}\amp +\cdots +\amp #3_{#1 #2}x_{#2}\amp =\amp #4_{#1}
+\end{array}
+}
+\newcommand{\genmatrix}[1][a]{
+\begin{bmatrix}
+#1_{11} \amp  #1_{12} \amp  \cdots \amp  #1_{1n} \\
+#1_{21} \amp  #1_{22} \amp  \cdots \amp  #1_{2n} \\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \\
+#1_{m1} \amp  #1_{m2} \amp  \cdots \amp  #1_{mn}
+\end{bmatrix}
+}
+\newcommand{\varmatrix}[3]{
+\begin{bmatrix}
+#3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \\
+#3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \\
+#3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}
+\end{bmatrix}
+}
+\newcommand{\augmatrix}{
+\begin{amatrix}[cccc|c]
+a_{11} \amp  a_{12} \amp  \cdots \amp  a_{1n} \amp b_{1}\\
+a_{21} \amp  a_{22} \amp  \cdots \amp  a_{2n} \amp b_{2}\\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
+a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
+\end{amatrix}
+}
+\newcommand{\varaugmatrix}[4]{
+\begin{amatrix}[cccc|c]
+#3_{11} \amp  #3_{12} \amp  \cdots \amp  #3_{1#2} \amp #4_{1}\\
+#3_{21} \amp  #3_{22} \amp  \cdots \amp  #3_{2#2} \amp #4_{2}\\
+\vdots  \amp  \vdots  \amp  \ddots \amp  \vdots  \amp \vdots\\
+#3_{#1 1} \amp  #3_{#1 2} \amp  \cdots \amp  #3_{#1 #2}\amp #4_{#1}
+\end{amatrix}
+}
+\newcommand{\spaceforemptycolumn}{\makebox[\wd\boxofmathplus]{\ }}
+
+\newcommand{\generalmatrix}[3]{
+\left(
+\begin{array}{cccc}
+#1_{1,1}  \amp #1_{1,2}  \amp \ldots  \amp #1_{1,#2}  \\
+#1_{2,1}  \amp #1_{2,2}  \amp \ldots  \amp #1_{2,#2}  \\
+\amp \vdots                         \\
+#1_{#3,1} \amp #1_{#3,2} \amp \ldots  \amp #1_{#3,#2}
+\end{array}
+\right)  }
+\newcommand{\colvec}[2][c]{\begin{amatrix}[#1] #2 \end{amatrix}}
+\newcommand{\rowvec}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\qr}[2]{\Bigl(\frac{#1}{#2}\Bigr)}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="c_foundations.html" class="internal"><span class="codenumber">0</span> <span class="title">Foundations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_sets_functions.html" class="internal"><span class="codenumber">0.1</span> <span class="title">Sets and functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_sets_functions.html#ss_sets" class="internal"><span class="codenumber">0.1.1</span> <span class="title">Sets</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_sets_functions.html#ss_functions" class="internal"><span class="codenumber">0.1.2</span> <span class="title">Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_sets_functions.html#ss_tuples_cart_prod" class="internal"><span class="codenumber">0.1.3</span> <span class="title">Tuples and Cartesian product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_sets_functions.html#ss_cardinality" class="internal"><span class="codenumber">0.1.4</span> <span class="title">Cardinality and countability</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_logic.html" class="internal"><span class="codenumber">0.2</span> <span class="title">Logic</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_logic.html#ss_propositional_calculus" class="internal"><span class="codenumber">0.2.1</span> <span class="title">Propositional logic</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_logic.html#ss_predicate_logic" class="internal"><span class="codenumber">0.2.2</span> <span class="title">Predicate logic</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_proof_technique.html" class="internal"><span class="codenumber">0.3</span> <span class="title">Proof techniques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_proof_technique.html#ss_logical_structure" class="internal"><span class="codenumber">0.3.1</span> <span class="title">Logical structure</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_implication" class="internal"><span class="title">Implication</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_disjunction" class="internal"><span class="title">Disjunction</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_equivalence" class="internal"><span class="title">Equivalence</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_logical_chains" class="internal"><span class="title">Chains of implications/equivalences</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_proof_by_contradiction" class="internal"><span class="title">Proof by contradiction</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_proof_technique.html#ss_Equalities" class="internal"><span class="codenumber">0.3.2</span> <span class="title">Equalities</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_chain_equalities" class="internal"><span class="title">Chain of equalities</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_proof_technique.html#ss_set_properties" class="internal"><span class="codenumber">0.3.3</span> <span class="title">Basic set properties</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_set_inclusion" class="internal"><span class="title">Set inclusion</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_set_equality" class="internal"><span class="title">Set equality</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_proof_technique.html#ss_function_properties" class="internal"><span class="codenumber">0.3.4</span> <span class="title">Basic function properties</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_function_equality" class="internal"><span class="title">Function equality</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_injective_surjective_bijective" class="internal"><span class="title">Injective, surjective, bijective</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="s_proof_technique.html#ss_mathematical_induction" class="internal"><span class="codenumber">0.3.5</span> <span class="title">Mathematical induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_weak_induction" class="internal"><span class="title">Proof by induction</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="s_proof_technique.html#sss_strong_induction" class="internal"><span class="title">Proof by strong induction</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="c_336-2.html" class="internal"><span class="codenumber">1</span> <span class="title">Math 336-2</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_mod_rings.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Integers modulo <span class="process-math">\(n\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_mod_rings.html#ss_cong" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Congruence classes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_mod_rings.html#ss_cong_ring_structure" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Ring structure of <span class="process-math">\(\Z/n\Z\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_mod_rings.html#ss_mult_units_mod_n" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Units modulo <span class="process-math">\(n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_mod_rings.html#ss_units_mod_n_Sage" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Sage examples</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_order_mod_n.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Order of modular units</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_order_mod_n.html#ss_order_prim_roots" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Order and primitive roots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_order_mod_n.html#ss_sage_order" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Sage examples</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_primitive_roots.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Primitive roots</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_roots.html#ss_prim_roots_intro" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_roots.html#ss_prim_roots_polys" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Polynomials with coefficients in rings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_roots.html#ss_prim_roots_mod_p" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Primitive roots modulo a prime</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_roots.html#ss_sage_examples" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Sage examples</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_primitive_root_n.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Existence of primitive roots</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_primitive_root_n.html#ss_primitive_roots_mod_n" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Primitive roots modulo <span class="process-math">\(n\)</span></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_quad_resid.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Quadratic residues and <span class="process-math">\(n\)</span>-th powers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_quad_resid.html#ss_nth_powers" class="internal"><span class="codenumber">1.5.1</span> <span class="title">The <span class="process-math">\(n\)</span>-th powers of <span class="process-math">\(\Z/p\Z\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_quad_resid.html#ss_quad_resid" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Quadratic residues</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_quad_resid_gauss.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Quadratic residues: Gauss’s lemma</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_quad_resid_recipr.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Law of quadratic reciprocity</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_pseudoprimes.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Pseudoprimes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_pseudoprimes.html#ss_jacobi_symbol" class="internal"><span class="codenumber">1.8.1</span> <span class="title">Jacobi symbol</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_pseudoprimes.html#ss_pseudoprimes" class="internal"><span class="codenumber">1.8.2</span> <span class="title">Pseudoprimes</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_pyth_trips.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Pythagorean triples</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_pyth_trips.html#ss_pyth_trips" class="internal"><span class="codenumber">1.9.1</span> <span class="title">Pythagorean triples</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_flt_descent.html" class="internal"><span class="codenumber">1.10</span> <span class="title">Fermat’s last theorem and the method of descent</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_complex_numbers.html" class="internal"><span class="codenumber">1.11</span> <span class="title">Complex numbers</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_gauss_int.html" class="internal"><span class="codenumber">1.12</span> <span class="title">Gaussian integers</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_gauss_factorization.html" class="internal"><span class="codenumber">1.13</span> <span class="title">Factorization in Gaussian integers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_gauss_factorization.html#ss_division_alg" class="internal"><span class="codenumber">1.13.1</span> <span class="title">Division and Euclidean algorithms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_gauss_factorization.html#ss_primes_irreducibles" class="internal"><span class="codenumber">1.13.2</span> <span class="title">Primes and irreducibles in <span class="process-math">\(\Z[i]\)</span></span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_gauss_primes.html" class="internal"><span class="codenumber">1.14</span> <span class="title">Gaussian primes</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_ring_integers.html" class="internal"><span class="codenumber">1.15</span> <span class="title">Quadratic rings of integers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_ring_integers.html#ss_quadratic_ext" class="internal"><span class="codenumber">1.15.1</span> <span class="title">Quadratic extensions of <span class="process-math">\(\Q\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_ring_integers.html#ss_ring_of_integers" class="internal"><span class="codenumber">1.15.2</span> <span class="title">Ring of integers</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="s_quad_ring_units.html" class="internal"><span class="codenumber">1.16</span> <span class="title">Unit groups of quadratic extensions</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_pells_eqn.html" class="internal"><span class="codenumber">1.17</span> <span class="title">Pell’s equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_pells_eqn.html#ss_pells_eqn" class="internal"><span class="codenumber">1.17.1</span> <span class="title">Pell’s equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_pells_eqn.html#ss_neg_pells" class="internal"><span class="codenumber">1.17.2</span> <span class="title">Negative Pell’s equation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="s_crypto.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Cryptology</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_crypto.html#ch-what-is-cryptography-" class="internal"><span class="codenumber">1.18.1</span> <span class="title">What is cryptography?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_crypto.html#ss_sub_cipher" class="internal"><span class="codenumber">1.18.2</span> <span class="title">Subsititution cipher</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_crypto.html#ss_vignere_cipher" class="internal"><span class="codenumber">1.18.3</span> <span class="title">Vigenère cipher</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="my-great-book-6.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-notation.html" class="internal"><span class="codenumber">A</span> <span class="title">Notation</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-defs.html" class="internal"><span class="codenumber">B</span> <span class="title">Definitions</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-thms.html" class="internal"><span class="codenumber">C</span> <span class="title">Theory</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-egs.html" class="internal"><span class="codenumber">D</span> <span class="title">Examples and Sage cells</span></a></div></li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="appendix-vids.html" class="internal"><span class="codenumber">E</span> <span class="title">Mantras and fiats</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_crypto"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cryptology</span>
+</h2>
+<section class="subsection" id="ch-what-is-cryptography-"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">What is cryptography?</span>
+</h3>
+<div class="para" id="ch-what-is-cryptography--2">‘Crypto’ comes from the Greek <span class="process-math">\(\kappa\rho\upsilon\pi\tau\omega\zeta\\text{,}\)</span> which means “hidden” or “concealed”. ‘Graph’ comes from <span class="process-math">\(\gamma\rho\alpha\phi\omega\text{,}\)</span> meaning “to write”.<div class="autopermalink" data-description="Paragraph"><a href="#ch-what-is-cryptography--2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_crpytology"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cryptology.</span>
+</h4>
+<div class="para" id="d_crpytology-2-1">
+<dfn class="terminology">Cryptography</dfn> is the design of systems allowing for secure communication over a nonsecure channel.<div class="autopermalink" data-description="Paragraph"><a href="#d_crpytology-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_crpytology-2-2">
+<dfn class="terminology">Cryptology</dfn> is the overall study or science of secure communication.<div class="autopermalink" data-description="Paragraph"><a href="#d_crpytology-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_crpytology-2-3">
+<dfn class="terminology">Cryptanalysis</dfn> is the practice or science of breaking cryptographic systems.<div class="autopermalink" data-description="Paragraph"><a href="#d_crpytology-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_crpytology-2-4">A cryptographic system takes a message <span class="process-math">\(m\text{,}\)</span> the <dfn class="terminology">plaintext</dfn>, <dfn class="terminology">encrypts</dfn> it to a <dfn class="terminology">ciphertext</dfn>, <span class="process-math">\(c\text{,}\)</span> whose meaning can only be fathomed by <dfn class="terminology">decrypting</dfn> back to the plaintext <span class="process-math">\(m\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_crpytology-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.18.1: Cryptology"><a href="#d_crpytology" title="Copy heading and permalink for Definition 1.18.1: Cryptology" aria-label="Copy heading and permalink for Definition 1.18.1: Cryptology">🔗</a></div></article><figure class="figure figure-like" id="fig_alice_bob_eve"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fig_alice_bob_eve-2.svg" role="img" class="contained" alt="Alice and Bob are connected by a communication channel while Eve listens in from above."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Alice and Bob communicating over a channel with the eavesdropping Eve.<div class="autopermalink" data-description="Figure 1.18.2"><a href="#fig_alice_bob_eve" title="Copy heading and permalink for Figure 1.18.2" aria-label="Copy heading and permalink for Figure 1.18.2">🔗</a></div></figcaption></figure><article class="remark remark-like" id="ch-what-is-cryptography--5"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Jargon disentanglement.</span>
+</h4>
+<div class="para" id="ch-what-is-cryptography--5-2">Cryptography is to be distinguished from <dfn class="terminology">coding theory</dfn> which deals more with the representation of data and its communication over noisy channels. It should also be distinguished from <dfn class="terminology">steganography</dfn> (’stegano’ means “covered”), which is the practice of physically hiding messages (with invisible ink, under wax coatings, on the inside of egg shells, etc.).<div class="autopermalink" data-description="Paragraph"><a href="#ch-what-is-cryptography--5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch-what-is-cryptography--5-3">Cryptography doesn’t hide the message itself, but rather the <em class="emphasis">meaning</em> of the message.<div class="autopermalink" data-description="Paragraph"><a href="#ch-what-is-cryptography--5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.18.3: Jargon disentanglement"><a href="#ch-what-is-cryptography--5" title="Copy heading and permalink for Remark 1.18.3: Jargon disentanglement" aria-label="Copy heading and permalink for Remark 1.18.3: Jargon disentanglement">🔗</a></div></article><article class="example example-like" id="eg_caesar_shift_cipher"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Caesar shift cipher.</span>
+</h4>
+<div class="para" id="eg_caesar_shift_cipher-2-1">The <em class="emphasis">Caesar shift cipher</em> is a cryptosystem allegedly used by Julius Caesar which encrpyts a plaintext <span class="process-math">\(m\)</span> by replacing each letter with the letter three steps away (in a cyclic manner).<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="eg_caesar_shift_cipher-2-2">The plaintext ’veni, vidi, vici’ is encrpyted as follows:<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="table table-like" id="t_veni_vidi_vici_shift"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Caesar shift for “veni, vidi, vici”<div class="autopermalink" data-description='Table 1.18.5: Caesar shift for "veni, vidi, vici"'><a href="#t_veni_vidi_vici_shift" title='Copy heading and permalink for Table 1.18.5: Caesar shift for "veni, vidi, vici"' aria-label='Copy heading and permalink for Table 1.18.5: Caesar shift for "veni, vidi, vici"'>🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Plaintext</td>
+<td class="l m b0 r0 l0 t0 lines">v</td>
+<td class="l m b0 r0 l0 t0 lines">e</td>
+<td class="l m b0 r0 l0 t0 lines">n</td>
+<td class="l m b0 r0 l0 t0 lines">i</td>
+<td class="l m b0 r0 l0 t0 lines">v</td>
+<td class="l m b0 r0 l0 t0 lines">i</td>
+<td class="l m b0 r0 l0 t0 lines">d</td>
+<td class="l m b0 r0 l0 t0 lines">i</td>
+<td class="l m b0 r0 l0 t0 lines">v</td>
+<td class="l m b0 r0 l0 t0 lines">i</td>
+<td class="l m b0 r0 l0 t0 lines">c</td>
+<td class="l m b0 r0 l0 t0 lines">i</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Ciphertext</td>
+<td class="l m b0 r0 l0 t0 lines">Y</td>
+<td class="l m b0 r0 l0 t0 lines">H</td>
+<td class="l m b0 r0 l0 t0 lines">Q</td>
+<td class="l m b0 r0 l0 t0 lines">L</td>
+<td class="l m b0 r0 l0 t0 lines">Y</td>
+<td class="l m b0 r0 l0 t0 lines">L</td>
+<td class="l m b0 r0 l0 t0 lines">G</td>
+<td class="l m b0 r0 l0 t0 lines">L</td>
+<td class="l m b0 r0 l0 t0 lines">Y</td>
+<td class="l m b0 r0 l0 t0 lines">L</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">L</td>
+</tr>
+</table></div></figure> <div class="para" id="eg_caesar_shift_cipher-2-4">The ciphertext can than be decrypted back to the original by shifting three letters to the left, or equivalently, by shifting 23 letters to the right.<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="eg_caesar_shift_cipher-2-5">There is nothing special about shifting by <span class="process-math">\(k=3\)</span> letters. We can shift by <span class="process-math">\(n\)</span> for any <span class="process-math">\(k\in\{0,1,\dots,25\}\text{,}\)</span> though <span class="process-math">\(k=0\)</span> wouldn’t be very interesting. We will call this shifting by <span class="process-math">\(k\)</span> encryption method the <dfn class="terminology">Caesar <span class="process-math">\(k\)</span>-shift cipher</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 1.18.4: Caesar shift cipher"><a href="#eg_caesar_shift_cipher" title="Copy heading and permalink for Example 1.18.4: Caesar shift cipher" aria-label="Copy heading and permalink for Example 1.18.4: Caesar shift cipher">🔗</a></div></article><div class="para" id="ch-what-is-cryptography--7">The Caesar shift cipher captures the basic elements of a <em class="emphasis">crpytosystem</em>, which we now formally define.<div class="autopermalink" data-description="Paragraph"><a href="#ch-what-is-cryptography--7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_cryptosystem"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cryptosystem.</span>
+</h4>
+<div class="para logical" id="d_cryptosystem-2-1">
+<div class="para">A <dfn class="terminology">cryptosystem</dfn> consists of a set of <dfn class="terminology">keys</dfn> <span class="process-math">\(\mathcal{K}\text{,}\)</span> called the <dfn class="terminology">keyspace</dfn>, sets <span class="process-math">\(\mathcal{P}\)</span> and <span class="process-math">\(\mathcal{C}\)</span> consisting of the possible plaintexts and ciphertexts, respectively, and for each key <span class="process-math">\(k\in \mathcal{K}\)</span> a pair of functions</div>
+<div class="displaymath process-math" id="d_cryptosystem-2-1-8">
+\begin{align*}
+E_k\colon \mathcal{P} \amp \rightarrow \mathcal{C}\\
+D_k\colon \mathcal{C} \amp \rightarrow \mathcal{P}
+\end{align*}
+</div>
+<div class="para">satisfying <span class="process-math">\(D_k(E_k(p))=p\)</span> for all <span class="process-math">\(p\in \mathcal{P}\text{.}\)</span> For each <span class="process-math">\(k\in \mathcal{K}\text{,}\)</span> the functions <span class="process-math">\(E_k\)</span> and <span class="process-math">\(D_k\)</span> are called the <dfn class="terminology">encryption and decryption functions for the key <span class="process-math">\(k\)</span></dfn>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_cryptosystem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="d_cryptosystem-2-2">
+<div class="para">Equivalently, we can describe a cryptosystem as a pair of functions</div>
+<div class="displaymath process-math" id="d_cryptosystem-2-2-1">
+\begin{align}
+E\colon \mathcal{K}\times \mathcal{P}\amp \rightarrow \mathcal{C} \amp D\colon \mathcal{K}\times \mathcal{C} \amp\rightarrow \mathcal{P}\tag{1.18.1}\\
+(k,p) \amp \rightarrow E_k(p) \amp (k,c)\amp\mapsto D_k(c)\tag{1.18.2}
+\end{align}
+</div>
+<div class="para">such that for all <span class="process-math">\(k\in \mathcal{K}\)</span> and all <span class="process-math">\(p\in \mathcal{P}\text{,}\)</span> <span class="process-math">\(D(k,E(k,p))=p\text{.}\)</span> The functions <span class="process-math">\(E\)</span> and <span class="process-math">\(D\)</span> are called the <dfn class="terminology">encryption and decryption methods</dfn> of the cryptosystem.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_cryptosystem-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.18.6: Cryptosystem"><a href="#d_cryptosystem" title="Copy heading and permalink for Definition 1.18.6: Cryptosystem" aria-label="Copy heading and permalink for Definition 1.18.6: Cryptosystem">🔗</a></div></article><article class="principle theorem-like" id="principle-"><h4 class="heading">
+<span class="type">Mantra</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Kerchoff’s principle.</span>
+</h4>
+<div class="para" id="principle--2-1">The security of a cryptosystem <span class="process-math">\((E,D)\)</span> should not rely on the methods <span class="process-math">\(E\)</span> and <span class="process-math">\(D\)</span> being kept secret.<div class="autopermalink" data-description="Paragraph"><a href="#principle--2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Mantra 1.18.7: Kerchoff’s principle"><a href="#principle-" title="Copy heading and permalink for Mantra 1.18.7: Kerchoff’s principle" aria-label="Copy heading and permalink for Mantra 1.18.7: Kerchoff’s principle">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.18.1: What is cryptography?"><a href="#ch-what-is-cryptography-" title="Copy heading and permalink for Subsection 1.18.1: What is cryptography?" aria-label="Copy heading and permalink for Subsection 1.18.1: What is cryptography?">🔗</a></div></section><section class="subsection" id="ss_sub_cipher"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Subsititution cipher</span>
+</h3>
+<article class="definition definition-like" id="d_symmetric_group"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Symmetric group.</span>
+</h4>
+<div class="para" id="d_symmetric_group-2-1">Let <span class="process-math">\(X=\{x_1,x_2,\dots, x_n\}\)</span> be a finite group of cardinality <span class="process-math">\(n\text{.}\)</span> A <dfn class="terminology">permutation</dfn> of <span class="process-math">\(X\)</span> is a bijection (equivalently, invertible function) <span class="process-math">\(\sigma\colon X\rightarrow X\text{.}\)</span> The set <span class="process-math">\(S_X\)</span> of all permutations of <span class="process-math">\(X\)</span> is called the <dfn class="terminology">symmetric group</dfn> on <span class="process-math">\(X\text{.}\)</span> In the case where <span class="process-math">\(X=\{1,2,\dots, n\}\text{,}\)</span> we write <span class="process-math">\(S_n\)</span> for <span class="process-math">\(S_X\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_symmetric_group-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.18.8: Symmetric group"><a href="#d_symmetric_group" title="Copy heading and permalink for Definition 1.18.8: Symmetric group" aria-label="Copy heading and permalink for Definition 1.18.8: Symmetric group">🔗</a></div></article><article class="definition definition-like" id="d_subst_cipher"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Subsitution cipher.</span>
+</h4>
+<div class="para logical" id="d_subst_cipher-2-1">
+<div class="para">Let <span class="process-math">\(\mathcal{A}\)</span> be a set alphabet. The substitution cipher on <span class="process-math">\(\mathcal{A}\)</span> is the cryptosystem with <span class="process-math">\(\mathcal{P}=\mathcal{C}=\mathcal{A}\text{,}\)</span> keyspace <span class="process-math">\(\mathcal{K}=S_{\mathcal{A}}\)</span> and encryption and decryption methods <span class="process-math">\(E\)</span> and <span class="process-math">\(D\)</span> defined as</div>
+<div class="displaymath process-math" id="d_subst_cipher-2-1-7">
+\begin{align*}
+E_\sigma(p) \amp =\sigma(p) \amp D_\sigma(c)=\sigma^{-1}(c)
+\end{align*}
+</div>
+<div class="para">for all <span class="process-math">\(\sigma\in S_\mathcal{A}\text{,}\)</span> <span class="process-math">\(p\in \mathcal{P}=\mathcal{A}\)</span> and <span class="process-math">\(c\in\mathcal{C}=\mathcal{A} \text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_subst_cipher-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.18.9: Subsitution cipher"><a href="#d_subst_cipher" title="Copy heading and permalink for Definition 1.18.9: Subsitution cipher" aria-label="Copy heading and permalink for Definition 1.18.9: Subsitution cipher">🔗</a></div></article><details id="ss_sub_cipher-4" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Sage example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Substitution cipher: encryption and decryption.</span>
+</h4></summary><article class="project project-like knowl__content"><div class="para" id="ss_sub_cipher-4-2">It is very straightforward to implement the substitution cipher using Sage. We create the symmetric group on the standard lowercase alphabet using <code class="code-inline tex2jax_ignore">G=SymmetricGroup(list('abcdefghijklmnopqrstuvwxyz'))</code>. The routine <code class="code-inline tex2jax_ignore">G.random_element()</code> produces a random element of <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_sub_cipher-4-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">G=SymmetricGroup(list('abcdefghijklmnopqrstuvwxyz'))
+sigma=G.random_element()
+sigma
+</script></div>
+<div class="para" id="ss_sub_cipher-4-4">Our encryption/decryption methods will require taking strings of characters and making substitutions. We will use Python’s regular expressions library to help with this, using the <code class="code-inline tex2jax_ignore">import re</code> command and the substitution method <code class="code-inline tex2jax_ignore">re.sub()</code>.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_sub_cipher-4-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">        import re
+def encrypt(s,sigma): #s a string, sigma a permutation of alphabet
+    t=re.sub('[a-z]',lambda m: sigma(m.group(0)), s)
+    return t
+sigma=G.random_element()
+s='takealoadofffannytakealoadforfreetakealoadofffannyandyouputtheloadrightonme'
+print(sigma)
+print(encrypt(s,sigma))
+</script></div>
+<div class="autopermalink" data-description="Sage example 5: Substitution cipher: encryption and decryption"><a href="#ss_sub_cipher-4" title="Copy heading and permalink for Sage example 5: Substitution cipher: encryption and decryption" aria-label="Copy heading and permalink for Sage example 5: Substitution cipher: encryption and decryption">🔗</a></div></article></details><figure class="table table-like" id="ss_sub_cipher-5"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Frequency of letters and bigrams. Pulled from from practical cryptography<div class="autopermalink" data-description="Table 1.18.10: Frequency of letters and bigrams. Pulled from from practical cryptography"><a href="#ss_sub_cipher-5" title="Copy heading and permalink for Table 1.18.10: Frequency of letters and bigrams. Pulled from from practical cryptography" aria-label="Copy heading and permalink for Table 1.18.10: Frequency of letters and bigrams. Pulled from from practical cryptography">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b2 r0 l0 t0 lines">Letter</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">Frequency (%)</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">Bigram</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">Frequency (%)</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">e</td>
+<td class="l m b0 r0 l0 t0 lines">12.10</td>
+<td class="l m b0 r0 l0 t0 lines">th</td>
+<td class="l m b0 r0 l0 t0 lines">2.71</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">t</td>
+<td class="l m b0 r0 l0 t0 lines">8.94</td>
+<td class="l m b0 r0 l0 t0 lines">he</td>
+<td class="l m b0 r0 l0 t0 lines">2.33</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">a</td>
+<td class="l m b0 r0 l0 t0 lines">8.55</td>
+<td class="l m b0 r0 l0 t0 lines">in</td>
+<td class="l m b0 r0 l0 t0 lines">2.03</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">o</td>
+<td class="l m b0 r0 l0 t0 lines">7.47</td>
+<td class="l m b0 r0 l0 t0 lines">er</td>
+<td class="l m b0 r0 l0 t0 lines">1.78</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">i</td>
+<td class="l m b0 r0 l0 t0 lines">7.33</td>
+<td class="l m b0 r0 l0 t0 lines">an</td>
+<td class="l m b0 r0 l0 t0 lines">1.61</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">n</td>
+<td class="l m b0 r0 l0 t0 lines">7.17</td>
+<td class="l m b0 r0 l0 t0 lines">re</td>
+<td class="l m b0 r0 l0 t0 lines">1.41</td>
+</tr>
+</table></div></figure><details id="ss_sub_cipher-6" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Sage example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cryptanalysis of substitution cipher.</span>
+</h4></summary><article class="project project-like knowl__content"><div class="para" id="ss_sub_cipher-6-2">Eve has intercepted the following ciphertext message, and suspects it was encrypted using a substitution cipher.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_sub_cipher-6-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">c='avupclxwmfoxxavoamfavudofuavupclxwmfavuacaoxmatckkodafbcackavmbhfavupclxwmfwuaulnmbuwztavukodafobwztavumlzumbhoxxavukodafkclavuacaoxmatckkodafwuaulnmbufpvoamfavudofuobwoxfcpvoauiulmfbcaavudofuavukodafmbxchmdoxfeoduoluavupclxwavupclxwwmimwufmbackodafuodvmaundobzuavudofuclbcaavudofupvmxuuiultavmbhuxfulunombfavufonupvoamfavudofuokodamfavuujmfaubduckfaoaufckokkomlfofaoauckokkomlfofaoauckavmbhfmfodcnzmboamcbckczyudafavmbhfmamfuffubamoxacavmbhfavoaavutfvcrxwzuecffmzxudcbfamarubafckfaoaufckokkomlfmbxchmdbcavmbhmfoddmwubaoxmkoavmbhdobcddrlmbofaoauckokkomlfavuecffmzmxmatckavufaoauckokkomlfnrfazuplmaaubmbacavuavmbhmafuxkmapcrxwfuunaczuofclackoddmwubamkmaarlbuwcraavoaofmaroamcbpcrxwkmaoavmbhavoadcrxwoxluowtujmfaubamluxtcbmafcpbmkavmbhfdobcddrlmbfaoaufckokkomlfavmfecffmzmxmatnrfazumbavunklcnavuzuhmbbmbhbcavmbhmbavuelcimbduckxchmddobzunuluxtecffmzxuxchmdwuoxfpmavuiultecffmzmxmatobwoxxecffmzmxmamufolumafkodafyrfaofpuoluqrmaurbozxuacmnohmbufeoamoxczyudafcrafmwufeoduclaunecloxczyudafcrafmwuamnufcaccavulumfbcczyudaavoapudobmnohmbuujdxrwuwklcnavuecffmzmxmatckdcnzmbmbhpmavcavulfmkmdobmnohmbuczyudafdcnzmbuwmbfaoaufckokkomlfmdobbcamnohmbuavunujdxrwuwklcnavuecffmzmxmatckfrdvdcnzmboamcbfavmbhfolumbwueubwubambfckolofavutdobcddrlmboxxecffmzxufmaroamcbfzraavmfkclnckmbwueubwubdumfokclnckdcbbujmcbpmavfaoaufckokkomlfokclnckwueubwubdumamfmnecffmzxukclpclwfacoeeuolmbapcwmkkulubalcxufztavunfuxiufobwmbelcecfmamcbfmkmgbcpobczyudamoxfcgbcpoxxmafecffmzxucddrllubdufmbfaoaufckokkomlfuiultcbuckavufuecffmzmxmamufnrfazueolackavuboarluckavuczyudaobupecffmzmxmatdobbcazuwmfdciuluwxoaulmkmonacgbcpobczyudaavcrhvambuuwbcagbcpmafujaulboxelceulamufmnrfagbcpoxxmafmbaulboxelceulamufmkoxxczyudafoluhmiubavuboaavufonuamnuoxxecffmzxufaoaufckokkomlfoluoxfchmiubuodvavmbhmfofmapulumbofeoduckecffmzxufaoaufckokkomlfavmffeodumdobmnohmbuuneatzramdobbcamnohmbuavuavmbhpmavcraavufeoduofeoamoxczyudanrfazufmaroauwmbmbkmbmaufeoduofeoamoxecmbamfobolhrnubaexoduofeudgmbavuimfroxkmuxwavcrhvamabuuwbcazuluwnrfavoiufcnudcxcrlmamffcacfeuogfrllcrbwuwztdcxcrlfeodubcaufnrfavoiufcnuemadvczyudafckavufubfuckacrdvfcnuwuhluuckvolwbuffobwfccbczyudafdcbaombavuecffmzmxmatckoxxfmaroamcbfavuecffmzmxmatckmafcddrllmbhmbfaoaufckokkomlfmfavukclnckobczyuda'
+</script></div>
+<div class="para" id="ss_sub_cipher-6-4">Here is function that performs frequency analysis on a string.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_sub_cipher-6-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def freq_anal(s):
+    s=list(s)
+    table={x:s.count(x) for x in 'abcdefghijklmnopqrstuvwxyz'}
+    bigrams={}
+    for i in range(len(s)-1):
+        di=s[i]+s[i+1]
+        bigrams[di]=bigrams.get(di,0)+1
+    return table, bigrams
+</script></div>
+<div class="para" id="ss_sub_cipher-6-6">Let’s look at the top ten most common letters and bigrams.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_sub_cipher-6-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">l,b=freq_anal(c)
+for x in sorted(l.keys(),key=lambda k:l[k], reverse=True)[:10]:
+    print(x, l[x]/len(c))
+for x in sorted(b.keys(),key=lambda k:b[k], reverse=True)[:50]:
+    print(x, b[x])
+</script></div>
+<div class="para" id="ss_sub_cipher-6-8">The the next function allows us to make guesses about what the letter substitutions are and update our guess at the deciphered text.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_sub_cipher-6-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">        t=['_']*len(c)
+guesses={}
+def guess(x,y):
+    guesses[x]=y
+    for i in range(len(c)):
+        if c[i]==x: t[i]=y
+    print('Guesses: ', guesses)
+    k=50
+    for i in range(len(c)//50):
+        print('\n'+c[i*k:(i+1)*k]+'\n')
+        tstr=str()
+        for x in t[i*k: (i+1)*k]: tstr=tstr+x
+        print(tstr)
+</script></div>
+<div class="para" id="ss_sub_cipher-6-10">Use the Sage cell below to decrypt the intercepted message. If you want to start your guesses from scratch, run the cell above this paragraph again.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-6-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_sub_cipher-6-11" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></div>
+<div class="autopermalink" data-description="Sage example 6: Cryptanalysis of substitution cipher"><a href="#ss_sub_cipher-6" title="Copy heading and permalink for Sage example 6: Cryptanalysis of substitution cipher" aria-label="Copy heading and permalink for Sage example 6: Cryptanalysis of substitution cipher">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.18.2: Subsititution cipher"><a href="#ss_sub_cipher" title="Copy heading and permalink for Subsection 1.18.2: Subsititution cipher" aria-label="Copy heading and permalink for Subsection 1.18.2: Subsititution cipher">🔗</a></div></section><section class="subsection" id="ss_vignere_cipher"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vigenère cipher</span>
+</h3>
+<div class="para" id="ss_vignere_cipher-2">What made the substitution cipher vulnerable to frequency analysis is that the encryption was defined on the level of single letters. We call this a <em class="emphasis">monographic</em> cryptosystem. A <em class="emphasis">polygraphic</em> (<em class="emphasis">block</em>) cryptosystem, in contrast, defines an encrpytion method on a block, or list of letters. The <em class="emphasis">Vignère cipher</em> defined below is a classic example of a block cipher that at first glance appears to be invulnerable to frequency analysis, and indeed was long considered to be unbreakable.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_vignere"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vigenère cipher.</span>
+</h4>
+<div class="para logical" id="d_vignere-2-1">
+<div class="para">Let <span class="process-math">\(\mathcal{A}=\{0,1,\dots, 25\}\text{,}\)</span> and let <span class="process-math">\(n\)</span> be a positive integer. Define</div>
+<div class="displaymath process-math" id="d_vignere-2-1-3">
+\begin{equation*}
+\mathcal{K}=\mathcal{P}=\mathcal{C}=\mathcal{A}^n\text{,}
+\end{equation*}
+</div>
+<div class="para">and encryption methods <span class="process-math">\(E\)</span> and <span class="process-math">\(D\)</span> as</div>
+<div class="displaymath process-math" id="d_vignere-2-1-6">
+\begin{align*}
+E_{(k_1,k_2,\dots, k_n)}(p_1,p_2,\dots, p_n) \amp = (p_1+k_1\boldmod{26}, p_2+k_2\boldmod{26},\dots p_n+k_n\boldmod{26})\\
+D_{(k_1,k_2,\dots, k_n)}(c_1,c_2,\dots, c_n) \amp = (c_1-k_1\boldmod{26}, c_2-k_2\boldmod{26},\dots c_n-k_n\boldmod{26})
+\end{align*}
+</div>
+<div class="para">for each key <span class="process-math">\(k=(k_1,k_2,\dots, k_n)\in \mathcal{K}\text{,}\)</span> plaintext <span class="process-math">\(p=(p_1,p_2,\dots, p_n)\in \mathcal{P}\)</span> and ciphertext <span class="process-math">\(c=(c_1,c_2,\dots, c_n)\in \mathcal{C}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_vignere-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.18.11: Vigenère cipher"><a href="#d_vignere" title="Copy heading and permalink for Definition 1.18.11: Vigenère cipher" aria-label="Copy heading and permalink for Definition 1.18.11: Vigenère cipher">🔗</a></div></article><details id="sage_vignere" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Sage example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vigenère cipher: encryption and decryption.</span>
+</h4></summary><article class="project project-like knowl__content"><div class="para" id="sage_vignere-2">Again, using Sage we can easily implement the Vigenère cipher.<div class="autopermalink" data-description="Paragraph"><a href="#sage_vignere-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="sage_vignere-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">                AlphaNum={}
+for x in 'abcdefghijklmnopqrstuvwxyz':
+    AlphaNum[x]=ord(x)-97
+NumAlpha={y:x for (x,y) in AlphaNum.items()}
+
+def vig_enc(m,k):
+    r=len(k)
+    seq=[]
+    for x in k:
+        seq.append(AlphaNum[x])
+    c=''
+    for i in range(len(m)):
+        c=c+NumAlpha[(AlphaNum[m[i]]+seq[i%r])%26]
+    return c
+def vig_dec(c,k):
+    kbar=''
+    for x in k:
+        kbar=kbar+NumAlpha[-AlphaNum[x]%26]
+    return vig_enc(c,kbar)
+</script></div>
+<div id="sage_vignere-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">c='ebhswxwxloirwnkwbodnkakgdywdmczlozqyebhpwzlflpguqzdybyyiwknzscqcazsyzkzrocvzmzplpevkovbppkqufpagyxeubnpcuxmoyadhtzsyiwkzdzrnbnpnrpirtnbknllwwolkeyuiqtpmzdiztmwdmilmhwvjlfvkenlnhrmxtmqkbzsyfwakebhbiiemljturcfwtyaufaixpnkaeucfgppkhiuhljtplzmythwkngnnvaiiscwauilheabnpwdomuchrpbnpwdomcscoambplbppoyahhakcypwqtdnkaagxyzdiztmwdmilmhwngnnlobnpyaeazphfawldndpmyzzdbngtlvwazlnhkngqzdezylmwwbkzzwdqtrmloiizgeevgecrjwlzvmakzdnkevmdcweakdmhjbolfwkbnthjobnlnwdmedbrqtjmyskaytvoakuymwebaphwowldndpmyzzdbngtlvevrzalyvuebljoodufyqjphwwtoquwdqtrwdjwinouevgdndpmuquibiocmwdmvzmvejowcwuwlebhobgeyrbilqulnasfmwxmcccwpmtthwkbnpnkevmtnvatltnzkcromhauzzvhwaucnrbiincgavztzlpbachhzwaenkwbgdcwqiztiqswawxiebgebljozsuwywawxdhzklxbafodnhjbocyouwttnvkettzwdqtrmfwvunwxnqtdndpmyzzdbngtlvppodjroaomcoebexovpjkthwdmsqlribnpvhcqtycqcvuebljooynkaxxzpljkkzzokoonwdjjkxyuateaivoqhwyokoonxhwtyhcwdmbplblwydceetoesdjlgwfskaytvlhqztyvwzktnvbiiemmqazlmzaixpkxebkfhdxtkeiliimthhoxgecdhwhuyfpaufnvelkdjdymucnhixucuokjppwwowaemlzmztghowzziwdmxpcvjwumdhybzsuwsmilhliimthhafiwogallcipppkaivoqhtflpguqwrijoycqceoebrppkcmlbqilhliimthhkjppwwokuxvljmjthvpizpmrbilqulnaonuqjwztgdcqtpnkaukiwoqlkozukuzsyskaytvlhqzjiiociswrijoyuwewtdnkevmduuaqtoysavjphwevyzzdniyebhukgyifycxthdhtvzmvejrpmlpcgecrjahfnwdqyqiuiwlthgaxkyxhjkktmdbwxxiiywtyyaewthcwdazlnhowllziwqxduikzszzgaxkyxhjkktnloqsaivoqhwyikzczlgobuljsaixthwswjtziazkynuktkdvbppkxmhhdkduqzqtalrlwytnlkvytzlgvuhuqkjppwweirdinjwclfoebyaivoqhwyrykaclhjkkdcqobgeyvkngqzdezypphnguyyrbbnpmhlwydceetoechouadneaxgcnrbbnphdpcxpiippkzvmakzlhhsxudmlxqrtnbyityiwxmjtmfkdkcyghizpllbqgxnrgvuhuqkjppwwppufakpqtpygjwzvhrsqzdyapmxyuolzuayupqkdcpqazvhrsirwcwoqteyujiralrlmxechoqllfokjppwwoixpalrmtebhjizebhoispnlimgwfskaytvoaazlnhowllziwqxduuairdijedkyydypzscqcqylmlpekcyljiyaufawlaivoqhwyvpizpmrbilqulnazscvoxgnylyittgdcqtpyplbemowekgyhrpqslaljmzsywdqtrqlppufnwdmyaufaiyauweirzvmakzxovpjkdcwqizpxljqtqcqebkdjdymgdjdpqgwjrevztmdjixropavzafdymgdjhysoynkadododhnopfgppufakpqzyyhzvuevhnmjxovppggyvkukniokcxtnloaueivlmgvmxnzufhgalhjwrhwacmswkkyiwaasfmwdibpmrimvtnfdwhuyfpauqnkaakymhknzzofdauxygaoxpyrbpgcxqaaylhgowuyiefmiemfkvzlcqppkaivoqhtflpguquohaoeodpquymwdmvzmvejowcwuwltnvkkifluevmthvpizpmrbilqulnaodnkanucgrbitzvmakz'
+</script></div>
+<div id="sage_vignere-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></div>
+<div class="autopermalink" data-description="Sage example 7: Vigenère cipher: encryption and decryption"><a href="#sage_vignere" title="Copy heading and permalink for Sage example 7: Vigenère cipher: encryption and decryption" aria-label="Copy heading and permalink for Sage example 7: Vigenère cipher: encryption and decryption">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.18.3: Vigenère cipher"><a href="#ss_vignere_cipher" title="Copy heading and permalink for Subsection 1.18.3: Vigenère cipher" aria-label="Copy heading and permalink for Subsection 1.18.3: Vigenère cipher">🔗</a></div></section><div class="autopermalink" data-description="Section 1.18: Cryptology"><a href="#s_crypto" title="Copy heading and permalink for Section 1.18: Cryptology" aria-label="Copy heading and permalink for Section 1.18: Cryptology">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="s_pells_eqn.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="my-great-book-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
