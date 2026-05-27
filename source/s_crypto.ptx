@@ -284,7 +284,7 @@ def guess(x,y):
 <subsection xml:id="ss_vignere_cipher">
     <title>Vigenère cipher</title>
     <p>
-        What made the substitution cipher vulnerable to frequency analysis is that the encryption was defined on the level of single letters. We call this a <em>monographic</em> cryptosystem. A <em>polygraphic</em> (<em>block</em>) cryptosystem, in contrast, defines an encrpytion method on a block, or list of letters. The <em>Vignère cipher</em> defined below is a classic example of a block cipher that at first glance appears to be invulnerable to frequency analysis, and indeed was long considered to be unbreakable. 
+        What made the substitution cipher vulnerable to frequency analysis is that the encryption was defined on the level of single letters. We call this a <em>monographic</em> cryptosystem. A <em>polygraphic</em> (<em>block</em>) cryptosystem, in contrast, defines an encryption method on a block, or list of letters. The <em>Vignère cipher</em> defined below is a classic example of a block cipher that at first glance appears to be invulnerable to frequency analysis, and indeed was long considered to be unbreakable. 
     </p>
     <definition xml:id="d_vignere">
     <title>Vigenère cipher</title>
@@ -299,6 +299,9 @@ def guess(x,y):
         <mrow>D_{(k_1,k_2,\dots, k_n)}(c_1,c_2,\dots, c_n) \amp = (c_1-k_1\boldmod{26}, c_2-k_2\boldmod{26},\dots c_n-k_n\boldmod{26})</mrow>
     </md>
     for each key <m>k=(k_1,k_2,\dots, k_n)\in \mathcal{K}</m>, plaintext <m>p=(p_1,p_2,\dots, p_n)\in \mathcal{P}</m> and ciphertext <m>c=(c_1,c_2,\dots, c_n)\in \mathcal{C}</m>.
+    </p>
+    <p>
+        In this setting a key <m>k=(k_1,k_2,\dots, k_n)</m> is called a <term>keyword</term>. 
     </p>
     </statement>
     </definition>
@@ -333,9 +336,23 @@ def vig_dec(c,k):
                 
             </output>
         </sage>
+        <p>
+            Try encrypting and decrpyting a message of your choosing using the Vignère cipher and a keyword of your choosing. 
+        </p>
         <sage>
             <input>
-                c='ebhswxwxloirwnkwbodnkakgdywdmczlozqyebhpwzlflpguqzdybyyiwknzscqcazsyzkzrocvzmzplpevkovbppkqufpagyxeubnpcuxmoyadhtzsyiwkzdzrnbnpnrpirtnbknllwwolkeyuiqtpmzdiztmwdmilmhwvjlfvkenlnhrmxtmqkbzsyfwakebhbiiemljturcfwtyaufaixpnkaeucfgppkhiuhljtplzmythwkngnnvaiiscwauilheabnpwdomuchrpbnpwdomcscoambplbppoyahhakcypwqtdnkaagxyzdiztmwdmilmhwngnnlobnpyaeazphfawldndpmyzzdbngtlvwazlnhkngqzdezylmwwbkzzwdqtrmloiizgeevgecrjwlzvmakzdnkevmdcweakdmhjbolfwkbnthjobnlnwdmedbrqtjmyskaytvoakuymwebaphwowldndpmyzzdbngtlvevrzalyvuebljoodufyqjphwwtoquwdqtrwdjwinouevgdndpmuquibiocmwdmvzmvejowcwuwlebhobgeyrbilqulnasfmwxmcccwpmtthwkbnpnkevmtnvatltnzkcromhauzzvhwaucnrbiincgavztzlpbachhzwaenkwbgdcwqiztiqswawxiebgebljozsuwywawxdhzklxbafodnhjbocyouwttnvkettzwdqtrmfwvunwxnqtdndpmyzzdbngtlvppodjroaomcoebexovpjkthwdmsqlribnpvhcqtycqcvuebljooynkaxxzpljkkzzokoonwdjjkxyuateaivoqhwyokoonxhwtyhcwdmbplblwydceetoesdjlgwfskaytvlhqztyvwzktnvbiiemmqazlmzaixpkxebkfhdxtkeiliimthhoxgecdhwhuyfpaufnvelkdjdymucnhixucuokjppwwowaemlzmztghowzziwdmxpcvjwumdhybzsuwsmilhliimthhafiwogallcipppkaivoqhtflpguqwrijoycqceoebrppkcmlbqilhliimthhkjppwwokuxvljmjthvpizpmrbilqulnaonuqjwztgdcqtpnkaukiwoqlkozukuzsyskaytvlhqzjiiociswrijoyuwewtdnkevmduuaqtoysavjphwevyzzdniyebhukgyifycxthdhtvzmvejrpmlpcgecrjahfnwdqyqiuiwlthgaxkyxhjkktmdbwxxiiywtyyaewthcwdazlnhowllziwqxduikzszzgaxkyxhjkktnloqsaivoqhwyikzczlgobuljsaixthwswjtziazkynuktkdvbppkxmhhdkduqzqtalrlwytnlkvytzlgvuhuqkjppwweirdinjwclfoebyaivoqhwyrykaclhjkkdcqobgeyvkngqzdezypphnguyyrbbnpmhlwydceetoechouadneaxgcnrbbnphdpcxpiippkzvmakzlhhsxudmlxqrtnbyityiwxmjtmfkdkcyghizpllbqgxnrgvuhuqkjppwwppufakpqtpygjwzvhrsqzdyapmxyuolzuayupqkdcpqazvhrsirwcwoqteyujiralrlmxechoqllfokjppwwoixpalrmtebhjizebhoispnlimgwfskaytvoaazlnhowllziwqxduuairdijedkyydypzscqcqylmlpekcyljiyaufawlaivoqhwyvpizpmrbilqulnazscvoxgnylyittgdcqtpyplbemowekgyhrpqslaljmzsywdqtrqlppufnwdmyaufaiyauweirzvmakzxovpjkdcwqizpxljqtqcqebkdjdymgdjdpqgwjrevztmdjixropavzafdymgdjhysoynkadododhnopfgppufakpqzyyhzvuevhnmjxovppggyvkukniokcxtnloaueivlmgvmxnzufhgalhjwrhwacmswkkyiwaasfmwdibpmrimvtnfdwhuyfpauqnkaakymhknzzofdauxygaoxpyrbpgcxqaaylhgowuyiefmiemfkvzlcqppkaivoqhtflpguquohaoeodpquymwdmvzmvejowcwuwltnvkkifluevmthvpizpmrbilqulnaodnkanucgrbitzvmakz'
+                
+            </input>
+            <output>
+                
+            </output>
+        </sage>
+        <p>
+            The following is an intercepted ciphertext using the Vignère cipher and the keyword <c>poetry</c>. Find the secret message!
+        </p>
+        <sage>
+            <input>
+                c='lvigzfpjiyvyggxarrxaertcpgimfztpiyfptacivlwowzccpbiwdwisifzlvpvtzlqsjhicwwkaggashufmzgmgtfpfevkcgmlhcbawoxigrvktiltfwmycuipeigesrxuegomgnftbmuvfdzhngmchlxegvvxljrpfvxudpqialetqphlbngcfsmagsyrfxulkfkpbgxrlshlbeiivemzkpmrxmcgzmovrdhvttcivibiqwohhnqlwxakftaezzaworwfdrvegtcpbhpyccwjxvjuomktptoxnicdtegymjfxarrxgltcjcszxijdcongmchlxvkdfigvttfltmcgspbjfxbxavdpsvrgmlsvhwscfiyccrhmgxjdjimycccrmychvskvmuhlxngssahijswwmrlsophecpbhmygcyxbcjaczxrlstefvrdbsmygcurxjqscwbei'
             </input>
             <output>
                 
