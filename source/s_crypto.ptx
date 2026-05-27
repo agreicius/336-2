@@ -430,12 +430,12 @@ We define the <term>index of coincidence</term> of <m>s</m> to be
     <mrow> \text{IndCo}(s),\text{IndCo}(t)\amp\rightarrow \mathbf{p}^{\sigma}\cdot\mathbf{p}^{\sigma}\approx 0.0656 </mrow>
     <mrow> \text{MutIndCo}(s,t) \amp \rightarrow \mathbf{p}^{\sigma}\cdot\mathbf{p}^{\tau} </mrow>
   </md>.
-  The last limit computation gives us a simple test to see whether <m>s</m> and <m>t</m> have used the same substitution permuation: when <m>\sigma=\tau</m>, we should have <m>\text{MulIndCo}(s,t)\approx 0.0656</m>; otherwise we should have <m>\text{MulIndCo}(s,t)&lt; 0.0656</m>.
+  The last limit computation gives us a simple test to see whether <m>s</m> and <m>t</m> have used the same substitution permuation: when <m>\sigma=\tau</m>, we should have <m>\text{MutIndCo}(s,t)\approx 0.0656</m>; otherwise we should have <m>\text{MutIndCo}(s,t)&lt; 0.0656</m>.
   The latter oberservation comes from Cauchy-Schwarz inequality, which says that
   <md>
     \mathbf{p}^{\sigma}\cdot\mathbf{p}^{\tau}\leq \vert\vert \mathbf{p}^{\sigma}\vert\vert \vert\vert\mathbf{p}^{\tau}\vert\vert.
   </md>
-  If we restrict our attention to shift ciphers, then in this modern age we can just compute a <m>(26)\times(26)</m> table of the various values <m>\mathbf{p}^{s_i}\cdot\mathbf{p}^{s_j}</m> (where <m>s_{l}</m> denotes the shift by <m>l</m> substitution) and compare our empirical result with these values.
+  If we restrict our attention to shift ciphers, then in this modern age we can just compute a <m>(26)\times(26)</m> table of the various values <m>\mathbf{p}^{s_i}\cdot\mathbf{p}^{s_j}</m> (where <m>s_{l}</m> denotes the shift by <m>l</m> substitution) and compare our empirical result with these values. The following example illustrates how to use these indices of coincidence functions to decrypt a Vigenère cipher.
 </p>
 <project>
     <title>Friedman cryptanalysis of the Vigenère cipher</title>
@@ -534,8 +534,51 @@ def friedkeyword(s,k):
         <c>'tzzabachdywtdnlpckynrbivciskaoecrjqteidrixtuehmzsyuaqylwowayzzsnwvzmlpquymdhtuqqkeknllhrirfyvknzsyuaaawnljoblllwjrpjukxudcwewtthjavkcuoppodwowayeirsqrwvhzmvphgavzzhwdmspuqevmebdpwacuuxqzcuuukuyphjbozhvdibpalrmteiswzzdiippkzllcqtlfsnwvzmlpquyvxpqllfoppkdcjjaoycwppgebdrmgcvlpzgccoulkeyuiqtpxpaitthjoixpnxnvkocqpwblllwjrpmzaanlfoobowfjabgnfdoauqnkeaqthgppodiqapuhyyazodhrplkayqzmteiqwveniqrmtecrjjaemrhmrjiqppkyuwqzkzzwdmvciskaoecrjqzniunmyaiqzazzuokoonuobwxxuokoonuolzueiwuxkpphngblllwjrpcvppkdcjjnucuikzslffkvipjwbwxpphngblllwjrplhlzkdyqpagniqobgynikzsebdpirwcwodgwohoxudmhoagyxwdqynuqxmxpadnlkouvwnucgdhxxzjhnbezzwdwyppdhckdiefmiemfwvuyfbxmtlghzaorhvwzkebhezxpjuaakyndpqbpmlyitzhouavpunwjufnwdmstwdjvuejxpbnpgljbuhiuzavciskaoecrjailhrjtedubdwcebljoyllhjwzhbdpbnpsdnmzsygabkcgljizpqduqthblypumdhybyllhywtyyfpmjthdobgeyrbilqulnaodnkaazcofpcxpiippkdndpmuquibiocmdhbnzojdivciskaoecrjirdcjjqylzdybzscveaummfqzkovbppkfmxwtlzlpknkijuaaytiqevcccwevmzlsnqtezrnqtljuevzpxsnwvzmlpquyzrnmdlgshmtzyvomtecdhloqzhnmtnyloivauuavzmywsmkyusnwvzmlpquyuooqmyuqziczlgppgecvspgegdzmoejroaomfhbwxqlhcmzzwdhtgalrlwytnlkvgniplwytnhjisp'</c>
     </p>
     <p>
-        Trying determining the keyword length using <c>friedkeylength(c,k)</c>. 
+        Trying determining the keyword length using <c>friedkeylength(c,k)</c>. The value <m>k</m> can be thought of as an upper bound on the potential keyword length. The function outputs, for each <m>\ell\leq k</m>, the indices of coincidence of each of the <m>\ell</m> substrings that the ciphertext is partioned into. You should be able to tell from those outputs which value of <m>\ell</m> is most likely to be the keyword length. 
     </p>
+    <sage>
+        <input>
+            
+        </input>
+        <output>
+            
+        </output>
+    </sage>
+    <p>
+    Once you have guess for the keyword length <m>n</m>, try running <c>friedkeyword(c,n)</c>. Let <m>k=(k_1,k_2,\dots, k_n)</m> be the keyword (to be determined), and let <m>s_1,s_2,\dots, s_n</m> be the <m>n</m> substrings that the plaintext is partitioned into. The <c>friedkeyword(c,k)</c> function outputs a table, whose row labeled with <m>i</m> and <m>j</m> in the first two columns computes <m>\operatorname{MutIndCo}(s_i, \sigma_\ell(s_j))</m>, where <m>\sigma_\ell</m> is the shift by <m>\ell</m> substitution. From our discussion above, when this value is close to <m>0.065</m>, the strings <m>s_i</m> and <m>\sigma_\ell(s_j)</m> are both likely to be the shift of some natural English by the <em>same</em> shift value. Since <m>s_i</m> is the the result of shifting some natural English by <m>k_i</m>, and <m>\sigma_\ell(s_j)</m> is the result of shifting some natural English by <m>k_j+\ell</m>, we conclude that <m>k_i\equiv k_j+\ell\pmod{26}</m>. Proceeding in this way, and considering the <m>k_i</m> as unknowns, we are able to produce a linear system of equations in the unknowns <m>k_i</m> of the form
+    <md>
+        <mrow>k_1-k_2 \amp \equiv \ell_1 \pmod{26}</mrow>
+        <mrow>k_2-k_3 \amp \equiv \ell_2 \pmod{26}</mrow>
+        <mrow>\vdots \amp \vdots</mrow>
+        <mrow>k_{n-1}-k_n \amp \equiv \ell_{n-1} \pmod{26}</mrow>
+        <mrow>k_n-k_1 \amp \equiv \ell_n \pmod{26}</mrow>
+    </md>,
+    where the <m>\ell_i</m> are the various <q>correct</q> shift values we have determined empirically. It can be shown that, modulo 26, every solution to the system above is of the form 
+    <md number="yes">
+        <mrow>k_n\amp \equiv c \pmod{26}  </mrow>
+        <mrow>k_{n-1} \amp \equiv \ell_{n-1}+c \pmod{26}</mrow>
+        <mrow>k_{n-2} \amp \equiv \ell_{n-1}+\ell_{n-2}+c \pmod{26}</mrow>
+        <mrow>\vdots \amp \vdots</mrow>
+        <mrow>k_1 \amp \equiv \ell_{n-1}+\ell_{n-2}+\cdots +\ell_1+c \pmod{26}</mrow>
+    </md>,
+    where <m>c\in \{0,1,\dots,25\}</m>. To finish determining the keyword, we try each of these 26 different values of <m>c</m> until we find a value whose key <m>k</m> decrypts the ciphertext to something sensible. We leave you with a few empty Sage cells to try these methods out. 
+    </p>
+    <sage>
+        <input>
+            
+        </input>
+        <output>
+            
+        </output>
+    </sage>
+    <sage>
+        <input>
+            
+        </input>
+        <output>
+            
+        </output>
+    </sage>
     <sage>
         <input>
             
