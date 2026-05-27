@@ -488,6 +488,14 @@ def substr(s,k):
     </p>
     <sage>
         <input>
+def IndCo(s):
+    n=len(s)
+    return round(float(sum([s.count(x)*(s.count(x)-1) for x in 'abcdefghijklmnopqrstuvwxyz'][i] for i in range(26))/(n*(n-1))),4)
+def MutIndCo(s,t):
+    n=len(s)
+    m=len(t)
+    prods=[s.count(x)*t.count(x) for x in 'abcdefghijklmnopqrstuvwxyz']
+    return round(float(sum(prods[i] for i in range(26)))/(n*m),3)
 def friedkeylength(s,k):
     for j in range(1,k+1):
         strings=substr(s,j)
@@ -520,7 +528,13 @@ def friedkeyword(s,k):
         </output>
     </sage>
     <p>
-        Now go to town on the ciphertext from above. 
+        Here is the ciphertext (in lowercase) we analyzed above using the Simon Singh interactive. 
+    </p>
+    <p>
+        <c>'tzzabachdywtdnlpckynrbivciskaoecrjqteidrixtuehmzsyuaqylwowayzzsnwvzmlpquymdhtuqqkeknllhrirfyvknzsyuaaawnljoblllwjrpjukxudcwewtthjavkcuoppodwowayeirsqrwvhzmvphgavzzhwdmspuqevmebdpwacuuxqzcuuukuyphjbozhvdibpalrmteiswzzdiippkzllcqtlfsnwvzmlpquyvxpqllfoppkdcjjaoycwppgebdrmgcvlpzgccoulkeyuiqtpxpaitthjoixpnxnvkocqpwblllwjrpmzaanlfoobowfjabgnfdoauqnkeaqthgppodiqapuhyyazodhrplkayqzmteiqwveniqrmtecrjjaemrhmrjiqppkyuwqzkzzwdmvciskaoecrjqzniunmyaiqzazzuokoonuobwxxuokoonuolzueiwuxkpphngblllwjrpcvppkdcjjnucuikzslffkvipjwbwxpphngblllwjrplhlzkdyqpagniqobgynikzsebdpirwcwodgwohoxudmhoagyxwdqynuqxmxpadnlkouvwnucgdhxxzjhnbezzwdwyppdhckdiefmiemfwvuyfbxmtlghzaorhvwzkebhezxpjuaakyndpqbpmlyitzhouavpunwjufnwdmstwdjvuejxpbnpgljbuhiuzavciskaoecrjailhrjtedubdwcebljoyllhjwzhbdpbnpsdnmzsygabkcgljizpqduqthblypumdhybyllhywtyyfpmjthdobgeyrbilqulnaodnkaazcofpcxpiippkdndpmuquibiocmdhbnzojdivciskaoecrjirdcjjqylzdybzscveaummfqzkovbppkfmxwtlzlpknkijuaaytiqevcccwevmzlsnqtezrnqtljuevzpxsnwvzmlpquyzrnmdlgshmtzyvomtecdhloqzhnmtnyloivauuavzmywsmkyusnwvzmlpquyuooqmyuqziczlgppgecvspgegdzmoejroaomfhbwxqlhcmzzwdhtgalrlwytnlkvgniplwytnhjisp'</c>
+    </p>
+    <p>
+        Trying determining the keyword using the Friedman method. 
     </p>
     <sage>
         <input>
