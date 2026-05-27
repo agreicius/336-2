@@ -73,7 +73,15 @@ def substr(s,k):
 </script></div>
 <div class="para">The next cell contains functions related to Friedman’s cryptanalysis of the Vigenère cipher.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-14-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="ss_vignere_cipher-14-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def friedkeylength(s,k):
+<div id="ss_vignere_cipher-14-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def IndCo(s):
+    n=len(s)
+    return round(float(sum([s.count(x)*(s.count(x)-1) for x in 'abcdefghijklmnopqrstuvwxyz'][i] for i in range(26))/(n*(n-1))),4)
+def MutIndCo(s,t):
+    n=len(s)
+    m=len(t)
+    prods=[s.count(x)*t.count(x) for x in 'abcdefghijklmnopqrstuvwxyz']
+    return round(float(sum(prods[i] for i in range(26)))/(n*m),3)
+def friedkeylength(s,k):
     for j in range(1,k+1):
         strings=substr(s,j)
         print('Ordered indices of coincidence for j=%s'%j)
@@ -100,9 +108,14 @@ def friedkeyword(s,k):
             #print row
             print('{:<4}{:<4}{:<7}{:<7}{:<7}{:<7}{:<7}{:<7}{:<7}{:<7}{:<7}{:<7}{:<7}{:<7}{:<7}'.format(*row))
 </script></div>
-<div class="para">Now go to town on the ciphertext from above.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-14-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Here is the ciphertext (in lowercase) we analyzed above using the Simon Singh interactive.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-14-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="ss_vignere_cipher-14-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+<div class="para">
+<code class="code-inline tex2jax_ignore">'tzzabachdywtdnlpckynrbivciskaoecrjqteidrixtuehmzsyuaqylwowayzzsnwvzmlpquymdhtuqqkeknllhrirfyvknzsyuaaawnljoblllwjrpjukxudcwewtthjavkcuoppodwowayeirsqrwvhzmvphgavzzhwdmspuqevmebdpwacuuxqzcuuukuyphjbozhvdibpalrmteiswzzdiippkzllcqtlfsnwvzmlpquyvxpqllfoppkdcjjaoycwppgebdrmgcvlpzgccoulkeyuiqtpxpaitthjoixpnxnvkocqpwblllwjrpmzaanlfoobowfjabgnfdoauqnkeaqthgppodiqapuhyyazodhrplkayqzmteiqwveniqrmtecrjjaemrhmrjiqppkyuwqzkzzwdmvciskaoecrjqzniunmyaiqzazzuokoonuobwxxuokoonuolzueiwuxkpphngblllwjrpcvppkdcjjnucuikzslffkvipjwbwxpphngblllwjrplhlzkdyqpagniqobgynikzsebdpirwcwodgwohoxudmhoagyxwdqynuqxmxpadnlkouvwnucgdhxxzjhnbezzwdwyppdhckdiefmiemfwvuyfbxmtlghzaorhvwzkebhezxpjuaakyndpqbpmlyitzhouavpunwjufnwdmstwdjvuejxpbnpgljbuhiuzavciskaoecrjailhrjtedubdwcebljoyllhjwzhbdpbnpsdnmzsygabkcgljizpqduqthblypumdhybyllhywtyyfpmjthdobgeyrbilqulnaodnkaazcofpcxpiippkdndpmuquibiocmdhbnzojdivciskaoecrjirdcjjqylzdybzscveaummfqzkovbppkfmxwtlzlpknkijuaaytiqevcccwevmzlsnqtezrnqtljuevzpxsnwvzmlpquyzrnmdlgshmtzyvomtecdhloqzhnmtnyloivauuavzmywsmkyusnwvzmlpquyuooqmyuqziczlgppgecvspgegdzmoejroaomfhbwxqlhcmzzwdhtgalrlwytnlkvgniplwytnhjisp'</code><div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-14-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">Trying determining the keyword using the Friedman method.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-14-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_vignere_cipher-14-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
 </script></div>
 <div class="autopermalink" data-description="Sage example 8: Friedman cryptanalysis of the Vigenère cipher"><a href="#ss_vignere_cipher-14" title="Copy heading and permalink for Sage example 8: Friedman cryptanalysis of the Vigenère cipher" aria-label="Copy heading and permalink for Sage example 8: Friedman cryptanalysis of the Vigenère cipher">🔗</a></div></article><span class="incontext"><a class="internal" href="s_crypto.html#ss_vignere_cipher-14">in-context</a></span>
 </body>
