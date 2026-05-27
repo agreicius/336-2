@@ -113,9 +113,39 @@ def friedkeyword(s,k):
 <div class="para">
 <code class="code-inline tex2jax_ignore">'tzzabachdywtdnlpckynrbivciskaoecrjqteidrixtuehmzsyuaqylwowayzzsnwvzmlpquymdhtuqqkeknllhrirfyvknzsyuaaawnljoblllwjrpjukxudcwewtthjavkcuoppodwowayeirsqrwvhzmvphgavzzhwdmspuqevmebdpwacuuxqzcuuukuyphjbozhvdibpalrmteiswzzdiippkzllcqtlfsnwvzmlpquyvxpqllfoppkdcjjaoycwppgebdrmgcvlpzgccoulkeyuiqtpxpaitthjoixpnxnvkocqpwblllwjrpmzaanlfoobowfjabgnfdoauqnkeaqthgppodiqapuhyyazodhrplkayqzmteiqwveniqrmtecrjjaemrhmrjiqppkyuwqzkzzwdmvciskaoecrjqzniunmyaiqzazzuokoonuobwxxuokoonuolzueiwuxkpphngblllwjrpcvppkdcjjnucuikzslffkvipjwbwxpphngblllwjrplhlzkdyqpagniqobgynikzsebdpirwcwodgwohoxudmhoagyxwdqynuqxmxpadnlkouvwnucgdhxxzjhnbezzwdwyppdhckdiefmiemfwvuyfbxmtlghzaorhvwzkebhezxpjuaakyndpqbpmlyitzhouavpunwjufnwdmstwdjvuejxpbnpgljbuhiuzavciskaoecrjailhrjtedubdwcebljoyllhjwzhbdpbnpsdnmzsygabkcgljizpqduqthblypumdhybyllhywtyyfpmjthdobgeyrbilqulnaodnkaazcofpcxpiippkdndpmuquibiocmdhbnzojdivciskaoecrjirdcjjqylzdybzscveaummfqzkovbppkfmxwtlzlpknkijuaaytiqevcccwevmzlsnqtezrnqtljuevzpxsnwvzmlpquyzrnmdlgshmtzyvomtecdhloqzhnmtnyloivauuavzmywsmkyusnwvzmlpquyuooqmyuqziczlgppgecvspgegdzmoejroaomfhbwxqlhcmzzwdhtgalrlwytnlkvgniplwytnhjisp'</code><div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-14-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">Trying determining the keyword length using <code class="code-inline tex2jax_ignore">friedkeylength(c,k)</code>.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-14-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Trying determining the keyword length using <code class="code-inline tex2jax_ignore">friedkeylength(c,k)</code>. The value <span class="process-math">\(k\)</span> can be thought of as an upper bound on the potential keyword length. The function outputs, for each <span class="process-math">\(\ell\leq k\text{,}\)</span> the indices of coincidence of each of the <span class="process-math">\(\ell\)</span> substrings that the ciphertext is partioned into. You should be able to tell from those outputs which value of <span class="process-math">\(\ell\)</span> is most likely to be the keyword length.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-14-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="ss_vignere_cipher-14-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></div>
+<div class="para logical">
+<div class="para">Once you have guess for the keyword length <span class="process-math">\(n\text{,}\)</span> try running <code class="code-inline tex2jax_ignore">friedkeyword(c,n)</code>. Let <span class="process-math">\(k=(k_1,k_2,\dots, k_n)\)</span> be the keyword (to be determined), and let <span class="process-math">\(s_1,s_2,\dots, s_n\)</span> be the <span class="process-math">\(n\)</span> substrings that the plaintext is partitioned into. The <code class="code-inline tex2jax_ignore">friedkeyword(c,k)</code> function outputs a table, whose row labeled with <span class="process-math">\(i\)</span> and <span class="process-math">\(j\)</span> in the first two columns computes <span class="process-math">\(\operatorname{MutIndCo}(s_i, \sigma_\ell(s_j))\text{,}\)</span> where <span class="process-math">\(\sigma_\ell\)</span> is the shift by <span class="process-math">\(\ell\)</span> substitution. From our discussion above, when this value is close to <span class="process-math">\(0.065\text{,}\)</span> the strings <span class="process-math">\(s_i\)</span> and <span class="process-math">\(\sigma_\ell(s_j)\)</span> are both likely to be the shift of some natural English by the <em class="emphasis">same</em> shift value. Since <span class="process-math">\(s_i\)</span> is the the result of shifting some natural English by <span class="process-math">\(k_i\text{,}\)</span> and <span class="process-math">\(\sigma_\ell(s_j)\)</span> is the result of shifting some natural English by <span class="process-math">\(k_j+\ell\text{,}\)</span> we conclude that <span class="process-math">\(k_i\equiv k_j+\ell\pmod{26}\text{.}\)</span> Proceeding in this way, and considering the <span class="process-math">\(k_i\)</span> as unknowns, we are able to produce a linear system of equations in the unknowns <span class="process-math">\(k_i\)</span> of the form</div>
+<div class="displaymath process-math">
+\begin{align*}
+k_1-k_2 \amp \equiv \ell_1 \pmod{26}\\
+k_2-k_3 \amp \equiv \ell_2 \pmod{26}\\
+\vdots \amp \vdots\\
+k_{n-1}-k_n \amp \equiv \ell_{n-1} \pmod{26}\\
+k_n-k_1 \amp \equiv \ell_n \pmod{26}\text{,}
+\end{align*}
+</div>
+<div class="para">where the <span class="process-math">\(\ell_i\)</span> are the various “correct” shift values we have determined empirically. It can be shown that, modulo 26, every solution to the system above is of the form</div>
+<div class="displaymath process-math">
+\begin{align}
+k_n\amp \equiv c \pmod{26}  \tag{1.18.3}\\
+k_{n-1} \amp \equiv \ell_{n-1}+c \pmod{26}\tag{1.18.4}\\
+k_{n-2} \amp \equiv \ell_{n-1}+\ell_{n-2}+c \pmod{26}\tag{1.18.5}\\
+\vdots \amp \vdots\tag{1.18.6}\\
+k_1 \amp \equiv \ell_{n-1}+\ell_{n-2}+\cdots +\ell_1+c \pmod{26}\text{,}\tag{1.18.7}
+\end{align}
+</div>
+<div class="para">where <span class="process-math">\(c\in \{0,1,\dots,25\}\text{.}\)</span> To finish determining the keyword, we try each of these 26 different values of <span class="process-math">\(c\)</span> until we find a value whose key <span class="process-math">\(k\)</span> decrypts the ciphertext to something sensible. We leave you with a few empty Sage cells to try these methods out.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-14-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_vignere_cipher-14-11" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></div>
+<div id="ss_vignere_cipher-14-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></div>
+<div id="ss_vignere_cipher-14-13" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
 </script></div>
 <div class="autopermalink" data-description="Sage example 8: Friedman cryptanalysis of the Vigenère cipher"><a href="#ss_vignere_cipher-14" title="Copy heading and permalink for Sage example 8: Friedman cryptanalysis of the Vigenère cipher" aria-label="Copy heading and permalink for Sage example 8: Friedman cryptanalysis of the Vigenère cipher">🔗</a></div></article><span class="incontext"><a class="internal" href="s_crypto.html#ss_vignere_cipher-14">in-context</a></span>
 </body>
