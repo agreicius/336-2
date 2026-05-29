@@ -191,6 +191,7 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\boldG}{{\mathbf G}}
 \newcommand{\boldK}{{\mathbf K}}
 \newcommand{\boldL}{{\mathbf L}}
+\DeclareMathOperator{\ind}{ind}
 \DeclareMathOperator{\ch}{char}
 \DeclareMathOperator{\lns}{lns}
 \DeclareMathOperator{\lcm}{lcm}
@@ -243,6 +244,8 @@ eBookConfig.enable_chatcodes =  false;
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\len}{len}
 \DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\priv}{priv}
+\DeclareMathOperator{\pub}{pub}
 \newcommand{\surjects}{\twoheadrightarrow}
 \newcommand{\injects}{\hookrightarrow}
 \newcommand{\bijects}{\leftrightarrow}
@@ -494,11 +497,18 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="s_crypto.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Cryptology</span></a></div>
+<div class="toc-title-box"><a href="s_crypto.html" class="internal"><span class="codenumber">1.18</span> <span class="title">Cryptography</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_crypto.html#ch-what-is-cryptography-" class="internal"><span class="codenumber">1.18.1</span> <span class="title">What is cryptography?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_crypto.html#ss_crypto_intro" class="internal"><span class="codenumber">1.18.1</span> <span class="title">What is cryptography?</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_crypto.html#ss_sub_cipher" class="internal"><span class="codenumber">1.18.2</span> <span class="title">Subsititution cipher</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_crypto.html#ss_vignere_cipher" class="internal"><span class="codenumber">1.18.3</span> <span class="title">Vigenère cipher</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="s_public_key.html" class="internal"><span class="codenumber">1.19</span> <span class="title">Public key cryptography</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_public_key.html#ss_public_key" class="internal"><span class="codenumber">1.19.1</span> <span class="title">Symmetric versus asymmetric cryptosystems</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_public_key.html#ss_diffie_hellman" class="internal"><span class="codenumber">1.19.2</span> <span class="title">Diffie Hellman key exchange</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -650,8 +660,8 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <div>
 <a href="s_quad_ring_units.html#eg_quad_ring_units_2" class="xref" data-knowl="./knowl/list-of/eg_quad_ring_units_2.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.16.3: Units of \Z[\sqrt{2}]">Example 1.16.3</a> Units of <span class="process-math">\(\Z[\sqrt{2}]\)</span>
 </div>
-<h4 class="heading hide-type" title="Section 1.18: Cryptology">
-<span class="codenumber">1.18</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cryptology</span>
+<h4 class="heading hide-type" title="Section 1.18: Cryptography">
+<span class="codenumber">1.18</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cryptography</span>
 </h4>
 <div>
 <a href="s_crypto.html#eg_caesar_shift_cipher" class="xref" data-knowl="./knowl/list-of/eg_caesar_shift_cipher.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.18.4: Caesar shift cipher">Example 1.18.4</a> Caesar shift cipher</div>
@@ -662,7 +672,7 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <div>
 <a href="s_crypto.html#sage_vignere" class="xref" data-knowl="./knowl/list-of/sage_vignere.html" data-reveal-label="Reveal" data-close-label="Close" title="Sage example 7: Vigenère cipher: encryption and decryption">Sage example 7</a> Vigenère cipher: encryption and decryption</div>
 <div>
-<a href="s_crypto.html#ss_vignere_cipher-14" class="xref" data-knowl="./knowl/list-of/ss_vignere_cipher-14.html" data-reveal-label="Reveal" data-close-label="Close" title="Sage example 8: Friedman cryptanalysis of the Vigenère cipher">Sage example 8</a> Friedman cryptanalysis of the Vigenère cipher</div>
+<a href="s_crypto.html#ss_vignere_cipher-16" class="xref" data-knowl="./knowl/list-of/ss_vignere_cipher-16.html" data-reveal-label="Reveal" data-close-label="Close" title="Sage example 8: Friedman cryptanalysis of the Vigenère cipher">Sage example 8</a> Friedman cryptanalysis of the Vigenère cipher</div>
 <div class="autopermalink" data-description="Appendix D: Examples and Sage cells"><a href="#appendix-egs" title="Copy heading and permalink for Appendix D: Examples and Sage cells" aria-label="Copy heading and permalink for Appendix D: Examples and Sage cells">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="appendix-thms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="appendix-vids.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>

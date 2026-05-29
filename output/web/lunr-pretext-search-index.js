@@ -2485,6 +2485,51 @@ var ptx_lunr_docs = [
   "body": " Friedman cryptanalysis of the Vigenère cipher  The Sage cell below contains functions for implementing the Vignère cipher, performing Caesar shift ciphers, and partitioning a string into substrings.   The next cell contains functions related to Friedman's cryptanalysis of the Vigenère cipher.   Here is the ciphertext (in lowercase) we analyzed above using the Simon Singh interactive.   'tzzabachdywtdnlpckynrbivciskaoecrjqteidrixtuehmzsyuaqylwowayzzsnwvzmlpquymdhtuqqkeknllhrirfyvknzsyuaaawnljoblllwjrpjukxudcwewtthjavkcuoppodwowayeirsqrwvhzmvphgavzzhwdmspuqevmebdpwacuuxqzcuuukuyphjbozhvdibpalrmteiswzzdiippkzllcqtlfsnwvzmlpquyvxpqllfoppkdcjjaoycwppgebdrmgcvlpzgccoulkeyuiqtpxpaitthjoixpnxnvkocqpwblllwjrpmzaanlfoobowfjabgnfdoauqnkeaqthgppodiqapuhyyazodhrplkayqzmteiqwveniqrmtecrjjaemrhmrjiqppkyuwqzkzzwdmvciskaoecrjqzniunmyaiqzazzuokoonuobwxxuokoonuolzueiwuxkpphngblllwjrpcvppkdcjjnucuikzslffkvipjwbwxpphngblllwjrplhlzkdyqpagniqobgynikzsebdpirwcwodgwohoxudmhoagyxwdqynuqxmxpadnlkouvwnucgdhxxzjhnbezzwdwyppdhckdiefmiemfwvuyfbxmtlghzaorhvwzkebhezxpjuaakyndpqbpmlyitzhouavpunwjufnwdmstwdjvuejxpbnpgljbuhiuzavciskaoecrjailhrjtedubdwcebljoyllhjwzhbdpbnpsdnmzsygabkcgljizpqduqthblypumdhybyllhywtyyfpmjthdobgeyrbilqulnaodnkaazcofpcxpiippkdndpmuquibiocmdhbnzojdivciskaoecrjirdcjjqylzdybzscveaummfqzkovbppkfmxwtlzlpknkijuaaytiqevcccwevmzlsnqtezrnqtljuevzpxsnwvzmlpquyzrnmdlgshmtzyvomtecdhloqzhnmtnyloivauuavzmywsmkyusnwvzmlpquyuooqmyuqziczlgppgecvspgegdzmoejroaomfhbwxqlhcmzzwdhtgalrlwytnlkvgniplwytnhjisp'   Trying determining the keyword length using friedkeylength(c,k) . The value can be thought of as an upper bound on the potential keyword length. The function outputs, for each , the indices of coincidence of each of the substrings that the ciphertext is partioned into. You should be able to tell from those outputs which value of is most likely to be the keyword length.   Once you have guess for the keyword length , try running friedkeyword(c,n) . Let be the keyword (to be determined), and let be the substrings that the plaintext is partitioned into. The friedkeyword(c,k) function outputs a table, whose row labeled with and in the first two columns computes , where is the shift by substitution. From our discussion above, when this value is close to , the strings and are both likely to be the shift of some natural English by the same shift value. Since is the the result of shifting some natural English by , and is the result of shifting some natural English by , we conclude that . Proceeding in this way, and considering the as unknowns, we are able to produce a linear system of equations in the unknowns of the form , where the are the various correct shift values we have determined empirically. It can be shown that, modulo 26, every solution to the system above is of the form , where . To finish determining the keyword, we try each of these 26 different values of until we find a value whose key decrypts the ciphertext to something sensible. We leave you with a few empty Sage cells to try these methods out.     "
 },
 {
+  "id": "s_public_key",
+  "level": "1",
+  "url": "s_public_key.html",
+  "type": "Section",
+  "number": "1.19",
+  "title": "Public key cryptography",
+  "body": " Public key cryptography   Symmetric versus asymmetric cryptosystems  The examples of cryptosystems we have discussed thus far are what is known as symmetric cryptosystems. In these systems, to encrypt and decrypt messages Alice and Bob both use the same key , and thus this shared key must be known to both Alice and Bob somehow. This fact creates a security issue. How do Alice and Bob share the key ? Meeting in person and secretly exchanging a key to use is an option, but of course this has many practical shortcomings, especially when the number of participants in our communication network grows, and keys are frequently changed. Alternatively, they could share the secret key over a communication channel, but now the ever-watchful Eve comes into the picture. It was questions such as these that led Whitfield Diffie and Martin Hellman to propose (in their 1976 paper New directions in Cryptography ) a fundamentally different type of cryptography, known as an asymmetric or public key cryptography.   Public key cryptography (PKC)   A public key (or asymmetric ) cryptosystem is a cryptosystem for which the keyspace consists of pairs , called public\/private key pairs , and such that for all , we have so that encryption is performed using the public key  and decryption is performed using the private key  .  Cryptography that uses public key cryptosystems is called public key cryptography .    Let's leave the formalism of for a moment, and try and understand the asymmetry of this type of system on the level of Alice and Bob.  When Alice uses a public key cryptosystem with encoding\/decoding methods and , she chooses a public\/private key pair , and only makes public the public key component (we say she publishes the public key). Bob can then use the public key and encryption method to encrypt a plaintext message as and send to Alice. Alice can then use her private key to recover as . Note that there are two different manners in which this setup is asymmetric.   The participants in this system use different keys for encryption and decryption.    This system allows for Bob to communicate with Alice, but not conversely, since Bob does not know the key that allows for decryption. In other words, this is a communication with Alice setup, as opposed to a communication between Alice and Bob setup. If Bob also wants to receive messages he can understand, he creates his own public\/private key pair.   More generally to create a communication network of users, so that each user can encrypt outgoing messages and decrypt incoming messages, you have each user create their own public\/private key pair , publish their public key , and keep private their private key . That way, any user can send encrypted messages to user as , and this message can be decrypted by user as . Note that this public key system requires the production of only keys. Using a symmetric cryptosystem for the network, each of the communication channels would require a key, and for security reasons these would all need to be distinct. Thus the number of keys grows as for this symmetric design, and only as for the public key design.    Diffie Hellman key exchange  Diffie and Hellman did not themselves propose an actual example of a public key cryptosystem, but they did describe the following key exchange that makes use of their one-way and trapdoor function concepts.   Diffie-Hellman key exchange   Alice and Bob wish to share a key over an insecure communication channel. The Diffie-Hellman key exchange accomplishes this as follows.   Alice chooses a prime integer , an element . She publishes the pair .    Alice chooses a random integer and computes , and sends this to Bob.  Bob chooses a random integer and computes , and sends this to Alice.    Alice and Bob use their private exponents and to compute the shared key .        Discrete log (or index)   Let be a positive integer, let be a unit of order , and let . The unique integer such that is called the discrete log (or index ) of to the base , and is denoted by .     Discrete log problem   Let be a prime integer, let , and let . Find an integer such that , or equivalently, such that . In other words find an integer solving the equation . A solution to    Taher Elgamal 1985.   "
+},
+{
+  "id": "d_public_key",
+  "level": "2",
+  "url": "s_public_key.html#d_public_key",
+  "type": "Definition",
+  "number": "1.19.1",
+  "title": "Public key cryptography (PKC).",
+  "body": " Public key cryptography (PKC)   A public key (or asymmetric ) cryptosystem is a cryptosystem for which the keyspace consists of pairs , called public\/private key pairs , and such that for all , we have so that encryption is performed using the public key  and decryption is performed using the private key  .  Cryptography that uses public key cryptosystems is called public key cryptography .   "
+},
+{
+  "id": "d_diffie_hellman",
+  "level": "2",
+  "url": "s_public_key.html#d_diffie_hellman",
+  "type": "Definition",
+  "number": "1.19.2",
+  "title": "Diffie-Hellman key exchange.",
+  "body": " Diffie-Hellman key exchange   Alice and Bob wish to share a key over an insecure communication channel. The Diffie-Hellman key exchange accomplishes this as follows.   Alice chooses a prime integer , an element . She publishes the pair .    Alice chooses a random integer and computes , and sends this to Bob.  Bob chooses a random integer and computes , and sends this to Alice.    Alice and Bob use their private exponents and to compute the shared key .      "
+},
+{
+  "id": "d_discrete_log",
+  "level": "2",
+  "url": "s_public_key.html#d_discrete_log",
+  "type": "Definition",
+  "number": "1.19.3",
+  "title": "Discrete log (or index).",
+  "body": " Discrete log (or index)   Let be a positive integer, let be a unit of order , and let . The unique integer such that is called the discrete log (or index ) of to the base , and is denoted by .   "
+},
+{
+  "id": "d_discrete_log_problem",
+  "level": "2",
+  "url": "s_public_key.html#d_discrete_log_problem",
+  "type": "Definition",
+  "number": "1.19.4",
+  "title": "Discrete log problem.",
+  "body": " Discrete log problem   Let be a prime integer, let , and let . Find an integer such that , or equivalently, such that . In other words find an integer solving the equation . A solution to   "
+},
+{
   "id": "appendix-notation",
   "level": "1",
   "url": "appendix-notation.html",

@@ -18,4 +18,5 @@
   <xi:include href="s_quad_ring_units.ptx" />
   <xi:include href="s_pells_eqn.ptx" />
   <xi:include href="s_crypto.ptx" />
+  <xi:include href="s_public_key.ptx" />
 </chapter>

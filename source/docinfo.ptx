@@ -63,6 +63,7 @@
     \newcommand{\boldG}{{\mathbf G}}
     \newcommand{\boldK}{{\mathbf K}}
     \newcommand{\boldL}{{\mathbf L}}
+    \DeclareMathOperator{\ind}{ind}
     \DeclareMathOperator{\ch}{char}
     \DeclareMathOperator{\lns}{lns}
     \DeclareMathOperator{\lcm}{lcm}
@@ -115,6 +116,8 @@
     \DeclareMathOperator{\sgn}{sgn}
     \DeclareMathOperator{\len}{len}
     \DeclareMathOperator{\proj}{proj}
+    \DeclareMathOperator{\priv}{priv}
+    \DeclareMathOperator{\pub}{pub}
     \newcommand{\surjects}{\twoheadrightarrow}
     \newcommand{\injects}{\hookrightarrow}
     \newcommand{\bijects}{\leftrightarrow}

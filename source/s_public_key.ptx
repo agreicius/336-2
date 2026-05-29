@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="s_public_key" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Public key cryptography</title>
+<subsection xml:id="ss_public_key">
+<title>Symmetric versus asymmetric cryptosystems</title>
+<p>
+    The examples of cryptosystems we have discussed thus far are what is known as <em>symmetric</em> cryptosystems. In these systems, to encrypt and decrypt messages Alice and Bob both use the same key <m>k</m>, and thus this shared key must be known to both Alice and Bob somehow. This fact creates a security issue. How do Alice and Bob share the key <m>k</m>? Meeting in person and secretly exchanging a key to use is an option, but of course this has many practical shortcomings, especially when the number of participants in our communication network grows, and keys are frequently changed.  Alternatively, they could share the secret key over a communication channel, but now the ever-watchful Eve comes into the picture. It was questions such as these that led Whitfield Diffie and Martin Hellman to propose (in their 1976 paper <q>New directions in Cryptography</q>)  a fundamentally different type of cryptography, known as an <em>asymmetric</em> or  <em>public key</em> cryptography. 
+</p>
+<definition xml:id="d_public_key">
+<title>Public key cryptography (PKC)</title>
+<statement>
+<p>
+A <term>public key</term> (or <term>asymmetric</term>) cryptosystem is a cryptosystem 
+<md>
+    <mrow>E\colon \mathcal{K}\times \mathcal{P} \amp \rightarrow \mathcal{C} </mrow>
+    <mrow>D\colon \mathcal{K}\times \mathcal{C} \amp \rightarrow \mathcal{P}</mrow>
+</md>
+for which the keyspace <m>\mathcal{K}</m> consists of pairs <m>k=(k_{\text{priv}},k_{\text{pub}})</m>, called <term>public/private key pairs</term>, and such that for all <m>k=(k_{\text{priv}},k_{\text{pub}})</m>, we have 
+<md>
+    <mrow>E_k \amp = E_{k_\priv} \amp D_k=D_{k_\pub}</mrow>
+</md>
+so that encryption is performed using the <term>public key</term> <m>k_\pub</m> and decryption is performed using the <term>private key</term> <m>k_\priv</m>.
+</p>
+<p>
+    Cryptography that uses public key cryptosystems is called <term>public key cryptography</term>.
+</p>
+</statement>
+</definition>
+<p>
+Let's leave the formalism of <xref ref="d_public_key"/> for a moment, and try and understand the asymmetry of this type of system on the level of Alice and Bob. 
+</p>
+<p>
+    When Alice uses a public key cryptosystem with encoding/decoding methods <m>E</m> and <m>D</m>, she chooses a public/private key pair <m>(k_\priv, k_\pub)</m>, and only makes public the public key component <m>k_\pub</m> (we say she <em>publishes</em> the public key). Bob can then use the public key and encryption method <m>E</m> to encrypt a plaintext message <m>m</m> as <m>c=E_{k_\pub}(m)</m> and send <m>c</m> to Alice. Alice can then use her private key <m>k_\priv</m> to recover <m>m</m> as <m>m=D_{k_\priv}(c)</m>. Note that there are two different manners in which this setup is asymmetric. 
+    <ul>
+        <li>
+            <p>
+                The participants in this system use different keys for encryption and decryption. 
+            </p>
+        </li>
+        <li>
+            <p>
+            This system allows for Bob to communicate with Alice, but not conversely, since Bob does not know the key that allows for decryption. In other words, this is a <em>communication with Alice</em> setup, as opposed to a <em>communication between Alice and Bob</em> setup. If Bob also wants to receive messages he can understand, he creates his own public/private key pair. 
+            </p>
+        </li>
+    </ul> 
+More generally to create a communication network of <m>n</m> users, so that each user can encrypt outgoing messages and decrypt incoming messages, you have each user <m>A_i</m> create their own public/private key pair <m>(k_{\priv,i}, k_{\pub,i})</m>, publish their public key <m>k_{\pub,i}</m>, and keep private their private key <m>k_{\priv,i}</m>. That way, any user can send encrypted messages to user <m>A_i</m> as <m>c=E_{k_{\pub,i}}(m)</m>, and this message can be decrypted by user <m>A_i</m> as <m>m=D_{k_{\priv, i}}(c)</m>. Note that this public key system requires the production of only <m>n</m> keys. Using a symmetric cryptosystem for the network, each of the <m>\binom{n}{2}</m> communication channels would require a key, and for security reasons these would all need to be distinct (the more people that know a specific key, the less secure your network). Thus the number of keys grows as <m>n^2</m> for this symmetric design, and only as <m>n</m> for the public key design.
+</p>
+<p>
+    How do we actually design a secure public key cryptosystem? Diffie and Hellman articulated the problem in terms of the notion of <em>one-way functions</em> with <em>trapdoor</em> features. Let's go back to the simple Bob-communicating-with-Alice setup. To initiate this communication network, Alice seeks an encryption function <m>f\colon \mathcal{P}\rightarrow \mathcal{C}</m> that satisfies the following conditions: 
+    <ol>
+        <li>
+            <p>
+            Values <m>f(m)</m> of the function <m>f</m> can be easily computed with sufficient published information. 
+            </p>
+        </li>
+        <li>
+            <p>
+            The information alone of how to compute values <m>f(m)</m> of <m>f</m> does not allow for  In general, it is computationally infeasible to invert <m>f</m>, so a ciphertext <m>c</m> intercepted by Eve cannot be decrypted as <m>f^{-1}(c)</m>. 
+            </p>
+        </li>
+        <li>
+            <p>
+                Although difficult in general to compute <m>f^{-1}</m>, with some special additional information
+            </p>
+        </li>
+    </ol> proposed the following general approach. We need to find a mathematical function <m>f\colon X\to Y</m> that is easy to compute, but hard to invert. Such a function is called a <term>one-way function</term>. If we can find such a function, then we can use it to create a public key cryptosystem as follows. Alice chooses a one-way function <m>f\colon X\to Y</m>, and publishes the description of this function as her public key. To encrypt a message <m>m\in X</m>, Bob computes the ciphertext <m>c=f(m)</m>. To decrypt the message, Alice uses her private key, which is the trapdoor information that allows her to efficiently compute an inverse of <m>f</m>, to recover <m>m</m> from <m>c</m>. Thus, the security of this system relies on the fact that without the trapdoor information, it is computationally infeasible for Eve to invert the one-way function and recover the plaintext message from the ciphertext.
+</p>
+</subsection>
+<!-- <subsection xml:id="ss_diffie_hellman">
+<title>Diffie-Hellman key exchange</title>
+<p>
+    Diffie and Hellman did not themselves propose an actual example of a public key cryptosystem, but they did describe the following key exchange that makes use of their one-way and trapdoor function concepts.  
+</p>
+<definition xml:id="d_diffie_hellman">
+<title>Diffie-Hellman key exchange</title>
+<statement>
+<p>
+Alice and Bob wish to share a key over an insecure communication channel. The <term>Diffie-Hellman key exchange</term> accomplishes this as follows. 
+<ol>
+    <li>
+        <p>
+            Alice chooses a prime integer <m>p</m>, an element <m>r\in \{1,\dots, p-1\}</m>. She publishes the pair <m>(p,r)</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            Alice chooses a random integer <m>a</m> and computes <m>A=r^a\boldmod p</m>, and sends this to Bob. 
+        </p>
+        <p>
+            Bob chooses a random integer <m>b</m> and computes <m>B=r^b\boldmod p</m>, and sends this to Alice. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Alice and Bob use their private exponents <m>a</m> and <m>b</m> to compute the shared key
+            <md>
+                k=r^{ab}\boldmod p=B^a\boldmod p=A^b\boldmod p
+            </md>.
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+</definition>
+<definition xml:id="d_discrete_log">
+<title>Discrete log (or index)</title>
+<statement>
+<p>
+Let <m>n</m> be a positive integer, let <m>r\in (\Z/n\Z)^*</m> be a unit of order <m>\ord r=m</m>, and let <m>s\in \angvec{r}</m>. The unique integer <m>k\in \{0,1,\dots, m-1\}</m> such that <m>s=r^k</m> is called the <term>discrete log</term> (or <term>index</term>) of <m>s</m> to the base <m>r</m>, and is denoted by <m>\ind_r s</m>. 
+</p>
+</statement>
+</definition>
+
+
+<definition xml:id="d_discrete_log_problem">
+<title>Discrete log problem</title>
+<statement>
+<p>
+Let <m>p</m> be a prime integer, let <m>r=[a]_p\in \F_p^*</m>, and let <m>s=[b]_p\in \angvec{r}</m>. Find an integer <m>n</m> such that <m>s=r^n</m>, or equivalently, such that <m>a^n\equiv b\pmod p</m>. In other words find an integer <m>x</m> solving the equation
+<md>
+    r^x=s
+</md>.
+A solution <m>x</m> to 
+</p>
+</statement>
+</definition>
+<p>Taher Elgamal 1985.</p> -->
+</subsection>
+
+
+</section>
