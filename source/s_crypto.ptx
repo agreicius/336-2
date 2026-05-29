@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="s_crypto" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>Cryptology</title>
-<subsection xml:id="ch-what-is-cryptography-"><title>What is cryptography?</title>
+    <title>Cryptography</title>
+<subsection xml:id="ss_crypto_intro"><title>What is cryptography?</title>
     <p><sq>Crypto</sq> comes from the Greek <m>\kappa\rho\upsilon\pi\tau\omega\zeta\</m>, which means <q>hidden</q> or <q>concealed</q>. <sq>Graph</sq> comes from <m>\gamma\rho\alpha\phi\omega</m>, meaning <q>to write</q>.
     </p>
-    <definition xml:id="d_crpytology">
-        <title>Cryptology</title>
+    <definition xml:id="d_cryptography">
+        <title>Cryptography</title>
         <statement>
            <p><term>Cryptography</term> is the design of systems allowing for secure communication over a nonsecure channel.</p>
            <p><term>Cryptology</term> is the overall study or science of secure communication.</p>
@@ -54,7 +54,7 @@
                 <cell>Plaintext</cell><cell>v</cell><cell>e</cell><cell>n</cell><cell>i</cell><cell>v</cell><cell>i</cell><cell>d</cell><cell>i</cell><cell>v</cell><cell>i</cell><cell>c</cell><cell>i</cell>
             </row>
             <row>
-                <cell>Ciphertext</cell><cell>Y</cell><cell>H</cell><cell>Q</cell><cell>L</cell><cell>Y</cell><cell>L</cell><cell>G</cell><cell>L</cell><cell>Y</cell><cell>L</cell><cell>F</cell><cell>L</cell>
+                <cell>Ciphertext</cell><cell>y</cell><cell>h</cell><cell>q</cell><cell>l</cell><cell>y</cell><cell>l</cell><cell>g</cell><cell>l</cell><cell>y</cell><cell>l</cell><cell>f</cell><cell>l</cell>
             </row>
         </tabular>
     </table>
@@ -369,8 +369,10 @@ def vig_dec(c,k):
     </project>      
 <p>
     The Vignère cipher was long believed to be uncrackable. Indeed it was dubbed the <foreign>le chiffre indéchiffrable</foreign>. However, once the the <em>length</em> of the keyword is determined, it is not difficult to determine the keyword itself using frequency analysis on substrings of the ciphertext. Furthermore, using the <em>Kasiski method</em>, we can often determine the length of the keyword by computing distances between repeated substrings (<eg/>, between repeated trigrams) in the ciphertext and looking for common factors of these distances. It likely that the keyword length is one of these common factors. Simon Singh has created a nice interactive demonstration of this method on his cryptography website <url href="https://www.simonsingh.net/The_Black_Chamber/vigenere_cracking.html">The Black Chamber</url>. Try using his interactive to decipher the following Vignère-encrypted ciphertext.
-<listing><program>TZZABACHDYWTDNLPCKYNRBIVCISKAOECRJQTEIDRIXTUEHMZSYUAQYLWOWAYZZSNWVZMLPQUYMDHTUQQKEKNLLHRIRFYVKNZSYUAAAWNLJOBLLLWJRPJUKXUDCWEWTTHJAVKCUOPPODWOWAYEIRSQRWVHZMVPHGAVZZHWDMSPUQEVMEBDPWACUUXQZCUUUKUYPHJBOZHVDIBPALRMTEISWZZDIIPPKZLLCQTLFSNWVZMLPQUYVXPQLLFOPPKDCJJAOYCWPPGEBDRMGCVLPZGCCOULKEYUIQTPXPAITTHJOIXPNXNVKOCQPWBLLLWJRPMZAANLFOOBOWFJABGNFDOAUQNKEAQTHGPPODIQAPUHYYAZODHRPLKAYQZMTEIQWVENIQRMTECRJJAEMRHMRJIQPPKYUWQZKZZWDMVCISKAOECRJQZNIUNMYAIQZAZZUOKOONUOBWXXUOKOONUOLZUEIWUXKPPHNGBLLLWJRPCVPPKDCJJNUCUIKZSLFFKVIPJWBWXPPHNGBLLLWJRPLHLZKDYQPAGNIQOBGYNIKZSEBDPIRWCWODGWOHOXUDMHOAGYXWDQYNUQXMXPADNLKOUVWNUCGDHXXZJHNBEZZWDWYPPDHCKDIEFMIEMFWVUYFBXMTLGHZAORHVWZKEBHEZXPJUAAKYNDPQBPMLYITZHOUAVPUNWJUFNWDMSTWDJVUEJXPBNPGLJBUHIUZAVCISKAOECRJAILHRJTEDUBDWCEBLJOYLLHJWZHBDPBNPSDNMZSYGABKCGLJIZPQDUQTHBLYPUMDHYBYLLHYWTYYFPMJTHDOBGEYRBILQULNAODNKAAZCOFPCXPIIPPKDNDPMUQUIBIOCMDHBNZOJDIVCISKAOECRJIRDCJJQYLZDYBZSCVEAUMMFQZKOVBPPKFMXWTLZLPKNKIJUAAYTIQEVCCCWEVMZLSNQTEZRNQTLJUEVZPXSNWVZMLPQUYZRNMDLGSHMTZYVOMTECDHLOQZHNMTNYLOIVAUUAVZMYWSMKYUSNWVZMLPQUYUOOQMYUQZICZLGPPGECVSPGEGDZMOEJROAOMFHBWXQLHCMZZWDHTGALRLWYTNLKVGNIPLWYTNHJISP</program></listing>
-In 1922 William Friedman developed an alternative and more effective statistical tool for cracking Vigenere and other periodic substitution ciphers: the index of coincidence. 
+</p>
+<program>TZZABACHDYWTDNLPCKYNRBIVCISKAOECRJQTEIDRIXTUEHMZSYUAQYLWOWAYZZSNWVZMLPQUYMDHTUQQKEKNLLHRIRFYVKNZSYUAAAWNLJOBLLLWJRPJUKXUDCWEWTTHJAVKCUOPPODWOWAYEIRSQRWVHZMVPHGAVZZHWDMSPUQEVMEBDPWACUUXQZCUUUKUYPHJBOZHVDIBPALRMTEISWZZDIIPPKZLLCQTLFSNWVZMLPQUYVXPQLLFOPPKDCJJAOYCWPPGEBDRMGCVLPZGCCOULKEYUIQTPXPAITTHJOIXPNXNVKOCQPWBLLLWJRPMZAANLFOOBOWFJABGNFDOAUQNKEAQTHGPPODIQAPUHYYAZODHRPLKAYQZMTEIQWVENIQRMTECRJJAEMRHMRJIQPPKYUWQZKZZWDMVCISKAOECRJQZNIUNMYAIQZAZZUOKOONUOBWXXUOKOONUOLZUEIWUXKPPHNGBLLLWJRPCVPPKDCJJNUCUIKZSLFFKVIPJWBWXPPHNGBLLLWJRPLHLZKDYQPAGNIQOBGYNIKZSEBDPIRWCWODGWOHOXUDMHOAGYXWDQYNUQXMXPADNLKOUVWNUCGDHXXZJHNBEZZWDWYPPDHCKDIEFMIEMFWVUYFBXMTLGHZAORHVWZKEBHEZXPJUAAKYNDPQBPMLYITZHOUAVPUNWJUFNWDMSTWDJVUEJXPBNPGLJBUHIUZAVCISKAOECRJAILHRJTEDUBDWCEBLJOYLLHJWZHBDPBNPSDNMZSYGABKCGLJIZPQDUQTHBLYPUMDHYBYLLHYWTYYFPMJTHDOBGEYRBILQULNAODNKAAZCOFPCXPIIPPKDNDPMUQUIBIOCMDHBNZOJDIVCISKAOECRJIRDCJJQYLZDYBZSCVEAUMMFQZKOVBPPKFMXWTLZLPKNKIJUAAYTIQEVCCCWEVMZLSNQTEZRNQTLJUEVZPXSNWVZMLPQUYZRNMDLGSHMTZYVOMTECDHLOQZHNMTNYLOIVAUUAVZMYWSMKYUSNWVZMLPQUYUOOQMYUQZICZLGPPGECVSPGEGDZMOEJROAOMFHBWXQLHCMZZWDHTGALRLWYTNLKVGNIPLWYTNHJISP</program>
+<p>
+    In 1922 William Friedman developed an alternative and more effective statistical tool for cracking Vigenere and other periodic substitution ciphers: the index of coincidence. 
 </p>
 <definition xml:id="d_index_coincidence">
 <title>Index of coincidence</title>
