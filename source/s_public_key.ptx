@@ -67,7 +67,7 @@ More generally to create a communication network of <m>n</m> users, so that each
     </ol> proposed the following general approach. We need to find a mathematical function <m>f\colon X\to Y</m> that is easy to compute, but hard to invert. Such a function is called a <term>one-way function</term>. If we can find such a function, then we can use it to create a public key cryptosystem as follows. Alice chooses a one-way function <m>f\colon X\to Y</m>, and publishes the description of this function as her public key. To encrypt a message <m>m\in X</m>, Bob computes the ciphertext <m>c=f(m)</m>. To decrypt the message, Alice uses her private key, which is the trapdoor information that allows her to efficiently compute an inverse of <m>f</m>, to recover <m>m</m> from <m>c</m>. Thus, the security of this system relies on the fact that without the trapdoor information, it is computationally infeasible for Eve to invert the one-way function and recover the plaintext message from the ciphertext.
 </p>
 </subsection>
-<!-- <subsection xml:id="ss_diffie_hellman">
+<subsection xml:id="ss_diffie_hellman">
 <title>Diffie-Hellman key exchange</title>
 <p>
     Diffie and Hellman did not themselves propose an actual example of a public key cryptosystem, but they did describe the following key exchange that makes use of their one-way and trapdoor function concepts.  
@@ -125,7 +125,7 @@ A solution <m>x</m> to
 </p>
 </statement>
 </definition>
-<p>Taher Elgamal 1985.</p> -->
+<p>Taher Elgamal 1985.</p>
 </subsection>
 
 
