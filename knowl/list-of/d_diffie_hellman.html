@@ -25,28 +25,31 @@
 <div class="para">Alice and Bob wish to share a key over an insecure communication channel. The <dfn class="terminology">Diffie-Hellman key exchange</dfn> accomplishes this as follows.</div>
 <ol class="decimal" id="d_diffie_hellman-2-1-2">
 <li>
-<div class="para">Alice chooses a prime integer <span class="process-math">\(p\text{,}\)</span> an element <span class="process-math">\(r\in \{1,\dots, p-1\}\text{.}\)</span> She publishes the pair <span class="process-math">\((p,r)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Public.</span></span><div class="para">Alice and Bob choose publicly on a prime <span class="process-math">\(p\)</span> and a primitive root <span class="process-math">\(g\)</span> modulo <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1"><a href="#d_diffie_hellman-2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+<div class="autopermalink" data-description="Item 1: Public"><a href="#d_diffie_hellman-2-1-2-1" title="Copy heading and permalink for Item 1: Public" aria-label="Copy heading and permalink for Item 1: Public">🔗</a></div>
 </li>
 <li>
-<div class="para">Alice chooses a random integer <span class="process-math">\(a\)</span> and computes <span class="process-math">\(A=r^a\boldmod p\text{,}\)</span> and sends this to Bob.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Private.</span></span><div class="para">Alice chooses a random integer exponent <span class="process-math">\(a\text{,}\)</span> and Bob chooses a random integer exponent <span class="process-math">\(b\text{.}\)</span> These exponents are kept private.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">Bob chooses a random integer <span class="process-math">\(b\)</span> and computes <span class="process-math">\(B=r^b\boldmod p\text{,}\)</span> and sends this to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 2"><a href="#d_diffie_hellman-2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+<div class="autopermalink" data-description="Item 2: Private"><a href="#d_diffie_hellman-2-1-2-2" title="Copy heading and permalink for Item 2: Private" aria-label="Copy heading and permalink for Item 2: Private">🔗</a></div>
 </li>
 <li>
-<div class="para logical">
+<span class="heading li--heading"><span class="title li--heading-title">Exchange.</span></span><div class="para">Alice computes <span class="process-math">\(A=g^a\boldmod p\)</span> and sends this value to Bob; Bob computes <span class="process-math">\(B=g^b\boldmod p\)</span> and sends this value to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3: Exchange"><a href="#d_diffie_hellman-2-1-2-3" title="Copy heading and permalink for Item 3: Exchange" aria-label="Copy heading and permalink for Item 3: Exchange">🔗</a></div>
+</li>
+<li>
+<span class="heading li--heading"><span class="title li--heading-title">Shared key.</span></span><div class="para logical">
 <div class="para">Alice and Bob use their private exponents <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> to compute the shared key</div>
 <div class="displaymath process-math">
 \begin{equation*}
 k=r^{ab}\boldmod p=B^a\boldmod p=A^b\boldmod p\text{.}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 3"><a href="#d_diffie_hellman-2-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+<div class="autopermalink" data-description="Item 4: Shared key"><a href="#d_diffie_hellman-2-1-2-4" title="Copy heading and permalink for Item 4: Shared key" aria-label="Copy heading and permalink for Item 4: Shared key">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
