@@ -79,19 +79,25 @@ More generally to create a communication network of <m>n</m> users, so that each
 Alice and Bob wish to share a key over an insecure communication channel. The <term>Diffie-Hellman key exchange</term> accomplishes this as follows. 
 <ol>
     <li>
+        <title>Public</title>
         <p>
-            Alice chooses a prime integer <m>p</m>, an element <m>r\in \{1,\dots, p-1\}</m>. She publishes the pair <m>(p,r)</m>.
+            Alice and Bob choose publicly on a prime <m>p</m> and a primitive root <m>g</m> modulo <m>p</m>. 
         </p>
     </li>
     <li>
+        <title>Private</title>
         <p>
-            Alice chooses a random integer <m>a</m> and computes <m>A=r^a\boldmod p</m>, and sends this to Bob. 
-        </p>
-        <p>
-            Bob chooses a random integer <m>b</m> and computes <m>B=r^b\boldmod p</m>, and sends this to Alice. 
+            Alice chooses a random integer exponent <m>a</m>, and Bob chooses a random integer exponent <m>b</m>. These exponents are kept private. 
         </p>
     </li>
     <li>
+        <title>Exchange</title>
+        <p>
+            Alice computes <m>A=g^a\boldmod p</m> and sends this value to Bob; Bob computes <m>B=g^b\boldmod p</m> and sends this value to Alice.
+        </p>
+    </li>
+    <li>
+        <title>Shared key</title>
         <p>
             Alice and Bob use their private exponents <m>a</m> and <m>b</m> to compute the shared key
             <md>
@@ -107,7 +113,7 @@ Alice and Bob wish to share a key over an insecure communication channel. The <t
 <title>Discrete log (or index)</title>
 <statement>
 <p>
-Let <m>n</m> be a positive integer, let <m>r\in (\Z/n\Z)^*</m> be a unit of order <m>\ord r=m</m>, and let <m>s\in \angvec{r}</m>. The unique integer <m>k\in \{0,1,\dots, m-1\}</m> such that <m>s=r^k</m> is called the <term>discrete log</term> (or <term>index</term>) of <m>s</m> to the base <m>r</m>, and is denoted by <m>\ind_r s</m>. 
+Let <m>n</m> be a positive integer, let <m>g\in (\Z/n\Z)^*</m> be a unit of order <m>\ord r=m</m>, and let <m>h\in \angvec{g}</m>. The unique integer <m>k\in \{0,1,\dots, m-1\}</m> such that <m>h=g^k</m> is called the <term>discrete log</term> (or <term>index</term>) of <m>h</m> to the base <m>g</m>, and is denoted by <m>\ind_g h</m>. 
 </p>
 </statement>
 </definition>
@@ -117,16 +123,163 @@ Let <m>n</m> be a positive integer, let <m>r\in (\Z/n\Z)^*</m> be a unit of orde
 <title>Discrete log problem</title>
 <statement>
 <p>
-Let <m>p</m> be a prime integer, let <m>r=[a]_p\in \F_p^*</m>, and let <m>s=[b]_p\in \angvec{r}</m>. Find an integer <m>n</m> such that <m>s=r^n</m>, or equivalently, such that <m>a^n\equiv b\pmod p</m>. In other words find an integer <m>x</m> solving the equation
-<md>
-    r^x=s
-</md>.
-A solution <m>x</m> to 
+Let <m>p</m> be a prime integer, let <m>g=[a]_p\in \F_p^*</m> be a primitive root, and let <m>h=[b]_p\in \F_p^*</m>. Find an integer <m>n\in \{0,1,\dots, p-2\}</m> such that <m>h=g^n</m>, or equivalently, such that <m>a^n\equiv b\pmod p</m>. In other words, compute <m>\ind_g h</m>. 
 </p>
 </statement>
 </definition>
-<p>Taher Elgamal 1985.</p>
-</subsection>
 
+
+
+<definition xml:id="d_diffie-hellman_problem">
+<title>Diffie-Hellman problem</title>
+<statement>
+<p>
+Let <m>p</m> be a prime integer, and let <m>g=[a]_p\in \F_p^*</m> be a primitive root. Given elements <m>g^a</m> and <m>g^b</m> of <m>\F_p^*</m>, compute the element <m>g^{ab}</m>.
+</p>
+</statement>
+</definition>
+
+<remark>
+<title>Discrete log and Diffie-Hellman problems</title>
+<p>
+    <ol>
+    <li>
+        <p>
+            It is clear that a solution to the discrete log problem could be used to solve the Diffie-Hellman problem. The converse is unknown: that is, it is not known whether a solution to the Diffie-Hellman problem would give rise to a solution to the discrete log problem. 
+        </p>
+    </li>
+        <li>
+        <p>
+The disrete log problem for general prime <m>p</m> is considered to be difficult to solve in general. In particular there is no known algorithm for computing discrete logs modulo <m>p</m> whose runtime is polynomial in <m>\log p</m>. 
+</p>
+    </li>
+    <li>
+        <p>
+            The discrete log problem can be solved efficiently if <m>p-1</m> has small prime factors, thanks to the Pohlig-Hellman algorithm (an application of the CRT). Since <m>p-1</m> is always even (for large primes), a Diffie-Hellman key exchange protocol should us a prime <m>p</m> such that <m>p-1=2q</m>, where <m>q</m> is a large prime, or equivalently, <m>p=2q+1</m>. Such primes are called <em>safe primes</em> in the cryptographic literature. 
+        </p>
+    </li>
+
+</ol>
+</p>
+</remark>
+<project>
+    <title>Diffie-Hellman implementation</title>
+    <p>
+        Let's implement the Diffie-Hellman key exchange protocol, taking some care to choose a large safe prime. We first create a list of primes of the form <m>p=2q+1</m> of a largish size, where <m>q</m> is prime.
+    </p>
+    <sage>
+        <input>
+def random_safe_primes(samples=10, qmax=2^90):
+    found = []
+    while len(found) &lt; samples:
+        q = random_prime(2*qmax, lbound=qmax)   # random prime q in [2, qmax]
+        p = 2*q + 1
+        if is_prime(p):
+            found.append((q, p))
+    return found
+P=random_safe_primes(samples=10, qmax=2^90)
+for q, p in P:
+    print("q =", q, " p =", p)
+        </input>
+        <output>
+            
+        </output>
+    </sage>
+<p>
+    Next let's perform a key exchange with one of these primes. We will do our arithmetic within <m>\F_p</m>, as opposed to using congruences. 
+</p>
+<sage>
+    <input>
+p=P[0][1]
+F=GF(p)  #Create the prime field of order p
+g=F.primitive_element()
+g.multiplicative_order()
+print((F,g,g.order()))
+
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    Now Alice and Bob will choose their random private exponents, exchange their computed powers, and compute the shared key. 
+</p>
+<sage>
+    <input>
+        a=randint(1,p-1)
+        b=randint(1,p-1)
+        A=g^a
+        B=g^b
+        K=A^b
+        print(A^b==B^a)
+        print((A,B,K))
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    Could Eve have determined <m>K</m> by solving the discrete log problem in this case? Let's see if Sage can do it. We try to use Sage's built-in discrete log function <c>generalised_log</c>.
+</p>
+<sage>
+    <input>
+        aprime=A.log()
+        print(aprime==a)
+        print(B^aprime)
+        print(B^aprime==K)
+    </input>
+    <output>
+        
+    </output>
+</sage>
+</project>
+</subsection>
+<subsection xml:id="ss_elgamal">
+<title>Elgamal encryption</title>
+<definition xml:id="d_elgamal">
+<title>Elgamal encryption</title>
+<statement>
+<p>
+Bob wishes to send messages to Alice over an insecure channel. The <term>Elgamal cryptosystem</term> accomplishes this as follows. 
+<ol>
+    <li>
+        <title>Public</title>
+        
+        
+        <p>
+            Alice publishes a large prime <m>p</m>, a primitive root <m>g</m> modulo <m>p</m>.
+        </p>
+    </li>
+    <li>
+        <title>Private</title>
+        <p>
+            Alice chooses a random integer exponent <m>a</m>, and keeps this exponent private. 
+        </p>
+    </li>
+    <li>
+        <title>Public key</title>
+        <p>
+            Alice computes <m>A=g^a\boldmod p</m> and publishes this value as her public key.
+        </p>
+    </li>
+    <li>
+        <title>Encryption</title>
+        <p>
+            To encrypt a message <m>m\in \{0,1,\dots, p-1\}</m>, Bob chooses a random integer <m>k</m>, computes <m>c_1=g^k\boldmod p</m> and <m>c_2=m\cdot A^k\boldmod p</m>, and sends the ciphertext <m>(c_1, c_2)</m> to Alice.
+        </p>
+    </li>
+    <li>
+        <title>Decryption</title>
+        <p>
+            To decrypt the message, Alice uses her private key <m>a</m> to compute <md>m=c_1^{-a}c_2\boldmod p</md>.
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+</definition>
+
+
+</subsection>
 
 </section>
