@@ -18,9 +18,9 @@ A <term>public key</term> (or <term>asymmetric</term>) cryptosystem is a cryptos
 </md>
 for which the keyspace <m>\mathcal{K}</m> consists of pairs <m>k=(k_{\text{priv}},k_{\text{pub}})</m>, called <term>public/private key pairs</term>, and such that for all <m>k=(k_{\text{priv}},k_{\text{pub}})</m>, we have 
 <md>
-    <mrow>E_k \amp = E_{k_\priv} \amp D_k=D_{k_\pub}</mrow>
+    <mrow>E_{k} \amp = E_{k_{\priv}} \amp D_k\amp =D_{k_{\pub}}</mrow>
 </md>
-so that encryption is performed using the <term>public key</term> <m>k_\pub</m> and decryption is performed using the <term>private key</term> <m>k_\priv</m>.
+so that encryption is performed using the <term>public key</term> <m>k_{\pub}</m> and decryption is performed using the <term>private key</term> <m>k_{\priv}</m>.
 </p>
 <p>
     Cryptography that uses public key cryptosystems is called <term>public key cryptography</term>.
@@ -31,7 +31,7 @@ so that encryption is performed using the <term>public key</term> <m>k_\pub</m> 
 Let's leave the formalism of <xref ref="d_public_key"/> for a moment, and try and understand the asymmetry of this type of system on the level of Alice and Bob. 
 </p>
 <p>
-    When Alice uses a public key cryptosystem with encoding/decoding methods <m>E</m> and <m>D</m>, she chooses a public/private key pair <m>(k_\priv, k_\pub)</m>, and only makes public the public key component <m>k_\pub</m> (we say she <em>publishes</em> the public key). Bob can then use the public key and encryption method <m>E</m> to encrypt a plaintext message <m>m</m> as <m>c=E_{k_\pub}(m)</m> and send <m>c</m> to Alice. Alice can then use her private key <m>k_\priv</m> to recover <m>m</m> as <m>m=D_{k_\priv}(c)</m>. Note that there are two different manners in which this setup is asymmetric. 
+    When Alice uses a public key cryptosystem with encoding/decoding methods <m>E</m> and <m>D</m>, she chooses a public/private key pair <m>(k_{\priv}, k_{\pub})</m>, and only makes public the public key component <m>k_{\pub}</m> (we say she <em>publishes</em> the public key). Bob can then use the public key and encryption method <m>E</m> to encrypt a plaintext message <m>m</m> as <m>c=E_{k_{\pub}}(m)</m> and send <m>c</m> to Alice. Alice can then use her private key <m>k_{\priv}</m> to recover <m>m</m> as <m>m=D_{k_{\priv}}(c)</m>. Note that there are two different manners in which this setup is asymmetric. 
     <ul>
         <li>
             <p>
@@ -64,7 +64,8 @@ More generally to create a communication network of <m>n</m> users, so that each
                 Although difficult in general to compute <m>f^{-1}</m>, with some special additional information
             </p>
         </li>
-    </ol> proposed the following general approach. We need to find a mathematical function <m>f\colon X\to Y</m> that is easy to compute, but hard to invert. Such a function is called a <term>one-way function</term>. If we can find such a function, then we can use it to create a public key cryptosystem as follows. Alice chooses a one-way function <m>f\colon X\to Y</m>, and publishes the description of this function as her public key. To encrypt a message <m>m\in X</m>, Bob computes the ciphertext <m>c=f(m)</m>. To decrypt the message, Alice uses her private key, which is the trapdoor information that allows her to efficiently compute an inverse of <m>f</m>, to recover <m>m</m> from <m>c</m>. Thus, the security of this system relies on the fact that without the trapdoor information, it is computationally infeasible for Eve to invert the one-way function and recover the plaintext message from the ciphertext.
+    </ol> 
+    proposed the following general approach. We need to find a mathematical function <m>f\colon X\to Y</m> that is easy to compute, but hard to invert. Such a function is called a <term>one-way function</term>. If we can find such a function, then we can use it to create a public key cryptosystem as follows. Alice chooses a one-way function <m>f\colon X\to Y</m>, and publishes the description of this function as her public key. To encrypt a message <m>m\in X</m>, Bob computes the ciphertext <m>c=f(m)</m>. To decrypt the message, Alice uses her private key, which is the trapdoor information that allows her to efficiently compute an inverse of <m>f</m>, to recover <m>m</m> from <m>c</m>. Thus, the security of this system relies on the fact that without the trapdoor information, it is computationally infeasible for Eve to invert the one-way function and recover the plaintext message from the ciphertext.
 </p>
 </subsection>
 <subsection xml:id="ss_diffie_hellman">
@@ -72,6 +73,7 @@ More generally to create a communication network of <m>n</m> users, so that each
 <p>
     Diffie and Hellman did not themselves propose an actual example of a public key cryptosystem, but they did describe the following key exchange that makes use of their one-way and trapdoor function concepts.  
 </p>
+
 <definition xml:id="d_diffie_hellman">
 <title>Diffie-Hellman key exchange</title>
 <statement>
@@ -81,7 +83,7 @@ Alice and Bob wish to share a key over an insecure communication channel. The <t
     <li>
         <title>Public</title>
         <p>
-            Alice and Bob choose publicly on a prime <m>p</m> and a primitive root <m>g</m> modulo <m>p</m>. 
+            Alice and Bob agree publicly on a prime <m>p</m> and a primitive root <m>g\in \F_p</m>. 
         </p>
     </li>
     <li>
@@ -93,15 +95,19 @@ Alice and Bob wish to share a key over an insecure communication channel. The <t
     <li>
         <title>Exchange</title>
         <p>
-            Alice computes <m>A=g^a\boldmod p</m> and sends this value to Bob; Bob computes <m>B=g^b\boldmod p</m> and sends this value to Alice.
+            Alice computes <m>A=g^a\in \F_p^*</m> and sends this value to Bob; Bob computes <m>B=g^b\in \F_p^*</m> and sends this value to Alice.
         </p>
     </li>
     <li>
         <title>Shared key</title>
         <p>
-            Alice and Bob use their private exponents <m>a</m> and <m>b</m> to compute the shared key
+            Alice uses her private exponent <m>a</m> to compute <m>B^a\in \F_p^*</m>; and Bob uses his private exponent <m>b</m> to compute <m>A^b\in \F_p^*</m>. Since 
             <md>
-                k=r^{ab}\boldmod p=B^a\boldmod p=A^b\boldmod p
+                B^a=(g^b)^a=g^{ab}=(g^a)^b=A^b
+            </md>,
+            Alice and Bob are now in possession of a shared key 
+            <md>
+                k=g^{ab}\in \F_p^*
             </md>.
         </p>
     </li>
@@ -109,36 +115,75 @@ Alice and Bob wish to share a key over an insecure communication channel. The <t
 </p>
 </statement>
 </definition>
+<remark>
+<title>Integers or congruence classes</title>
+<p>
+We have chosen to use the language of <m>\F_p</m> to express the mathematics behind the Diffie-Hellman key exchange; and we will do the same with the Elgamal and RSA cryptosystems below. As usual, we could just as well have described things solely in terms of integers, in which case we would have to make use of the least positive residue function <m>\underline{\phantom{A}}\boldmod p</m>. For example, here is an integer-based summary of the Diffie-Hellman key exchange. 
+<ol>
+    <li>
+        <p>
+            Pick a prime <m>p</m> and an integer <m>n</m> that is a primitive root modulo <m>p</m>. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Alice chooses a random integer exponent <m>a</m>, computes <m>A= n^a\boldmod p</m>, and sends it to Bob; Bob chooses a random integer exponent <m>b</m>, computes <m>B= n^b\boldmod p</m>, and sends it to Alice.  
+        </p>
+    </li>
+    <li>
+        <p>
+            Alice and Bob use their private exponents <m>a</m> and <m>b</m> to compute the shared key
+            <md>
+                k= n^{ab}\boldmod p= B^a\boldmod p= A^b\boldmod p
+            </md>.
+        </p>
+    </li>
+</ol>
+As you can see, our notational choice has the advantage of notational brevity. The integer-based description is more common in the literature, however, and implemented versions of these systems use integers, not congruence classes. 
+</p>
+</remark>
+<remark>
+<title>Fast modular exponentiation</title>
+<p>
+The Diffie-Hellman key exchange, as well as the Elgamal and RSA encryption methods below all rely on modular exponentiation. For these various methods to be efficiently used, this operation needs to be performed reasonably quickly. This is possible thanks to a fast method of modular exponentiation that is based on the binary expansion of the exponent. See the Rosen text for more details (or consult your notes from Math 336-1). 
+</p>
+</remark>
+<p>
+    Before getting to our computational example <xref ref="sage_diffie_hellman"/>, we first point out an obvious potential weakness to the Diffie-Hellman key exchange. Namely, if Eve can intercept the transmissions <m>A=g^a</m> and <m>B=g^b</m>, then since <m>g</m> is publicly known, she could simply find the exponent <m>a</m> and then compute <m>k=B^a</m>. In number theory terms, Eve here has computed the <em>discrete log</em> (or <em>index</em>) of <m>A</m> to the base <m>g</m>. Whether or not the Diffie-Hellman key exchange is vulnerable to this particular attack depends on how easily this discrete log computation can be performed: <ie/>, it depends on the difficulty of the <em>discrete log problem</em>. 
+</p>
 <definition xml:id="d_discrete_log">
 <title>Discrete log (or index)</title>
 <statement>
 <p>
-Let <m>n</m> be a positive integer, let <m>g\in (\Z/n\Z)^*</m> be a unit of order <m>\ord r=m</m>, and let <m>h\in \angvec{g}</m>. The unique integer <m>k\in \{0,1,\dots, m-1\}</m> such that <m>h=g^k</m> is called the <term>discrete log</term> (or <term>index</term>) of <m>h</m> to the base <m>g</m>, and is denoted by <m>\ind_g h</m>. 
+Let <m>n</m> be a positive integer, let <m>g\in (\Z/n\Z)^*</m> be a unit of order <m>\ord r=m</m>, and let <m>h\in \angvec{g}</m>. The unique integer <m>k\in \{0,1,\dots, m-1\}</m> such that <m>h=g^k</m> is called the <term>discrete log</term> (or <term>index</term>) of <m>h</m> to the base <m>g</m>, and is denoted by <m>\log_g h</m> (or <m>\ind_g h</m>). 
 </p>
 </statement>
 </definition>
-
+<p>
+    Finding discrete logs is important enough to number theory and cryptography that it has earned its own name as a computational problem: the <em>discrete log problem</em>.
+</p>
 
 <definition xml:id="d_discrete_log_problem">
 <title>Discrete log problem</title>
 <statement>
 <p>
-Let <m>p</m> be a prime integer, let <m>g=[a]_p\in \F_p^*</m> be a primitive root, and let <m>h=[b]_p\in \F_p^*</m>. Find an integer <m>n\in \{0,1,\dots, p-2\}</m> such that <m>h=g^n</m>, or equivalently, such that <m>a^n\equiv b\pmod p</m>. In other words, compute <m>\ind_g h</m>. 
+The <term>discrete log problem</term> for modular unit groups is the general problem described as follows: given a positive integer <m>n</m>, unit <m>g\in (\Z/n\Z)^*</m>, and element <m>h\in \angvec{g}</m>, find the unique integer <m>a\in \{0,1,\dots \ord g-1\}</m> such that <m>h=g^a</m> (<ie/>, compute <m>\log_g h</m>).
 </p>
 </statement>
 </definition>
 
-
+<p>
+    Eve's discrete log attack on the Diffie-Hellman key exchange is just the most obvious one. There may be other attacks, and indeed, cracking a general Diffie-Hellman key exchange may be easier than solving the discrete log problem. Accordingly, we give this computational problem its own name. 
+</p>
 
 <definition xml:id="d_diffie-hellman_problem">
 <title>Diffie-Hellman problem</title>
 <statement>
 <p>
-Let <m>p</m> be a prime integer, and let <m>g=[a]_p\in \F_p^*</m> be a primitive root. Given elements <m>g^a</m> and <m>g^b</m> of <m>\F_p^*</m>, compute the element <m>g^{ab}</m>.
+The <term>Diffie-Hellman problem</term> is the general problem described as follows: given prime integer <m>p</m>, primitive root <m>g\in \F_p</m>, and powers <m>g^a</m> and <m>g^b</m>, compute the power <m>g^{ab}</m>. 
 </p>
 </statement>
 </definition>
-
 <remark>
 <title>Discrete log and Diffie-Hellman problems</title>
 <p>
@@ -162,22 +207,22 @@ The disrete log problem for general prime <m>p</m> is considered to be difficult
 </ol>
 </p>
 </remark>
-<project>
+<project xml:id="sage_diffie_hellman">
     <title>Diffie-Hellman implementation</title>
     <p>
         Let's implement the Diffie-Hellman key exchange protocol, taking some care to choose a large safe prime. We first create a list of primes of the form <m>p=2q+1</m> of a largish size, where <m>q</m> is prime.
     </p>
     <sage>
         <input>
-def random_safe_primes(samples=10, qmax=2^90):
+def random_safe_primes(samples=10, qrange=2^90):
     found = []
     while len(found) &lt; samples:
-        q = random_prime(2*qmax, lbound=qmax)   # random prime q in [2, qmax]
+        q = random_prime(2*qrange, lbound=qrange)   # random prime q in [2, qrange]
         p = 2*q + 1
         if is_prime(p):
             found.append((q, p))
     return found
-P=random_safe_primes(samples=10, qmax=2^90)
+P=random_safe_primes(samples=10, qrange=2^90)
 for q, p in P:
     print("q =", q, " p =", p)
         </input>
@@ -193,9 +238,7 @@ for q, p in P:
 p=P[0][1]
 F=GF(p)  #Create the prime field of order p
 g=F.primitive_element()
-g.multiplicative_order()
-print((F,g,g.order()))
-
+print((F,g,g.multiplicative_order()))
     </input>
     <output>
         
@@ -219,7 +262,7 @@ print((F,g,g.order()))
     </output>
 </sage>
 <p>
-    Could Eve have determined <m>K</m> by solving the discrete log problem in this case? Let's see if Sage can do it. We try to use Sage's built-in discrete log function <c>generalised_log</c>.
+    Could Eve have determined <m>K</m> by solving the discrete log problem in this case? Let's see if Sage can do it. We try to use Sage's built-in discrete log function <c>log()</c>.
 </p>
 <sage>
     <input>
@@ -232,6 +275,9 @@ print((F,g,g.order()))
         
     </output>
 </sage>
+<p>
+    It appears that primes <m>p</m> in the range <m>[2^{90},2^{91}]</m> do not give rise to secure Diffie-Hellman key exchanges. See what happens when you replace <c>qrange=2^90</c> with <c>qrange=2^100</c>, <c>qrange=2^110</c>, <etc/>. You will see that the Sage discrete log function <c>log()</c> running on a Sage finite field <c>GF(p)</c> quickly reaches its limitations. 
+</p>
 </project>
 </subsection>
 <subsection xml:id="ss_elgamal">
