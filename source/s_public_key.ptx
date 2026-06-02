@@ -83,7 +83,7 @@ Alice and Bob wish to share a key over an insecure communication channel. The <t
     <li>
         <title>Public</title>
         <p>
-            Alice and Bob agree publicly on a prime <m>p</m> and a primitive root <m>g\in \F_p</m>. 
+            Alice and Bob agree publicly on a prime <m>p</m> and a primitive root <m>g</m> of <m>\F_p</m>. 
         </p>
     </li>
     <li>
@@ -107,7 +107,7 @@ Alice and Bob wish to share a key over an insecure communication channel. The <t
             </md>,
             Alice and Bob are now in possession of a shared key 
             <md>
-                k=g^{ab}\in \F_p^*
+                k=g^{ab}
             </md>.
         </p>
     </li>
@@ -195,7 +195,7 @@ The <term>Diffie-Hellman problem</term> is the general problem described as foll
     </li>
         <li>
         <p>
-The disrete log problem for general prime <m>p</m> is considered to be difficult to solve in general. In particular there is no known algorithm for computing discrete logs modulo <m>p</m> whose runtime is polynomial in <m>\log p</m>. 
+The discrete log problem for general prime <m>p</m> is considered to be difficult to solve in general. In particular there is no known algorithm for computing discrete logs modulo <m>p</m> whose runtime is polynomial in <m>\log p</m>. 
 </p>
     </li>
     <li>
@@ -280,8 +280,66 @@ print((F,g,g.multiplicative_order()))
 </p>
 </project>
 </subsection>
+<subsection xml:id="ss_encoding">
+<title>Encoding to integers</title>
+<p>
+Below we discuss two public key cryptosystems, Elgamal and RSA. Both systems use as their plaintext and ciphertext spaces a modular ring <m>\Z/n\Z</m> for some integer <m>n</m> (or <m>\{0,1,\dots, n-1\}</m> if you prefer to work with integers). In other words the plaintexts that are encrypted and decrypted are themselves just congruence classes <m>[a]_n\in \Z/n\Z</m>. This might seem somewhat limiting. What's the use of communicating integer messages to one another? Isn't a string of characters a more natural thing to communicate? Indeed, it is, but we can easily <em>encode</em> strings of characters as integers.
+</p>
+<p>
+For example, the ASCII system assigns to each integer <m>m\in \{0,1,\dots, 127\}</m> a character. The Sage commands <c>chr()</c> and <c>ord()</c> convert integers in this range to characters, and inversely. The first 32 integers of the ASCII range are reserved for non-printing control characters with string literals like <c>\n</c> (newline) and <c>\t</c> (tab). 
+</p>
+<sage>
+    <input>
+        for i in range(128):
+            print(i,chr(i), repr(chr(i)))
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<sage>
+    <input>
+s="q@37YUIinb:,? }]a+f"
+t=[ord(c) for c in s]
+print(s)
+print(t)
+print([chr(x) for x in t])
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    The ASCII functions give us a way to encode individual characters as integers lying in <m>\{0,1,\dots, 127\}</m>. To encode an entire string of characters <m>s=a_0a_1\cdots a_{k}</m> as an integer, we can convert each character <m>a_i</m> to its ASCII integer <m>t_i</m>, and then assign to the string <m>s</m> the integer <m>a</m> with base-128 expansion <m>(t_0t_1t_2\cdots t_{k})</m>: <ie/>, we set 
+    <md number="yes">
+        <mrow>a \amp = t_0\, 128^{k}+t_1\, 128^{k-1}+\cdots+t_k</mrow>
+    </md>.
+</p>
+<sage>
+    <input>
+def str2int(s):
+    return sum(ord(c)*256^i for i, c in enumerate(s))
+def int2str(n):
+    s = ""
+    while n &gt;  0:
+        s += chr(n % 256)
+        n //= 256
+    return s
+s="Ooh, look, a string! What number will I be?"
+print(s)
+print(str2int(s))
+print(int2str(str2int(s)))
+    </input>
+    <output>
+        
+    </output>
+</sage>
+</subsection>
 <subsection xml:id="ss_elgamal">
 <title>Elgamal encryption</title>
+<p>
+Before getting to our first example of a publiv key cryptosystem, we first observe that our plaintext space 
+</p>
 <definition xml:id="d_elgamal">
 <title>Elgamal encryption</title>
 <statement>
@@ -293,7 +351,7 @@ Bob wishes to send messages to Alice over an insecure channel. The <term>Elgamal
         
         
         <p>
-            Alice publishes a large prime <m>p</m>, a primitive root <m>g</m> modulo <m>p</m>.
+            Alice publishes a large prime <m>p</m> and a primitive root <m>g</m> of <m>\F_p</m>.
         </p>
     </li>
     <li>
@@ -305,19 +363,28 @@ Bob wishes to send messages to Alice over an insecure channel. The <term>Elgamal
     <li>
         <title>Public key</title>
         <p>
-            Alice computes <m>A=g^a\boldmod p</m> and publishes this value as her public key.
+            Alice computes <m>A=g^a\in \F_p^*</m> and publishes this value as her public key.
         </p>
     </li>
     <li>
         <title>Encryption</title>
         <p>
-            To encrypt a message <m>m\in \{0,1,\dots, p-1\}</m>, Bob chooses a random integer <m>k</m>, computes <m>c_1=g^k\boldmod p</m> and <m>c_2=m\cdot A^k\boldmod p</m>, and sends the ciphertext <m>(c_1, c_2)</m> to Alice.
+        To encrypt a message <m>m\in \F_p</m>, Bob chooses a random integer <m>k</m>, computes the elements <m>c_1=g^k</m> and <m>c_2=m\cdot A^k</m> in <m>\F_p</m> , and sends the ciphertext <m>(c_1, c_2)</m> to Alice.
         </p>
     </li>
     <li>
         <title>Decryption</title>
         <p>
-            To decrypt the message, Alice uses her private key <m>a</m> to compute <md>m=c_1^{-a}c_2\boldmod p</md>.
+            To decrypt the message, Alice uses her private key <m>a</m> to compute 
+            <md>
+                <mrow>c_1^{-a}c_2</mrow>
+            </md>.
+            To see that this is indeed <m>m</m>, note that 
+            <md>
+            <mrow>c_1^{-a}c_2 \amp = (g^k)^{-a}(m\cdot A^k)</mrow>
+            <mrow> \amp = m\cdot g^{-ka}g^{ka}</mrow>
+            <mrow> \amp = m</mrow>
+            </md>.
         </p>
     </li>
 </ol>
