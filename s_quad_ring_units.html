@@ -20,79 +20,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math",
-    "renderActions": {
-      "findScript": [
-        10,
-        function (doc) {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
-                var display = !!node.type.match(/; *mode=display/);
-                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                var text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = {node: text, delim: '', n: 0};
-                math.end = {node: text, delim: '', n: 0};
-                doc.math.push(math);
-            });
-        },
-        ""
-      ]
-    }
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: true,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Elementary number theory">
@@ -128,7 +63,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.dcab57465a404e85.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.79fbb790b185d712.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="elemnumbthyNU" class="pretext book ignore-math">
@@ -525,7 +460,9 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_quad_ring_units"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="s_quad_ring_units">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unit groups of quadratic extensions</span>
 </h2>
 <article class="theorem theorem-like" id="th_quad_ring_units_imaginary"><h3 class="heading">
@@ -553,8 +490,14 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </ul>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_units_imaginary-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.16.1: Unit groups of imaginary quadratic extensions"><a href="#th_quad_ring_units_imaginary" title="Copy heading and permalink for Theorem 1.16.1: Unit groups of imaginary quadratic extensions" aria-label="Copy heading and permalink for Theorem 1.16.1: Unit groups of imaginary quadratic extensions">🔗</a></div></article><details id="th_quad_ring_units_imaginary-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="th_quad_ring_units_imaginary-3-1"><div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_units_imaginary-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
-<div class="autopermalink" data-description="Proof 1.16.1.1"><a href="#th_quad_ring_units_imaginary-3" title="Copy heading and permalink for Proof 1.16.1.1" aria-label="Copy heading and permalink for Proof 1.16.1.1">🔗</a></div></article></details><article class="remark remark-like" id="s_quad_ring_units-3"><h3 class="heading">
+<div class="autopermalink" data-description="Theorem 1.16.1: Unit groups of imaginary quadratic extensions"><a href="#th_quad_ring_units_imaginary" title="Copy heading and permalink for Theorem 1.16.1: Unit groups of imaginary quadratic extensions" aria-label="Copy heading and permalink for Theorem 1.16.1: Unit groups of imaginary quadratic extensions">🔗</a></div>
+</article>
+<details id="th_quad_ring_units_imaginary-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para" id="th_quad_ring_units_imaginary-3-1"><div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_units_imaginary-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="autopermalink" data-description="Proof 1.16.1.1"><a href="#th_quad_ring_units_imaginary-3" title="Copy heading and permalink for Proof 1.16.1.1" aria-label="Copy heading and permalink for Proof 1.16.1.1">🔗</a></div>
+</article></details>
+<article class="remark remark-like" id="s_quad_ring_units-3"><h3 class="heading">
 <span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="s_quad_ring_units-3-1">
@@ -573,18 +516,25 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <div class="para">with the assumption that <span class="process-math">\(q_1\)</span> and <span class="process-math">\(q_2\)</span> are at worst half-integers.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Remark 1.16.2"><a href="#s_quad_ring_units-3" title="Copy heading and permalink for Remark 1.16.2" aria-label="Copy heading and permalink for Remark 1.16.2">🔗</a></div></article><div class="para" id="s_quad_ring_units-4">We see then that the story of the unit groups of imaginary quadratic rings of integers is quite a simple one. Things are significantly more complicated for the real quadratic extensions.<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Remark 1.16.2"><a href="#s_quad_ring_units-3" title="Copy heading and permalink for Remark 1.16.2" aria-label="Copy heading and permalink for Remark 1.16.2">🔗</a></div>
+</article>
+<div class="para" id="s_quad_ring_units-4">We see then that the story of the unit groups of imaginary quadratic rings of integers is quite a simple one. Things are significantly more complicated for the real quadratic extensions.<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="eg_quad_ring_units_2"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Units of <span class="process-math">\(\Z[\sqrt{2}]\)</span>.</span>
 </h3>
 <div class="para" id="eg_quad_ring_units_2-2-1">Let <span class="process-math">\(K=\Q(\sqrt{2})\text{.}\)</span>  Show that <span class="process-math">\(\mathcal{O}_K^*\)</span> is infinite.<div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_ring_units_2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions"><details id="eg_quad_ring_units_2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="solutions">
+<details id="eg_quad_ring_units_2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
 <div class="para" id="eg_quad_ring_units_2-3-1"><div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_ring_units_2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <div class="autopermalink" data-description="Solution 1.16.3.1"><a href="#eg_quad_ring_units_2-3" title="Copy heading and permalink for Solution 1.16.3.1" aria-label="Copy heading and permalink for Solution 1.16.3.1">🔗</a></div>
-</div></details></div>
-<div class="autopermalink" data-description="Example 1.16.3: Units of \Z[\sqrt{2}]"><a href="#eg_quad_ring_units_2" title="Copy heading and permalink for Example 1.16.3: Units of \Z[\sqrt{2}]" aria-label="Copy heading and permalink for Example 1.16.3: Units of \Z[\sqrt{2}]">🔗</a></div></article><article class="theorem theorem-like" id="th_quad_rings_units"><h3 class="heading">
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.16.3: Units of \Z[\sqrt{2}]"><a href="#eg_quad_ring_units_2" title="Copy heading and permalink for Example 1.16.3: Units of \Z[\sqrt{2}]" aria-label="Copy heading and permalink for Example 1.16.3: Units of \Z[\sqrt{2}]">🔗</a></div>
+</article>
+<article class="theorem theorem-like" id="th_quad_rings_units"><h3 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unit group of real quadratic extensions.</span>
 </h3>
 <div class="para logical" id="th_quad_rings_units-2-1">
@@ -611,12 +561,16 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_quad_rings_units-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.16.4: Unit group of real quadratic extensions"><a href="#th_quad_rings_units" title="Copy heading and permalink for Theorem 1.16.4: Unit group of real quadratic extensions" aria-label="Copy heading and permalink for Theorem 1.16.4: Unit group of real quadratic extensions">🔗</a></div></article><article class="definition definition-like" id="d_fund_unit"><h3 class="heading">
+<div class="autopermalink" data-description="Theorem 1.16.4: Unit group of real quadratic extensions"><a href="#th_quad_rings_units" title="Copy heading and permalink for Theorem 1.16.4: Unit group of real quadratic extensions" aria-label="Copy heading and permalink for Theorem 1.16.4: Unit group of real quadratic extensions">🔗</a></div>
+</article>
+<article class="definition definition-like" id="d_fund_unit"><h3 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fundamental unit.</span>
 </h3>
 <div class="para" id="d_fund_unit-2-1">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a positive squarefree integer, and let <span class="process-math">\(K=\Q(\sqrt{d})\text{.}\)</span> A <dfn class="terminology">fundamental unit</dfn> of <span class="process-math">\(\mathcal{O}_K\)</span> is an element <span class="process-math">\(\epsilon\in \mathcal{O}_K^*\)</span> such that <span class="process-math">\(\mathcal{O}_K^*=\{\pm \epsilon^n\mid n\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_fund_unit-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.16.5: Fundamental unit"><a href="#d_fund_unit" title="Copy heading and permalink for Definition 1.16.5: Fundamental unit" aria-label="Copy heading and permalink for Definition 1.16.5: Fundamental unit">🔗</a></div></article><div class="para" id="s_quad_ring_units-8">We defer the proof of (1) of <a href="s_quad_ring_units.html#th_quad_rings_units" class="xref" data-knowl="./knowl/xref/th_quad_rings_units.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.16.4: Unit group of real quadratic extensions">Theorem 1.16.4</a> until the next section. That argument will involve an analysis of the <em class="emphasis">Pell equation</em> <span class="process-math">\(x^2-dy^2=1\text{.}\)</span> For now, we will content ourselves with showing how (1) implies (2). For this, the following lemma will come in handy.<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 1.16.5: Fundamental unit"><a href="#d_fund_unit" title="Copy heading and permalink for Definition 1.16.5: Fundamental unit" aria-label="Copy heading and permalink for Definition 1.16.5: Fundamental unit">🔗</a></div>
+</article>
+<div class="para" id="s_quad_ring_units-8">We defer the proof of (1) of <a href="s_quad_ring_units.html#th_quad_rings_units" class="xref" data-knowl="./knowl/xref/th_quad_rings_units.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.16.4: Unit group of real quadratic extensions">Theorem 1.16.4</a> until the next section. That argument will involve an analysis of the <em class="emphasis">Pell equation</em> <span class="process-math">\(x^2-dy^2=1\text{.}\)</span> For now, we will content ourselves with showing how (1) implies (2). For this, the following lemma will come in handy.<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="lemma theorem-like" id="lem_quad_ring_units"><h3 class="heading">
 <span class="type">Lemma</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Units in <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\)</span>.</span>
@@ -663,7 +617,11 @@ u \amp \in (-\infty, -1)\cup (-1,0)\cup (0,1)\cup (1,\infty) \text{.}\tag{1.16.2
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)"><a href="#lem_quad_ring_units" title="Copy heading and permalink for Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)" aria-label="Copy heading and permalink for Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)">🔗</a></div></article><details id="lem_quad_ring_units-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="lem_quad_ring_units-3-1">
+<div class="autopermalink" data-description="Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)"><a href="#lem_quad_ring_units" title="Copy heading and permalink for Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)" aria-label="Copy heading and permalink for Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)">🔗</a></div>
+</article>
+<details id="lem_quad_ring_units-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para logical" id="lem_quad_ring_units-3-1">
 <ol class="decimal" id="lem_quad_ring_units-3-1-1">
 <li id="lem_quad_ring_units-3-1-1-1">
 <div class="para" id="lem_quad_ring_units-3-1-1-1-1">Since <span class="process-math">\(d&gt; 0\text{,}\)</span> <span class="process-math">\(K\subseteq \R\text{.}\)</span> Since <span class="process-math">\(u\in \mathcal{O}_K^*\text{,}\)</span> we must have <span class="process-math">\(u\ne 0\text{.}\)</span> And by assumption we have <span class="process-math">\(u\ne \pm 1\text{.}\)</span> It follows that <span class="process-math">\(\alpha\in \R-\{-1,1,0\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -701,19 +659,30 @@ u \amp \in (-\infty, -1)\cup (-1,0)\cup (0,1)\cup (1,\infty) \text{.}\tag{1.16.2
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#lem_quad_ring_units-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.16.6.1"><a href="#lem_quad_ring_units-3" title="Copy heading and permalink for Proof 1.16.6.1" aria-label="Copy heading and permalink for Proof 1.16.6.1">🔗</a></div></article></details><div class="para" id="s_quad_ring_units-10">And now for the proof that the existence of a nontrivial unit implies the existence of a fundamental unit.<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 1.16.6.1"><a href="#lem_quad_ring_units-3" title="Copy heading and permalink for Proof 1.16.6.1" aria-label="Copy heading and permalink for Proof 1.16.6.1">🔗</a></div>
+</article></details>
+<div class="para" id="s_quad_ring_units-10">And now for the proof that the existence of a nontrivial unit implies the existence of a fundamental unit.<div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="s_quad_ring_units-11" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Proof that (1) implies (2) in Theorem 1.16.4.</span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="s_quad_ring_units-11-2">Assume we have <span class="process-math">\(u=q_1+q_2\sqrt{d}\in \mathcal{O}_K^*-\{1,-1\}\text{.}\)</span> From <a href="s_quad_ring_units.html#lem_quad_ring_units" class="xref" data-knowl="./knowl/xref/lem_quad_ring_units.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)">Lemma 1.16.6</a> we may assume <span class="process-math">\(q_1\)</span> and <span class="process-math">\(q_2\)</span> are both positive and thus that <span class="process-math">\(u\in \mathcal{O}_K^*\cap (1,\infty)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<details id="s_quad_ring_units-11" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Proof that (1) implies (2) in Theorem 1.16.4.</span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para" id="s_quad_ring_units-11-2">Assume we have <span class="process-math">\(u=q_1+q_2\sqrt{d}\in \mathcal{O}_K^*-\{1,-1\}\text{.}\)</span> From <a href="s_quad_ring_units.html#lem_quad_ring_units" class="xref" data-knowl="./knowl/xref/lem_quad_ring_units.html" data-reveal-label="Reveal" data-close-label="Close" title="Lemma 1.16.6: Units in \mathcal{O}_K^*\cap (1,\infty)">Lemma 1.16.6</a> we may assume <span class="process-math">\(q_1\)</span> and <span class="process-math">\(q_2\)</span> are both positive and thus that <span class="process-math">\(u\in \mathcal{O}_K^*\cap (1,\infty)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.16.1: Proof that (1) implies (2) in Theorem 1.16.4"><a href="#s_quad_ring_units-11" title="Copy heading and permalink for Proof 1.16.1: Proof that (1) implies (2) in Theorem 1.16.4" aria-label="Copy heading and permalink for Proof 1.16.1: Proof that (1) implies (2) in Theorem 1.16.4">🔗</a></div></article></details><div class="para" id="s_quad_ring_units-12">Finding the smallest element of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\)</span> might actually be tricky, since we are comparing sizes of irrational elements. The next corollary simplifies things for us significantly: for elements <span class="process-math">\(u=q_1+q_2\sqrt{d}\)</span> of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\text{,}\)</span> we can compare size simply by looking at the second coefficient <span class="process-math">\(q_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 1.16.1: Proof that (1) implies (2) in Theorem 1.16.4"><a href="#s_quad_ring_units-11" title="Copy heading and permalink for Proof 1.16.1: Proof that (1) implies (2) in Theorem 1.16.4" aria-label="Copy heading and permalink for Proof 1.16.1: Proof that (1) implies (2) in Theorem 1.16.4">🔗</a></div>
+</article></details>
+<div class="para" id="s_quad_ring_units-12">Finding the smallest element of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\)</span> might actually be tricky, since we are comparing sizes of irrational elements. The next corollary simplifies things for us significantly: for elements <span class="process-math">\(u=q_1+q_2\sqrt{d}\)</span> of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\text{,}\)</span> we can compare size simply by looking at the second coefficient <span class="process-math">\(q_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#s_quad_ring_units-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="corollary theorem-like" id="cor_quad_ring_units"><h3 class="heading">
 <span class="type">Corollary</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.16.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unit group of real quadratic extensions.</span>
 </h3>
 <div class="para" id="cor_quad_ring_units-2-1">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a positive squarefree integer, let <span class="process-math">\(K=\Q(\sqrt{d})\text{,}\)</span> and let <span class="process-math">\(u=q_1+q_2\sqrt{d}\)</span> and <span class="process-math">\(u'=q_1'+q_2'\sqrt{d}\)</span> be elements of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\text{.}\)</span> We have <span class="process-math">\(u&lt; u'\)</span> if and only if <span class="process-math">\(q_1&lt; q_1'\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_quad_ring_units-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="cor_quad_ring_units-2-2">As a result, the fundamental unit <span class="process-math">\(\epsilon_d\)</span> described in <a href="s_quad_ring_units.html#th_quad_rings_units" class="xref" data-knowl="./knowl/xref/th_quad_rings_units.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.16.4: Unit group of real quadratic extensions">Theorem 1.16.4</a> is the element <span class="process-math">\(q_1+q_2\sqrt{d}\)</span> of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\)</span> with minimal first coefficient <span class="process-math">\(q_1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_quad_ring_units-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="cor_quad_ring_units-2-2">As a result, the fundamental unit <span class="process-math">\(\epsilon_d\)</span> described in <a href="s_quad_ring_units.html#th_quad_rings_units" class="xref" data-knowl="./knowl/xref/th_quad_rings_units.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.16.4: Unit group of real quadratic extensions">Theorem 1.16.4</a> is the element <span class="process-math">\(q_1+q_2\sqrt{d}\)</span> of <span class="process-math">\(\mathcal{O}_K^*\cap (1,\infty)\)</span> with minimal first coefficient <span class="process-math">\(q_1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#cor_quad_ring_units-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Corollary 1.16.7: Unit group of real quadratic extensions"><a href="#cor_quad_ring_units" title="Copy heading and permalink for Corollary 1.16.7: Unit group of real quadratic extensions" aria-label="Copy heading and permalink for Corollary 1.16.7: Unit group of real quadratic extensions">🔗</a></div></article><details id="cor_quad_ring_units-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="cor_quad_ring_units-3-1">
+<div class="autopermalink" data-description="Corollary 1.16.7: Unit group of real quadratic extensions"><a href="#cor_quad_ring_units" title="Copy heading and permalink for Corollary 1.16.7: Unit group of real quadratic extensions" aria-label="Copy heading and permalink for Corollary 1.16.7: Unit group of real quadratic extensions">🔗</a></div>
+</article>
+<details id="cor_quad_ring_units-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para logical" id="cor_quad_ring_units-3-1">
 <div class="para">Let <span class="process-math">\(\epsilon\)</span> be the smallest element of <span class="process-math">\(\mathcal{O}_K\cap(1,\infty)\text{,}\)</span> and write <span class="process-math">\(\epsilon=r+s\sqrt{d}\text{,}\)</span> where <span class="process-math">\(r=m/2\)</span> and <span class="process-math">\(s=n/2\)</span> for some positive integers <span class="process-math">\(m,n\in \Z\text{.}\)</span> Since <span class="process-math">\(\mathcal{O}_K^*=\{\pm \epsilon^n\mid n\in \Z\}\text{,}\)</span> and since <span class="process-math">\(\abs{\epsilon^{n}}\leq 1\)</span> for all <span class="process-math">\(n\leq 0 \text{,}\)</span> it follows that</div>
 <div class="displaymath process-math" id="cor_quad_ring_units-3-1-10">
 \begin{equation*}
@@ -749,7 +718,10 @@ s_1^2d=r_1^2\pm 1=\frac{1}{4}\pm 1 \amp \text{,}
 <div class="para">we must have <span class="process-math">\(s_1^2d=1/4+1=5/4\text{,}\)</span> from whence it follows that <span class="process-math">\(d\leq 5\text{.}\)</span> But then <span class="process-math">\(d=5\)</span> (since <span class="process-math">\(d\equiv 1\pmod 4\)</span>), and we have <span class="process-math">\(s_1=1/2\text{.}\)</span> Now we are in the very special case where <span class="process-math">\(\epsilon=\frac{1}{2}+\frac{\sqrt{5}}{2}\text{.}\)</span> Since <span class="process-math">\(\epsilon\)</span> satisfies <span class="process-math">\(f(x)=(x-\epsilon)(x-\overline{\epsilon})=x^2-x-1\text{,}\)</span> it follows that <span class="process-math">\(\epsilon^2=\epsilon+1\text{,}\)</span> and by induction <span class="process-math">\(\epsilon^{n+1}=\epsilon^{n}+\epsilon^{n-1}\)</span> for all <span class="process-math">\(n\geq 2\text{.}\)</span> As a result, looking only at the first coefficients of these powers of <span class="process-math">\(\epsilon\text{,}\)</span> we have <span class="process-math">\(r_{n+1}=r_{n}+r_{n-1}\)</span> for all <span class="process-math">\(n\text{.}\)</span> (And looking at the second coefficients, we see that <span class="process-math">\(s_{n+1}=s_n+s_{n-1}\text{.}\)</span>) Since <span class="process-math">\(r_k&gt; 0\)</span> for all <span class="process-math">\(k\geq 1\text{,}\)</span> we see that <span class="process-math">\(r_{n+1}&gt; r_n\text{,}\)</span> as desired.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#cor_quad_ring_units-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.16.7.1"><a href="#cor_quad_ring_units-3" title="Copy heading and permalink for Proof 1.16.7.1" aria-label="Copy heading and permalink for Proof 1.16.7.1">🔗</a></div></article></details><div class="autopermalink" data-description="Section 1.16: Unit groups of quadratic extensions"><a href="#s_quad_ring_units" title="Copy heading and permalink for Section 1.16: Unit groups of quadratic extensions" aria-label="Copy heading and permalink for Section 1.16: Unit groups of quadratic extensions">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Proof 1.16.7.1"><a href="#cor_quad_ring_units-3" title="Copy heading and permalink for Proof 1.16.7.1" aria-label="Copy heading and permalink for Proof 1.16.7.1">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Section 1.16: Unit groups of quadratic extensions"><a href="#s_quad_ring_units" title="Copy heading and permalink for Section 1.16: Unit groups of quadratic extensions" aria-label="Copy heading and permalink for Section 1.16: Unit groups of quadratic extensions">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="s_ring_integers.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_pells_eqn.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

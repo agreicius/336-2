@@ -20,79 +20,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math",
-    "renderActions": {
-      "findScript": [
-        10,
-        function (doc) {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
-                var display = !!node.type.match(/; *mode=display/);
-                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                var text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = {node: text, delim: '', n: 0};
-                math.end = {node: text, delim: '', n: 0};
-                doc.math.push(math);
-            });
-        },
-        ""
-      ]
-    }
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: true,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Elementary number theory">
@@ -128,7 +63,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.dcab57465a404e85.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.79fbb790b185d712.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
@@ -537,10 +472,13 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_public_key"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="s_public_key">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Public key cryptography</span>
 </h2>
-<section class="subsection" id="ss_public_key"><h3 class="heading hide-type">
+<section class="subsection" id="ss_public_key">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Symmetric versus asymmetric cryptosystems</span>
 </h3>
 <div class="para" id="ss_public_key-2">The examples of cryptosystems we have discussed thus far are what is known as <em class="emphasis">symmetric</em> cryptosystems. In these systems, to encrypt and decrypt messages Alice and Bob both use the same key <span class="process-math">\(k\text{,}\)</span> and thus this shared key must be known to both Alice and Bob somehow. This fact creates a security issue. How do Alice and Bob share the key <span class="process-math">\(k\text{?}\)</span> Meeting in person and secretly exchanging a key to use is an option, but of course this has many practical shortcomings, especially when the number of participants in our communication network grows, and keys are frequently changed.  Alternatively, they could share the secret key over a communication channel, but now the ever-watchful Eve comes into the picture. It was questions such as these that led Whitfield Diffie and Martin Hellman to propose (in their 1976 paper “New directions in Cryptography”)  a fundamentally different type of cryptography, known as an <em class="emphasis">asymmetric</em> or  <em class="emphasis">public key</em> cryptography.<div class="autopermalink" data-description="Paragraph"><a href="#ss_public_key-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -559,18 +497,21 @@ D\colon \mathcal{K}\times \mathcal{C} \amp \rightarrow \mathcal{P}
 <div class="para">for which the keyspace <span class="process-math">\(\mathcal{K}\)</span> consists of pairs <span class="process-math">\(k=(k_{\text{priv}},k_{\text{pub}})\text{,}\)</span> called <dfn class="terminology">public/private key pairs</dfn>, and such that for all <span class="process-math">\(k=(k_{\text{priv}},k_{\text{pub}})\text{,}\)</span> we have</div>
 <div class="displaymath process-math" id="d_public_key-2-1-8">
 \begin{align*}
-E_k \amp = E_{k_\priv} \amp D_k=D_{k_\pub}
+E_{k} \amp = E_{k_{\priv}} \amp D_k\amp =D_{k_{\pub}}
 \end{align*}
 </div>
-<div class="para">so that encryption is performed using the <dfn class="terminology">public key</dfn> <span class="process-math">\(k_\pub\)</span> and decryption is performed using the <dfn class="terminology">private key</dfn> <span class="process-math">\(k_\priv\text{.}\)</span>
+<div class="para">so that encryption is performed using the <dfn class="terminology">public key</dfn> <span class="process-math">\(k_{\pub}\)</span> and decryption is performed using the <dfn class="terminology">private key</dfn> <span class="process-math">\(k_{\priv}\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_public_key-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="d_public_key-2-2">Cryptography that uses public key cryptosystems is called <dfn class="terminology">public key cryptography</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#d_public_key-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="d_public_key-2-2">Cryptography that uses public key cryptosystems is called <dfn class="terminology">public key cryptography</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#d_public_key-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.19.1: Public key cryptography (PKC)"><a href="#d_public_key" title="Copy heading and permalink for Definition 1.19.1: Public key cryptography (PKC)" aria-label="Copy heading and permalink for Definition 1.19.1: Public key cryptography (PKC)">🔗</a></div></article><div class="para" id="ss_public_key-4">Let’s leave the formalism of <a href="s_public_key.html#d_public_key" class="xref" data-knowl="./knowl/xref/d_public_key.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.19.1: Public key cryptography (PKC)">Definition 1.19.1</a> for a moment, and try and understand the asymmetry of this type of system on the level of Alice and Bob.<div class="autopermalink" data-description="Paragraph"><a href="#ss_public_key-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 1.19.1: Public key cryptography (PKC)"><a href="#d_public_key" title="Copy heading and permalink for Definition 1.19.1: Public key cryptography (PKC)" aria-label="Copy heading and permalink for Definition 1.19.1: Public key cryptography (PKC)">🔗</a></div>
+</article>
+<div class="para" id="ss_public_key-4">Let’s leave the formalism of <a href="s_public_key.html#d_public_key" class="xref" data-knowl="./knowl/xref/d_public_key.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.19.1: Public key cryptography (PKC)">Definition 1.19.1</a> for a moment, and try and understand the asymmetry of this type of system on the level of Alice and Bob.<div class="autopermalink" data-description="Paragraph"><a href="#ss_public_key-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="ss_public_key-5">
-<div class="para">When Alice uses a public key cryptosystem with encoding/decoding methods <span class="process-math">\(E\)</span> and <span class="process-math">\(D\text{,}\)</span> she chooses a public/private key pair <span class="process-math">\((k_\priv, k_\pub)\text{,}\)</span> and only makes public the public key component <span class="process-math">\(k_\pub\)</span> (we say she <em class="emphasis">publishes</em> the public key). Bob can then use the public key and encryption method <span class="process-math">\(E\)</span> to encrypt a plaintext message <span class="process-math">\(m\)</span> as <span class="process-math">\(c=E_{k_\pub}(m)\)</span> and send <span class="process-math">\(c\)</span> to Alice. Alice can then use her private key <span class="process-math">\(k_\priv\)</span> to recover <span class="process-math">\(m\)</span> as <span class="process-math">\(m=D_{k_\priv}(c)\text{.}\)</span> Note that there are two different manners in which this setup is asymmetric.</div>
+<div class="para">When Alice uses a public key cryptosystem with encoding/decoding methods <span class="process-math">\(E\)</span> and <span class="process-math">\(D\text{,}\)</span> she chooses a public/private key pair <span class="process-math">\((k_{\priv}, k_{\pub})\text{,}\)</span> and only makes public the public key component <span class="process-math">\(k_{\pub}\)</span> (we say she <em class="emphasis">publishes</em> the public key). Bob can then use the public key and encryption method <span class="process-math">\(E\)</span> to encrypt a plaintext message <span class="process-math">\(m\)</span> as <span class="process-math">\(c=E_{k_{\pub}}(m)\)</span> and send <span class="process-math">\(c\)</span> to Alice. Alice can then use her private key <span class="process-math">\(k_{\priv}\)</span> to recover <span class="process-math">\(m\)</span> as <span class="process-math">\(m=D_{k_{\priv}}(c)\text{.}\)</span> Note that there are two different manners in which this setup is asymmetric.</div>
 <ul class="disc" id="ss_public_key-5-13">
 <li id="ss_public_key-5-13-1">
 <div class="para" id="ss_public_key-5-13-1-1">The participants in this system use different keys for encryption and decryption.<div class="autopermalink" data-description="Paragraph"><a href="#ss_public_key-5-13-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -608,7 +549,10 @@ E_k \amp = E_{k_\priv} \amp D_k=D_{k_\pub}
 <div class="para">proposed the following general approach. We need to find a mathematical function <span class="process-math">\(f\colon X\to Y\)</span> that is easy to compute, but hard to invert. Such a function is called a <dfn class="terminology">one-way function</dfn>. If we can find such a function, then we can use it to create a public key cryptosystem as follows. Alice chooses a one-way function <span class="process-math">\(f\colon X\to Y\text{,}\)</span> and publishes the description of this function as her public key. To encrypt a message <span class="process-math">\(m\in X\text{,}\)</span> Bob computes the ciphertext <span class="process-math">\(c=f(m)\text{.}\)</span> To decrypt the message, Alice uses her private key, which is the trapdoor information that allows her to efficiently compute an inverse of <span class="process-math">\(f\text{,}\)</span> to recover <span class="process-math">\(m\)</span> from <span class="process-math">\(c\text{.}\)</span> Thus, the security of this system relies on the fact that without the trapdoor information, it is computationally infeasible for Eve to invert the one-way function and recover the plaintext message from the ciphertext.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ss_public_key-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 1.19.1: Symmetric versus asymmetric cryptosystems"><a href="#ss_public_key" title="Copy heading and permalink for Subsection 1.19.1: Symmetric versus asymmetric cryptosystems" aria-label="Copy heading and permalink for Subsection 1.19.1: Symmetric versus asymmetric cryptosystems">🔗</a></div></section><section class="subsection" id="ss_diffie_hellman"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Subsection 1.19.1: Symmetric versus asymmetric cryptosystems"><a href="#ss_public_key" title="Copy heading and permalink for Subsection 1.19.1: Symmetric versus asymmetric cryptosystems" aria-label="Copy heading and permalink for Subsection 1.19.1: Symmetric versus asymmetric cryptosystems">🔗</a></div>
+</section>
+<section class="subsection" id="ss_diffie_hellman">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Diffie-Hellman key exchange</span>
 </h3>
 <div class="para" id="ss_diffie_hellman-2">Diffie and Hellman did not themselves propose an actual example of a public key cryptosystem, but they did describe the following key exchange that makes use of their one-way and trapdoor function concepts.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -620,26 +564,36 @@ E_k \amp = E_{k_\priv} \amp D_k=D_{k_\pub}
 <div class="para">Alice and Bob wish to share a key over an insecure communication channel. The <dfn class="terminology">Diffie-Hellman key exchange</dfn> accomplishes this as follows.</div>
 <ol class="decimal" id="d_diffie_hellman-2-1-2">
 <li id="d_diffie_hellman-2-1-2-1">
-<span class="heading li--heading"><span class="title li--heading-title">Public.</span></span><div class="para" id="d_diffie_hellman-2-1-2-1-2">Alice and Bob choose publicly on a prime <span class="process-math">\(p\)</span> and a primitive root <span class="process-math">\(g\)</span> modulo <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Public.</span></span>
+<div class="para" id="d_diffie_hellman-2-1-2-1-2">Alice and Bob agree publicly on a prime <span class="process-math">\(p\)</span> and a primitive root <span class="process-math">\(g\in \F_p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 1: Public"><a href="#d_diffie_hellman-2-1-2-1" title="Copy heading and permalink for Item 1: Public" aria-label="Copy heading and permalink for Item 1: Public">🔗</a></div>
 </li>
 <li id="d_diffie_hellman-2-1-2-2">
-<span class="heading li--heading"><span class="title li--heading-title">Private.</span></span><div class="para" id="d_diffie_hellman-2-1-2-2-2">Alice chooses a random integer exponent <span class="process-math">\(a\text{,}\)</span> and Bob chooses a random integer exponent <span class="process-math">\(b\text{.}\)</span> These exponents are kept private.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Private.</span></span>
+<div class="para" id="d_diffie_hellman-2-1-2-2-2">Alice chooses a random integer exponent <span class="process-math">\(a\text{,}\)</span> and Bob chooses a random integer exponent <span class="process-math">\(b\text{.}\)</span> These exponents are kept private.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 2: Private"><a href="#d_diffie_hellman-2-1-2-2" title="Copy heading and permalink for Item 2: Private" aria-label="Copy heading and permalink for Item 2: Private">🔗</a></div>
 </li>
 <li id="d_diffie_hellman-2-1-2-3">
-<span class="heading li--heading"><span class="title li--heading-title">Exchange.</span></span><div class="para" id="d_diffie_hellman-2-1-2-3-2">Alice computes <span class="process-math">\(A=g^a\boldmod p\)</span> and sends this value to Bob; Bob computes <span class="process-math">\(B=g^b\boldmod p\)</span> and sends this value to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Exchange.</span></span>
+<div class="para" id="d_diffie_hellman-2-1-2-3-2">Alice computes <span class="process-math">\(A=g^a\in \F_p^*\)</span> and sends this value to Bob; Bob computes <span class="process-math">\(B=g^b\in \F_p^*\)</span> and sends this value to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 3: Exchange"><a href="#d_diffie_hellman-2-1-2-3" title="Copy heading and permalink for Item 3: Exchange" aria-label="Copy heading and permalink for Item 3: Exchange">🔗</a></div>
 </li>
 <li id="d_diffie_hellman-2-1-2-4">
-<span class="heading li--heading"><span class="title li--heading-title">Shared key.</span></span><div class="para logical" id="d_diffie_hellman-2-1-2-4-2">
-<div class="para">Alice and Bob use their private exponents <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> to compute the shared key</div>
-<div class="displaymath process-math" id="d_diffie_hellman-2-1-2-4-2-3">
+<span class="heading li--heading"><span class="title li--heading-title">Shared key.</span></span>
+<div class="para logical" id="d_diffie_hellman-2-1-2-4-2">
+<div class="para">Alice uses her private exponent <span class="process-math">\(a\)</span> to compute <span class="process-math">\(B^a\in \F_p^*\text{;}\)</span> and Bob uses his private exponent <span class="process-math">\(b\)</span> to compute <span class="process-math">\(A^b\in \F_p^*\text{.}\)</span> Since</div>
+<div class="displaymath process-math" id="d_diffie_hellman-2-1-2-4-2-5">
 \begin{equation*}
-k=r^{ab}\boldmod p=B^a\boldmod p=A^b\boldmod p\text{.}
+B^a=(g^b)^a=g^{ab}=(g^a)^b=A^b\text{,}
+\end{equation*}
+</div>
+<div class="para">Alice and Bob are now in possession of a shared key</div>
+<div class="displaymath process-math" id="d_diffie_hellman-2-1-2-4-2-6">
+\begin{equation*}
+k=g^{ab}\in \F_p^*\text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -649,71 +603,129 @@ k=r^{ab}\boldmod p=B^a\boldmod p=A^b\boldmod p\text{.}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.19.2: Diffie-Hellman key exchange"><a href="#d_diffie_hellman" title="Copy heading and permalink for Definition 1.19.2: Diffie-Hellman key exchange" aria-label="Copy heading and permalink for Definition 1.19.2: Diffie-Hellman key exchange">🔗</a></div></article><article class="definition definition-like" id="d_discrete_log"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Discrete log (or index).</span>
+<div class="autopermalink" data-description="Definition 1.19.2: Diffie-Hellman key exchange"><a href="#d_diffie_hellman" title="Copy heading and permalink for Definition 1.19.2: Diffie-Hellman key exchange" aria-label="Copy heading and permalink for Definition 1.19.2: Diffie-Hellman key exchange">🔗</a></div>
+</article>
+<article class="remark remark-like" id="ss_diffie_hellman-4"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integers or congruence classes.</span>
 </h4>
-<div class="para" id="d_discrete_log-2-1">Let <span class="process-math">\(n\)</span> be a positive integer, let <span class="process-math">\(g\in (\Z/n\Z)^*\)</span> be a unit of order <span class="process-math">\(\ord r=m\text{,}\)</span> and let <span class="process-math">\(h\in \angvec{g}\text{.}\)</span> The unique integer <span class="process-math">\(k\in \{0,1,\dots, m-1\}\)</span> such that <span class="process-math">\(h=g^k\)</span> is called the <dfn class="terminology">discrete log</dfn> (or <dfn class="terminology">index</dfn>) of <span class="process-math">\(h\)</span> to the base <span class="process-math">\(g\text{,}\)</span> and is denoted by <span class="process-math">\(\ind_g h\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_discrete_log-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para logical" id="ss_diffie_hellman-4-2">
+<div class="para">We have chosen to use the language of <span class="process-math">\(\F_p\)</span> to express the mathematics behind the Diffie-Hellman key exchange; and we will do the same with the Elgamal and RSA cryptosystems below. As usual, we could just as well have described things solely in terms of integers, in which case we would have to make use of the least positive residue function <span class="process-math">\(\underline{\phantom{A}}\boldmod p\text{.}\)</span> For example, here is an integer-based summary of the Diffie-Hellman key exchange.</div>
+<ol class="decimal" id="ss_diffie_hellman-4-2-3">
+<li id="ss_diffie_hellman-4-2-3-1">
+<div class="para" id="ss_diffie_hellman-4-2-3-1-1">Pick a prime <span class="process-math">\(p\)</span> and an integer <span class="process-math">\(n\)</span> that is a primitive root modulo <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-4-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.19.3: Discrete log (or index)"><a href="#d_discrete_log" title="Copy heading and permalink for Definition 1.19.3: Discrete log (or index)" aria-label="Copy heading and permalink for Definition 1.19.3: Discrete log (or index)">🔗</a></div></article><article class="definition definition-like" id="d_discrete_log_problem"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Discrete log problem.</span>
-</h4>
-<div class="para" id="d_discrete_log_problem-2-1">Let <span class="process-math">\(p\)</span> be a prime integer, let <span class="process-math">\(g=[a]_p\in \F_p^*\)</span> be a primitive root, and let <span class="process-math">\(h=[b]_p\in \F_p^*\text{.}\)</span> Find an integer <span class="process-math">\(n\in \{0,1,\dots, p-2\}\)</span> such that <span class="process-math">\(h=g^n\text{,}\)</span> or equivalently, such that <span class="process-math">\(a^n\equiv b\pmod p\text{.}\)</span> In other words, compute <span class="process-math">\(\ind_g h\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_discrete_log_problem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Definition 1.19.4: Discrete log problem"><a href="#d_discrete_log_problem" title="Copy heading and permalink for Definition 1.19.4: Discrete log problem" aria-label="Copy heading and permalink for Definition 1.19.4: Discrete log problem">🔗</a></div></article><article class="definition definition-like" id="d_diffie-hellman_problem"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Diffie-Hellman problem.</span>
-</h4>
-<div class="para" id="d_diffie-hellman_problem-2-1">Let <span class="process-math">\(p\)</span> be a prime integer, and let <span class="process-math">\(g=[a]_p\in \F_p^*\)</span> be a primitive root. Given elements <span class="process-math">\(g^a\)</span> and <span class="process-math">\(g^b\)</span> of <span class="process-math">\(\F_p^*\text{,}\)</span> compute the element <span class="process-math">\(g^{ab}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_diffie-hellman_problem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Definition 1.19.5: Diffie-Hellman problem"><a href="#d_diffie-hellman_problem" title="Copy heading and permalink for Definition 1.19.5: Diffie-Hellman problem" aria-label="Copy heading and permalink for Definition 1.19.5: Diffie-Hellman problem">🔗</a></div></article><article class="remark remark-like" id="ss_diffie_hellman-7"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Discrete log and Diffie-Hellman problems.</span>
-</h4>
-<div class="para logical" id="ss_diffie_hellman-7-2">
-<ol class="decimal" id="ss_diffie_hellman-7-2-1">
-<li id="ss_diffie_hellman-7-2-1-1">
-<div class="para" id="ss_diffie_hellman-7-2-1-1-1">It is clear that a solution to the discrete log problem could be used to solve the Diffie-Hellman problem. The converse is unknown: that is, it is not known whether a solution to the Diffie-Hellman problem would give rise to a solution to the discrete log problem.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-7-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1"><a href="#ss_diffie_hellman-7-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+<div class="autopermalink" data-description="Item 1"><a href="#ss_diffie_hellman-4-2-3-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
 </li>
-<li id="ss_diffie_hellman-7-2-1-2">
-<div class="para" id="ss_diffie_hellman-7-2-1-2-1">The disrete log problem for general prime <span class="process-math">\(p\)</span> is considered to be difficult to solve in general. In particular there is no known algorithm for computing discrete logs modulo <span class="process-math">\(p\)</span> whose runtime is polynomial in <span class="process-math">\(\log p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-7-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="ss_diffie_hellman-4-2-3-2">
+<div class="para" id="ss_diffie_hellman-4-2-3-2-1">Alice chooses a random integer exponent <span class="process-math">\(a\text{,}\)</span> computes <span class="process-math">\(A= n^a\boldmod p\text{,}\)</span> and sends it to Bob; Bob chooses a random integer exponent <span class="process-math">\(b\text{,}\)</span> computes <span class="process-math">\(B= n^b\boldmod p\text{,}\)</span> and sends it to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-4-2-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 2"><a href="#ss_diffie_hellman-7-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+<div class="autopermalink" data-description="Item 2"><a href="#ss_diffie_hellman-4-2-3-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
 </li>
-<li id="ss_diffie_hellman-7-2-1-3">
-<div class="para" id="ss_diffie_hellman-7-2-1-3-1">The discrete log problem can be solved efficiently if <span class="process-math">\(p-1\)</span> has small prime factors, thanks to the Pohlig-Hellman algorithm (an application of the CRT). Since <span class="process-math">\(p-1\)</span> is always even (for large primes), a Diffie-Hellman key exchange protocol should us a prime <span class="process-math">\(p\)</span> such that <span class="process-math">\(p-1=2q\text{,}\)</span> where <span class="process-math">\(q\)</span> is a large prime, or equivalently, <span class="process-math">\(p=2q+1\text{.}\)</span> Such primes are called <em class="emphasis">safe primes</em> in the cryptographic literature.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-7-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="ss_diffie_hellman-4-2-3-3">
+<div class="para logical" id="ss_diffie_hellman-4-2-3-3-1">
+<div class="para">Alice and Bob use their private exponents <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> to compute the shared key</div>
+<div class="displaymath process-math" id="ss_diffie_hellman-4-2-3-3-1-3">
+\begin{equation*}
+k= n^{ab}\boldmod p= B^a\boldmod p= A^b\boldmod p\text{.}
+\end{equation*}
 </div>
-<div class="autopermalink" data-description="Item 3"><a href="#ss_diffie_hellman-7-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-4-2-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ss_diffie_hellman-4-2-3-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">As you can see, our notational choice has the advantage of notational brevity. The integer-based description is more common in the literature, however, and implemented versions of these systems use integers, not congruence classes.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Remark 1.19.6: Discrete log and Diffie-Hellman problems"><a href="#ss_diffie_hellman-7" title="Copy heading and permalink for Remark 1.19.6: Discrete log and Diffie-Hellman problems" aria-label="Copy heading and permalink for Remark 1.19.6: Discrete log and Diffie-Hellman problems">🔗</a></div></article><details id="ss_diffie_hellman-8" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<div class="autopermalink" data-description="Remark 1.19.3: Integers or congruence classes"><a href="#ss_diffie_hellman-4" title="Copy heading and permalink for Remark 1.19.3: Integers or congruence classes" aria-label="Copy heading and permalink for Remark 1.19.3: Integers or congruence classes">🔗</a></div>
+</article>
+<article class="remark remark-like" id="ss_diffie_hellman-5"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fast modular exponentiation.</span>
+</h4>
+<div class="para" id="ss_diffie_hellman-5-2">The Diffie-Hellman key exchange, as well as the Elgamal and RSA encryption methods below all rely on modular exponentiation. For these various methods to be efficiently used, this operation needs to be performed reasonably quickly. This is possible thanks to a fast method of modular exponentiation that is based on the binary expansion of the exponent. See the Rosen text for more details (or consult your notes from Math 336-1).<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.19.4: Fast modular exponentiation"><a href="#ss_diffie_hellman-5" title="Copy heading and permalink for Remark 1.19.4: Fast modular exponentiation" aria-label="Copy heading and permalink for Remark 1.19.4: Fast modular exponentiation">🔗</a></div>
+</article>
+<div class="para" id="ss_diffie_hellman-6">Before getting to our computational example <a href="s_public_key.html#sage_diffie_hellman" class="xref" data-knowl="./knowl/xref/sage_diffie_hellman.html" data-reveal-label="Reveal" data-close-label="Close" title="Sage example 9: Diffie-Hellman implementation">Sage example 9</a>, we first point out an obvious potential weakness to the Diffie-Hellman key exchange. Namely, if Eve can intercept the transmissions <span class="process-math">\(A=g^a\)</span> and <span class="process-math">\(B=g^b\text{,}\)</span> then since <span class="process-math">\(g\)</span> is publicly known, she could simply find the exponent <span class="process-math">\(a\)</span> and then compute <span class="process-math">\(k=B^a\text{.}\)</span> In number theory terms, Eve here has computed the <em class="emphasis">discrete log</em> (or <em class="emphasis">index</em>) of <span class="process-math">\(A\)</span> to the base <span class="process-math">\(g\text{.}\)</span> Whether or not the Diffie-Hellman key exchange is vulnerable to this particular attack depends on how easily this discrete log computation can be performed: i.e., it depends on the difficulty of the <em class="emphasis">discrete log problem</em>.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_discrete_log"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Discrete log (or index).</span>
+</h4>
+<div class="para" id="d_discrete_log-2-1">Let <span class="process-math">\(n\)</span> be a positive integer, let <span class="process-math">\(g\in (\Z/n\Z)^*\)</span> be a unit of order <span class="process-math">\(\ord r=m\text{,}\)</span> and let <span class="process-math">\(h\in \angvec{g}\text{.}\)</span> The unique integer <span class="process-math">\(k\in \{0,1,\dots, m-1\}\)</span> such that <span class="process-math">\(h=g^k\)</span> is called the <dfn class="terminology">discrete log</dfn> (or <dfn class="terminology">index</dfn>) of <span class="process-math">\(h\)</span> to the base <span class="process-math">\(g\text{,}\)</span> and is denoted by <span class="process-math">\(\log_g h\)</span> (or <span class="process-math">\(\ind_g h\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#d_discrete_log-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.19.5: Discrete log (or index)"><a href="#d_discrete_log" title="Copy heading and permalink for Definition 1.19.5: Discrete log (or index)" aria-label="Copy heading and permalink for Definition 1.19.5: Discrete log (or index)">🔗</a></div>
+</article>
+<div class="para" id="ss_diffie_hellman-8">Finding discrete logs is important enough to number theory and cryptography that it has earned its own name as a computational problem: the <em class="emphasis">discrete log problem</em>.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_discrete_log_problem"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Discrete log problem.</span>
+</h4>
+<div class="para" id="d_discrete_log_problem-2-1">The <dfn class="terminology">discrete log problem</dfn> for modular unit groups is the general problem described as follows: given a positive integer <span class="process-math">\(n\text{,}\)</span> unit <span class="process-math">\(g\in (\Z/n\Z)^*\text{,}\)</span> and element <span class="process-math">\(h\in \angvec{g}\text{,}\)</span> find the unique integer <span class="process-math">\(a\in \{0,1,\dots \ord g-1\}\)</span> such that <span class="process-math">\(h=g^a\)</span> (i.e., compute <span class="process-math">\(\log_g h\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#d_discrete_log_problem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.19.6: Discrete log problem"><a href="#d_discrete_log_problem" title="Copy heading and permalink for Definition 1.19.6: Discrete log problem" aria-label="Copy heading and permalink for Definition 1.19.6: Discrete log problem">🔗</a></div>
+</article>
+<div class="para" id="ss_diffie_hellman-10">Eve’s discrete log attack on the Diffie-Hellman key exchange is just the most obvious one. There may be other attacks, and indeed, cracking a general Diffie-Hellman key exchange may be easier than solving the discrete log problem. Accordingly, we give this computational problem its own name.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="d_diffie-hellman_problem"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Diffie-Hellman problem.</span>
+</h4>
+<div class="para" id="d_diffie-hellman_problem-2-1">The <dfn class="terminology">Diffie-Hellman problem</dfn> is the general problem described as follows: given prime integer <span class="process-math">\(p\text{,}\)</span> primitive root <span class="process-math">\(g\in \F_p\text{,}\)</span> and powers <span class="process-math">\(g^a\)</span> and <span class="process-math">\(g^b\text{,}\)</span> compute the power <span class="process-math">\(g^{ab}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_diffie-hellman_problem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.19.7: Diffie-Hellman problem"><a href="#d_diffie-hellman_problem" title="Copy heading and permalink for Definition 1.19.7: Diffie-Hellman problem" aria-label="Copy heading and permalink for Definition 1.19.7: Diffie-Hellman problem">🔗</a></div>
+</article>
+<article class="remark remark-like" id="ss_diffie_hellman-12"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Discrete log and Diffie-Hellman problems.</span>
+</h4>
+<div class="para logical" id="ss_diffie_hellman-12-2">
+<ol class="decimal" id="ss_diffie_hellman-12-2-1">
+<li id="ss_diffie_hellman-12-2-1-1">
+<div class="para" id="ss_diffie_hellman-12-2-1-1-1">It is clear that a solution to the discrete log problem could be used to solve the Diffie-Hellman problem. The converse is unknown: that is, it is not known whether a solution to the Diffie-Hellman problem would give rise to a solution to the discrete log problem.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-12-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ss_diffie_hellman-12-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ss_diffie_hellman-12-2-1-2">
+<div class="para" id="ss_diffie_hellman-12-2-1-2-1">The disrete log problem for general prime <span class="process-math">\(p\)</span> is considered to be difficult to solve in general. In particular there is no known algorithm for computing discrete logs modulo <span class="process-math">\(p\)</span> whose runtime is polynomial in <span class="process-math">\(\log p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-12-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ss_diffie_hellman-12-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ss_diffie_hellman-12-2-1-3">
+<div class="para" id="ss_diffie_hellman-12-2-1-3-1">The discrete log problem can be solved efficiently if <span class="process-math">\(p-1\)</span> has small prime factors, thanks to the Pohlig-Hellman algorithm (an application of the CRT). Since <span class="process-math">\(p-1\)</span> is always even (for large primes), a Diffie-Hellman key exchange protocol should us a prime <span class="process-math">\(p\)</span> such that <span class="process-math">\(p-1=2q\text{,}\)</span> where <span class="process-math">\(q\)</span> is a large prime, or equivalently, <span class="process-math">\(p=2q+1\text{.}\)</span> Such primes are called <em class="emphasis">safe primes</em> in the cryptographic literature.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-12-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ss_diffie_hellman-12-2-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-12-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.19.8: Discrete log and Diffie-Hellman problems"><a href="#ss_diffie_hellman-12" title="Copy heading and permalink for Remark 1.19.8: Discrete log and Diffie-Hellman problems" aria-label="Copy heading and permalink for Remark 1.19.8: Discrete log and Diffie-Hellman problems">🔗</a></div>
+</article>
+<details id="sage_diffie_hellman" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Sage example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Diffie-Hellman implementation.</span>
-</h4></summary><article class="project project-like knowl__content"><div class="para" id="ss_diffie_hellman-8-2">Let’s implement the Diffie-Hellman key exchange protocol, taking some care to choose a large safe prime. We first create a list of primes of the form <span class="process-math">\(p=2q+1\)</span> of a largish size, where <span class="process-math">\(q\)</span> is prime.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<article class="project project-like knowl__content">
+<div class="para" id="sage_diffie_hellman-2">Let’s implement the Diffie-Hellman key exchange protocol, taking some care to choose a large safe prime. We first create a list of primes of the form <span class="process-math">\(p=2q+1\)</span> of a largish size, where <span class="process-math">\(q\)</span> is prime.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="ss_diffie_hellman-8-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def random_safe_primes(samples=10, qmax=2^90):
+<div id="sage_diffie_hellman-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def random_safe_primes(samples=10, qrange=2^90):
     found = []
     while len(found) < samples:
-        q = random_prime(2*qmax, lbound=qmax)   # random prime q in [2, qmax]
+        q = random_prime(2*qrange, lbound=qrange)   # random prime q in [2, qrange]
         p = 2*q + 1
         if is_prime(p):
             found.append((q, p))
     return found
-P=random_safe_primes(samples=10, qmax=2^90)
+P=random_safe_primes(samples=10, qrange=2^90)
 for q, p in P:
     print("q =", q, " p =", p)
 </script></div>
-<div class="para" id="ss_diffie_hellman-8-4">Next let’s perform a key exchange with one of these primes. We will do our arithmetic within <span class="process-math">\(\F_p\text{,}\)</span> as opposed to using congruences.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-8-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sage_diffie_hellman-4">Next let’s perform a key exchange with one of these primes. We will do our arithmetic within <span class="process-math">\(\F_p\text{,}\)</span> as opposed to using congruences.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="ss_diffie_hellman-8-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">p=P[0][1]
+<div id="sage_diffie_hellman-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">p=P[0][1]
 F=GF(p)  #Create the prime field of order p
 g=F.primitive_element()
-g.multiplicative_order()
-print((F,g,g.order()))
+print((F,g,g.multiplicative_order()))
 </script></div>
-<div class="para" id="ss_diffie_hellman-8-6">Now Alice and Bob will choose their random private exponents, exchange their computed powers, and compute the shared key.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-8-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sage_diffie_hellman-6">Now Alice and Bob will choose their random private exponents, exchange their computed powers, and compute the shared key.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="ss_diffie_hellman-8-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">a=randint(1,p-1)
+<div id="sage_diffie_hellman-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">a=randint(1,p-1)
 b=randint(1,p-1)
 A=g^a
 B=g^b
@@ -721,44 +733,53 @@ K=A^b
 print(A^b==B^a)
 print((A,B,K))
 </script></div>
-<div class="para" id="ss_diffie_hellman-8-8">Could Eve have determined <span class="process-math">\(K\)</span> by solving the discrete log problem in this case? Let’s see if Sage can do it. We try to use Sage’s built-in discrete log function <code class="code-inline tex2jax_ignore">generalised_log</code>.<div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-8-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sage_diffie_hellman-8">Could Eve have determined <span class="process-math">\(K\)</span> by solving the discrete log problem in this case? Let’s see if Sage can do it. We try to use Sage’s built-in discrete log function <code class="code-inline tex2jax_ignore">generalised_log</code>.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div id="ss_diffie_hellman-8-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">aprime=A.log()
+<div id="sage_diffie_hellman-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">aprime=A.log()
 print(aprime==a)
 print(B^aprime)
 print(B^aprime==K)
 </script></div>
-<div class="autopermalink" data-description="Sage example 9: Diffie-Hellman implementation"><a href="#ss_diffie_hellman-8" title="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation" aria-label="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.19.2: Diffie-Hellman key exchange"><a href="#ss_diffie_hellman" title="Copy heading and permalink for Subsection 1.19.2: Diffie-Hellman key exchange" aria-label="Copy heading and permalink for Subsection 1.19.2: Diffie-Hellman key exchange">🔗</a></div></section><section class="subsection" id="ss_elgamal"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Sage example 9: Diffie-Hellman implementation"><a href="#sage_diffie_hellman" title="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation" aria-label="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subsection 1.19.2: Diffie-Hellman key exchange"><a href="#ss_diffie_hellman" title="Copy heading and permalink for Subsection 1.19.2: Diffie-Hellman key exchange" aria-label="Copy heading and permalink for Subsection 1.19.2: Diffie-Hellman key exchange">🔗</a></div>
+</section>
+<section class="subsection" id="ss_elgamal">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Elgamal encryption</span>
 </h3>
 <article class="definition definition-like" id="d_elgamal"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Elgamal encryption.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Elgamal encryption.</span>
 </h4>
 <div class="para logical" id="d_elgamal-2-1">
 <div class="para">Bob wishes to send messages to Alice over an insecure channel. The <dfn class="terminology">Elgamal cryptosystem</dfn> accomplishes this as follows.</div>
 <ol class="decimal" id="d_elgamal-2-1-2">
 <li id="d_elgamal-2-1-2-1">
-<span class="heading li--heading"><span class="title li--heading-title">Public.</span></span><div class="para" id="d_elgamal-2-1-2-1-2">Alice publishes a large prime <span class="process-math">\(p\text{,}\)</span> a primitive root <span class="process-math">\(g\)</span> modulo <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Public.</span></span>
+<div class="para" id="d_elgamal-2-1-2-1-2">Alice publishes a large prime <span class="process-math">\(p\text{,}\)</span> a primitive root <span class="process-math">\(g\)</span> modulo <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 1: Public"><a href="#d_elgamal-2-1-2-1" title="Copy heading and permalink for Item 1: Public" aria-label="Copy heading and permalink for Item 1: Public">🔗</a></div>
 </li>
 <li id="d_elgamal-2-1-2-2">
-<span class="heading li--heading"><span class="title li--heading-title">Private.</span></span><div class="para" id="d_elgamal-2-1-2-2-2">Alice chooses a random integer exponent <span class="process-math">\(a\text{,}\)</span> and keeps this exponent private.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Private.</span></span>
+<div class="para" id="d_elgamal-2-1-2-2-2">Alice chooses a random integer exponent <span class="process-math">\(a\text{,}\)</span> and keeps this exponent private.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 2: Private"><a href="#d_elgamal-2-1-2-2" title="Copy heading and permalink for Item 2: Private" aria-label="Copy heading and permalink for Item 2: Private">🔗</a></div>
 </li>
 <li id="d_elgamal-2-1-2-3">
-<span class="heading li--heading"><span class="title li--heading-title">Public key.</span></span><div class="para" id="d_elgamal-2-1-2-3-2">Alice computes <span class="process-math">\(A=g^a\boldmod p\)</span> and publishes this value as her public key.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Public key.</span></span>
+<div class="para" id="d_elgamal-2-1-2-3-2">Alice computes <span class="process-math">\(A=g^a\boldmod p\)</span> and publishes this value as her public key.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 3: Public key"><a href="#d_elgamal-2-1-2-3" title="Copy heading and permalink for Item 3: Public key" aria-label="Copy heading and permalink for Item 3: Public key">🔗</a></div>
 </li>
 <li id="d_elgamal-2-1-2-4">
-<span class="heading li--heading"><span class="title li--heading-title">Encryption.</span></span><div class="para" id="d_elgamal-2-1-2-4-2">To encrypt a message <span class="process-math">\(m\in \{0,1,\dots, p-1\}\text{,}\)</span> Bob chooses a random integer <span class="process-math">\(k\text{,}\)</span> computes <span class="process-math">\(c_1=g^k\boldmod p\)</span> and <span class="process-math">\(c_2=m\cdot A^k\boldmod p\text{,}\)</span> and sends the ciphertext <span class="process-math">\((c_1, c_2)\)</span> to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Encryption.</span></span>
+<div class="para" id="d_elgamal-2-1-2-4-2">To encrypt a message <span class="process-math">\(m\in \{0,1,\dots, p-1\}\text{,}\)</span> Bob chooses a random integer <span class="process-math">\(k\text{,}\)</span> computes <span class="process-math">\(c_1=g^k\boldmod p\)</span> and <span class="process-math">\(c_2=m\cdot A^k\boldmod p\text{,}\)</span> and sends the ciphertext <span class="process-math">\((c_1, c_2)\)</span> to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 4: Encryption"><a href="#d_elgamal-2-1-2-4" title="Copy heading and permalink for Item 4: Encryption" aria-label="Copy heading and permalink for Item 4: Encryption">🔗</a></div>
 </li>
 <li id="d_elgamal-2-1-2-5">
-<span class="heading li--heading"><span class="title li--heading-title">Decryption.</span></span><div class="para logical" id="d_elgamal-2-1-2-5-2">
+<span class="heading li--heading"><span class="title li--heading-title">Decryption.</span></span>
+<div class="para logical" id="d_elgamal-2-1-2-5-2">
 <div class="para">To decrypt the message, Alice uses her private key <span class="process-math">\(a\)</span> to compute</div>
 <div class="displaymath process-math" id="d_elgamal-2-1-2-5-2-2">
 \begin{equation*}
@@ -772,7 +793,11 @@ m=c_1^{-a}c_2\boldmod p\text{.}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.19.7: Elgamal encryption"><a href="#d_elgamal" title="Copy heading and permalink for Definition 1.19.7: Elgamal encryption" aria-label="Copy heading and permalink for Definition 1.19.7: Elgamal encryption">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.19.3: Elgamal encryption"><a href="#ss_elgamal" title="Copy heading and permalink for Subsection 1.19.3: Elgamal encryption" aria-label="Copy heading and permalink for Subsection 1.19.3: Elgamal encryption">🔗</a></div></section><div class="autopermalink" data-description="Section 1.19: Public key cryptography"><a href="#s_public_key" title="Copy heading and permalink for Section 1.19: Public key cryptography" aria-label="Copy heading and permalink for Section 1.19: Public key cryptography">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Definition 1.19.9: Elgamal encryption"><a href="#d_elgamal" title="Copy heading and permalink for Definition 1.19.9: Elgamal encryption" aria-label="Copy heading and permalink for Definition 1.19.9: Elgamal encryption">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 1.19.3: Elgamal encryption"><a href="#ss_elgamal" title="Copy heading and permalink for Subsection 1.19.3: Elgamal encryption" aria-label="Copy heading and permalink for Subsection 1.19.3: Elgamal encryption">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 1.19: Public key cryptography"><a href="#s_public_key" title="Copy heading and permalink for Section 1.19: Public key cryptography" aria-label="Copy heading and permalink for Section 1.19: Public key cryptography">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="s_crypto.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="my-great-book-6.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
