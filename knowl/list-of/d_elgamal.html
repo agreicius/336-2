@@ -26,7 +26,7 @@
 <ol class="decimal" id="d_elgamal-2-1-2">
 <li>
 <span class="heading li--heading"><span class="title li--heading-title">Public.</span></span>
-<div class="para">Alice publishes a large prime <span class="process-math">\(p\text{,}\)</span> a primitive root <span class="process-math">\(g\)</span> modulo <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Alice publishes a large prime <span class="process-math">\(p\)</span> and a primitive root <span class="process-math">\(g\)</span> of <span class="process-math">\(\F_p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 1: Public"><a href="#d_elgamal-2-1-2-1" title="Copy heading and permalink for Item 1: Public" aria-label="Copy heading and permalink for Item 1: Public">🔗</a></div>
 </li>
@@ -38,13 +38,13 @@
 </li>
 <li>
 <span class="heading li--heading"><span class="title li--heading-title">Public key.</span></span>
-<div class="para">Alice computes <span class="process-math">\(A=g^a\boldmod p\)</span> and publishes this value as her public key.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Alice computes <span class="process-math">\(A=g^a\in \F_p^*\)</span> and publishes this value as her public key.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 3: Public key"><a href="#d_elgamal-2-1-2-3" title="Copy heading and permalink for Item 3: Public key" aria-label="Copy heading and permalink for Item 3: Public key">🔗</a></div>
 </li>
 <li>
 <span class="heading li--heading"><span class="title li--heading-title">Encryption.</span></span>
-<div class="para">To encrypt a message <span class="process-math">\(m\in \{0,1,\dots, p-1\}\text{,}\)</span> Bob chooses a random integer <span class="process-math">\(k\text{,}\)</span> computes <span class="process-math">\(c_1=g^k\boldmod p\)</span> and <span class="process-math">\(c_2=m\cdot A^k\boldmod p\text{,}\)</span> and sends the ciphertext <span class="process-math">\((c_1, c_2)\)</span> to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">To encrypt a message <span class="process-math">\(m\in \F_p\text{,}\)</span> Bob chooses a random integer <span class="process-math">\(k\text{,}\)</span> computes the elements <span class="process-math">\(c_1=g^k\)</span> and <span class="process-math">\(c_2=m\cdot A^k\)</span> in <span class="process-math">\(\F_p\)</span> , and sends the ciphertext <span class="process-math">\((c_1, c_2)\)</span> to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 4: Encryption"><a href="#d_elgamal-2-1-2-4" title="Copy heading and permalink for Item 4: Encryption" aria-label="Copy heading and permalink for Item 4: Encryption">🔗</a></div>
 </li>
@@ -53,9 +53,17 @@
 <div class="para logical">
 <div class="para">To decrypt the message, Alice uses her private key <span class="process-math">\(a\)</span> to compute</div>
 <div class="displaymath process-math">
-\begin{equation*}
-m=c_1^{-a}c_2\boldmod p\text{.}
-\end{equation*}
+\begin{gather*}
+c_1^{-a}c_2\text{.}
+\end{gather*}
+</div>
+<div class="para">To see that this is indeed <span class="process-math">\(m\text{,}\)</span> note that</div>
+<div class="displaymath process-math">
+\begin{align*}
+c_1^{-a}c_2 \amp = (g^k)^{-a}(m\cdot A^k)\\
+\amp = m\cdot g^{-ka}g^{ka}\\
+\amp = m\text{.}
+\end{align*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>

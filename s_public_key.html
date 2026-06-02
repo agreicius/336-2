@@ -456,7 +456,8 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <ul class="structural toc-item-list active">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_public_key.html#ss_public_key" class="internal"><span class="codenumber">1.19.1</span> <span class="title">Symmetric versus asymmetric cryptosystems</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_public_key.html#ss_diffie_hellman" class="internal"><span class="codenumber">1.19.2</span> <span class="title">Diffie-Hellman key exchange</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_public_key.html#ss_elgamal" class="internal"><span class="codenumber">1.19.3</span> <span class="title">Elgamal encryption</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_public_key.html#ss_encoding" class="internal"><span class="codenumber">1.19.3</span> <span class="title">Encoding to integers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="s_public_key.html#ss_elgamal" class="internal"><span class="codenumber">1.19.4</span> <span class="title">Elgamal encryption</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -565,7 +566,7 @@ E_{k} \amp = E_{k_{\priv}} \amp D_k\amp =D_{k_{\pub}}
 <ol class="decimal" id="d_diffie_hellman-2-1-2">
 <li id="d_diffie_hellman-2-1-2-1">
 <span class="heading li--heading"><span class="title li--heading-title">Public.</span></span>
-<div class="para" id="d_diffie_hellman-2-1-2-1-2">Alice and Bob agree publicly on a prime <span class="process-math">\(p\)</span> and a primitive root <span class="process-math">\(g\in \F_p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="d_diffie_hellman-2-1-2-1-2">Alice and Bob agree publicly on a prime <span class="process-math">\(p\)</span> and a primitive root <span class="process-math">\(g\)</span> of <span class="process-math">\(\F_p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 1: Public"><a href="#d_diffie_hellman-2-1-2-1" title="Copy heading and permalink for Item 1: Public" aria-label="Copy heading and permalink for Item 1: Public">🔗</a></div>
 </li>
@@ -593,7 +594,7 @@ B^a=(g^b)^a=g^{ab}=(g^a)^b=A^b\text{,}
 <div class="para">Alice and Bob are now in possession of a shared key</div>
 <div class="displaymath process-math" id="d_diffie_hellman-2-1-2-4-2-6">
 \begin{equation*}
-k=g^{ab}\in \F_p^*\text{.}
+k=g^{ab}\text{.}
 \end{equation*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -684,7 +685,7 @@ k= n^{ab}\boldmod p= B^a\boldmod p= A^b\boldmod p\text{.}
 <div class="autopermalink" data-description="Item 1"><a href="#ss_diffie_hellman-12-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
 </li>
 <li id="ss_diffie_hellman-12-2-1-2">
-<div class="para" id="ss_diffie_hellman-12-2-1-2-1">The disrete log problem for general prime <span class="process-math">\(p\)</span> is considered to be difficult to solve in general. In particular there is no known algorithm for computing discrete logs modulo <span class="process-math">\(p\)</span> whose runtime is polynomial in <span class="process-math">\(\log p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-12-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ss_diffie_hellman-12-2-1-2-1">The discrete log problem for general prime <span class="process-math">\(p\)</span> is considered to be difficult to solve in general. In particular there is no known algorithm for computing discrete logs modulo <span class="process-math">\(p\)</span> whose runtime is polynomial in <span class="process-math">\(\log p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_diffie_hellman-12-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 2"><a href="#ss_diffie_hellman-12-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
 </li>
@@ -733,20 +734,65 @@ K=A^b
 print(A^b==B^a)
 print((A,B,K))
 </script></div>
-<div class="para" id="sage_diffie_hellman-8">Could Eve have determined <span class="process-math">\(K\)</span> by solving the discrete log problem in this case? Let’s see if Sage can do it. We try to use Sage’s built-in discrete log function <code class="code-inline tex2jax_ignore">generalised_log</code>.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sage_diffie_hellman-8">Could Eve have determined <span class="process-math">\(K\)</span> by solving the discrete log problem in this case? Let’s see if Sage can do it. We try to use Sage’s built-in discrete log function <code class="code-inline tex2jax_ignore">log()</code>.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="sage_diffie_hellman-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">aprime=A.log()
 print(aprime==a)
 print(B^aprime)
 print(B^aprime==K)
 </script></div>
+<div class="para" id="sage_diffie_hellman-10">It appears that primes <span class="process-math">\(p\)</span> in the range <span class="process-math">\([2^{90},2^{91}]\)</span> do not give rise to secure Diffie-Hellman key exchanges. See what happens when you replace <code class="code-inline tex2jax_ignore">qrange=2^90</code> with <code class="code-inline tex2jax_ignore">qrange=2^100</code>, <code class="code-inline tex2jax_ignore">qrange=2^110</code>, etc.. You will see that the Sage discrete log function <code class="code-inline tex2jax_ignore">log()</code> running on a Sage finite field <code class="code-inline tex2jax_ignore">GF(p)</code> quickly reaches its limitations.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="autopermalink" data-description="Sage example 9: Diffie-Hellman implementation"><a href="#sage_diffie_hellman" title="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation" aria-label="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation">🔗</a></div>
 </article></details><div class="autopermalink" data-description="Subsection 1.19.2: Diffie-Hellman key exchange"><a href="#ss_diffie_hellman" title="Copy heading and permalink for Subsection 1.19.2: Diffie-Hellman key exchange" aria-label="Copy heading and permalink for Subsection 1.19.2: Diffie-Hellman key exchange">🔗</a></div>
 </section>
+<section class="subsection" id="ss_encoding">
+<h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Encoding to integers</span>
+</h3>
+<div class="para" id="ss_encoding-2">Below we discuss two public key cryptosystems, Elgamal and RSA. Both systems use as their plaintext and ciphertext spaces a modular ring <span class="process-math">\(\Z/n\Z\)</span> for some integer <span class="process-math">\(n\)</span> (or <span class="process-math">\(\{0,1,\dots, n-1\}\)</span> if you prefer to work with integers). In other words the plaintexts that are encrypted and decrypted are themselves just congruence classes <span class="process-math">\([a]_n\in \Z/n\Z\text{.}\)</span> This might seem somewhat limiting. What’s the use of communicating integer messages to one another? Isn’t a string of characters a more natural thing to communicate? Indeed, it is, but we can easily <em class="emphasis">encode</em> strings of characters as integers.<div class="autopermalink" data-description="Paragraph"><a href="#ss_encoding-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ss_encoding-3">For example, the ASCII system assigns to each integer <span class="process-math">\(m\in \{0,1,\dots, 127\}\)</span> a character. The Sage commands <code class="code-inline tex2jax_ignore">chr()</code> and <code class="code-inline tex2jax_ignore">ord()</code> convert integers in this range to characters, and inversely. The first 32 integers of the ASCII range are reserved for non-printing control characters with string literals like <code class="code-inline tex2jax_ignore">\n</code> (newline) and <code class="code-inline tex2jax_ignore">\t</code> (tab).<div class="autopermalink" data-description="Paragraph"><a href="#ss_encoding-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_encoding-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">for i in range(128):
+    print(i,chr(i), repr(chr(i)))
+</script></div>
+<div id="ss_encoding-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">s="q@37YUIinb:,? }]a+f"
+t=[ord(c) for c in s]
+print(s)
+print(t)
+print([chr(x) for x in t])
+</script></div>
+<div class="para logical" id="ss_encoding-6">
+<div class="para">The ASCII functions give us a way to encode individual characters as integers lying in <span class="process-math">\(\{0,1,\dots, 127\}\text{.}\)</span> To encode an entire string of characters <span class="process-math">\(s=a_0a_1\cdots a_{k}\)</span> as an integer, we can convert each character <span class="process-math">\(a_i\)</span> to its ASCII integer <span class="process-math">\(t_i\text{,}\)</span> and then assign to the string <span class="process-math">\(s\)</span> the integer <span class="process-math">\(a\)</span> with base-128 expansion <span class="process-math">\((t_0t_1t_2\cdots t_{k})\text{:}\)</span> i.e., we set</div>
+<div class="displaymath process-math" id="ss_encoding-6-9">
+\begin{align}
+a \amp = t_0\, 128^{k}+t_1\, 128^{k-1}+\cdots+t_k\text{.}\tag{1.19.1}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ss_encoding-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="ss_encoding-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def str2int(s):
+    return sum(ord(c)*256^i for i, c in enumerate(s))
+def int2str(n):
+    s = ""
+    while n >  0:
+        s += chr(n % 256)
+        n //= 256
+    return s
+s="Ooh, look, a string! What number will I be?"
+print(s)
+print(str2int(s))
+print(int2str(str2int(s)))
+</script></div>
+<div class="autopermalink" data-description="Subsection 1.19.3: Encoding to integers"><a href="#ss_encoding" title="Copy heading and permalink for Subsection 1.19.3: Encoding to integers" aria-label="Copy heading and permalink for Subsection 1.19.3: Encoding to integers">🔗</a></div>
+</section>
 <section class="subsection" id="ss_elgamal">
 <h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Elgamal encryption</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Elgamal encryption</span>
 </h3>
+<div class="para" id="ss_elgamal-2">Before getting to our first example of a publiv key cryptosystem, we first observe that our plaintext space<div class="autopermalink" data-description="Paragraph"><a href="#ss_elgamal-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="definition definition-like" id="d_elgamal"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Elgamal encryption.</span>
 </h4>
@@ -755,7 +801,7 @@ print(B^aprime==K)
 <ol class="decimal" id="d_elgamal-2-1-2">
 <li id="d_elgamal-2-1-2-1">
 <span class="heading li--heading"><span class="title li--heading-title">Public.</span></span>
-<div class="para" id="d_elgamal-2-1-2-1-2">Alice publishes a large prime <span class="process-math">\(p\text{,}\)</span> a primitive root <span class="process-math">\(g\)</span> modulo <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="d_elgamal-2-1-2-1-2">Alice publishes a large prime <span class="process-math">\(p\)</span> and a primitive root <span class="process-math">\(g\)</span> of <span class="process-math">\(\F_p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 1: Public"><a href="#d_elgamal-2-1-2-1" title="Copy heading and permalink for Item 1: Public" aria-label="Copy heading and permalink for Item 1: Public">🔗</a></div>
 </li>
@@ -767,13 +813,13 @@ print(B^aprime==K)
 </li>
 <li id="d_elgamal-2-1-2-3">
 <span class="heading li--heading"><span class="title li--heading-title">Public key.</span></span>
-<div class="para" id="d_elgamal-2-1-2-3-2">Alice computes <span class="process-math">\(A=g^a\boldmod p\)</span> and publishes this value as her public key.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="d_elgamal-2-1-2-3-2">Alice computes <span class="process-math">\(A=g^a\in \F_p^*\)</span> and publishes this value as her public key.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 3: Public key"><a href="#d_elgamal-2-1-2-3" title="Copy heading and permalink for Item 3: Public key" aria-label="Copy heading and permalink for Item 3: Public key">🔗</a></div>
 </li>
 <li id="d_elgamal-2-1-2-4">
 <span class="heading li--heading"><span class="title li--heading-title">Encryption.</span></span>
-<div class="para" id="d_elgamal-2-1-2-4-2">To encrypt a message <span class="process-math">\(m\in \{0,1,\dots, p-1\}\text{,}\)</span> Bob chooses a random integer <span class="process-math">\(k\text{,}\)</span> computes <span class="process-math">\(c_1=g^k\boldmod p\)</span> and <span class="process-math">\(c_2=m\cdot A^k\boldmod p\text{,}\)</span> and sends the ciphertext <span class="process-math">\((c_1, c_2)\)</span> to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="d_elgamal-2-1-2-4-2">To encrypt a message <span class="process-math">\(m\in \F_p\text{,}\)</span> Bob chooses a random integer <span class="process-math">\(k\text{,}\)</span> computes the elements <span class="process-math">\(c_1=g^k\)</span> and <span class="process-math">\(c_2=m\cdot A^k\)</span> in <span class="process-math">\(\F_p\)</span> , and sends the ciphertext <span class="process-math">\((c_1, c_2)\)</span> to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 4: Encryption"><a href="#d_elgamal-2-1-2-4" title="Copy heading and permalink for Item 4: Encryption" aria-label="Copy heading and permalink for Item 4: Encryption">🔗</a></div>
 </li>
@@ -782,9 +828,17 @@ print(B^aprime==K)
 <div class="para logical" id="d_elgamal-2-1-2-5-2">
 <div class="para">To decrypt the message, Alice uses her private key <span class="process-math">\(a\)</span> to compute</div>
 <div class="displaymath process-math" id="d_elgamal-2-1-2-5-2-2">
-\begin{equation*}
-m=c_1^{-a}c_2\boldmod p\text{.}
-\end{equation*}
+\begin{gather*}
+c_1^{-a}c_2\text{.}
+\end{gather*}
+</div>
+<div class="para">To see that this is indeed <span class="process-math">\(m\text{,}\)</span> note that</div>
+<div class="displaymath process-math" id="d_elgamal-2-1-2-5-2-4">
+\begin{align*}
+c_1^{-a}c_2 \amp = (g^k)^{-a}(m\cdot A^k)\\
+\amp = m\cdot g^{-ka}g^{ka}\\
+\amp = m\text{.}
+\end{align*}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1-2-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -794,7 +848,7 @@ m=c_1^{-a}c_2\boldmod p\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#d_elgamal-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 1.19.9: Elgamal encryption"><a href="#d_elgamal" title="Copy heading and permalink for Definition 1.19.9: Elgamal encryption" aria-label="Copy heading and permalink for Definition 1.19.9: Elgamal encryption">🔗</a></div>
-</article><div class="autopermalink" data-description="Subsection 1.19.3: Elgamal encryption"><a href="#ss_elgamal" title="Copy heading and permalink for Subsection 1.19.3: Elgamal encryption" aria-label="Copy heading and permalink for Subsection 1.19.3: Elgamal encryption">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 1.19.4: Elgamal encryption"><a href="#ss_elgamal" title="Copy heading and permalink for Subsection 1.19.4: Elgamal encryption" aria-label="Copy heading and permalink for Subsection 1.19.4: Elgamal encryption">🔗</a></div>
 </section><div class="autopermalink" data-description="Section 1.19: Public key cryptography"><a href="#s_public_key" title="Copy heading and permalink for Section 1.19: Public key cryptography" aria-label="Copy heading and permalink for Section 1.19: Public key cryptography">🔗</a></div>
 </section>
 </div>

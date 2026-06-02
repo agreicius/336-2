@@ -65,13 +65,15 @@ K=A^b
 print(A^b==B^a)
 print((A,B,K))
 </script></div>
-<div class="para">Could Eve have determined <span class="process-math">\(K\)</span> by solving the discrete log problem in this case? Let’s see if Sage can do it. We try to use Sage’s built-in discrete log function <code class="code-inline tex2jax_ignore">generalised_log</code>.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Could Eve have determined <span class="process-math">\(K\)</span> by solving the discrete log problem in this case? Let’s see if Sage can do it. We try to use Sage’s built-in discrete log function <code class="code-inline tex2jax_ignore">log()</code>.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="sage_diffie_hellman-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">aprime=A.log()
 print(aprime==a)
 print(B^aprime)
 print(B^aprime==K)
 </script></div>
+<div class="para">It appears that primes <span class="process-math">\(p\)</span> in the range <span class="process-math">\([2^{90},2^{91}]\)</span> do not give rise to secure Diffie-Hellman key exchanges. See what happens when you replace <code class="code-inline tex2jax_ignore">qrange=2^90</code> with <code class="code-inline tex2jax_ignore">qrange=2^100</code>, <code class="code-inline tex2jax_ignore">qrange=2^110</code>, etc.. You will see that the Sage discrete log function <code class="code-inline tex2jax_ignore">log()</code> running on a Sage finite field <code class="code-inline tex2jax_ignore">GF(p)</code> quickly reaches its limitations.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="autopermalink" data-description="Sage example 9: Diffie-Hellman implementation"><a href="#sage_diffie_hellman" title="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation" aria-label="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation">🔗</a></div>
 </article><span class="incontext"><a class="internal" href="s_public_key.html#sage_diffie_hellman">In Context</a></span>
 </body>
