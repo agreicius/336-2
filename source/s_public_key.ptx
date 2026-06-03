@@ -290,7 +290,7 @@ For example, the ASCII system assigns to each integer <m>m\in \{0,1,\dots, 127\}
 </p>
 <sage>
     <input>
-        for i in range(128):
+        for i in range(256):
             print(i,chr(i), repr(chr(i)))
     </input>
     <output>
@@ -310,9 +310,9 @@ print([chr(x) for x in t])
     </output>
 </sage>
 <p>
-    The ASCII functions give us a way to encode individual characters as integers lying in <m>\{0,1,\dots, 127\}</m>. To encode an entire string of characters <m>s=a_0a_1\cdots a_{k}</m> as an integer, we can convert each character <m>a_i</m> to its ASCII integer <m>t_i</m>, and then assign to the string <m>s</m> the integer <m>a</m> with base-128 expansion <m>(t_0t_1t_2\cdots t_{k})</m>: <ie/>, we set 
+    The ASCII functions give us a way to encode individual characters as integers lying in <m>\{0,1,\dots, 255\}</m>. To encode an entire string of characters <m>s=a_0a_1\cdots a_{k}</m> as an integer, we can convert each character <m>a_i</m> to its ASCII integer <m>t_i</m>, and then assign to the string <m>s</m> the integer <m>a</m> with base-256 expansion <m>(t_0t_1t_2\cdots t_{k})</m>: <ie/>, we set 
     <md number="yes">
-        <mrow>a \amp = t_0\, 128^{k}+t_1\, 128^{k-1}+\cdots+t_k</mrow>
+        <mrow>a \amp = t_0\, 256^{k}+t_1\, 256^{k-1}+\cdots+t_{k-1}256+t_k</mrow>
     </md>.
 </p>
 <sage>
@@ -338,7 +338,7 @@ print(int2str(str2int(s)))
 <subsection xml:id="ss_elgamal">
 <title>Elgamal encryption</title>
 <p>
-Before getting to our first example of a publiv key cryptosystem, we first observe that our plaintext space 
+The Elgamal public key cryptosystem was first described in a 1985 paper by Taher Elgamal titled <em>A public key cryptosystem and a signature scheme based on discrete logarithms</em>. Although chronilogically more recent than the RSA cryptosystem, we treat it first for its obvious connection to the Diffie-Hellman key exchange. 
 </p>
 <definition xml:id="d_elgamal">
 <title>Elgamal encryption</title>
@@ -391,6 +391,95 @@ Bob wishes to send messages to Alice over an insecure channel. The <term>Elgamal
 </p>
 </statement>
 </definition>
+<project xml:id="sage_elgamal">
+<title>Elgamal encryption and decryption</title>
+<statement>
+<p>
+Below you find the relevant Sage functions for Elgamal encryption and decryption. We'e included our <c>str2int()</c> and <c>int2str</c> functions discussed in <xref ref="ss_encoding"/>. Coding-wise, it is slighly more convenient here to work with integers, as opposed to congruence classes. You will notice that we use <c>power_mod(g,k,p)</c> which is a fast modular exponentiation function to compute <m>g^k\boldmod p</m>. Encoding-wise, we are using a smaller character set so that our messages encode to integers that are smaller than our prime <m>p</m>. 
+</p>
+<sage>
+    <input>
+charset="abcdefghijklmnopqrstuvwxyz., "
+AlphNum={c:i for i, c in enumerate(charset)}
+NumAlph={v:k for k, v in AlphNum.items()}
+def str2int(s):
+    return sum(AlphNum[c]*29^i for i, c in enumerate(s))
+def int2str(n):
+    s = ""
+    while n >  0:
+        s += NumAlph[n % 29]
+        n //= 29
+    return s
+def elgam_enc(n,p,g,A):
+    k=randint(2,p-1)
+    c1=power_mod(g,k,p)
+    c2=(n*power_mod(A,k,p))%p
+    return [c1,c2]
+def elgam_dec(c,p,a):
+    return (power_mod(c[0],-a,p)*c[1])%p
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    Now we will have Alice set up a public key <m>(p,g,A)</m>. As with the Diffie-Hellman key exchange, Alice will choose a large safe prime <m>p=2q+1</m>, with <m>q</m> prime. 
+</p>
+<sage>
+    <input>
+while True:
+    p=2*random_prime(2^300,2^301)+1
+    if is_prime(p):
+        break
+print(p)
+print(is_prime(p))
+print(is_prime((p-1)//2))  
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    Now Alice creates the rest of her public key, keeping her integer exponent <m>a</m> private. 
+</p>
+<sage>
+    <input>
+        g=primitive_root(p)
+        a=randint(2,p-1)
+        A=power_mod(g,a,p)
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    Bob now encodes a message as an integer and encrypts it using the Elgamal public key <m>(p,g,A)</m>.
+</p>
+<sage>
+    <input>
+        s="i have as of late, wherefore i know not, lost all my mirth."
+        m=str2int(s)
+        c=elgam_enc(m,p,g,A)
+        print(c)
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    And now Alice decrypts the message using her private key <m>a</m>, making sure to convert the resulting integer back to a string. 
+</p>
+<sage>
+    <input>
+    n=elgam_dec(c,p,a)
+    print(int2str(n))
+    </input>
+    <output>
+        
+    </output>
+</sage>
+</statement>
+</project>
 
 
 </subsection>
