@@ -1069,6 +1069,81 @@ x\amp\equiv p\pmod q \text{,}
 <div class="para" id="ss_rsa_enc-6-4">It is generally believed that there is no efficient algorithm for factoring large integers that can be implemented on a classical computer, and thus that RSA is secure against this most obvious of attacks. There is however an efficient method for factoring large integers, <em class="emphasis">Shor’s algorithm</em>, that can be implemented on a quantum computer. This means that if a sufficiently powerful quantum computer can be built, then RSA will no longer be secure. This is one the main motivations behind research into so-called <em class="emphasis">post-quantum</em> cryptosystems.<div class="autopermalink" data-description="Paragraph"><a href="#ss_rsa_enc-6-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Remark 1.19.12: Computational problems related to RSA"><a href="#ss_rsa_enc-6" title="Copy heading and permalink for Remark 1.19.12: Computational problems related to RSA" aria-label="Copy heading and permalink for Remark 1.19.12: Computational problems related to RSA">🔗</a></div>
+</article>
+<div class="para" id="ss_rsa_enc-7">Let’s begin with a small RSA example, just to remind ourselves of some of the number theoretic algorithms at work.<div class="autopermalink" data-description="Paragraph"><a href="#ss_rsa_enc-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg_RSA_toy"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">RSA: toy example.</span>
+</h4>
+<div class="para" id="eg_RSA_toy-2-1">Encode, and then decode the integer message <span class="process-math">\(m=50\)</span> using the RSA public key <span class="process-math">\((N,e)=(77,7)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg_RSA_toy-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="eg_RSA_toy-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="eg_RSA_toy-3-1">
+<div class="para">Note that we have expressed things in terms of integers, as opposed to congruence classes. To encode, we must compute <span class="process-math">\(c=50^7\boldmod{77}\text{.}\)</span> This will give us a chance to illustrate the idea behind fast modular exponentiation. Writing <span class="process-math">\(7=2^2+2^1+1\)</span> we see that we can compute <span class="process-math">\(50^7\boldmod{77}\)</span> as</div>
+<div class="displaymath process-math" id="eg_RSA_toy-3-1-4">
+\begin{align*}
+50^7\amp \equiv 50\cdot (50^2)\cdot (50^2)^2\pmod{77}\\
+\amp \equiv 50\cdot 2500\cdot 2500^2\pmod{77}\\
+\amp \equiv 50\cdot 36\cdot 36^2\pmod{77}\\
+\amp \equiv 50\cdot 36\cdot 64 \pmod{77} \\
+\amp \equiv 29\cdot (-13)\pmod{77} \\
+\amp \equiv 8\pmod{77} \text{.}
+\end{align*}
+</div>
+<div class="para">Thus the encoded ciphertext is <span class="process-math">\(c=8\text{.}\)</span> Note that, knowing that <span class="process-math">\(77=7\cdot 11\text{,}\)</span> we could have made our life even easier by computing <span class="process-math">\(50^7\boldmod 7=1\)</span> and <span class="process-math">\(50^7\boldmod{11}=8\text{,}\)</span> and then using the CRT to conclude <span class="process-math">\(50^7\boldmod{77}=8\text{.}\)</span> However, in the RSA setting this technique should not be available to an encryprter, since they should not know the factorization of <span class="process-math">\(N\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_RSA_toy-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="eg_RSA_toy-3-2">
+<div class="para">To decode, we must find a multiplicateive inverse of <span class="process-math">\(e=7\)</span> modulo</div>
+<div class="displaymath process-math" id="eg_RSA_toy-3-2-2">
+\begin{equation*}
+\phi(N)=6\cdot 10=60\text{.}
+\end{equation*}
+</div>
+<div class="para">The most direct way to do this is by applying the extended Euclidean algorithm to the pair <span class="process-math">\((7,60)\text{.}\)</span> Since</div>
+<div class="displaymath process-math" id="eg_RSA_toy-3-2-4">
+\begin{align*}
+60\amp= 8\cdot 7+4 \\
+7\amp= 1\cdot 4+3 \\
+4\amp= 1\cdot 3+1 \text{,}
+\end{align*}
+</div>
+<div class="para">we see that</div>
+<div class="displaymath process-math" id="eg_RSA_toy-3-2-5">
+\begin{equation*}
+1=4-3=4-(7-4)=2(60-8\cdot 7)-7=-17\cdot 7+2\cdot 60\text{,}
+\end{equation*}
+</div>
+<div class="para">and thus <span class="process-math">\((-17)7\equiv 1\pmod{\phi(N)}\text{.}\)</span> Thus we can choose any <span class="process-math">\(d\)</span> in the congruence class <span class="process-math">\([-17]_{60}\)</span> as our private key. To decode the ciphertext <span class="process-math">\(c=8\text{,}\)</span> we must compute <span class="process-math">\(8^{-17}\pmod{77}\text{.}\)</span> Sage can do this computation for us with no difficulties.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_RSA_toy-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div id="eg_RSA_toy-3-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">8^(-17)%77
+</script></div>
+<div class="para logical" id="eg_RSA_toy-3-4">
+<div class="para">To compute this by hand, we could use fast modular exponentiation again, writing <span class="process-math">\(-17=-(2^{4}+1)\text{.}\)</span> Alternatively, we can compute</div>
+<div class="displaymath process-math" id="eg_RSA_toy-3-4-2">
+\begin{align*}
+8^{-17} \amp \equiv 1^{-17}\equiv 1\pmod 7\\
+8^{-17} \amp \equiv 8^{3}\pmod{11} \amp (-17\equiv 3 \pmod{10})\\
+\amp \equiv 6\pmod{11}\text{,}
+\end{align*}
+</div>
+<div class="para">and conclude by the CRT that <span class="process-math">\(8^{-17}\equiv 50\pmod{77}\text{.}\)</span> Thus</div>
+<div class="displaymath process-math" id="eg_RSA_toy-3-4-4">
+\begin{equation*}
+c^{-17}\boldmod{77}=50\text{,}
+\end{equation*}
+</div>
+<div class="para">as expected.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg_RSA_toy-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.19.13.1"><a href="#eg_RSA_toy-3" title="Copy heading and permalink for Solution 1.19.13.1" aria-label="Copy heading and permalink for Solution 1.19.13.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 1.19.13: RSA: toy example"><a href="#eg_RSA_toy" title="Copy heading and permalink for Example 1.19.13: RSA: toy example" aria-label="Copy heading and permalink for Example 1.19.13: RSA: toy example">🔗</a></div>
 </article><div class="autopermalink" data-description="Subsection 1.19.5: RSA Encryption"><a href="#ss_rsa_enc" title="Copy heading and permalink for Subsection 1.19.5: RSA Encryption" aria-label="Copy heading and permalink for Subsection 1.19.5: RSA Encryption">🔗</a></div>
 </section><div class="autopermalink" data-description="Section 1.19: Public key cryptography"><a href="#s_public_key" title="Copy heading and permalink for Section 1.19: Public key cryptography" aria-label="Copy heading and permalink for Section 1.19: Public key cryptography">🔗</a></div>
 </section>
