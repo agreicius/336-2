@@ -377,13 +377,7 @@ Bob wishes to send messages to Alice over an insecure channel. The <term>Elgamal
         <p>
             To decrypt the message, Alice uses her private key <m>a</m> to compute 
             <md>
-                <mrow>c_1^{-a}c_2</mrow>
-            </md>.
-            To see that this is indeed <m>m</m>, note that 
-            <md>
-            <mrow>c_1^{-a}c_2 \amp = (g^k)^{-a}(m\cdot A^k)</mrow>
-            <mrow> \amp = m\cdot g^{-ka}g^{ka}</mrow>
-            <mrow> \amp = m</mrow>
+                <mrow>m=c_1^{-a}c_2</mrow>
             </md>.
         </p>
     </li>
@@ -391,6 +385,21 @@ Bob wishes to send messages to Alice over an insecure channel. The <term>Elgamal
 </p>
 </statement>
 </definition>
+<proof>
+    <title>Proof of correctness of Elgamal</title>
+    <p>
+        With notation as in <xref ref="d_elgamal"/>, it is easy to see that
+        <m>
+            m=c_1^{-a}c_2
+        </m>.
+         Indeed, we have 
+            <md>
+            <mrow>c_1^{-a}c_2 \amp = (g^k)^{-a}(m\cdot A^k)</mrow>
+            <mrow> \amp = m\cdot g^{-ka}g^{ka}</mrow>
+            <mrow> \amp = m</mrow>
+            </md>.
+    </p>
+</proof>
 <project xml:id="sage_elgamal">
 <title>Elgamal encryption and decryption</title>
 <statement>
@@ -423,7 +432,7 @@ def elgam_dec(c,p,a):
     </output>
 </sage>
 <p>
-    Now we will have Alice set up a public key <m>(p,g,A)</m>. As with the Diffie-Hellman key exchange, Alice will choose a large safe prime <m>p=2q+1</m>, with <m>q</m> prime. 
+    Now we will have Alice set up a public key <m>(p,g,A)</m>. As with the Diffie-Hellman key exchange, Alice will choose a large safe prime <m>p=2q+1</m>, with <m>q</m> prime. We are going for a prime in the range <m>[2^{300}, 2^{301}]</m> here. You will notice that Sage has to do some work here, but it will eventually return a prime. 
 </p>
 <sage>
     <input>
@@ -483,5 +492,144 @@ print(is_prime((p-1)//2))
 
 
 </subsection>
+<subsection xml:id="ss_rsa_enc">
+<title>RSA Encryption</title>
+<p>
+The RSA public key cryptosystem predates Elgamal.  Its name is derived from the last names of its co-creators Ron Rivest, Adi Shamir, and Leonard Adleman, who published a description of the cryptosystem in their 1977 paper <em>A method for obtaining digital signatures and public-key cryptosystems</em>. Our discussion of public key cryptosystems began with the later system Elgamal (1985) mainly because of its close connection to the Diffie-Hellman key exchange and the discrete log problem. In contrast, the security of RSA, as we will soon see, is connected with the problem of factoring large integers. 
+</p>
+<definition xml:id="d_rsa">
+<title>RSA encryption</title>
+<statement>
+<p>
+Bob wishes to send messages to Alice over an insecure channel. The <term>RSA cryptosystem</term> accomplishes this as follows.
+<ol>
+    <li>
+        <title>Private</title>
+        <p>
+            Alice chooses two distinct primes <m>p</m> and <m>q</m> that she keeps private. 
+        </p>
+    </li>
+    <li>
+        <title>Public key</title>
+        <p>
+        Alice publishes her <term>RSA modulus</term> <m>N=pq</m> and an integer <m>e</m> such that <m>\gcd(e,\phi(N))=1</m>. The public key is thus the pair <m>(N,e)</m>. 
+        </p>
+    </li>
+    <li>
+        <title>Private key</title>
+        <p>
+            Alice computes an integer <m>d</m> such that <m>ed\equiv 1\pmod{\phi(N)}</m>. She is able to do this efficiently, since she knows <m>N=pq</m>, can thus easily compute 
+            <md number="yes">
+                <mrow>\phi(N) \amp =(p-1)(q-1)</mrow>
+            </md>,
+            and then use the extended Euclidean algorithm to find a multiplicative inverse of <m>e</m> modulo <m>\phi(N)</m>. 
+        </p>
+        <p>
+            The integer <m>d</m> is Alice's private key. 
+        </p>
+    </li>
+    <li>
+        <title>Encryption</title>
+        <p>
+            To encrypt a message <m>m\in \Z/N\Z</m>, Bob computes the ciphertext <m>c=m^e\in \Z/N\Z</m> and sends this to Alice.
+        </p>
+    </li>
+    <li>
+        <title>Decryption</title>
+        <p>
+            To decrypt the message, Alice uses her private key <m>d</m> to compute 
+            <md>
+                <mrow>m=c^d\in \Z/N\Z</mrow>
+            </md>.
+        </p>
+    </li>
+</ol>
+</p>
+</statement>
+</definition>
+<proof>
+    <title>Proof of correctness of RSA</title>
+    <p>
+        With notation as in <xref ref="d_rsa"/>, we will show that given <m>m\in \Z/N\Z</m> and <m>c=m^e</m>, we have 
+    <md>
+        c^d=m^{ed}=m
+    </md>.
+    We are tempted to apply Euler's theorem (<m>a^{\phi(N)}=1</m> for all <m>a\in (\Z/N\Z)^*)</m> as follows: write <m>ed=1+k\phi(N)</m> for some integer <m>k</m>, and then compute
+    <md>
+        <mrow>m^{ed} \amp = m(m^{\phi(N)})^k</mrow>
+        <mrow> \amp = m(1)^k=m </mrow>
+    </md>.
+    The only issue here is that the plaintext <m>m</m> is not necessarily an element of <m>(\Z/N\Z)^*</m>. Since <m>N=pq</m>, however, the only exceptions we need to deal with are <m>m=0=[0]_N</m>,<m>m=[p]_N</m>, and <m>m=[q]_N</m>. It is clear that <m>m=m^{ed}</m> when <m>m=0</m>. For the other two cases, we use the CRT and Fermat's little theorem. Assume that <m>m=[p]_N</m>. We have 
+    <md>
+        <mrow> p^{ed}\amp\equiv 0\pmod p </mrow>
+        <mrow>p^{ed}\amp \equiv p^{1+k(q-1)(p-1)}\equiv p(p^{q-1})^{k(p-1)}\equiv p\pmod q</mrow>
+    </md>,
+    where we have used Fermat's little theorem in the second congruence to conclude <m>p^{q-1}\equiv 1\pmod q</m>. Since the integers <m>p^{ed}</m> and <m>p</m> both solve the system of congruences 
+    <md number="no">
+        <mrow> x\amp\equiv 0\pmod p </mrow>
+        <mrow> x\amp\equiv p\pmod q </mrow>
+    </md>,
+    we conclude by the uniqueness claim of the CRT that <m>p^{ed}\equiv p\pmod N</m> and hence that <m>m^{ed}=m</m>. The case where <m>m=[q]_N</m> is exactly similar. 
+    </p>
+</proof>
+<remark>
+<title>RSA encryption and decryption</title>
+<p>
+Let's look at all of the ingredients of RSA to make sure all the required computations can be done efficiently. 
+<ul>
+    <li>
+        <p>
+            Since encryption and decryption are both instances of modular exponentiation, both can be done reasonably quickly even for large <m>N</m>, <m>e</m>, and <m>d</m> using fast modular exponentiation. 
+        </p>
+    </li>
+    <li>
+        <p>
+            Since Alice knows <m>p</m> and <m>q</m>, she can easily compute <m>\phi(N)=(p-1)(q-1)</m>. Once this is known, she can use the Euclidean algorithm (which is reasonably fast) to find an integer <m>e</m> with <m>\gcd(e,\phi(N))=1</m> and its multiplicative inverse <m>d</m> modulo <m>\phi(N)</m>. 
+        </p>
+    </li>
+</ul>
+</p>
+</remark>
+<remark>
+<title>Computational problems related to RSA</title>
+<p>
+The most obvious threat to RSA is the ability to factor <m>N</m>. If Eve can find the factorization <m>N=pq</m>, then just like Alice, she can easily compute <m>\phi(N)=(p-1)(q-1)</m> and the private key <m>d</m>. 
+As with our discussion of the security of the Diffie-Hellman key exchange, it is useul to identify a number of computational problems related to RSA. 
+<ul>
+    <li>
+        <title>RSA problem</title>
+        <p>
+            Given RSA modulus <m>N</m> and exponent <m>e</m>, and ciphertext <m>c=m^e</m>, compute <m>m</m>.  
+        </p>
+    </li>
+    <li>
+        <title>Factoring problem</title>
+        <p>
+            Given positive integer <m>N</m>, find the prime factorization of <m>N</m>. 
+        </p>
+    </li>
+    <li>
+        <title><m>pq</m>-factoring problem</title>
+        <p>
+            Given <m>N</m> known to be a product of two distinct primes, factor <m>N</m>. 
+        </p>
+    </li>
+    <li>
+        <title><m>\phi(pq)</m> problem</title>
+        <p>
+            Given integer <m>N</m> known to be a product of two distinct primes, compute <m>\phi(N)</m>. 
+        </p>
+    </li>
+</ul>
+As discussed above, a solution to the <m>pq</m>-factoring problem gives rise to a solution to the RSA problem. It is not known whether the converse is true: <ie/>, we do not know if breaking RSA is equivalent to factoring products of two distinct primes. 
+</p>
+<p>
+It is also clear that a general solution to the <m>pq</m>-factoring problem yields a general solution to the <m>\phi(pq)</m> problem. Interestingly, the converse is also true: that is, a general solution to the <m>\phi(pq)</m> problem gives rise to a general solution of the <m>pq</m>-factoring problem. (You will show this in your homework.) As a result, it is just as important for Alice to keep <m>\phi(N)</m> a secret, as it is for her to keep <m>p</m> and <m>q</m> secret. 
+</p>
+<p> 
+It is generally believed that there is no efficient algorithm for factoring large integers that can be implemented on a classical computer, and thus that RSA is secure against this most obvious of attacks. There is however an efficient method for factoring large integers, <em>Shor's algorithm</em>, that can be implemented on a quantum computer. This means that if a sufficiently powerful quantum computer can be built, then RSA will no longer be secure. This is one the main motivations behind research into so-called <em>post-quantum</em> cryptosystems.  
+</p>
+</remark>
 
+</subsection>
 </section>
