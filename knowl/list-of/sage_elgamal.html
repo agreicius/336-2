@@ -54,7 +54,7 @@ def elgam_enc(n,p,g,A):
 def elgam_dec(c,p,a):
     return (power_mod(c[0],-a,p)*c[1])%p
 </script></div> 
-<div class="para">Now we will have Alice set up a public key <span class="process-math">\((p,g,A)\text{.}\)</span> As with the Diffie-Hellman key exchange, Alice will choose a large safe prime <span class="process-math">\(p=2q+1\text{,}\)</span> with <span class="process-math">\(q\)</span> prime.<div class="autopermalink" data-description="Paragraph"><a href="#sage_elgamal-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Now we will have Alice set up a public key <span class="process-math">\((p,g,A)\text{.}\)</span> As with the Diffie-Hellman key exchange, Alice will choose a large safe prime <span class="process-math">\(p=2q+1\text{,}\)</span> with <span class="process-math">\(q\)</span> prime. We are going for a prime in the range <span class="process-math">\([2^{300}, 2^{301}]\)</span> here. You will notice that Sage has to do some work here, but it will eventually return a prime.<div class="autopermalink" data-description="Paragraph"><a href="#sage_elgamal-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div id="sage_elgamal-2-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">while True:
     p=2*random_prime(2^300,2^301)+1
     if is_prime(p):
