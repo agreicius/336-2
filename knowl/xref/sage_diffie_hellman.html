@@ -31,9 +31,9 @@ sagecell.makeSagecell({
 </script>
 </head>
 <body class="ignore-math">
-<article class="project project-like"><h2 class="heading">
+<article class="project project-like"><h4 class="heading">
 <span class="type">Sage example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Diffie-Hellman implementation.</span>
-</h2>
+</h4>
 <div class="para">Let’s implement the Diffie-Hellman key exchange protocol, taking some care to choose a large safe prime. We first create a list of primes of the form <span class="process-math">\(p=2q+1\)</span> of a largish size, where <span class="process-math">\(q\)</span> is prime.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="sage_diffie_hellman-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">def random_safe_primes(samples=10, qrange=2^90):
@@ -74,7 +74,6 @@ print(B^aprime==K)
 </script></div>
 <div class="para">It appears that primes <span class="process-math">\(p\)</span> in the range <span class="process-math">\([2^{90},2^{91}]\)</span> do not give rise to secure Diffie-Hellman key exchanges. See what happens when you replace <code class="code-inline tex2jax_ignore">qrange=2^90</code> with <code class="code-inline tex2jax_ignore">qrange=2^100</code>, <code class="code-inline tex2jax_ignore">qrange=2^110</code>, etc.. You will see that the Sage discrete log function <code class="code-inline tex2jax_ignore">log()</code> running on a Sage finite field <code class="code-inline tex2jax_ignore">GF(p)</code> quickly reaches its limitations.<div class="autopermalink" data-description="Paragraph"><a href="#sage_diffie_hellman-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Sage example 9: Diffie-Hellman implementation"><a href="#sage_diffie_hellman" title="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation" aria-label="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation">🔗</a></div>
-</article><span class="incontext"><a class="internal" href="s_public_key.html#sage_diffie_hellman">In Context</a></span>
+<div class="autopermalink" data-description="Sage example 9: Diffie-Hellman implementation"><a href="#sage_diffie_hellman" title="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation" aria-label="Copy heading and permalink for Sage example 9: Diffie-Hellman implementation">🔗</a></div></article><span class="incontext"><a class="internal" href="s_public_key.html#sage_diffie_hellman">in-context</a></span>
 </body>
 </html>

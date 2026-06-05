@@ -18,27 +18,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<article class="definition definition-like"><h2 class="heading">
+<article class="definition definition-like"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">RSA encryption.</span>
-</h2>
+</h4>
 <div class="para logical">
 <div class="para">Bob wishes to send messages to Alice over an insecure channel. The <dfn class="terminology">RSA cryptosystem</dfn> accomplishes this as follows.</div>
 <ol class="decimal" id="d_rsa-2-1-2">
 <li>
-<span class="heading li--heading"><span class="title li--heading-title">Private.</span></span>
-<div class="para">Alice chooses two distinct primes <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> that she keeps private.<div class="autopermalink" data-description="Paragraph"><a href="#d_rsa-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Private.</span></span><div class="para">Alice chooses two distinct primes <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> that she keeps private.<div class="autopermalink" data-description="Paragraph"><a href="#d_rsa-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 1: Private"><a href="#d_rsa-2-1-2-1" title="Copy heading and permalink for Item 1: Private" aria-label="Copy heading and permalink for Item 1: Private">🔗</a></div>
 </li>
 <li>
-<span class="heading li--heading"><span class="title li--heading-title">Public key.</span></span>
-<div class="para">Alice publishes her <dfn class="terminology">RSA modulus</dfn> <span class="process-math">\(N=pq\)</span> and an integer <span class="process-math">\(e\)</span> such that <span class="process-math">\(\gcd(e,\phi(N))=1\text{.}\)</span> The public key is thus the pair <span class="process-math">\((N,e)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_rsa-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Public key.</span></span><div class="para">Alice publishes her <dfn class="terminology">RSA modulus</dfn> <span class="process-math">\(N=pq\)</span> and an integer <span class="process-math">\(e\)</span> such that <span class="process-math">\(\gcd(e,\phi(N))=1\text{.}\)</span> The public key is thus the pair <span class="process-math">\((N,e)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_rsa-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 2: Public key"><a href="#d_rsa-2-1-2-2" title="Copy heading and permalink for Item 2: Public key" aria-label="Copy heading and permalink for Item 2: Public key">🔗</a></div>
 </li>
 <li>
-<span class="heading li--heading"><span class="title li--heading-title">Private key.</span></span>
-<div class="para logical">
+<span class="heading li--heading"><span class="title li--heading-title">Private key.</span></span><div class="para logical">
 <div class="para">Alice computes an integer <span class="process-math">\(d\)</span> such that <span class="process-math">\(ed\equiv 1\pmod{\phi(N)}\text{.}\)</span> She is able to do this efficiently, since she knows <span class="process-math">\(N=pq\text{,}\)</span> can thus easily compute</div>
 <div class="displaymath process-math">
 \begin{align}
@@ -54,14 +51,12 @@
 <div class="autopermalink" data-description="Item 3: Private key"><a href="#d_rsa-2-1-2-3" title="Copy heading and permalink for Item 3: Private key" aria-label="Copy heading and permalink for Item 3: Private key">🔗</a></div>
 </li>
 <li>
-<span class="heading li--heading"><span class="title li--heading-title">Encryption.</span></span>
-<div class="para">To encrypt a message <span class="process-math">\(m\in \Z/N\Z\text{,}\)</span> Bob computes the ciphertext <span class="process-math">\(c=m^e\in \Z/N\Z\)</span> and sends this to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_rsa-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Encryption.</span></span><div class="para">To encrypt a message <span class="process-math">\(m\in \Z/N\Z\text{,}\)</span> Bob computes the ciphertext <span class="process-math">\(c=m^e\in \Z/N\Z\)</span> and sends this to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_rsa-2-1-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 4: Encryption"><a href="#d_rsa-2-1-2-4" title="Copy heading and permalink for Item 4: Encryption" aria-label="Copy heading and permalink for Item 4: Encryption">🔗</a></div>
 </li>
 <li>
-<span class="heading li--heading"><span class="title li--heading-title">Decryption.</span></span>
-<div class="para logical">
+<span class="heading li--heading"><span class="title li--heading-title">Decryption.</span></span><div class="para logical">
 <div class="para">To decrypt the message, Alice uses her private key <span class="process-math">\(d\)</span> to compute</div>
 <div class="displaymath process-math">
 \begin{gather*}
@@ -75,7 +70,6 @@ m=c^d\in \Z/N\Z\text{.}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_rsa-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.19.10: RSA encryption"><a href="#d_rsa" title="Copy heading and permalink for Definition 1.19.10: RSA encryption" aria-label="Copy heading and permalink for Definition 1.19.10: RSA encryption">🔗</a></div>
-</article><span class="incontext"><a class="internal" href="s_public_key.html#d_rsa">In Context</a></span>
+<div class="autopermalink" data-description="Definition 1.19.10: RSA encryption"><a href="#d_rsa" title="Copy heading and permalink for Definition 1.19.10: RSA encryption" aria-label="Copy heading and permalink for Definition 1.19.10: RSA encryption">🔗</a></div></article><span class="incontext"><a class="internal" href="s_public_key.html#d_rsa">in-context</a></span>
 </body>
 </html>

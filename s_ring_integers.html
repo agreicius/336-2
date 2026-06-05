@@ -20,14 +20,79 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
-<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
-startMathJax({
-hasWebworkReps: false,
-hasSage: true,
-isReact: false,
-htmlPresentation: false,
-});
-</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Elementary number theory">
@@ -63,7 +128,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.dcab57465a404e85.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.79fbb790b185d712.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
-<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="elemnumbthyNU" class="pretext book ignore-math">
@@ -462,13 +527,10 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content">
-<section class="section" id="s_ring_integers">
-<h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_ring_integers"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic rings of integers</span>
 </h2>
-<section class="subsection" id="ss_quadratic_ext">
-<h3 class="heading hide-type">
+<section class="subsection" id="ss_quadratic_ext"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic extensions of <span class="process-math">\(\Q\)</span></span>
 </h3>
 <article class="definition definition-like" id="d_"><h4 class="heading">
@@ -485,21 +547,16 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <div class="para">We call <span class="process-math">\(\Q(\sqrt{d})\)</span> a <dfn class="terminology">quadratic field extension</dfn> of <span class="process-math">\(\Q\text{,}\)</span> or a <dfn class="terminology">quadratic subfield</dfn> of <span class="process-math">\(\C\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> 
-<div class="para" id="d_-2-2">The quadratic field <span class="process-math">\(\Q(\sqrt{d})\)</span> is <dfn class="terminology">real</dfn> if <span class="process-math">\(\Q(\sqrt{d})\subseteq \R\)</span> (i.e., if <span class="process-math">\(d\geq 0\)</span>) and <dfn class="terminology">imaginary</dfn> otherwise (i.e., if <span class="process-math">\(d&lt; 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#d_-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="d_-2-2">The quadratic field <span class="process-math">\(\Q(\sqrt{d})\)</span> is <dfn class="terminology">real</dfn> if <span class="process-math">\(\Q(\sqrt{d})\subseteq \R\)</span> (i.e., if <span class="process-math">\(d\geq 0\)</span>) and <dfn class="terminology">imaginary</dfn> otherwise (i.e., if <span class="process-math">\(d&lt; 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#d_-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.15.1: Quadratic extension of \Q"><a href="#d_" title="Copy heading and permalink for Definition 1.15.1: Quadratic extension of \Q" aria-label="Copy heading and permalink for Definition 1.15.1: Quadratic extension of \Q">🔗</a></div>
-</article>
-<article class="remark remark-like" id="ss_quadratic_ext-3"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.15.1: Quadratic extension of \Q"><a href="#d_" title="Copy heading and permalink for Definition 1.15.1: Quadratic extension of \Q" aria-label="Copy heading and permalink for Definition 1.15.1: Quadratic extension of \Q">🔗</a></div></article><article class="remark remark-like" id="ss_quadratic_ext-3"><h4 class="heading">
 <span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic field extensions.</span>
 </h4>
 <div class="para" id="ss_quadratic_ext-3-2">You will likely notice the similarity in notation between quadratic fields <span class="process-math">\(\Q(\sqrt{d})\)</span> and the Gaussian integers <span class="process-math">\(\Z[i]\text{.}\)</span> Notice further some important differences: the <span class="process-math">\(\Q\)</span> in the first notation is an indication that the set consists of <span class="process-math">\(Q\)</span>-linear combinations <span class="process-math">\(q_1+q_2\sqrt{d}\text{,}\)</span> <span class="process-math">\(q_1,q_2\in \Q\)</span> as opposed to <span class="process-math">\(\Z\)</span>-linear combinations <span class="process-math">\(a+b\sqrt{d}\text{,}\)</span> <span class="process-math">\(a,b\in \Z\text{.}\)</span> Moreover, the use of parentheses in <span class="process-math">\(\Q(\sqrt{d})\)</span> as opposed to brackets (as in <span class="process-math">\(\Z[i]\)</span>) is a notational indication that <span class="process-math">\(\Q(\sqrt{d})\)</span> is a <em class="emphasis">field</em> and not just a ring. (See <a href="s_ring_integers.html#th_quad_ext_field" class="xref" data-knowl="./knowl/xref/th_quad_ext_field.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.15.7: Quadratic extensions of \Q are fields">Theorem 1.15.7</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="ss_quadratic_ext-3-3">The quadratic fields <span class="process-math">\(K=\Q(\sqrt{d})\)</span> can be thought of as generalizations of <span class="process-math">\(\Q\text{.}\)</span> The analog of <span class="process-math">\(\Z\)</span> in these settings is given by the <em class="emphasis">ring of integers</em> <span class="process-math">\(\mathcal{O}_K\)</span> defined below.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Remark 1.15.2: Quadratic field extensions"><a href="#ss_quadratic_ext-3" title="Copy heading and permalink for Remark 1.15.2: Quadratic field extensions" aria-label="Copy heading and permalink for Remark 1.15.2: Quadratic field extensions">🔗</a></div>
-</article>
-<div class="para" id="ss_quadratic_ext-4">You might be wondering about the importance of this squarefree condition. This will arise at various points in our discussion. Our first example is the simple characterization of equality in <span class="process-math">\(\Q(\sqrt{d})\)</span> given below.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Remark 1.15.2: Quadratic field extensions"><a href="#ss_quadratic_ext-3" title="Copy heading and permalink for Remark 1.15.2: Quadratic field extensions" aria-label="Copy heading and permalink for Remark 1.15.2: Quadratic field extensions">🔗</a></div></article><div class="para" id="ss_quadratic_ext-4">You might be wondering about the importance of this squarefree condition. This will arise at various points in our discussion. Our first example is the simple characterization of equality in <span class="process-math">\(\Q(\sqrt{d})\)</span> given below.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="prop_quad_ext_equality"><h4 class="heading">
 <span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equality in <span class="process-math">\(\Q(\sqrt{d})\)</span>.</span>
@@ -530,11 +587,7 @@ q_1+q_2\sqrt{d}=q_1'+q_2'\sqrt{d} \amp \iff q_1=q_1' \text{ and } q_2=q_2'
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ext_equality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 1.15.3: Equality in \Q(\sqrt{d})"><a href="#prop_quad_ext_equality" title="Copy heading and permalink for Proposition 1.15.3: Equality in \Q(\sqrt{d})" aria-label="Copy heading and permalink for Proposition 1.15.3: Equality in \Q(\sqrt{d})">🔗</a></div>
-</article>
-<details id="prop_quad_ext_equality-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
-<article class="hiddenproof knowl__content">
-<div class="para logical" id="prop_quad_ext_equality-3-1">
+<div class="autopermalink" data-description="Proposition 1.15.3: Equality in \Q(\sqrt{d})"><a href="#prop_quad_ext_equality" title="Copy heading and permalink for Proposition 1.15.3: Equality in \Q(\sqrt{d})" aria-label="Copy heading and permalink for Proposition 1.15.3: Equality in \Q(\sqrt{d})">🔗</a></div></article><details id="prop_quad_ext_equality-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="prop_quad_ext_equality-3-1">
 <ol class="decimal" id="prop_quad_ext_equality-3-1-1">
 <li id="prop_quad_ext_equality-3-1-1-1">
 <div class="para" id="prop_quad_ext_equality-3-1-1-1-1">If <span class="process-math">\(d\)</span> is negative, then clearly <span class="process-math">\(q^2d\)</span> is negative, and hence not a square in <span class="process-math">\(\Q\text{.}\)</span> Assume <span class="process-math">\(d&gt; 1\text{.}\)</span> If <span class="process-math">\(q^2d=r^2\)</span> for some <span class="process-math">\(r\in \Q\text{,}\)</span> then after expressing <span class="process-math">\(q\)</span> and <span class="process-math">\(r\)</span> as quotients of integers and clearing denominators, we see that we have <span class="process-math">\(n^2d=m^2\)</span> for some nonzero integers <span class="process-math">\(n\)</span> and <span class="process-math">\(m\text{.}\)</span> Let <span class="process-math">\(p\)</span> be any prime divisor of <span class="process-math">\(d\text{.}\)</span> Since it appears with exponent <span class="process-math">\(1\)</span> in the prime factorization of <span class="process-math">\(d\)</span> (<span class="process-math">\(d\)</span> is squarefree), it appears with odd exponent in the prime factorization of <span class="process-math">\(n^2d\text{.}\)</span> But this contradicts the fact that <span class="process-math">\(n^2d=m^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ext_equality-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -558,9 +611,7 @@ q_1+q_2\sqrt{d}=q_1'+q_2'\sqrt{d} \amp \implies (q_1-q_1')+(q_2-q_2')\sqrt{d}=0 
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ext_equality-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.15.3.1"><a href="#prop_quad_ext_equality-3" title="Copy heading and permalink for Proof 1.15.3.1" aria-label="Copy heading and permalink for Proof 1.15.3.1">🔗</a></div>
-</article></details>
-<article class="definition definition-like" id="d_quad_conjugate_norm"><h4 class="heading">
+<div class="autopermalink" data-description="Proof 1.15.3.1"><a href="#prop_quad_ext_equality-3" title="Copy heading and permalink for Proof 1.15.3.1" aria-label="Copy heading and permalink for Proof 1.15.3.1">🔗</a></div></article></details><article class="definition definition-like" id="d_quad_conjugate_norm"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic norm and conjugate.</span>
 </h4>
 <div class="para logical" id="d_quad_conjugate_norm-2-1">
@@ -574,9 +625,7 @@ q_1+q_2\sqrt{d}=q_1'+q_2'\sqrt{d} \amp \implies (q_1-q_1')+(q_2-q_2')\sqrt{d}=0 
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_quad_conjugate_norm-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.15.4: Quadratic norm and conjugate"><a href="#d_quad_conjugate_norm" title="Copy heading and permalink for Definition 1.15.4: Quadratic norm and conjugate" aria-label="Copy heading and permalink for Definition 1.15.4: Quadratic norm and conjugate">🔗</a></div>
-</article>
-<article class="warning remark-like" id="ss_quadratic_ext-7"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.15.4: Quadratic norm and conjugate"><a href="#d_quad_conjugate_norm" title="Copy heading and permalink for Definition 1.15.4: Quadratic norm and conjugate" aria-label="Copy heading and permalink for Definition 1.15.4: Quadratic norm and conjugate">🔗</a></div></article><article class="warning remark-like" id="ss_quadratic_ext-7"><h4 class="heading">
 <span class="type">Warning</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="ss_quadratic_ext-7-1">It is important not to conflate the general conjugate and norm operations of a quadratic field with <em class="emphasis">complex conjugation</em> and the <em class="emphasis">Gaussian norm</em> function.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -593,9 +642,7 @@ q_1+q_2\sqrt{d}=q_1'+q_2'\sqrt{d} \amp \implies (q_1-q_1')+(q_2-q_2')\sqrt{d}=0 
 </div>
 <div class="para" id="ss_quadratic_ext-7-3">That said, in the case where <span class="process-math">\(K=\Q(\sqrt{d})\)</span> is imaginary (i.e., <span class="process-math">\(d&lt; 0\)</span>), then the quadratic conjugate and norm operations are in fact identical to complex conjugation and modulus squared.<div class="autopermalink" data-description="Paragraph"><a href="#ss_quadratic_ext-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Warning 1.15.5"><a href="#ss_quadratic_ext-7" title="Copy heading and permalink for Warning 1.15.5" aria-label="Copy heading and permalink for Warning 1.15.5">🔗</a></div>
-</article>
-<article class="proposition theorem-like" id="prop_quad_norm"><h4 class="heading">
+<div class="autopermalink" data-description="Warning 1.15.5"><a href="#ss_quadratic_ext-7" title="Copy heading and permalink for Warning 1.15.5" aria-label="Copy heading and permalink for Warning 1.15.5">🔗</a></div></article><article class="proposition theorem-like" id="prop_quad_norm"><h4 class="heading">
 <span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic conjugates and norms.</span>
 </h4>
 <div class="para logical" id="prop_quad_norm-2-1">
@@ -632,11 +679,7 @@ N_K(\alpha)=0\amp \iff \alpha=0 \text{.}\tag{1.15.7}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_norm-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 1.15.6: Quadratic conjugates and norms"><a href="#prop_quad_norm" title="Copy heading and permalink for Proposition 1.15.6: Quadratic conjugates and norms" aria-label="Copy heading and permalink for Proposition 1.15.6: Quadratic conjugates and norms">🔗</a></div>
-</article>
-<details id="prop_quad_norm-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
-<article class="hiddenproof knowl__content">
-<div class="para logical" id="prop_quad_norm-3-1">
+<div class="autopermalink" data-description="Proposition 1.15.6: Quadratic conjugates and norms"><a href="#prop_quad_norm" title="Copy heading and permalink for Proposition 1.15.6: Quadratic conjugates and norms" aria-label="Copy heading and permalink for Proposition 1.15.6: Quadratic conjugates and norms">🔗</a></div></article><details id="prop_quad_norm-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="prop_quad_norm-3-1">
 <ol class="decimal" id="prop_quad_norm-3-1-1">
 <li id="prop_quad_norm-3-1-1-1">
 <div class="para" id="prop_quad_norm-3-1-1-1-1">These are simple algebraic arguments left to the reader.<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_norm-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -670,9 +713,7 @@ N_K(\alpha)=0  \amp \iff  q_1^2-q_2^2d=0 \tag{1.15.8}\\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_norm-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.15.6.1"><a href="#prop_quad_norm-3" title="Copy heading and permalink for Proof 1.15.6.1" aria-label="Copy heading and permalink for Proof 1.15.6.1">🔗</a></div>
-</article></details>
-<article class="theorem theorem-like" id="th_quad_ext_field"><h4 class="heading">
+<div class="autopermalink" data-description="Proof 1.15.6.1"><a href="#prop_quad_norm-3" title="Copy heading and permalink for Proof 1.15.6.1" aria-label="Copy heading and permalink for Proof 1.15.6.1">🔗</a></div></article></details><article class="theorem theorem-like" id="th_quad_ext_field"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic extensions of <span class="process-math">\(\Q\)</span> are fields.</span>
 </h4>
 <div class="para logical" id="th_quad_ext_field-2-1">
@@ -700,11 +741,7 @@ N_K(\alpha)=0  \amp \iff  q_1^2-q_2^2d=0 \tag{1.15.8}\\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ext_field-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.15.7: Quadratic extensions of \Q are fields"><a href="#th_quad_ext_field" title="Copy heading and permalink for Theorem 1.15.7: Quadratic extensions of \Q are fields" aria-label="Copy heading and permalink for Theorem 1.15.7: Quadratic extensions of \Q are fields">🔗</a></div>
-</article>
-<details id="th_quad_ext_field-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
-<article class="hiddenproof knowl__content">
-<div class="para logical" id="th_quad_ext_field-3-1">
+<div class="autopermalink" data-description="Theorem 1.15.7: Quadratic extensions of \Q are fields"><a href="#th_quad_ext_field" title="Copy heading and permalink for Theorem 1.15.7: Quadratic extensions of \Q are fields" aria-label="Copy heading and permalink for Theorem 1.15.7: Quadratic extensions of \Q are fields">🔗</a></div></article><details id="th_quad_ext_field-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_quad_ext_field-3-1">
 <ol class="decimal" id="th_quad_ext_field-3-1-1">
 <li id="th_quad_ext_field-3-1-1-1">
 <div class="para" id="th_quad_ext_field-3-1-1-1-1">We need only show that <span class="process-math">\(K\)</span> contains <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{,}\)</span> and is closed under addition, additive inverses (<span class="process-math">\(-\alpha\)</span>), and multiplication. These are simple algebraic arguments left to the reader.<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ext_field-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -728,11 +765,7 @@ N_K(\alpha)=0  \amp \iff  q_1^2-q_2^2d=0 \tag{1.15.8}\\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ext_field-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.15.7.1"><a href="#th_quad_ext_field-3" title="Copy heading and permalink for Proof 1.15.7.1" aria-label="Copy heading and permalink for Proof 1.15.7.1">🔗</a></div>
-</article></details><div class="autopermalink" data-description="Subsection 1.15.1: Quadratic extensions of \Q"><a href="#ss_quadratic_ext" title="Copy heading and permalink for Subsection 1.15.1: Quadratic extensions of \Q" aria-label="Copy heading and permalink for Subsection 1.15.1: Quadratic extensions of \Q">🔗</a></div>
-</section>
-<section class="subsection" id="ss_ring_of_integers">
-<h3 class="heading hide-type">
+<div class="autopermalink" data-description="Proof 1.15.7.1"><a href="#th_quad_ext_field-3" title="Copy heading and permalink for Proof 1.15.7.1" aria-label="Copy heading and permalink for Proof 1.15.7.1">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.15.1: Quadratic extensions of \Q"><a href="#ss_quadratic_ext" title="Copy heading and permalink for Subsection 1.15.1: Quadratic extensions of \Q" aria-label="Copy heading and permalink for Subsection 1.15.1: Quadratic extensions of \Q">🔗</a></div></section><section class="subsection" id="ss_ring_of_integers"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Ring of integers</span>
 </h3>
 <article class="definition definition-like" id="d_monic"><h4 class="heading">
@@ -740,25 +773,19 @@ N_K(\alpha)=0  \amp \iff  q_1^2-q_2^2d=0 \tag{1.15.8}\\
 </h4>
 <div class="para" id="d_monic-2-1">Let <span class="process-math">\(R\)</span> be a ring. A polynomial <span class="process-math">\(f\in R[x]\)</span> is <dfn class="terminology">monic</dfn> if its leading coefficient is 1: i.e., if <span class="process-math">\(f(x)=\anmonic\text{,}\)</span> with <span class="process-math">\(a_i\in R\)</span> for all <span class="process-math">\(0\leq i\leq n-1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_monic-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.15.8: Monic polynomial"><a href="#d_monic" title="Copy heading and permalink for Definition 1.15.8: Monic polynomial" aria-label="Copy heading and permalink for Definition 1.15.8: Monic polynomial">🔗</a></div>
-</article>
-<article class="definition definition-like" id="d_alg_integers"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.15.8: Monic polynomial"><a href="#d_monic" title="Copy heading and permalink for Definition 1.15.8: Monic polynomial" aria-label="Copy heading and permalink for Definition 1.15.8: Monic polynomial">🔗</a></div></article><article class="definition definition-like" id="d_alg_integers"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Algebraic integers of <span class="process-math">\(\C\)</span>.</span>
 </h4>
 <div class="para" id="d_alg_integers-2-1">A complex number <span class="process-math">\(\alpha\in \C\)</span> is an <dfn class="terminology">algebraic integer</dfn> if there is a monic polynomial <span class="process-math">\(f\in \Z[x]\)</span> such that <span class="process-math">\(f(\alpha)=0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_alg_integers-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.15.9: Algebraic integers of \C"><a href="#d_alg_integers" title="Copy heading and permalink for Definition 1.15.9: Algebraic integers of \C" aria-label="Copy heading and permalink for Definition 1.15.9: Algebraic integers of \C">🔗</a></div>
-</article>
-<article class="remark remark-like" id="ss_ring_of_integers-4"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.15.9: Algebraic integers of \C"><a href="#d_alg_integers" title="Copy heading and permalink for Definition 1.15.9: Algebraic integers of \C" aria-label="Copy heading and permalink for Definition 1.15.9: Algebraic integers of \C">🔗</a></div></article><article class="remark remark-like" id="ss_ring_of_integers-4"><h4 class="heading">
 <span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Algebraic versus algebraic integer.</span>
 </h4>
 <div class="para" id="ss_ring_of_integers-4-2">Recall that an element <span class="process-math">\(\alpha\in \Q\)</span> is <em class="emphasis">algebraic</em> if there is a polynomial <span class="process-math">\(f\in \Q[x]\)</span> such that <span class="process-math">\(f(\alpha)=0\text{.}\)</span> The condition for being an algebraic integer is stricter on two counts: we must be able to find a polynomial not just with rational coefficients, but integer ones; furthermore, the polynomial must be monic.<div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="ss_ring_of_integers-4-3">Note in this regard that any algebraic element <span class="process-math">\(\alpha\in \C\)</span> will satisfy a polynomial with integer coefficients, just by clearing denominators in the polynomial <span class="process-math">\(f\in \Q[x]\)</span> satisfying <span class="process-math">\(f(\alpha)=0\text{.}\)</span> For example, the element <span class="process-math">\(\alpha=\frac{\sqrt{2}}{3}\)</span> satisfies the monic rational polynomial <span class="process-math">\(f(x)=x^2-2/9\)</span> and the integer polynomial <span class="process-math">\(g(x)=9x^2-2\text{.}\)</span> However, we will be able to show that <span class="process-math">\(\alpha\)</span> does <em class="emphasis">not</em> satisfy a <em class="emphasis">monic</em> integer polynomial.<div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Remark 1.15.10: Algebraic versus algebraic integer"><a href="#ss_ring_of_integers-4" title="Copy heading and permalink for Remark 1.15.10: Algebraic versus algebraic integer" aria-label="Copy heading and permalink for Remark 1.15.10: Algebraic versus algebraic integer">🔗</a></div>
-</article>
-<div class="para" id="ss_ring_of_integers-5">We will primarily be interested in the algebraic integers lying within one of our quadratic fields <span class="process-math">\(\Q(\sqrt{d})\text{.}\)</span> Before we get there, we assemble some general results about algebraic integers.<div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Remark 1.15.10: Algebraic versus algebraic integer"><a href="#ss_ring_of_integers-4" title="Copy heading and permalink for Remark 1.15.10: Algebraic versus algebraic integer" aria-label="Copy heading and permalink for Remark 1.15.10: Algebraic versus algebraic integer">🔗</a></div></article><div class="para" id="ss_ring_of_integers-5">We will primarily be interested in the algebraic integers lying within one of our quadratic fields <span class="process-math">\(\Q(\sqrt{d})\text{.}\)</span> Before we get there, we assemble some general results about algebraic integers.<div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="th_alg_int_ring"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Algebraic integers form a ring.</span>
@@ -795,11 +822,7 @@ N_K(\alpha)=0  \amp \iff  q_1^2-q_2^2d=0 \tag{1.15.8}\\
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_alg_int_ring-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.15.11: Algebraic integers form a ring"><a href="#th_alg_int_ring" title="Copy heading and permalink for Theorem 1.15.11: Algebraic integers form a ring" aria-label="Copy heading and permalink for Theorem 1.15.11: Algebraic integers form a ring">🔗</a></div>
-</article>
-<details id="th_alg_int_ring-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
-<article class="hiddenproof knowl__content">
-<div class="para logical" id="th_alg_int_ring-3-1">
+<div class="autopermalink" data-description="Theorem 1.15.11: Algebraic integers form a ring"><a href="#th_alg_int_ring" title="Copy heading and permalink for Theorem 1.15.11: Algebraic integers form a ring" aria-label="Copy heading and permalink for Theorem 1.15.11: Algebraic integers form a ring">🔗</a></div></article><details id="th_alg_int_ring-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_alg_int_ring-3-1">
 <ol class="decimal" id="th_alg_int_ring-3-1-1">
 <li id="th_alg_int_ring-3-1-1-1">
 <div class="para" id="th_alg_int_ring-3-1-1-1-1">If <span class="process-math">\(n\in \Z\text{,}\)</span> then <span class="process-math">\(f(n)=0\)</span> for the monic integer polynomial <span class="process-math">\(f(x)=x-n\text{.}\)</span> Thus <span class="process-math">\(\Z\subseteq \mathcal{O}\cap \Q\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_alg_int_ring-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -863,9 +886,7 @@ X=\{\alpha^{i}\beta^{j}\mid 0\leq i\leq n-1, 0\leq j\leq m-1\}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_alg_int_ring-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.15.11.1"><a href="#th_alg_int_ring-3" title="Copy heading and permalink for Proof 1.15.11.1" aria-label="Copy heading and permalink for Proof 1.15.11.1">🔗</a></div>
-</article></details>
-<div class="para" id="ss_ring_of_integers-7">With these generalities out of the way, we can now define the ring of integers of a quadratic field <span class="process-math">\(\Q(\sqrt{d})\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 1.15.11.1"><a href="#th_alg_int_ring-3" title="Copy heading and permalink for Proof 1.15.11.1" aria-label="Copy heading and permalink for Proof 1.15.11.1">🔗</a></div></article></details><div class="para" id="ss_ring_of_integers-7">With these generalities out of the way, we can now define the ring of integers of a quadratic field <span class="process-math">\(\Q(\sqrt{d})\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="d_quad_ring_integers"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic ring of integers.</span>
@@ -880,9 +901,7 @@ X=\{\alpha^{i}\beta^{j}\mid 0\leq i\leq n-1, 0\leq j\leq m-1\}
 <div class="para">We call <span class="process-math">\(\mathcal{O}_K\)</span> a <dfn class="terminology">quadratic ring of integers</dfn>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_quad_ring_integers-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.15.12: Quadratic ring of integers"><a href="#d_quad_ring_integers" title="Copy heading and permalink for Definition 1.15.12: Quadratic ring of integers" aria-label="Copy heading and permalink for Definition 1.15.12: Quadratic ring of integers">🔗</a></div>
-</article>
-<article class="theorem theorem-like" id="th_quad_ring_integers"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.15.12: Quadratic ring of integers"><a href="#d_quad_ring_integers" title="Copy heading and permalink for Definition 1.15.12: Quadratic ring of integers" aria-label="Copy heading and permalink for Definition 1.15.12: Quadratic ring of integers">🔗</a></div></article><article class="theorem theorem-like" id="th_quad_ring_integers"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quadratic ring of integers.</span>
 </h4>
 <div class="para logical" id="th_quad_ring_integers-2-1">
@@ -918,11 +937,7 @@ X=\{\alpha^{i}\beta^{j}\mid 0\leq i\leq n-1, 0\leq j\leq m-1\}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_integers-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.15.13: Quadratic ring of integers"><a href="#th_quad_ring_integers" title="Copy heading and permalink for Theorem 1.15.13: Quadratic ring of integers" aria-label="Copy heading and permalink for Theorem 1.15.13: Quadratic ring of integers">🔗</a></div>
-</article>
-<details id="th_quad_ring_integers-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
-<article class="hiddenproof knowl__content">
-<div class="para logical" id="th_quad_ring_integers-3-1">
+<div class="autopermalink" data-description="Theorem 1.15.13: Quadratic ring of integers"><a href="#th_quad_ring_integers" title="Copy heading and permalink for Theorem 1.15.13: Quadratic ring of integers" aria-label="Copy heading and permalink for Theorem 1.15.13: Quadratic ring of integers">🔗</a></div></article><details id="th_quad_ring_integers-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="th_quad_ring_integers-3-1">
 <ol class="decimal" id="th_quad_ring_integers-3-1-1">
 <li id="th_quad_ring_integers-3-1-1-1">
 <div class="para" id="th_quad_ring_integers-3-1-1-1-1">This follows easily from the fact the set of algebraic integers is closed under addition and multiplication, as is <span class="process-math">\(K\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_integers-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1011,9 +1026,7 @@ f(x) \amp =(x-\alpha)(x-\overline{\alpha})=x^2-(\alpha+\overline{\alpha})x+\alph
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_integers-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.15.13.1"><a href="#th_quad_ring_integers-3" title="Copy heading and permalink for Proof 1.15.13.1" aria-label="Copy heading and permalink for Proof 1.15.13.1">🔗</a></div>
-</article></details>
-<div class="para" id="ss_ring_of_integers-10">As with <span class="process-math">\(\Z[i]\text{,}\)</span> the multiplicative units of <span class="process-math">\(\mathcal{O}_K\)</span> play an important role in our analysis of these rings. We will say much more about these units in the next section. For now we content ourselves with a definition and a first elementary proposition.<div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 1.15.13.1"><a href="#th_quad_ring_integers-3" title="Copy heading and permalink for Proof 1.15.13.1" aria-label="Copy heading and permalink for Proof 1.15.13.1">🔗</a></div></article></details><div class="para" id="ss_ring_of_integers-10">As with <span class="process-math">\(\Z[i]\text{,}\)</span> the multiplicative units of <span class="process-math">\(\mathcal{O}_K\)</span> play an important role in our analysis of these rings. We will say much more about these units in the next section. For now we content ourselves with a definition and a first elementary proposition.<div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="d_quad_ring_units"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Units of <span class="process-math">\(\mathcal{O}_K\)</span>.</span>
@@ -1027,9 +1040,7 @@ f(x) \amp =(x-\alpha)(x-\overline{\alpha})=x^2-(\alpha+\overline{\alpha})x+\alph
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_quad_ring_units-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.15.14: Units of \mathcal{O}_K"><a href="#d_quad_ring_units" title="Copy heading and permalink for Definition 1.15.14: Units of \mathcal{O}_K" aria-label="Copy heading and permalink for Definition 1.15.14: Units of \mathcal{O}_K">🔗</a></div>
-</article>
-<article class="proposition theorem-like" id="prop_quad_ring_units"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.15.14: Units of \mathcal{O}_K"><a href="#d_quad_ring_units" title="Copy heading and permalink for Definition 1.15.14: Units of \mathcal{O}_K" aria-label="Copy heading and permalink for Definition 1.15.14: Units of \mathcal{O}_K">🔗</a></div></article><article class="proposition theorem-like" id="prop_quad_ring_units"><h4 class="heading">
 <span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Units of <span class="process-math">\(\mathcal{O}_K\)</span>.</span>
 </h4>
 <div class="para logical" id="prop_quad_ring_units-2-1">
@@ -1041,19 +1052,13 @@ f(x) \amp =(x-\alpha)(x-\overline{\alpha})=x^2-(\alpha+\overline{\alpha})x+\alph
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ring_units-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proposition 1.15.15: Units of \mathcal{O}_K"><a href="#prop_quad_ring_units" title="Copy heading and permalink for Proposition 1.15.15: Units of \mathcal{O}_K" aria-label="Copy heading and permalink for Proposition 1.15.15: Units of \mathcal{O}_K">🔗</a></div>
-</article>
-<details id="prop_quad_ring_units-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
-<article class="hiddenproof knowl__content">
-<div class="para" id="prop_quad_ring_units-3-1">We prove both implications separately.<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ring_units-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proposition 1.15.15: Units of \mathcal{O}_K"><a href="#prop_quad_ring_units" title="Copy heading and permalink for Proposition 1.15.15: Units of \mathcal{O}_K" aria-label="Copy heading and permalink for Proposition 1.15.15: Units of \mathcal{O}_K">🔗</a></div></article><details id="prop_quad_ring_units-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="prop_quad_ring_units-3-1">We prove both implications separately.<div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ring_units-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="prop_quad_ring_units-3-2">If <span class="process-math">\(\alpha\in \mathcal{O}_K^*\text{,}\)</span> then there is an element <span class="process-math">\(\beta\in \mathcal{O}_K\)</span> such that <span class="process-math">\(\alpha\beta=1\text{.}\)</span> Taking norms, we conclude that <span class="process-math">\(N_K(\alpha)N_K(\beta)=1\text{.}\)</span> Since <span class="process-math">\(N_K(\alpha)\)</span> and <span class="process-math">\(N_K(\beta)\)</span> are both integers by <a href="s_ring_integers.html#th_quad_ring_integers" class="xref" data-knowl="./knowl/xref/th_quad_ring_integers.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.15.13: Quadratic ring of integers">Theorem 1.15.13</a>, and since the only divisors of <span class="process-math">\(1\)</span> are <span class="process-math">\(\pm 1\text{,}\)</span> we conclude that <span class="process-math">\(N_K(\alpha)\in \{-1,1\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ring_units-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="prop_quad_ring_units-3-3">Conversely, if <span class="process-math">\(N_K(\alpha)=\alpha\overline{\alpha}=\pm 1\text{,}\)</span> then we see that <span class="process-math">\(\alpha(\pm \overline{\alpha}}=1\)</span> and thus <span class="process-math">\(\pm \overline{\alpha}\)</span> is an inverse of <span class="process-math">\(\alpha\)</span> in <span class="process-math">\(\C\text{.}\)</span> Since <span class="process-math">\(\alpha\in \mathcal{O}_K\)</span> if and only if <span class="process-math">\(\overline{\alpha}\in \mathcal{O}_K\text{,}\)</span> we see that <span class="process-math">\(\pm \overline{\alpha}\in \mathcal{O}_K\text{,}\)</span> showing that <span class="process-math">\(\alpha\in \mathcal{O}_K^*\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#prop_quad_ring_units-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.15.15.1"><a href="#prop_quad_ring_units-3" title="Copy heading and permalink for Proof 1.15.15.1" aria-label="Copy heading and permalink for Proof 1.15.15.1">🔗</a></div>
-</article></details>
-<div class="para" id="ss_ring_of_integers-13">When analyzing <span class="process-math">\(\Z[i]\)</span> we made heavy use of the fact that the Gaussian norm function <span class="process-math">\(N\colon \Z[i]\rightarrow \Z\)</span> satisfied a division algorithm property. Interestingly, the same cannot be said of a general norm function <span class="process-math">\(N_K\)</span> for the ring of integers <span class="process-math">\(\mathcal{O}_K\text{.}\)</span> Accordingly, we give a name to those special rings for which this is true.<div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 1.15.15.1"><a href="#prop_quad_ring_units-3" title="Copy heading and permalink for Proof 1.15.15.1" aria-label="Copy heading and permalink for Proof 1.15.15.1">🔗</a></div></article></details><div class="para" id="ss_ring_of_integers-13">When analyzing <span class="process-math">\(\Z[i]\)</span> we made heavy use of the fact that the Gaussian norm function <span class="process-math">\(N\colon \Z[i]\rightarrow \Z\)</span> satisfied a division algorithm property. Interestingly, the same cannot be said of a general norm function <span class="process-math">\(N_K\)</span> for the ring of integers <span class="process-math">\(\mathcal{O}_K\text{.}\)</span> Accordingly, we give a name to those special rings for which this is true.<div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="d_norm_euclidean"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Norm-Euclidean.</span>
@@ -1077,9 +1082,7 @@ f(x) \amp =(x-\alpha)(x-\overline{\alpha})=x^2-(\alpha+\overline{\alpha})x+\alph
 <div class="para">We also say that <span class="process-math">\(\mathcal{O}_K\)</span> is <dfn class="terminology">norm-Euclidean</dfn> in this case.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_norm_euclidean-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.15.16: Norm-Euclidean"><a href="#d_norm_euclidean" title="Copy heading and permalink for Definition 1.15.16: Norm-Euclidean" aria-label="Copy heading and permalink for Definition 1.15.16: Norm-Euclidean">🔗</a></div>
-</article>
-<div class="para" id="ss_ring_of_integers-15">The importance of a quadratic ring of integer <span class="process-math">\(\mathcal{O}_K\)</span> being norm-Euclidean is that we can perform a version of the Euclidean algorithm (<a href="s_gauss_factorization.html#th_euc_alg" class="xref" data-knowl="./knowl/xref/th_euc_alg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.13.5: Euclidean algorithm in \Z[i]">Theorem 1.13.5</a>) using <span class="process-math">\(\abs{N_K}\)</span> to compute GCDs of elements <span class="process-math">\(\alpha, \beta\in \mathcal{O}_K\text{,}\)</span> and moreover, express a GCD in the form <span class="process-math">\(\gamma\alpha+\delta\beta\)</span> as in Bezout’s theorem. As we saw in the discussion of <span class="process-math">\(\Z[i]\text{,}\)</span> that fact then leads to a cascade of useful properties we used to classify the prime elements of <span class="process-math">\(\Z[i]\text{.}\)</span> As a result, these same properties hold for a norm-Euclidean <span class="process-math">\(\mathcal{O}_K\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 1.15.16: Norm-Euclidean"><a href="#d_norm_euclidean" title="Copy heading and permalink for Definition 1.15.16: Norm-Euclidean" aria-label="Copy heading and permalink for Definition 1.15.16: Norm-Euclidean">🔗</a></div></article><div class="para" id="ss_ring_of_integers-15">The importance of a quadratic ring of integer <span class="process-math">\(\mathcal{O}_K\)</span> being norm-Euclidean is that we can perform a version of the Euclidean algorithm (<a href="s_gauss_factorization.html#th_euc_alg" class="xref" data-knowl="./knowl/xref/th_euc_alg.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.13.5: Euclidean algorithm in \Z[i]">Theorem 1.13.5</a>) using <span class="process-math">\(\abs{N_K}\)</span> to compute GCDs of elements <span class="process-math">\(\alpha, \beta\in \mathcal{O}_K\text{,}\)</span> and moreover, express a GCD in the form <span class="process-math">\(\gamma\alpha+\delta\beta\)</span> as in Bezout’s theorem. As we saw in the discussion of <span class="process-math">\(\Z[i]\text{,}\)</span> that fact then leads to a cascade of useful properties we used to classify the prime elements of <span class="process-math">\(\Z[i]\text{.}\)</span> As a result, these same properties hold for a norm-Euclidean <span class="process-math">\(\mathcal{O}_K\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="th_norm_euc"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Norm-Euclidean rings of integers.</span>
@@ -1105,26 +1108,16 @@ f(x) \amp =(x-\alpha)(x-\overline{\alpha})=x^2-(\alpha+\overline{\alpha})x+\alph
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_norm_euc-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.15.17: Norm-Euclidean rings of integers"><a href="#th_norm_euc" title="Copy heading and permalink for Theorem 1.15.17: Norm-Euclidean rings of integers" aria-label="Copy heading and permalink for Theorem 1.15.17: Norm-Euclidean rings of integers">🔗</a></div>
-</article>
-<details id="th_norm_euc-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
-<article class="hiddenproof knowl__content">
-<div class="para" id="th_norm_euc-3-1">The proofs of these statements can be adapted immediately from the proofs of the corresponding results for <span class="process-math">\(\Z[i]\text{,}\)</span> all of which build on the fact that the norm satisfies the division algorithm.<div class="autopermalink" data-description="Paragraph"><a href="#th_norm_euc-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 1.15.17: Norm-Euclidean rings of integers"><a href="#th_norm_euc" title="Copy heading and permalink for Theorem 1.15.17: Norm-Euclidean rings of integers" aria-label="Copy heading and permalink for Theorem 1.15.17: Norm-Euclidean rings of integers">🔗</a></div></article><details id="th_norm_euc-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="th_norm_euc-3-1">The proofs of these statements can be adapted immediately from the proofs of the corresponding results for <span class="process-math">\(\Z[i]\text{,}\)</span> all of which build on the fact that the norm satisfies the division algorithm.<div class="autopermalink" data-description="Paragraph"><a href="#th_norm_euc-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.15.17.1"><a href="#th_norm_euc-3" title="Copy heading and permalink for Proof 1.15.17.1" aria-label="Copy heading and permalink for Proof 1.15.17.1">🔗</a></div>
-</article></details>
-<div class="para" id="ss_ring_of_integers-17">Without making things official here, a ring that satisfies the factorization property described in (4) of <a href="s_ring_integers.html#th_norm_euc" class="xref" data-knowl="./knowl/xref/th_norm_euc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.15.17: Norm-Euclidean rings of integers">Theorem 1.15.17</a> is called a <em class="emphasis">unique factorization domain</em>, or <em class="emphasis">UFD</em> for short. Thus, the theorem tells us that if a quadratic ring of integers <span class="process-math">\(\mathcal{O}_K\)</span> is norm-equivalent, then it is a UFD. Interestingly, although not all of these rings are UFDs, they all do admit irreducible factorizations. Note that we are careful to say <em class="emphasis">irreducible</em> factorizations in this context, as we cannot assume that prime and irreducible are equivalent.<div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 1.15.17.1"><a href="#th_norm_euc-3" title="Copy heading and permalink for Proof 1.15.17.1" aria-label="Copy heading and permalink for Proof 1.15.17.1">🔗</a></div></article></details><div class="para" id="ss_ring_of_integers-17">Without making things official here, a ring that satisfies the factorization property described in (4) of <a href="s_ring_integers.html#th_norm_euc" class="xref" data-knowl="./knowl/xref/th_norm_euc.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.15.17: Norm-Euclidean rings of integers">Theorem 1.15.17</a> is called a <em class="emphasis">unique factorization domain</em>, or <em class="emphasis">UFD</em> for short. Thus, the theorem tells us that if a quadratic ring of integers <span class="process-math">\(\mathcal{O}_K\)</span> is norm-equivalent, then it is a UFD. Interestingly, although not all of these rings are UFDs, they all do admit irreducible factorizations. Note that we are careful to say <em class="emphasis">irreducible</em> factorizations in this context, as we cannot assume that prime and irreducible are equivalent.<div class="autopermalink" data-description="Paragraph"><a href="#ss_ring_of_integers-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="th_quad_ring_irr_fact"><h4 class="heading">
 <span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Irreducible factorizations in quadratic rings of integers.</span>
 </h4>
 <div class="para" id="th_quad_ring_irr_fact-2-1">Let <span class="process-math">\(d\in \Z-\{0,1\}\)</span> be a squarefree, let <span class="process-math">\(K=\Q(\sqrt{d})\text{,}\)</span> and let <span class="process-math">\(\alpha\)</span> be a nonzero non-unit of <span class="process-math">\(\mathcal{O}_K\text{.}\)</span> There are irreducible elements <span class="process-math">\(\pi_i\in \mathcal{O}_K\text{,}\)</span> <span class="process-math">\(1\leq i\leq r\)</span> such that <span class="process-math">\(\alpha=\prod_{i=1}^r\pi_i\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_irr_fact-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Theorem 1.15.18: Irreducible factorizations in quadratic rings of integers"><a href="#th_quad_ring_irr_fact" title="Copy heading and permalink for Theorem 1.15.18: Irreducible factorizations in quadratic rings of integers" aria-label="Copy heading and permalink for Theorem 1.15.18: Irreducible factorizations in quadratic rings of integers">🔗</a></div>
-</article>
-<details id="th_quad_ring_irr_fact-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
-<article class="hiddenproof knowl__content">
-<div class="para" id="th_quad_ring_irr_fact-3-1">We will prove by by strong induction on <span class="process-math">\(\abs{N_K(\alpha)}\)</span> that every element <span class="process-math">\(\alpha\in \mathcal{O}_K\)</span> can be factored into irreducibles.<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_irr_fact-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Theorem 1.15.18: Irreducible factorizations in quadratic rings of integers"><a href="#th_quad_ring_irr_fact" title="Copy heading and permalink for Theorem 1.15.18: Irreducible factorizations in quadratic rings of integers" aria-label="Copy heading and permalink for Theorem 1.15.18: Irreducible factorizations in quadratic rings of integers">🔗</a></div></article><details id="th_quad_ring_irr_fact-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="th_quad_ring_irr_fact-3-1">We will prove by by strong induction on <span class="process-math">\(\abs{N_K(\alpha)}\)</span> that every element <span class="process-math">\(\alpha\in \mathcal{O}_K\)</span> can be factored into irreducibles.<div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_irr_fact-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="th_quad_ring_irr_fact-3-2">
 <div class="para">First observe that <span class="process-math">\(\abs{N(\sqrt{d})}=\abs{d}&gt; 1\text{,}\)</span> and thus that the set <span class="process-math">\(X=\{\abs{N_K(\alpha)}\mid \alpha\in \mathcal{O}_K\}-\{1\}\)</span> is nonempty. Let <span class="process-math">\(n_0\)</span> be the least element of <span class="process-math">\(X\text{.}\)</span> This is our base case for the induction argument. Assume <span class="process-math">\(\abs{N_K(\alpha)}=n_0\text{.}\)</span> If <span class="process-math">\(\alpha=\beta\gamma\text{,}\)</span> then</div>
@@ -1147,9 +1140,7 @@ n_0\leq  \abs{N_K(\beta)}, \abs{N_K(\gamma)}&lt; n\text{,}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#th_quad_ring_irr_fact-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.15.18.1"><a href="#th_quad_ring_irr_fact-3" title="Copy heading and permalink for Proof 1.15.18.1" aria-label="Copy heading and permalink for Proof 1.15.18.1">🔗</a></div>
-</article></details>
-<article class="example example-like" id="eg_quad_ring_UFD"><h4 class="heading">
+<div class="autopermalink" data-description="Proof 1.15.18.1"><a href="#th_quad_ring_irr_fact-3" title="Copy heading and permalink for Proof 1.15.18.1" aria-label="Copy heading and permalink for Proof 1.15.18.1">🔗</a></div></article></details><article class="example example-like" id="eg_quad_ring_UFD"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.15.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(\Z[\sqrt{-5}]\)</span> is not a UFD.</span>
 </h4>
 <div class="para logical" id="eg_quad_ring_UFD-2-1">
@@ -1178,9 +1169,7 @@ n_0\leq  \abs{N_K(\beta)}, \abs{N_K(\gamma)}&lt; n\text{,}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_ring_UFD-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="solutions">
-<details id="eg_quad_ring_UFD-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
-<div class="solution solution-like knowl__content">
+<div class="solutions"><details id="eg_quad_ring_UFD-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="eg_quad_ring_UFD-3-1">
 <ol class="decimal" id="eg_quad_ring_UFD-3-1-1">
 <li id="eg_quad_ring_UFD-3-1-1-1">
@@ -1209,13 +1198,8 @@ n_0\leq  \abs{N_K(\beta)}, \abs{N_K(\gamma)}&lt; n\text{,}
 <div class="autopermalink" data-description="Paragraph"><a href="#eg_quad_ring_UFD-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.15.19.1"><a href="#eg_quad_ring_UFD-3" title="Copy heading and permalink for Solution 1.15.19.1" aria-label="Copy heading and permalink for Solution 1.15.19.1">🔗</a></div>
-</div></details>
-</div>
-<div class="autopermalink" data-description="Example 1.15.19: \Z[\sqrt{-5}] is not a UFD"><a href="#eg_quad_ring_UFD" title="Copy heading and permalink for Example 1.15.19: \Z[\sqrt{-5}] is not a UFD" aria-label="Copy heading and permalink for Example 1.15.19: \Z[\sqrt{-5}] is not a UFD">🔗</a></div>
-</article><div class="autopermalink" data-description="Subsection 1.15.2: Ring of integers"><a href="#ss_ring_of_integers" title="Copy heading and permalink for Subsection 1.15.2: Ring of integers" aria-label="Copy heading and permalink for Subsection 1.15.2: Ring of integers">🔗</a></div>
-</section><div class="autopermalink" data-description="Section 1.15: Quadratic rings of integers"><a href="#s_ring_integers" title="Copy heading and permalink for Section 1.15: Quadratic rings of integers" aria-label="Copy heading and permalink for Section 1.15: Quadratic rings of integers">🔗</a></div>
-</section>
-</div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.15.19: \Z[\sqrt{-5}] is not a UFD"><a href="#eg_quad_ring_UFD" title="Copy heading and permalink for Example 1.15.19: \Z[\sqrt{-5}] is not a UFD" aria-label="Copy heading and permalink for Example 1.15.19: \Z[\sqrt{-5}] is not a UFD">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.15.2: Ring of integers"><a href="#ss_ring_of_integers" title="Copy heading and permalink for Subsection 1.15.2: Ring of integers" aria-label="Copy heading and permalink for Subsection 1.15.2: Ring of integers">🔗</a></div></section><div class="autopermalink" data-description="Section 1.15: Quadratic rings of integers"><a href="#s_ring_integers" title="Copy heading and permalink for Section 1.15: Quadratic rings of integers" aria-label="Copy heading and permalink for Section 1.15: Quadratic rings of integers">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="s_gauss_primes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_quad_ring_units.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

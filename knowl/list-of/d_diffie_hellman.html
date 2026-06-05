@@ -18,33 +18,29 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<article class="definition definition-like"><h2 class="heading">
+<article class="definition definition-like"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.19.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Diffie-Hellman key exchange.</span>
-</h2>
+</h4>
 <div class="para logical">
 <div class="para">Alice and Bob wish to share a key over an insecure communication channel. The <dfn class="terminology">Diffie-Hellman key exchange</dfn> accomplishes this as follows.</div>
 <ol class="decimal" id="d_diffie_hellman-2-1-2">
 <li>
-<span class="heading li--heading"><span class="title li--heading-title">Public.</span></span>
-<div class="para">Alice and Bob agree publicly on a prime <span class="process-math">\(p\)</span> and a primitive root <span class="process-math">\(g\)</span> of <span class="process-math">\(\F_p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Public.</span></span><div class="para">Alice and Bob agree publicly on a prime <span class="process-math">\(p\)</span> and a primitive root <span class="process-math">\(g\)</span> of <span class="process-math">\(\F_p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 1: Public"><a href="#d_diffie_hellman-2-1-2-1" title="Copy heading and permalink for Item 1: Public" aria-label="Copy heading and permalink for Item 1: Public">🔗</a></div>
 </li>
 <li>
-<span class="heading li--heading"><span class="title li--heading-title">Private.</span></span>
-<div class="para">Alice chooses a random integer exponent <span class="process-math">\(a\text{,}\)</span> and Bob chooses a random integer exponent <span class="process-math">\(b\text{.}\)</span> These exponents are kept private.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Private.</span></span><div class="para">Alice chooses a random integer exponent <span class="process-math">\(a\text{,}\)</span> and Bob chooses a random integer exponent <span class="process-math">\(b\text{.}\)</span> These exponents are kept private.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 2: Private"><a href="#d_diffie_hellman-2-1-2-2" title="Copy heading and permalink for Item 2: Private" aria-label="Copy heading and permalink for Item 2: Private">🔗</a></div>
 </li>
 <li>
-<span class="heading li--heading"><span class="title li--heading-title">Exchange.</span></span>
-<div class="para">Alice computes <span class="process-math">\(A=g^a\in \F_p^*\)</span> and sends this value to Bob; Bob computes <span class="process-math">\(B=g^b\in \F_p^*\)</span> and sends this value to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="heading li--heading"><span class="title li--heading-title">Exchange.</span></span><div class="para">Alice computes <span class="process-math">\(A=g^a\in \F_p^*\)</span> and sends this value to Bob; Bob computes <span class="process-math">\(B=g^b\in \F_p^*\)</span> and sends this value to Alice.<div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Item 3: Exchange"><a href="#d_diffie_hellman-2-1-2-3" title="Copy heading and permalink for Item 3: Exchange" aria-label="Copy heading and permalink for Item 3: Exchange">🔗</a></div>
 </li>
 <li>
-<span class="heading li--heading"><span class="title li--heading-title">Shared key.</span></span>
-<div class="para logical">
+<span class="heading li--heading"><span class="title li--heading-title">Shared key.</span></span><div class="para logical">
 <div class="para">Alice uses her private exponent <span class="process-math">\(a\)</span> to compute <span class="process-math">\(B^a\in \F_p^*\text{;}\)</span> and Bob uses his private exponent <span class="process-math">\(b\)</span> to compute <span class="process-math">\(A^b\in \F_p^*\text{.}\)</span> Since</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -64,7 +60,6 @@ k=g^{ab}\text{.}
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_diffie_hellman-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.19.2: Diffie-Hellman key exchange"><a href="#d_diffie_hellman" title="Copy heading and permalink for Definition 1.19.2: Diffie-Hellman key exchange" aria-label="Copy heading and permalink for Definition 1.19.2: Diffie-Hellman key exchange">🔗</a></div>
-</article><span class="incontext"><a class="internal" href="s_public_key.html#d_diffie_hellman">In Context</a></span>
+<div class="autopermalink" data-description="Definition 1.19.2: Diffie-Hellman key exchange"><a href="#d_diffie_hellman" title="Copy heading and permalink for Definition 1.19.2: Diffie-Hellman key exchange" aria-label="Copy heading and permalink for Definition 1.19.2: Diffie-Hellman key exchange">🔗</a></div></article><span class="incontext"><a class="internal" href="s_public_key.html#d_diffie_hellman">in-context</a></span>
 </body>
 </html>
