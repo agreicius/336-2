@@ -710,18 +710,20 @@ def rsa_dec(c,N,d):
     </output>
 </sage>
 <p>
-
+Below we are setting up an RSA public key that uses <m>e=3</m> as the public exponent. For that reason, we make sure to pick our random large primes <m>p</m> and <m>q</m> so that <m>\gcd(3,(p-1)(q-1))=1</m>.
 </p>
 <sage>
     <input>
 p = random_prime(2^501, lbound=2^500)
 q = random_prime(2^501, lbound=2^500)
-while gcd(3,(p-1)*(q-1))>  1:
-    p = random_prime(2^101, lbound=2^100)
-    q = random_prime(2^101, lbound=2^100)
+while gcd(3,(p-1)*(q-1)) &gt;   1:
+    p = random_prime(2^501, lbound=2^500)
+    q = random_prime(2^501, lbound=2^500)
 N=p*q
 phiN=(p-1)*(q-1)
-print([N,p,q])
+print("N= ", N)
+print("p= ", p)
+print("q= ", q)
     </input>
     <output>
         
@@ -730,6 +732,27 @@ print([N,p,q])
 <p>
     In the Sage cell below, choose your favorite lowercase string <c>s</c>, encode it as an integer, encrypt and decrypt it using the public key <m>(N,3)</m>, and decode back to a string. 
 </p>
+<sage>
+    <input>
+        
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+Below you find an intercepted RSA ciphertext <m>c</m>, the result of encoding a message <m>s</m> as an integer using <c>str2int(s)</c> and then encrypting this integer using the RSA public key <m>(N,e)=(N,3)</m>. Using the provided informtation of <m>N</m> and <m>\phi(N)</m> (named <c>phiN</c>), find the secret message! (Hint: the command <c>power_mod(a,b,M)</c> computes <m>a^b\pmod M</m> for any integer power <m>b</m>, even negative ones!) 
+</p>
+<sage>
+    <input>
+        c=19842408563215175330542757581481941005429972753649429229724931373277187425023794756260334671205729834639257047555842516507456758415296787002878823708730726235423090851551845232702638590920192123024188828559019168104710907200088940911146130754937561960548903880178104051550181925954268117283507991203013
+        phiN=29098295446312827324075745945872569128182016122112454404255402150499086567410460458237951552419442791308419650036597068533726415535430953148924555673778158652240724940967247958147380823977183201104866484506222449235643703680146997073268733624420374058265778945790399083255508341071519539603660763346360
+        N=29098295446312827324075745945872569128182016122112454404255402150499086567410460458237951552419442791308419650036597068533726415535430953148924555673789124007788004866399136902248786889861941118485015175313423318770597851408755513198818346337638665979063243363692253211907294594027563407858546691980103
+    </input>
+    <output>
+        
+    </output>
+</sage>
 <sage>
     <input>
         
