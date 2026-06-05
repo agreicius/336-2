@@ -1147,16 +1147,24 @@ def rsa_enc(m,N,e):
     return power_mod(m,e,N)
 def rsa_dec(c,N,d):
     return power_mod(c,d,N)
-</script></div> <div class="para" id="sage_rsa-2-3"><div class="autopermalink" data-description="Paragraph"><a href="#sage_rsa-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div> <div id="sage_rsa-2-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">p = random_prime(2^501, lbound=2^500)
+</script></div> <div class="para" id="sage_rsa-2-3">Below we are setting up an RSA public key that uses <span class="process-math">\(e=3\)</span> as the public exponent. For that reason, we make sure to pick our random large primes <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> so that <span class="process-math">\(\gcd(3,(p-1)(q-1))=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sage_rsa-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div id="sage_rsa-2-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">p = random_prime(2^501, lbound=2^500)
 q = random_prime(2^501, lbound=2^500)
-while gcd(3,(p-1)*(q-1))>  1:
-    p = random_prime(2^101, lbound=2^100)
-    q = random_prime(2^101, lbound=2^100)
+while gcd(3,(p-1)*(q-1)) >   1:
+    p = random_prime(2^501, lbound=2^500)
+    q = random_prime(2^501, lbound=2^500)
 N=p*q
 phiN=(p-1)*(q-1)
-print([N,p,q])
+print("N= ", N)
+print("p= ", p)
+print("q= ", q)
 </script></div> <div class="para" id="sage_rsa-2-5">In the Sage cell below, choose your favorite lowercase string <code class="code-inline tex2jax_ignore">s</code>, encode it as an integer, encrypt and decrypt it using the public key <span class="process-math">\((N,3)\text{,}\)</span> and decode back to a string.<div class="autopermalink" data-description="Paragraph"><a href="#sage_rsa-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div id="sage_rsa-2-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></div> <div class="para" id="sage_rsa-2-7">Below you find an intercepted RSA ciphertext <span class="process-math">\(c\text{,}\)</span> the result of encoding a message <span class="process-math">\(s\)</span> as an integer using <code class="code-inline tex2jax_ignore">str2int(s)</code> and then encrypting this integer using the RSA public key <span class="process-math">\((N,e)=(N,3)\text{.}\)</span> Using the provided informtation of <span class="process-math">\(N\)</span> and <span class="process-math">\(\phi(N)\)</span> (named <code class="code-inline tex2jax_ignore">phiN</code>), find the secret message! (Hint: the command <code class="code-inline tex2jax_ignore">power_mod(a,b,M)</code> computes <span class="process-math">\(a^b\pmod M\)</span> for any integer power <span class="process-math">\(b\text{,}\)</span> even negative ones!)<div class="autopermalink" data-description="Paragraph"><a href="#sage_rsa-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div id="sage_rsa-2-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">c=19842408563215175330542757581481941005429972753649429229724931373277187425023794756260334671205729834639257047555842516507456758415296787002878823708730726235423090851551845232702638590920192123024188828559019168104710907200088940911146130754937561960548903880178104051550181925954268117283507991203013
+phiN=29098295446312827324075745945872569128182016122112454404255402150499086567410460458237951552419442791308419650036597068533726415535430953148924555673778158652240724940967247958147380823977183201104866484506222449235643703680146997073268733624420374058265778945790399083255508341071519539603660763346360
+N=29098295446312827324075745945872569128182016122112454404255402150499086567410460458237951552419442791308419650036597068533726415535430953148924555673789124007788004866399136902248786889861941118485015175313423318770597851408755513198818346337638665979063243363692253211907294594027563407858546691980103
+</script></div> <div id="sage_rsa-2-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
 </script></div>
 <div class="autopermalink" data-description="Sage example 11: RSA: encryption and decryption"><a href="#sage_rsa" title="Copy heading and permalink for Sage example 11: RSA: encryption and decryption" aria-label="Copy heading and permalink for Sage example 11: RSA: encryption and decryption">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.19.5: RSA Encryption"><a href="#ss_rsa_enc" title="Copy heading and permalink for Subsection 1.19.5: RSA Encryption" aria-label="Copy heading and permalink for Subsection 1.19.5: RSA Encryption">🔗</a></div></section><div class="autopermalink" data-description="Section 1.19: Public key cryptography"><a href="#s_public_key" title="Copy heading and permalink for Section 1.19: Public key cryptography" aria-label="Copy heading and permalink for Section 1.19: Public key cryptography">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
