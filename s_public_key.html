@@ -993,7 +993,7 @@ m^{ed} \amp = m(m^{\phi(N)})^k\\
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/d_rsa.html" id="ss_rsa_enc-4-2-19">
 \begin{align*}
 a^{ed} \amp \equiv a^{1+k\phi(N)}\pmod p\\
-\amp \equiv a\cdot (a^{p-1})^{k(q-1)} \amp (\phi(N)=(p-1)(q-1)) \text{.}
+\amp \equiv a\cdot (a^{p-1})^{k(q-1)} \pmod p \amp (\phi(N)=(p-1)(q-1)) \text{.}
 \end{align*}
 </div>
 <div class="para">Now if <span class="process-math">\(\gcd(a,p)=1\text{,}\)</span> then <span class="process-math">\(a^{p-1}\equiv 1\pmod p\)</span> by Fermat’s little theorem, and we see that <span class="process-math">\(a^{ed}\equiv a\pmod p\)</span> in this case. And if <span class="process-math">\(p\mid a\text{,}\)</span> then clearly <span class="process-math">\(a^{ed}\equiv 0\equiv a\pmod p\text{.}\)</span> Thus in all cases we see that <span class="process-math">\(a^{ed}\equiv a\pmod p\text{.}\)</span> The exact same logic can be used to show that <span class="process-math">\(a^{ed}\equiv a\pmod q\text{.}\)</span> Lastly, by the uniqueness claim of the CRT, since <span class="process-math">\(a^{ed}\)</span> and <span class="process-math">\(a\)</span> both satisfy the system of congruences</div>
@@ -1003,7 +1003,7 @@ x \amp \equiv a\pmod p\\
 x \amp \equiv a\pmod q\text{,}
 \end{align*}
 </div>
-<div class="para">we must have <span class="process-math">\(a^{ed}\equiv a\pmod N\text{,}\)</span> as claimed.</div>
+<div class="para">we must have <span class="process-math">\(a^{ed}\equiv a\pmod{pq}\text{,}\)</span> or equivalently <span class="process-math">\(a^{ed}\equiv a\pmod N\text{,}\)</span> as claimed.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ss_rsa_enc-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proof 1.19.5.1: Proof of correctness of RSA"><a href="#ss_rsa_enc-4" title="Copy heading and permalink for Proof 1.19.5.1: Proof of correctness of RSA" aria-label="Copy heading and permalink for Proof 1.19.5.1: Proof of correctness of RSA">🔗</a></div></article></details><article class="remark remark-like" id="ss_rsa_enc-5"><h4 class="heading">
