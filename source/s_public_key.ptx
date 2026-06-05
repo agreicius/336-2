@@ -681,6 +681,65 @@ and conclude by the CRT that <m>8^{-17}\equiv 50\pmod{77}</m>. Thus <md>c^{-17}\
 </p>
 </solution>
 </example>
+<project xml:id="sage_rsa">
+<title>RSA: encryption and decryption</title>
+<statement>
+<p>
+    We include below some encoding/decoding functions and RSA encryption/decrpytion functions. 
+</p>
+<sage>
+    <input>
+charset="abcdefghijklmnopqrstuvwxyz., "
+AlphNum={c:i for i, c in enumerate(charset)}
+NumAlph={v:k for k, v in AlphNum.items()}
+def str2int(s):
+    return sum(AlphNum[c]*29^i for i, c in enumerate(s))
+def int2str(n):
+    s = ""
+    while n >  0:
+        s += NumAlph[n % 29]
+        n //= 29
+    return s
+def rsa_enc(m,N,e):
+    return power_mod(m,e,N)
+def rsa_dec(c,N,d):
+    return power_mod(c,d,N)
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+
+</p>
+<sage>
+    <input>
+p = random_prime(2^501, lbound=2^500)
+q = random_prime(2^501, lbound=2^500)
+while gcd(3,(p-1)*(q-1))>  1:
+    p = random_prime(2^101, lbound=2^100)
+    q = random_prime(2^101, lbound=2^100)
+N=p*q
+phiN=(p-1)*(q-1)
+print([N,p,q])
+    </input>
+    <output>
+        
+    </output>
+</sage>
+<p>
+    In the Sage cell below, choose your favorite lowercase string <c>s</c>, encode it as an integer, encrypt and decrypt it using the public key <m>(N,3)</m>, and decode back to a string. 
+</p>
+<sage>
+    <input>
+        
+    </input>
+    <output>
+        
+    </output>
+</sage>
+</statement>
+</project>
 
 </subsection>
 </section>
