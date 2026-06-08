@@ -20,79 +20,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
-<script>
-var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
-window.MathJax = {
-  "tex": {
-    "inlineMath": [
-      [
-        "\\(",
-        "\\)"
-      ]
-    ],
-    "tags": "none",
-    "tagSide": "right",
-    "tagIndent": ".8em",
-    "packages": {
-      "[+]": [
-        "base",
-        "extpfeil",
-        "ams",
-        "amscd",
-        "color",
-        "newcommand",
-        "knowl"
-      ]
-    }
-  },
-  "options": {
-    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
-    "processHtmlClass": "process-math",
-    "renderActions": {
-      "findScript": [
-        10,
-        function (doc) {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
-                var display = !!node.type.match(/; *mode=display/);
-                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                var text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = {node: text, delim: '', n: 0};
-                math.end = {node: text, delim: '', n: 0};
-                doc.math.push(math);
-            });
-        },
-        ""
-      ]
-    }
-  },
-  "chtml": {
-    "scale": 0.98,
-    "mtextInheritFont": true
-  },
-  "loader": {
-    "load": [
-      "input/asciimath",
-      "[tex]/extpfeil",
-      "[tex]/amscd",
-      "[tex]/color",
-      "[tex]/newcommand",
-      "[pretext]/mathjaxknowl3.js"
-    ],
-    "paths": {
-      "pretext": "_static/pretext/js"
-    }
-  },
-  "startup": {
-    pageReady() {
-      return MathJax.startup.defaultPageReady().then(function () {
-      console.log("in ready function");
-      rsMathReady();
-      }
-    )}
-  }
-};
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<script type="module">import { startMathJax } from './_static/pretext/js/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: true,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Elementary number theory">
@@ -128,7 +63,7 @@ eBookConfig.enable_chatcodes =  false;
 <!--*** Runestone Services ***-->
 <script src="_static/prefix-runtime.dcab57465a404e85.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.79fbb790b185d712.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
@@ -539,10 +474,13 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="s_crypto"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="s_crypto">
+<h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cryptography</span>
 </h2>
-<section class="subsection" id="ss_crypto_intro"><h3 class="heading hide-type">
+<section class="subsection" id="ss_crypto_intro">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">What is cryptography?</span>
 </h3>
 <div class="para" id="ss_crypto_intro-2">‘Crypto’ comes from the Greek <span class="process-math">\(\kappa\rho\upsilon\pi\tau\omega\zeta\\text{,}\)</span> which means “hidden” or “concealed”. ‘Graph’ comes from <span class="process-math">\(\gamma\rho\alpha\phi\omega\text{,}\)</span> meaning “to write”.<div class="autopermalink" data-description="Paragraph"><a href="#ss_crypto_intro-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -552,26 +490,37 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 </h4>
 <div class="para" id="d_cryptography-2-1">
 <dfn class="terminology">Cryptography</dfn> is the design of systems allowing for secure communication over a nonsecure channel.<div class="autopermalink" data-description="Paragraph"><a href="#d_cryptography-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="d_cryptography-2-2">
+</div> 
+<div class="para" id="d_cryptography-2-2">
 <dfn class="terminology">Cryptology</dfn> is the overall study or science of secure communication.<div class="autopermalink" data-description="Paragraph"><a href="#d_cryptography-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="d_cryptography-2-3">
+</div> 
+<div class="para" id="d_cryptography-2-3">
 <dfn class="terminology">Cryptanalysis</dfn> is the practice or science of breaking cryptographic systems.<div class="autopermalink" data-description="Paragraph"><a href="#d_cryptography-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="d_cryptography-2-4">A cryptographic system takes a message <span class="process-math">\(m\text{,}\)</span> the <dfn class="terminology">plaintext</dfn>, <dfn class="terminology">encrypts</dfn> it to a <dfn class="terminology">ciphertext</dfn>, <span class="process-math">\(c\text{,}\)</span> whose meaning can only be fathomed by <dfn class="terminology">decrypting</dfn> back to the plaintext <span class="process-math">\(m\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_cryptography-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="d_cryptography-2-4">A cryptographic system takes a message <span class="process-math">\(m\text{,}\)</span> the <dfn class="terminology">plaintext</dfn>, <dfn class="terminology">encrypts</dfn> it to a <dfn class="terminology">ciphertext</dfn>, <span class="process-math">\(c\text{,}\)</span> whose meaning can only be fathomed by <dfn class="terminology">decrypting</dfn> back to the plaintext <span class="process-math">\(m\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_cryptography-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.18.1: Cryptography"><a href="#d_cryptography" title="Copy heading and permalink for Definition 1.18.1: Cryptography" aria-label="Copy heading and permalink for Definition 1.18.1: Cryptography">🔗</a></div></article><figure class="figure figure-like" id="fig_alice_bob_eve"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fig_alice_bob_eve-2.svg" role="img" class="contained" alt="Alice and Bob are connected by a communication channel while Eve listens in from above."></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Alice and Bob communicating over a channel with the eavesdropping Eve.<div class="autopermalink" data-description="Figure 1.18.2"><a href="#fig_alice_bob_eve" title="Copy heading and permalink for Figure 1.18.2" aria-label="Copy heading and permalink for Figure 1.18.2">🔗</a></div></figcaption></figure><article class="remark remark-like" id="ss_crypto_intro-5"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.18.1: Cryptography"><a href="#d_cryptography" title="Copy heading and permalink for Definition 1.18.1: Cryptography" aria-label="Copy heading and permalink for Definition 1.18.1: Cryptography">🔗</a></div>
+</article>
+<figure class="figure figure-like" id="fig_alice_bob_eve"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fig_alice_bob_eve-2.svg" role="img" class="contained" alt="Alice and Bob are connected by a communication channel while Eve listens in from above."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Alice and Bob communicating over a channel with the eavesdropping Eve.<div class="autopermalink" data-description="Figure 1.18.2"><a href="#fig_alice_bob_eve" title="Copy heading and permalink for Figure 1.18.2" aria-label="Copy heading and permalink for Figure 1.18.2">🔗</a></div></figcaption>
+</figure>
+<article class="remark remark-like" id="ss_crypto_intro-5"><h4 class="heading">
 <span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Jargon disentanglement.</span>
 </h4>
 <div class="para" id="ss_crypto_intro-5-2">Cryptography is to be distinguished from <dfn class="terminology">coding theory</dfn> which deals more with the representation of data and its communication over noisy channels. It should also be distinguished from <dfn class="terminology">steganography</dfn> (’stegano’ means “covered”), which is the practice of physically hiding messages (with invisible ink, under wax coatings, on the inside of egg shells, etc.).<div class="autopermalink" data-description="Paragraph"><a href="#ss_crypto_intro-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="ss_crypto_intro-5-3">Cryptography doesn’t hide the message itself, but rather the <em class="emphasis">meaning</em> of the message.<div class="autopermalink" data-description="Paragraph"><a href="#ss_crypto_intro-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Remark 1.18.3: Jargon disentanglement"><a href="#ss_crypto_intro-5" title="Copy heading and permalink for Remark 1.18.3: Jargon disentanglement" aria-label="Copy heading and permalink for Remark 1.18.3: Jargon disentanglement">🔗</a></div></article><article class="example example-like" id="eg_caesar_shift_cipher"><h4 class="heading">
+<div class="autopermalink" data-description="Remark 1.18.3: Jargon disentanglement"><a href="#ss_crypto_intro-5" title="Copy heading and permalink for Remark 1.18.3: Jargon disentanglement" aria-label="Copy heading and permalink for Remark 1.18.3: Jargon disentanglement">🔗</a></div>
+</article>
+<article class="example example-like" id="eg_caesar_shift_cipher"><h4 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Caesar shift cipher.</span>
 </h4>
 <div class="para" id="eg_caesar_shift_cipher-2-1">The <em class="emphasis">Caesar shift cipher</em> is a cryptosystem allegedly used by Julius Caesar which encrpyts a plaintext <span class="process-math">\(m\)</span> by replacing each letter with the letter three steps away (in a cyclic manner).<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="eg_caesar_shift_cipher-2-2">The plaintext ’veni, vidi, vici’ is encrpyted as follows:<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="table table-like" id="t_veni_vidi_vici_shift"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Caesar shift for “veni, vidi, vici”<div class="autopermalink" data-description='Table 1.18.5: Caesar shift for "veni, vidi, vici"'><a href="#t_veni_vidi_vici_shift" title='Copy heading and permalink for Table 1.18.5: Caesar shift for "veni, vidi, vici"' aria-label='Copy heading and permalink for Table 1.18.5: Caesar shift for "veni, vidi, vici"'>🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+</div> 
+<div class="para" id="eg_caesar_shift_cipher-2-2">The plaintext ’veni, vidi, vici’ is encrpyted as follows:<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="table table-like" id="t_veni_vidi_vici_shift"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Caesar shift for “veni, vidi, vici”<div class="autopermalink" data-description='Table 1.18.5: Caesar shift for "veni, vidi, vici"'><a href="#t_veni_vidi_vici_shift" title='Copy heading and permalink for Table 1.18.5: Caesar shift for "veni, vidi, vici"' aria-label='Copy heading and permalink for Table 1.18.5: Caesar shift for "veni, vidi, vici"'>🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b0 r0 l0 t0 lines">Plaintext</td>
 <td class="l m b0 r0 l0 t0 lines">v</td>
@@ -602,10 +551,15 @@ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn}\amp b_{m}
 <td class="l m b0 r0 l0 t0 lines">f</td>
 <td class="l m b0 r0 l0 t0 lines">l</td>
 </tr>
-</table></div></figure> <div class="para" id="eg_caesar_shift_cipher-2-4">The ciphertext can than be decrypted back to the original by shifting three letters to the left, or equivalently, by shifting 23 letters to the right.<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="eg_caesar_shift_cipher-2-5">There is nothing special about shifting by <span class="process-math">\(k=3\)</span> letters. We can shift by <span class="process-math">\(n\)</span> for any <span class="process-math">\(k\in\{0,1,\dots,25\}\text{,}\)</span> though <span class="process-math">\(k=0\)</span> wouldn’t be very interesting. We will call this shifting by <span class="process-math">\(k\)</span> encryption method the <dfn class="terminology">Caesar <span class="process-math">\(k\)</span>-shift cipher</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</table></div>
+</figure> 
+<div class="para" id="eg_caesar_shift_cipher-2-4">The ciphertext can than be decrypted back to the original by shifting three letters to the left, or equivalently, by shifting 23 letters to the right.<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="eg_caesar_shift_cipher-2-5">There is nothing special about shifting by <span class="process-math">\(k=3\)</span> letters. We can shift by <span class="process-math">\(n\)</span> for any <span class="process-math">\(k\in\{0,1,\dots,25\}\text{,}\)</span> though <span class="process-math">\(k=0\)</span> wouldn’t be very interesting. We will call this shifting by <span class="process-math">\(k\)</span> encryption method the <dfn class="terminology">Caesar <span class="process-math">\(k\)</span>-shift cipher</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#eg_caesar_shift_cipher-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Example 1.18.4: Caesar shift cipher"><a href="#eg_caesar_shift_cipher" title="Copy heading and permalink for Example 1.18.4: Caesar shift cipher" aria-label="Copy heading and permalink for Example 1.18.4: Caesar shift cipher">🔗</a></div></article><div class="para" id="ss_crypto_intro-7">The Caesar shift cipher captures the basic elements of a <em class="emphasis">crpytosystem</em>, which we now formally define.<div class="autopermalink" data-description="Paragraph"><a href="#ss_crypto_intro-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Example 1.18.4: Caesar shift cipher"><a href="#eg_caesar_shift_cipher" title="Copy heading and permalink for Example 1.18.4: Caesar shift cipher" aria-label="Copy heading and permalink for Example 1.18.4: Caesar shift cipher">🔗</a></div>
+</article>
+<div class="para" id="ss_crypto_intro-7">The Caesar shift cipher captures the basic elements of a <em class="emphasis">crpytosystem</em>, which we now formally define.<div class="autopermalink" data-description="Paragraph"><a href="#ss_crypto_intro-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="d_cryptosystem"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cryptosystem.</span>
@@ -620,7 +574,8 @@ D_k\colon \mathcal{C} \amp \rightarrow \mathcal{P}
 </div>
 <div class="para">satisfying <span class="process-math">\(D_k(E_k(p))=p\)</span> for all <span class="process-math">\(p\in \mathcal{P}\text{.}\)</span> For each <span class="process-math">\(k\in \mathcal{K}\text{,}\)</span> the functions <span class="process-math">\(E_k\)</span> and <span class="process-math">\(D_k\)</span> are called the <dfn class="terminology">encryption and decryption functions for the key <span class="process-math">\(k\)</span></dfn>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_cryptosystem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para logical" id="d_cryptosystem-2-2">
+</div> 
+<div class="para logical" id="d_cryptosystem-2-2">
 <div class="para">Equivalently, we can describe a cryptosystem as a pair of functions</div>
 <div class="displaymath process-math" id="d_cryptosystem-2-2-1">
 \begin{align}
@@ -631,12 +586,18 @@ E\colon \mathcal{K}\times \mathcal{P}\amp \rightarrow \mathcal{C} \amp D\colon \
 <div class="para">such that for all <span class="process-math">\(k\in \mathcal{K}\)</span> and all <span class="process-math">\(p\in \mathcal{P}\text{,}\)</span> <span class="process-math">\(D(k,E(k,p))=p\text{.}\)</span> The functions <span class="process-math">\(E\)</span> and <span class="process-math">\(D\)</span> are called the <dfn class="terminology">encryption and decryption methods</dfn> of the cryptosystem.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_cryptosystem-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.18.6: Cryptosystem"><a href="#d_cryptosystem" title="Copy heading and permalink for Definition 1.18.6: Cryptosystem" aria-label="Copy heading and permalink for Definition 1.18.6: Cryptosystem">🔗</a></div></article><article class="principle theorem-like" id="principle-"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.18.6: Cryptosystem"><a href="#d_cryptosystem" title="Copy heading and permalink for Definition 1.18.6: Cryptosystem" aria-label="Copy heading and permalink for Definition 1.18.6: Cryptosystem">🔗</a></div>
+</article>
+<article class="principle theorem-like" id="principle-"><h4 class="heading">
 <span class="type">Mantra</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Kerchoff’s principle.</span>
 </h4>
 <div class="para" id="principle--2-1">The security of a cryptosystem <span class="process-math">\((E,D)\)</span> should not rely on the methods <span class="process-math">\(E\)</span> and <span class="process-math">\(D\)</span> being kept secret.<div class="autopermalink" data-description="Paragraph"><a href="#principle--2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Mantra 1.18.7: Kerchoff’s principle"><a href="#principle-" title="Copy heading and permalink for Mantra 1.18.7: Kerchoff’s principle" aria-label="Copy heading and permalink for Mantra 1.18.7: Kerchoff’s principle">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.18.1: What is cryptography?"><a href="#ss_crypto_intro" title="Copy heading and permalink for Subsection 1.18.1: What is cryptography?" aria-label="Copy heading and permalink for Subsection 1.18.1: What is cryptography?">🔗</a></div></section><section class="subsection" id="ss_sub_cipher"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Mantra 1.18.7: Kerchoff’s principle"><a href="#principle-" title="Copy heading and permalink for Mantra 1.18.7: Kerchoff’s principle" aria-label="Copy heading and permalink for Mantra 1.18.7: Kerchoff’s principle">🔗</a></div>
+</article><div class="autopermalink" data-description="Subsection 1.18.1: What is cryptography?"><a href="#ss_crypto_intro" title="Copy heading and permalink for Subsection 1.18.1: What is cryptography?" aria-label="Copy heading and permalink for Subsection 1.18.1: What is cryptography?">🔗</a></div>
+</section>
+<section class="subsection" id="ss_sub_cipher">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Subsititution cipher</span>
 </h3>
 <article class="definition definition-like" id="d_symmetric_group"><h4 class="heading">
@@ -644,7 +605,9 @@ E\colon \mathcal{K}\times \mathcal{P}\amp \rightarrow \mathcal{C} \amp D\colon \
 </h4>
 <div class="para" id="d_symmetric_group-2-1">Let <span class="process-math">\(X=\{x_1,x_2,\dots, x_n\}\)</span> be a finite group of cardinality <span class="process-math">\(n\text{.}\)</span> A <dfn class="terminology">permutation</dfn> of <span class="process-math">\(X\)</span> is a bijection (equivalently, invertible function) <span class="process-math">\(\sigma\colon X\rightarrow X\text{.}\)</span> The set <span class="process-math">\(S_X\)</span> of all permutations of <span class="process-math">\(X\)</span> is called the <dfn class="terminology">symmetric group</dfn> on <span class="process-math">\(X\text{.}\)</span> In the case where <span class="process-math">\(X=\{1,2,\dots, n\}\text{,}\)</span> we write <span class="process-math">\(S_n\)</span> for <span class="process-math">\(S_X\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#d_symmetric_group-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.18.8: Symmetric group"><a href="#d_symmetric_group" title="Copy heading and permalink for Definition 1.18.8: Symmetric group" aria-label="Copy heading and permalink for Definition 1.18.8: Symmetric group">🔗</a></div></article><article class="definition definition-like" id="d_subst_cipher"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.18.8: Symmetric group"><a href="#d_symmetric_group" title="Copy heading and permalink for Definition 1.18.8: Symmetric group" aria-label="Copy heading and permalink for Definition 1.18.8: Symmetric group">🔗</a></div>
+</article>
+<article class="definition definition-like" id="d_subst_cipher"><h4 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Subsitution cipher.</span>
 </h4>
 <div class="para logical" id="d_subst_cipher-2-1">
@@ -658,9 +621,13 @@ E_\sigma(p) \amp =\sigma(p) \amp D_\sigma(c)=\sigma^{-1}(c)
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_subst_cipher-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.18.9: Subsitution cipher"><a href="#d_subst_cipher" title="Copy heading and permalink for Definition 1.18.9: Subsitution cipher" aria-label="Copy heading and permalink for Definition 1.18.9: Subsitution cipher">🔗</a></div></article><details id="ss_sub_cipher-4" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.18.9: Subsitution cipher"><a href="#d_subst_cipher" title="Copy heading and permalink for Definition 1.18.9: Subsitution cipher" aria-label="Copy heading and permalink for Definition 1.18.9: Subsitution cipher">🔗</a></div>
+</article>
+<details id="ss_sub_cipher-4" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Sage example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Substitution cipher: encryption and decryption.</span>
-</h4></summary><article class="project project-like knowl__content"><div class="para" id="ss_sub_cipher-4-2">It is very straightforward to implement the substitution cipher using Sage. We create the symmetric group on the standard lowercase alphabet using <code class="code-inline tex2jax_ignore">G=SymmetricGroup(list('abcdefghijklmnopqrstuvwxyz'))</code>. The routine <code class="code-inline tex2jax_ignore">G.random_element()</code> produces a random element of <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<article class="project project-like knowl__content">
+<div class="para" id="ss_sub_cipher-4-2">It is very straightforward to implement the substitution cipher using Sage. We create the symmetric group on the standard lowercase alphabet using <code class="code-inline tex2jax_ignore">G=SymmetricGroup(list('abcdefghijklmnopqrstuvwxyz'))</code>. The routine <code class="code-inline tex2jax_ignore">G.random_element()</code> produces a random element of <span class="process-math">\(G\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="ss_sub_cipher-4-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">G=SymmetricGroup(list('abcdefghijklmnopqrstuvwxyz'))
 sigma=G.random_element()
@@ -677,7 +644,9 @@ s='takealoadofffannytakealoadforfreetakealoadofffannyandyouputtheloadrightonme'
 print(sigma)
 print(encrypt(s,sigma))
 </script></div>
-<div class="autopermalink" data-description="Sage example 5: Substitution cipher: encryption and decryption"><a href="#ss_sub_cipher-4" title="Copy heading and permalink for Sage example 5: Substitution cipher: encryption and decryption" aria-label="Copy heading and permalink for Sage example 5: Substitution cipher: encryption and decryption">🔗</a></div></article></details><div class="para" id="ss_sub_cipher-5">The table below was pulled from <a class="external" href="http://www.practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies/" target="_blank">practical cryptography</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Sage example 5: Substitution cipher: encryption and decryption"><a href="#ss_sub_cipher-4" title="Copy heading and permalink for Sage example 5: Substitution cipher: encryption and decryption" aria-label="Copy heading and permalink for Sage example 5: Substitution cipher: encryption and decryption">🔗</a></div>
+</article></details>
+<div class="para" id="ss_sub_cipher-5">The table below was pulled from <a class="external" href="http://www.practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies/" target="_blank">practical cryptography</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="table table-like" id="ss_sub_cipher-6"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Frequency of letters, bigrams, and trigrams.<div class="autopermalink" data-description="Table 1.18.10: Frequency of letters, bigrams, and trigrams."><a href="#ss_sub_cipher-6" title="Copy heading and permalink for Table 1.18.10: Frequency of letters, bigrams, and trigrams." aria-label="Copy heading and permalink for Table 1.18.10: Frequency of letters, bigrams, and trigrams.">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
@@ -736,9 +705,13 @@ print(encrypt(s,sigma))
 <td class="l m b0 r0 l0 t0 lines">her</td>
 <td class="l m b0 r0 l0 t0 lines">0.36</td>
 </tr>
-</table></div></figure><details id="ss_sub_cipher-7" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+</table></div>
+</figure>
+<details id="ss_sub_cipher-7" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Sage example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cryptanalysis of substitution cipher.</span>
-</h4></summary><article class="project project-like knowl__content"><div class="para" id="ss_sub_cipher-7-2">Eve has intercepted the following ciphertext message, and suspects it was encrypted using a substitution cipher.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<article class="project project-like knowl__content">
+<div class="para" id="ss_sub_cipher-7-2">Eve has intercepted the following ciphertext message, and suspects it was encrypted using a substitution cipher.<div class="autopermalink" data-description="Paragraph"><a href="#ss_sub_cipher-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="ss_sub_cipher-7-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">c='avupclxwmfoxxavoamfavudofuavupclxwmfavuacaoxmatckkodafbcackavmbhfavupclxwmfwuaulnmbuwztavukodafobwztavumlzumbhoxxavukodafkclavuacaoxmatckkodafwuaulnmbufpvoamfavudofuobwoxfcpvoauiulmfbcaavudofuavukodafmbxchmdoxfeoduoluavupclxwavupclxwwmimwufmbackodafuodvmaundobzuavudofuclbcaavudofupvmxuuiultavmbhuxfulunombfavufonupvoamfavudofuokodamfavuujmfaubduckfaoaufckokkomlfofaoauckokkomlfofaoauckavmbhfmfodcnzmboamcbckczyudafavmbhfmamfuffubamoxacavmbhfavoaavutfvcrxwzuecffmzxudcbfamarubafckfaoaufckokkomlfmbxchmdbcavmbhmfoddmwubaoxmkoavmbhdobcddrlmbofaoauckokkomlfavuecffmzmxmatckavufaoauckokkomlfnrfazuplmaaubmbacavuavmbhmafuxkmapcrxwfuunaczuofclackoddmwubamkmaarlbuwcraavoaofmaroamcbpcrxwkmaoavmbhavoadcrxwoxluowtujmfaubamluxtcbmafcpbmkavmbhfdobcddrlmbfaoaufckokkomlfavmfecffmzmxmatnrfazumbavunklcnavuzuhmbbmbhbcavmbhmbavuelcimbduckxchmddobzunuluxtecffmzxuxchmdwuoxfpmavuiultecffmzmxmatobwoxxecffmzmxmamufolumafkodafyrfaofpuoluqrmaurbozxuacmnohmbufeoamoxczyudafcrafmwufeoduclaunecloxczyudafcrafmwuamnufcaccavulumfbcczyudaavoapudobmnohmbuujdxrwuwklcnavuecffmzmxmatckdcnzmbmbhpmavcavulfmkmdobmnohmbuczyudafdcnzmbuwmbfaoaufckokkomlfmdobbcamnohmbuavunujdxrwuwklcnavuecffmzmxmatckfrdvdcnzmboamcbfavmbhfolumbwueubwubambfckolofavutdobcddrlmboxxecffmzxufmaroamcbfzraavmfkclnckmbwueubwubdumfokclnckdcbbujmcbpmavfaoaufckokkomlfokclnckwueubwubdumamfmnecffmzxukclpclwfacoeeuolmbapcwmkkulubalcxufztavunfuxiufobwmbelcecfmamcbfmkmgbcpobczyudamoxfcgbcpoxxmafecffmzxucddrllubdufmbfaoaufckokkomlfuiultcbuckavufuecffmzmxmamufnrfazueolackavuboarluckavuczyudaobupecffmzmxmatdobbcazuwmfdciuluwxoaulmkmonacgbcpobczyudaavcrhvambuuwbcagbcpmafujaulboxelceulamufmnrfagbcpoxxmafmbaulboxelceulamufmkoxxczyudafoluhmiubavuboaavufonuamnuoxxecffmzxufaoaufckokkomlfoluoxfchmiubuodvavmbhmfofmapulumbofeoduckecffmzxufaoaufckokkomlfavmffeodumdobmnohmbuuneatzramdobbcamnohmbuavuavmbhpmavcraavufeoduofeoamoxczyudanrfazufmaroauwmbmbkmbmaufeoduofeoamoxecmbamfobolhrnubaexoduofeudgmbavuimfroxkmuxwavcrhvamabuuwbcazuluwnrfavoiufcnudcxcrlmamffcacfeuogfrllcrbwuwztdcxcrlfeodubcaufnrfavoiufcnuemadvczyudafckavufubfuckacrdvfcnuwuhluuckvolwbuffobwfccbczyudafdcbaombavuecffmzmxmatckoxxfmaroamcbfavuecffmzmxmatckmafcddrllmbhmbfaoaufckokkomlfmfavukclnckobczyuda'
 </script></div>
@@ -788,7 +761,11 @@ def guess(x,y):
 </div>
 <div id="ss_sub_cipher-7-11" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
 </script></div>
-<div class="autopermalink" data-description="Sage example 6: Cryptanalysis of substitution cipher"><a href="#ss_sub_cipher-7" title="Copy heading and permalink for Sage example 6: Cryptanalysis of substitution cipher" aria-label="Copy heading and permalink for Sage example 6: Cryptanalysis of substitution cipher">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.18.2: Subsititution cipher"><a href="#ss_sub_cipher" title="Copy heading and permalink for Subsection 1.18.2: Subsititution cipher" aria-label="Copy heading and permalink for Subsection 1.18.2: Subsititution cipher">🔗</a></div></section><section class="subsection" id="ss_vignere_cipher"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Sage example 6: Cryptanalysis of substitution cipher"><a href="#ss_sub_cipher-7" title="Copy heading and permalink for Sage example 6: Cryptanalysis of substitution cipher" aria-label="Copy heading and permalink for Sage example 6: Cryptanalysis of substitution cipher">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subsection 1.18.2: Subsititution cipher"><a href="#ss_sub_cipher" title="Copy heading and permalink for Subsection 1.18.2: Subsititution cipher" aria-label="Copy heading and permalink for Subsection 1.18.2: Subsititution cipher">🔗</a></div>
+</section>
+<section class="subsection" id="ss_vignere_cipher">
+<h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.18.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vigenère cipher</span>
 </h3>
 <div class="para" id="ss_vignere_cipher-2">What made the substitution cipher vulnerable to frequency analysis is that the encryption was defined on the level of single letters. We call this a <em class="emphasis">monographic</em> cryptosystem. A <em class="emphasis">polygraphic</em> (<em class="emphasis">block</em>) cryptosystem, in contrast, defines an encryption method on a block, or list of letters. The <em class="emphasis">Vignère cipher</em> defined below is a classic example of a block cipher that at first glance appears to be invulnerable to frequency analysis, and indeed was long considered to be unbreakable. The Vignère cipher was popularized by the French diplomat Blaise de Vignère in the 16th century, when during a trip to Rome he became familiar with some of the cryptographic techniques of Leon Alberti, a 15th century Italian scholar and quintessential Renaissance man (poet, composer, painter, etc.).<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -813,11 +790,16 @@ D_{(k_1,k_2,\dots, k_n)}(c_1,c_2,\dots, c_n) \amp = (c_1-k_1\boldmod{26}, c_2-k_
 <div class="para">for each key <span class="process-math">\(k=(k_1,k_2,\dots, k_n)\in \mathcal{K}\text{,}\)</span> plaintext <span class="process-math">\(p=(p_1,p_2,\dots, p_n)\in \mathcal{P}\)</span> and ciphertext <span class="process-math">\(c=(c_1,c_2,\dots, c_n)\in \mathcal{C}\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_vignere-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="para" id="d_vignere-2-2">In this setting a key <span class="process-math">\(k=(k_1,k_2,\dots, k_n)\)</span> is called a <dfn class="terminology">keyword</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#d_vignere-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="d_vignere-2-2">In this setting a key <span class="process-math">\(k=(k_1,k_2,\dots, k_n)\)</span> is called a <dfn class="terminology">keyword</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#d_vignere-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.18.11: Vigenère cipher"><a href="#d_vignere" title="Copy heading and permalink for Definition 1.18.11: Vigenère cipher" aria-label="Copy heading and permalink for Definition 1.18.11: Vigenère cipher">🔗</a></div></article><details id="sage_vignere" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<div class="autopermalink" data-description="Definition 1.18.11: Vigenère cipher"><a href="#d_vignere" title="Copy heading and permalink for Definition 1.18.11: Vigenère cipher" aria-label="Copy heading and permalink for Definition 1.18.11: Vigenère cipher">🔗</a></div>
+</article>
+<details id="sage_vignere" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Sage example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vigenère cipher: encryption and decryption.</span>
-</h4></summary><article class="project project-like knowl__content"><div class="para" id="sage_vignere-2">Again, using Sage we can easily implement the Vigenère cipher.<div class="autopermalink" data-description="Paragraph"><a href="#sage_vignere-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<article class="project project-like knowl__content">
+<div class="para" id="sage_vignere-2">Again, using Sage we can easily implement the Vigenère cipher.<div class="autopermalink" data-description="Paragraph"><a href="#sage_vignere-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="sage_vignere-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">                AlphaNum={}
 for x in 'abcdefghijklmnopqrstuvwxyz':
@@ -849,7 +831,9 @@ def vig_dec(c,k):
 </script></div>
 <div id="sage_vignere-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
 </script></div>
-<div class="autopermalink" data-description="Sage example 7: Vigenère cipher: encryption and decryption"><a href="#sage_vignere" title="Copy heading and permalink for Sage example 7: Vigenère cipher: encryption and decryption" aria-label="Copy heading and permalink for Sage example 7: Vigenère cipher: encryption and decryption">🔗</a></div></article></details><div class="para" id="ss_vignere_cipher-5">The Vignère cipher was long believed to be uncrackable. Indeed it was dubbed the <i class="foreign">le chiffre indéchiffrable</i>. However, once the the <em class="emphasis">length</em> of the keyword is determined, it is not difficult to determine the keyword itself using frequency analysis on substrings of the ciphertext. Furthermore, using the <em class="emphasis">Kasiski method</em>, we can often determine the length of the keyword by computing distances between repeated substrings (e.g., between repeated trigrams) in the ciphertext and looking for common factors of these distances. It likely that the keyword length is one of these common factors. Simon Singh has created a nice interactive demonstration of this method on his cryptography website <a class="external" href="https://www.simonsingh.net/The_Black_Chamber/vigenere_cracking.html" target="_blank">The Black Chamber</a>. Try using his interactive to decipher the following Vignère-encrypted ciphertext.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Sage example 7: Vigenère cipher: encryption and decryption"><a href="#sage_vignere" title="Copy heading and permalink for Sage example 7: Vigenère cipher: encryption and decryption" aria-label="Copy heading and permalink for Sage example 7: Vigenère cipher: encryption and decryption">🔗</a></div>
+</article></details>
+<div class="para" id="ss_vignere_cipher-5">The Vignère cipher was long believed to be uncrackable. Indeed it was dubbed the <i class="foreign">le chiffre indéchiffrable</i>. However, once the the <em class="emphasis">length</em> of the keyword is determined, it is not difficult to determine the keyword itself using frequency analysis on substrings of the ciphertext. Furthermore, using the <em class="emphasis">Kasiski method</em>, we can often determine the length of the keyword by computing distances between repeated substrings (e.g., between repeated trigrams) in the ciphertext and looking for common factors of these distances. It likely that the keyword length is one of these common factors. Simon Singh has created a nice interactive demonstration of this method on his cryptography website <a class="external" href="https://www.simonsingh.net/The_Black_Chamber/vigenere_cracking.html" target="_blank">The Black Chamber</a>. Try using his interactive to decipher the following Vignère-encrypted ciphertext.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="code-box"><pre class="program clipboardable"><code class="language-none">TZZABACHDYWTDNLPCKYNRBIVCISKAOECRJQTEIDRIXTUEHMZSYUAQYLWOWAYZZSNWVZMLPQUYMDHTUQQKEKNLLHRIRFYVKNZSYUAAAWNLJOBLLLWJRPJUKXUDCWEWTTHJAVKCUOPPODWOWAYEIRSQRWVHZMVPHGAVZZHWDMSPUQEVMEBDPWACUUXQZCUUUKUYPHJBOZHVDIBPALRMTEISWZZDIIPPKZLLCQTLFSNWVZMLPQUYVXPQLLFOPPKDCJJAOYCWPPGEBDRMGCVLPZGCCOULKEYUIQTPXPAITTHJOIXPNXNVKOCQPWBLLLWJRPMZAANLFOOBOWFJABGNFDOAUQNKEAQTHGPPODIQAPUHYYAZODHRPLKAYQZMTEIQWVENIQRMTECRJJAEMRHMRJIQPPKYUWQZKZZWDMVCISKAOECRJQZNIUNMYAIQZAZZUOKOONUOBWXXUOKOONUOLZUEIWUXKPPHNGBLLLWJRPCVPPKDCJJNUCUIKZSLFFKVIPJWBWXPPHNGBLLLWJRPLHLZKDYQPAGNIQOBGYNIKZSEBDPIRWCWODGWOHOXUDMHOAGYXWDQYNUQXMXPADNLKOUVWNUCGDHXXZJHNBEZZWDWYPPDHCKDIEFMIEMFWVUYFBXMTLGHZAORHVWZKEBHEZXPJUAAKYNDPQBPMLYITZHOUAVPUNWJUFNWDMSTWDJVUEJXPBNPGLJBUHIUZAVCISKAOECRJAILHRJTEDUBDWCEBLJOYLLHJWZHBDPBNPSDNMZSYGABKCGLJIZPQDUQTHBLYPUMDHYBYLLHYWTYYFPMJTHDOBGEYRBILQULNAODNKAAZCOFPCXPIIPPKDNDPMUQUIBIOCMDHBNZOJDIVCISKAOECRJIRDCJJQYLZDYBZSCVEAUMMFQZKOVBPPKFMXWTLZLPKNKIJUAAYTIQEVCCCWEVMZLSNQTEZRNQTLJUEVZPXSNWVZMLPQUYZRNMDLGSHMTZYVOMTECDHLOQZHNMTNYLOIVAUUAVZMYWSMKYUSNWVZMLPQUYUOOQMYUQZICZLGPPGECVSPGEGDZMOEJROAOMFHBWXQLHCMZZWDHTGALRLWYTNLKVGNIPLWYTNHJISP
 </code></pre></div>
@@ -873,7 +857,9 @@ def vig_dec(c,k):
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#d_index_coincidence-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 1.18.12: Index of coincidence"><a href="#d_index_coincidence" title="Copy heading and permalink for Definition 1.18.12: Index of coincidence" aria-label="Copy heading and permalink for Definition 1.18.12: Index of coincidence">🔗</a></div></article><div class="para" id="ss_vignere_cipher-9">An elementary probabilistic argument shows that <span class="process-math">\(\operatorname{IndCo}(s)\)</span> is the probability that two randomly selected letters from <span class="process-math">\(s\)</span> are the same, and that <span class="process-math">\(\operatorname{MutIndCo}(s,t)\)</span> is the probability that randomly selecting an element from <span class="process-math">\(s\)</span> and <span class="process-math">\(t\)</span> produces the same letter.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Definition 1.18.12: Index of coincidence"><a href="#d_index_coincidence" title="Copy heading and permalink for Definition 1.18.12: Index of coincidence" aria-label="Copy heading and permalink for Definition 1.18.12: Index of coincidence">🔗</a></div>
+</article>
+<div class="para" id="ss_vignere_cipher-9">An elementary probabilistic argument shows that <span class="process-math">\(\operatorname{IndCo}(s)\)</span> is the probability that two randomly selected letters from <span class="process-math">\(s\)</span> are the same, and that <span class="process-math">\(\operatorname{MutIndCo}(s,t)\)</span> is the probability that randomly selecting an element from <span class="process-math">\(s\)</span> and <span class="process-math">\(t\)</span> produces the same letter.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="ss_vignere_cipher-10">Suppose <span class="process-math">\(s\)</span> and <span class="process-math">\(t\)</span> are strings taken from <em class="emphasis">natural English language</em>. As <span class="process-math">\(n,m\rightarrow\infty\)</span> the relative frequencies <span class="process-math">\(F_{i}/n\text{,}\)</span> <span class="process-math">\(F'_{i}/m\)</span> and <span class="process-math">\((F_{i}-1)/(n-1)\)</span> all approach the natural relative frequency of the <span class="process-math">\(i\)</span>-th letter of the alphabet, call it <span class="process-math">\(p_{i}\text{.}\)</span> (Thus <span class="process-math">\(p_{0}=.082, p_{1}=.015,\dots, p_{25}=0.001)\text{.}\)</span>) We see then as <span class="process-math">\(n,m\rightarrow\infty\)</span> both <span class="process-math">\(\text{IndCo}(s)\)</span> and <span class="process-math">\(\text{MutIndCo}(s,t)\)</span> approach <span class="process-math">\(p_{0}^{2}+p_{1}^{2}+\cdots +p_{25}^{2}\approx 0.0656\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -913,7 +899,9 @@ def vig_dec(c,k):
 </div>
 <details id="ss_vignere_cipher-16" class="project project-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Sage example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Friedman cryptanalysis of the Vigenère cipher.</span>
-</h4></summary><article class="project project-like knowl__content"><div class="para" id="ss_vignere_cipher-16-2">The Sage cell below contains functions for implementing the Vignère cipher, performing Caesar shift ciphers, and partitioning a string into substrings.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-16-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary>
+<article class="project project-like knowl__content">
+<div class="para" id="ss_vignere_cipher-16-2">The Sage cell below contains functions for implementing the Vignère cipher, performing Caesar shift ciphers, and partitioning a string into substrings.<div class="autopermalink" data-description="Paragraph"><a href="#ss_vignere_cipher-16-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div id="ss_vignere_cipher-16-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">AlphaNum={}
 for x in 'abcdefghijklmnopqrstuvwxyz':
@@ -1026,7 +1014,11 @@ k_1 \amp \equiv \ell_{n-1}+\ell_{n-2}+\cdots +\ell_1+c \pmod{26}\text{,}\tag{1.1
 </script></div>
 <div id="ss_vignere_cipher-16-13" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
 </script></div>
-<div class="autopermalink" data-description="Sage example 8: Friedman cryptanalysis of the Vigenère cipher"><a href="#ss_vignere_cipher-16" title="Copy heading and permalink for Sage example 8: Friedman cryptanalysis of the Vigenère cipher" aria-label="Copy heading and permalink for Sage example 8: Friedman cryptanalysis of the Vigenère cipher">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.18.3: Vigenère cipher"><a href="#ss_vignere_cipher" title="Copy heading and permalink for Subsection 1.18.3: Vigenère cipher" aria-label="Copy heading and permalink for Subsection 1.18.3: Vigenère cipher">🔗</a></div></section><div class="autopermalink" data-description="Section 1.18: Cryptography"><a href="#s_crypto" title="Copy heading and permalink for Section 1.18: Cryptography" aria-label="Copy heading and permalink for Section 1.18: Cryptography">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Sage example 8: Friedman cryptanalysis of the Vigenère cipher"><a href="#ss_vignere_cipher-16" title="Copy heading and permalink for Sage example 8: Friedman cryptanalysis of the Vigenère cipher" aria-label="Copy heading and permalink for Sage example 8: Friedman cryptanalysis of the Vigenère cipher">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Subsection 1.18.3: Vigenère cipher"><a href="#ss_vignere_cipher" title="Copy heading and permalink for Subsection 1.18.3: Vigenère cipher" aria-label="Copy heading and permalink for Subsection 1.18.3: Vigenère cipher">🔗</a></div>
+</section><div class="autopermalink" data-description="Section 1.18: Cryptography"><a href="#s_crypto" title="Copy heading and permalink for Section 1.18: Cryptography" aria-label="Copy heading and permalink for Section 1.18: Cryptography">🔗</a></div>
+</section>
+</div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="s_pells_eqn.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="s_public_key.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
