@@ -288,7 +288,7 @@ where <m>n</m> is a nonnegative integer and <m>a_i\in R</m> for all <m>0\leq i\l
         </li>
         <li>
             <p>
-                In particular, <m>\ans{F_{\phi(p)}}=\phi(p-1)\ne 0</m>, and thus there is a primitive root <m>r</m> of <m>\Z/p\Z</m>: <ie/>, there is an element <m>r\in (\Z/p\Z)^*</m> satisfying <m>\angvec{r}=(\Z/p\Z)^*</m>. 
+                In particular, <m>\abs{F_{\phi(p)}}=\phi(p-1)\ne 0</m>, and thus there is a primitive root <m>r</m> of <m>\Z/p\Z</m>: <ie/>, there is an element <m>r\in (\Z/p\Z)^*</m> satisfying <m>\angvec{r}=(\Z/p\Z)^*</m>. 
             </p>
         </li>
     </ol>
