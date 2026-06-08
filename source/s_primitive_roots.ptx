@@ -329,7 +329,7 @@ where <m>n</m> is a nonnegative integer and <m>a_i\in R</m> for all <m>0\leq i\l
             </li>
             <li>
                 <p>
-                    From (2), we conclude that <m>\ans{F_{p-1}}=\phi(p-1)</m>. Since <m>\phi(p-1)</m> is positive, we conclude that there is an element <m>r\in \F_p^*</m> of order <m>p-1</m>. (In fact there are precisely <m>\phi(p-1)</m> such elements.) Such an element satisfies <m>\angvec{r}=\F_p^*</m> and hence is a primitive root. 
+                    From (2), we conclude that <m>\abs{F_{p-1}}=\phi(p-1)</m>. Since <m>\phi(p-1)</m> is positive, we conclude that there is an element <m>r\in \F_p^*</m> of order <m>p-1</m>. (In fact there are precisely <m>\phi(p-1)</m> such elements.) Such an element satisfies <m>\angvec{r}=\F_p^*</m> and hence is a primitive root. 
                 </p>
             </li>
         </ol>
